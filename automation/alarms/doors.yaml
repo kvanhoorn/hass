@@ -1,0 +1,81 @@
+---
+- alias: Door opened - nobody home
+  trigger:
+    platform: state
+    entity_id: group.doors
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'off'
+  action:
+    - service: notify.pushover
+      data_template:
+        message: "{{trigger.to_state.attributes.friendly_name}} geopend,
+          niemand thuis"
+        title: "Deur geopend"
+        data:
+          sound: "siren"
+          priority: 2
+          expire: 3600
+          retry: 60
+
+- alias: Door opened - night alarm
+  trigger:
+    platform: state
+    entity_id: group.doors
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_night
+      state: 'on'
+    - condition: state  # not two alarms when night and not home
+      entity_id: input_boolean.someone_home
+      state: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        message: "{{trigger.to_state.attributes.friendly_name}} geopend
+          tijdens nachtmodus"
+        title: "Deur geopend"
+        data:
+          sound: "siren"
+          priority: 2
+          expire: 3600
+          retry: 60
+
+# - alias: Door opened - send notification to TVs
+#   trigger:
+#     platform: state
+#     entity_id: group.doors
+#     to: 'on'
+#   action:
+#     - service: notify
+
+- alias: Left window/door open
+  trigger:
+    platform: state
+    entity_id: input_boolean.someone_home
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: group.doors
+      state: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        # message: >
+        # {{ states | selectattr('entity_id','in',
+        # state_attr('group.doors','entity_id')) |
+        # selectattr('state','eq','on') | map(attribute='name') | join(', ') }}
+        message: >-
+          {%- for entity in states.group.doors.attributes.entity_id -%}
+            {%- if states[entity.split('.')[0]][entity.split('.')[1]].state
+              == 'on' %}
+              {{ states[entity.split('.')[0]][entity.split('.')[1]]
+                .attributes.friendly_name }}
+            {%- endif %}
+          {%- endfor -%}
+        title: "Deur of raam nog open: "
+        data:
+          priority: 1

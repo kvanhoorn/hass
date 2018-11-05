@@ -1,0 +1,417 @@
+---
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 51.479751
+  longitude: 5.503628
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 0
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here:
+  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  time_zone: Europe/Amsterdam
+  # Customization file
+  customize: !include customize.yaml
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.device_tracker: critical
+    homeassistant.components.camera: critical
+
+# Show links to resources in log and frontend
+# introduction:
+
+# Enables the frontend
+frontend:
+
+# Enables configuration UI
+config:
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Checks for available updates
+# Note: This component will send some information about your system to
+# the developers to assist with development of Home Assistant.
+# For more information, please see:
+# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
+updater:
+# Optional, allows Home Assistant developers to focus on popular components.
+# include_used_components: true
+
+# Discover some devices automatically
+discovery:
+
+# Allows you to issue voice commands from the frontend in enabled browsers
+conversation:
+
+# Enables support for tracking state changes over time
+history:
+
+# View all events in a logbook
+logbook:
+
+# Enables a map showing the location of tracked devices
+map:
+
+# Track the sun
+sun:
+
+input_select:
+  harmony_hub:
+    name: Woonkamer activiteit
+    options:
+      - Kies activiteit
+      - TV
+      - Plex
+      - Netflix
+      - ATV Music
+      - Turntable
+      - PowerOff
+    initial: Kies activiteit
+    icon: mdi:remote
+
+# sensor:
+#   - platform: template
+#     sensors:
+#       door:
+#         friendly_name: "Deur"
+#         value_template: >-
+#           {% if is_state('switch.door', 'off') %}
+#             dicht
+#           {% else %}
+#             open
+#           {% endif %}
+#         icon_template: >-
+#           {% if is_state('switch.door', 'off') %}
+#             mdi:door
+#           {% else %}
+#             mdi:door-open
+#           {% endif %}
+
+device_tracker:
+  - platform: ping
+    hosts:
+      macpro: 192.168.0.56
+      macmini: 192.168.0.57
+
+# climate:
+#   - platform: generic_thermostat
+#     name: Woonkamer
+#     heater: switch.cv_ketel
+#     target_sensor: sensor.temperatuur_woonkamer_temperature
+#     min_temp: 15
+#     max_temp: 22
+#     ac_mode: false
+#     target_temp: 19.5
+#     cold_tolerance: 0.3
+#     hot_tolerance: 0
+#     min_cycle_duration:
+#       minutes: 5
+#     keep_alive:
+#       minutes: 10
+#     initial_operation_mode: "off"
+#     away_temp: 17.5
+
+# mqtt:
+#   discovery: true
+#   discovery_prefix: homeassistant
+
+notify:
+  - name: pushover
+    platform: pushover
+    api_key: !secret pushover_api_key
+    user_key: !secret pushover_user_secret
+
+input_boolean:
+  is_it_night:
+    name: Nacht
+    icon: mdi:weather-night
+  is_it_weekend:
+    name: Weekend
+    icon: mdi:calendar-week
+  is_it_holiday:
+    name: Vakantie
+    icon: mdi:beach
+  someone_home:
+    name: IemandThuis
+    icon: mdi:home
+  kevin_present:
+    name: Kevin aanwezig
+    icon: mdi:account
+  wmijn_present:
+    name: Willemijn aanwezig
+    icon: mdi:account
+
+input_number:
+  amount_home:
+    name: AantalThuis
+    icon: mdi:home
+    min: 0
+    max: 2
+    step: 1
+
+# Weather prediction
+sensor:
+  - platform: yr
+  - platform: time_date
+    display_options:
+      - 'time'
+      - 'date'
+  # - platform: fitbit
+  - platform: dsmr
+    port: !secret dsmr_device
+    dsmr_version: 4
+  - platform: rfxtrx
+    automatic_add: true
+    devices:
+      0a5207013f0e00ba3a0179:
+        name: Temperatuur woonkamer
+      0a5207035c0e00cc3c0149:
+        name: Temperatuur slaapkamer
+      0a520302bf010075430049:
+        name: Temperatuur buiten
+      0a520c1f000200c8050269:
+        name: Temperatuur Yucca - palmboom
+      0a520c35000100dc050269:
+        name: Temperatuur Peace Lily - witte bloem
+      0820032805f1000650:
+        name: Brandalarm woonkamer
+        fire_event: true
+      082003304c40000650:
+        name: Brandalarm keuken
+        fire_event: true
+      08200335d486000640:
+        name: Brandalarm zolder
+        fire_event: true
+  - platform: command_line
+    name: CPU Temperatuur
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+  - platform: systemmonitor
+    resources:
+      - type: disk_use_percent
+        arg: /home
+      - type: memory_free
+      - type: load_5m
+      - type: network_in
+        arg: wlan0
+      - type: network_out
+        arg: wlan0
+      - type: processor_use
+      - type: last_boot
+  - platform: command_line
+    name: Internal IP
+    command: "ip addr show wlan0 | grep -Po 'inet \\K[\\d.]+'"
+  - platform: command_line
+    name: External IP
+    command: "/usr/bin/curl kvanhoorn.nl/myip/"
+  - platform: darksky
+    api_key: 2cbc3be161a2e13481e8c56cf491c525
+    monitored_conditions:
+      - apparent_temperature
+      - daily_summary
+      - icon
+      - precip_probability
+      - precip_type
+      - summary
+      - temperature
+      - temperature_high
+      - temperature_low
+      - visibility
+      - wind_speed
+  - platform: template
+    sensors:
+      peace_lily__witte_bloem_humidity:
+        value_template: '{{states.sensor.
+          temperatuur_peace_lily__witte_bloem_temperature.attributes.Humidity}}'
+        friendly_name: 'Peace Lily - witte bloem vochtigheid'
+      yucca__palmboom_humidity:
+        value_template: '{{states.sensor.
+          temperatuur_yucca__palmboom_temperature.attributes.Humidity}}'
+        friendly_name: 'Yucca - palmboom vochtigheid'
+  - platform: speedtest
+    hour:
+      - 2
+    monitored_conditions:
+      - ping
+      - download
+      - upload
+
+binary_sensor:
+  - platform: rfxtrx
+    automatic_add: true
+    devices:
+      09130052554555014e70:
+        name: PIR hal
+        off_delay:
+          seconds: 30
+      09130015d55555016370:
+        name: PIR zolder
+        off_delay:
+          seconds: 30
+
+# plant:
+#   platform: rfxtrx
+#   automatic_add: true
+
+# Remotes
+remote:
+  - platform: harmony
+    name: Living Room
+    host: 192.168.0.105
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+# Switches
+switch:
+  #  - platform: rpi_gpio
+  #    ports:
+  #      17: CV Ketel
+  - platform: rfxtrx
+    automatic_add: true
+    devices:
+      0b11000500fbc7ce0a010f50:
+        name: Voordeur
+      0b11000d00eb4d860a010f50:
+        name: Deur keuken
+      0b11001801071a760a010f50:
+        name: Raam studeerkamer
+      0b11001d01002a360a010f40:
+        name: Raam slaapkamer
+      0b11002400e19a520a010f40:
+        name: Raam Zolder
+      0b1100290111eade0a010f50:
+        name: Raam logeerkamer
+      0b11003100fc0aea0a010f50:
+        name: Deur woonkamer
+      0b11003900eb56360a000040:
+        name: Schuurdeur
+      0b11003a00eb573e0a000050:
+        name: Garagedeur
+        # icon: mdi:garage
+      0b11001f00b5468a0c010f70:
+        name: Tafelverlichting
+        # icon: mdi:light-switch
+        fire_event: true
+      0b11002300b5468a0b010f60:
+        name: Woonkamerverlichting
+        fire_event: true
+      0b11002701233d660b010f40:
+        name: Radio - Keuken
+        # icon: mdi:music
+        fire_event: true
+      0b11002b01233d660c010f50:
+        name: Radio - Garage
+        fire_event: true
+      0b11002d00e1e5ea0c010f50:
+        name: Radio - Badkamer
+        fire_event: true
+      0b11002f00efe9b201040f60:
+        name: Deurbel
+        # icon: mdi:doorbell-video
+        fire_event: true
+
+light:
+  - platform: rfxtrx
+    devices:
+      0b11003100e1e5ea0b010f50:
+        name: Badkamer - Lamp
+      0b110032007d364601010f60:
+        name: Plafondlamp
+      0b11003300f70e1202010f60:
+        name: Hal - LED bak
+      0b11003400a6b99e01010f60:
+        name: Bureaulamp
+      0b110035007d364704010f60:
+        name: Carport
+      0b110036007d364603010f60:
+        name: Zolder - bank
+      0b110037007D364602010f60:
+        name: Zolder - scherm
+
+# 0b = length
+# 11 = lighting2
+# 00 = AC
+# 3b0 = random hex
+# 1111111 = device id
+# 01 = unit id (convert dec to hex)
+# 0f60 = affix
+
+# Text to speech
+tts:
+  - platform: google
+
+# Cloud
+cloud:
+
+media_player:
+  - platform: itunes
+    host: 192.168.0.56
+
+# Calendar
+# calendar:
+#  - platform: caldav
+#    url: !secret icloud_url
+#    username: !secret icloud_username
+#    password: !secret icloud_app_specific_password
+#    calendars:
+#      - 'Home'
+
+camera:
+  - platform: generic
+    name: Street
+    still_image_url: 'http://192.168.0.59:80/image/jpeg.cgi'
+    username: !secret camera1_username
+    password: !secret camera1_password
+
+homekit:
+  filter:
+    include_entities:
+      - input_boolean.kevin_present
+      - input_boolean.wmijn_present
+      - climate.downstairs
+      - input_boolean.is_it_night
+      - sensor.temperatuur_peace_lily__witte_bloem_temperature
+      - sensor.temperatuur_yucca__palmboom_temperature
+      - switch.radio__garage
+      - switch.radio__keuken
+      - switch.radio__badkamer
+      - switch.woonkamerverlichting
+      - switch.tafelverlichting
+      - light.badkamer__lamp
+      - light.bureaulamp
+      - light.carport
+      - light.hal__led_bak
+      - light.zolder__bank
+      - light.zolder__scherm
+      - sensor.gas_consumption
+      - sensor.power_consumption_normal
+
+rfxtrx:
+  device: !secret rfxtrx_device
+  debug: true
+  dummy: false
+
+shell_command:
+  radio_on: "/usr/bin/ssh domoticz@192.168.0.56 '/usr/bin/sudo su - kevin -c
+  	\"/usr/bin/osascript /scripts/radio_airplay.scpt on
+  	{{ radio_name }} {{ volume }}\"'"
+  radio_off: "/usr/bin/ssh domoticz@192.168.0.56 '/usr/bin/sudo su - kevin -c
+  	\"/usr/bin/osascript /scripts/radio_airplay.scpt off
+  	{{ radio_name }} {{ volume }}\"'"
+  pause_plex: "/usr/bin/curl -X POST --data '{\"jsonrpc\": \"2.0\",
+    \"method\": \"Player.PlayPause\", \"params\": { \"playerid\": 1 },
+    \"id\": 1}' --header \"Content-Type: application/json\"
+    \"http://{{ ipaddress }}:3005/jsonrpc\""
+
+group: !include groups.yaml
+automation: !include_dir_merge_list automation/
+script: !include scripts.yaml

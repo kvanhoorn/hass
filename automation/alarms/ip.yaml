@@ -1,0 +1,14 @@
+---
+- alias: IP address changed
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.internal_ip
+      - sensor.external_ip
+  action:
+    service: notify.pushover
+    data_template:
+      title: 'IP address changed'
+      message: 'From {{trigger.from_state.state}} to {{trigger.to_state.state}}'
+      data:
+        priority: 0

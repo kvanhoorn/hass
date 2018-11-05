@@ -1,0 +1,107 @@
+---
+people:
+  name: Personen
+  icon: mdi:account
+  view: true
+  entities:
+    - input_boolean.kevin_present
+    - input_boolean.wmijn_present
+    - input_boolean.someone_home
+    - input_number.amount_home
+temperature:
+  name: Temperatuur
+  icon: mdi:thermometer
+  view: true
+  entities:
+    - sensor.temperatuur_buiten_temperature
+    - sensor.temperatuur_woonkamer_temperature
+    - sensor.temperatuur_slaapkamer_temperature
+    - climate.downstairs
+sensors:
+  name: Sensoren
+  icon: mdi:chip
+  view: true
+  entities:
+    - binary_sensor.pir_hal
+    - binary_sensor.pir_zolder
+    - sensor.brandalarm_keuken_sensor_status
+    - sensor.brandalarm_woonkamer_sensor_status
+    - sensor.brandalarm_zolder_sensor_status
+    - sensor.gas_consumption
+    - sensor.power_consumption_normal
+    - sensor.temperatuur_peace_lily__witte_bloem_temperature
+    - sensor.temperatuur_yucca__palmboom_temperature
+    - switch.voordeur
+    - switch.deur_keuken
+    - switch.deur_woonkamer
+    - switch.schuurdeur
+    - switch.raam_logeerkamer
+    - switch.raam_slaapkamer
+    - switch.raam_studeerkamer
+    - switch.raam_zolder
+    - switch.garagedeur
+buttons:
+  name: Buttons
+  icon: mdi:toggle-switch
+  view: true
+  entities:
+    - switch.radio__garage
+    - switch.radio__keuken
+    - switch.radio__badkamer
+    - switch.woonkamerverlichting
+    - switch.tafelverlichting
+    - light.badkamer__lamp
+    - light.bureaulamp
+    - light.carport
+    - light.hal__led_bak
+    - light.zolder__bank
+    - light.zolder__scherm
+lights:
+  name: Lichten
+  icon: mdi:lightbulb-on
+  view: true
+  entities:
+    - light.b_tv
+    - light.backyard
+    - light.h_outdoor_1
+    - light.h_outdoor_2
+    - light.h_outdoor_3
+    - light.h_schemerlamp
+    - light.h_staande_lamp
+    - light.h_tv_lamp
+    - light.h_tafel_kamer
+    - light.h_tafel_raam
+    - light.plafondlamp
+    - light.badkamer__lamp
+    - light.bureaulamp
+    - light.carport
+    - light.hal__led_bak
+    - light.zolder__bank
+    - light.zolder__scherm
+    - switch.woonkamerverlichting
+    - switch.tafelverlichting
+doors:
+  name: Deuren/ramen
+  view: false
+  entities:
+    - switch.voordeur
+    - switch.deur_keuken
+    - switch.deur_woonkamer
+    - switch.schuurdeur
+    - switch.raam_logeerkamer
+    - switch.raam_slaapkamer
+    - switch.raam_studeerkamer
+    - switch.raam_zolder
+    - switch.garagedeur
+plants:
+  name: Planten
+  view: false
+  entities:
+    - sensor.temperatuur_peace_lily__witte_bloem_temperature
+    - sensor.temperatuur_yucca__palmboom_temperature
+plants_humidity:
+  name: Planten vochtigheid
+  view: false
+  entities:
+    - sensor.peace_lily__witte_bloem_humidity
+    - sensor.yucca__palmboom_humidity

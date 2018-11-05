@@ -1,0 +1,46 @@
+---
+# evening routine
+- alias: 'timer_evening_startevening'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "-01:00:00"
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living room"
+        scene_name: "DOM_evening"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Backyard"
+        scene_name: "DOM_outdoor_evening"
+    - service: light.turn_on
+      entity_id:
+        - light.hal__led_bak
+        - light.carport
+
+- alias: 'timer_evening_goodnight'
+  trigger:
+    platform: time
+    at: '23:30:00'
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - light.h_schemerlamp
+        - light.h_staande_lamp
+        - light.h_tv_lamp
+        - light.hal__led_bak
+        - light.h_outdoor_1
+        - light.h_outdoor_2
+        - light.h_outdoor_3
+        - light.h_tafel_kamer
+        - light.h_tafel_raam
+
+- alias: 'timer_evening_carport'
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '00:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.carport

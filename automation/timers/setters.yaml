@@ -1,0 +1,146 @@
+---
+# set weekend
+- alias: timer_setter_weekend
+  trigger:
+    platform: time
+    at: '17:15:00'
+  condition:
+    - condition: time
+      weekday:
+        - fri
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.is_it_weekend
+
+# unset weekend
+- alias: timer_unsetter_weekend
+  trigger:
+    platform: time
+    at: '17:00:00'
+  condition:
+    - condition: time
+      weekday:
+        - sun
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.is_it_weekend
+
+# weekend set night
+- alias: timer_setter_night_weekend
+  trigger:
+    platform: time
+    at: '23:30:00'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.is_it_weekend
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.is_it_holiday
+        state: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.is_it_night
+
+# weekend unset night
+- alias: timer_unsetter_night_weekend
+  trigger:
+    platform: time
+    at: '08:30:00'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.is_it_weekend
+        state: 'on'
+      - condition: state
+        entity_id: input_boolean.is_it_holiday
+        state: 'on'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.is_it_night
+
+# week set night
+- alias: timer_setter_night_week
+  trigger:
+    platform: time
+    at: '22:30:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.is_it_weekend
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.is_it_holiday
+        state: 'off'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.is_it_night
+
+# week unset night
+- alias: timer_unsetter_night_week
+  trigger:
+    platform: time
+    at: '07:00:00'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.is_it_weekend
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.is_it_holiday
+        state: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.is_it_night
+
+# send night notification
+- alias: send_notification_night_on
+  trigger:
+    platform: state
+    entity_id: input_boolean.is_it_night
+    to: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Nachatalarm"
+        message: "Nachtalarm ingeschakeld"
+
+# send night off notification
+- alias: send_notification_night_off
+  trigger:
+    platform: state
+    entity_id: input_boolean.is_it_night
+    to: 'off'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Nachatalarm"
+        message: "Nachtalarm uitgeschakeld"
+
+# send weekend notification
+- alias: send_notification_weekend_on
+  trigger:
+    platform: state
+    entity_id: input_boolean.is_it_weekend
+    to: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Weekend"
+        message: "Het is weekend"
+
+# send week notification
+- alias: send_notification_weekend_off
+  trigger:
+    platform: state
+    entity_id: input_boolean.is_it_weekend
+    to: 'off'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Weekend"
+        message: "Het weekend is voorbij"

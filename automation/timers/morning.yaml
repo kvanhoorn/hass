@@ -1,0 +1,123 @@
+---
+# morning routine
+- alias: 'timer_morning_startmorning'
+  trigger:
+    platform: time
+    at: '06:15:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living room"
+        scene_name: "DOM_morning"
+    - service: light.turn_on
+      entity_id: light.hal__led_bak
+
+- alias: 'timer_morning_bathroom'
+  trigger:
+    platform: time
+    at: '06:35:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    service: switch.turn_on
+    entity_id:
+      - light.badkamer__lamp
+      - switch.radio__badkamer
+
+- alias: 'timer_morning_breakfast'
+  trigger:
+    platform: time
+    at: '06:45:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    service: switch.turn_on
+    entity_id:
+      - switch.radio__keuken
+
+- alias: 'timer_morning_tvon'
+  trigger:
+    platform: time
+    at: '06:59:40'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: switch.turn_off
+      entity_id: switch.radio__keuken
+    - service: remote.turn_on
+      entity_id: remote.living_room
+      data:
+        activity: "TV"
+    - delay: '00:00:15'
+    - service: remote.send_command
+      entity_id: remote.living_room
+      data:
+        device: 42809894  # Entone DVR
+        command:
+          - 4
+
+- alias: 'timer_morning_everythingoff'
+  trigger:
+    platform: time
+    at: '07:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: switch.turn_off
+      entity_id:
+        - switch.woonkamerverlichting
+        - switch.tafelverlichting
+        - switch.radio__badkamer
+    - service: light.turn_off
+      entity_id:
+        - light.hal__led_bak
+        - light.badkamer__lamp
+    - service: remote.turn_off
+      entity_id: remote.living_room

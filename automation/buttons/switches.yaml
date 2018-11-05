@@ -1,0 +1,60 @@
+---
+# Woonkamer on
+- alias: Woonkamer verlichting aan
+  trigger:
+    platform: state
+    entity_id: switch.woonkamerverlichting
+    to: 'on'
+  action:
+    service: hue.hue_activate_scene
+    data:
+      group_name: "Living room"
+      scene_name: "DOM_evening"
+
+# Woonkamer off
+- alias: Woonkamer verlichting uit
+  trigger:
+    platform: event  # not using state, because double-pressing can happen
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.woonkamerverlichting
+      state: 'off'
+  action:
+    service: light.turn_off
+    data:
+      entity_id:
+        - light.h_schemerlamp
+        - light.h_staande_lamp
+        - light.h_tv_lamp
+        - light.hal__led_bak
+        - light.h_outdoor_1
+        - light.h_outdoor_2
+        - light.h_outdoor_3
+
+# Tafelverlichting on
+- alias: Tafelverlichting aan
+  trigger:
+    platform: state
+    entity_id: switch.tafelverlichting
+    to: 'on'
+  action:
+    service: light.turn_on
+    data:
+      entity_id:
+        - light.h_tafel_kamer
+        - light.h_tafel_raam
+
+# Tafelverlichting off
+- alias: Tafelverlichting uit
+  trigger:
+    platform: event  # not using state, because double-pressing can happen
+    event_type: button_pressed
+    event_data:
+      entity_id: switch.tafelverlichting
+      state: 'off'
+  action:
+    service: light.turn_off
+    data:
+      entity_id:
+        - light.h_tafel_kamer
+        - light.h_tafel_raam

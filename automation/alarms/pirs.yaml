@@ -1,0 +1,28 @@
+---
+- alias: PIR alarm
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.pir_hal
+      - binary_sensor.pir_zolder
+    to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: input_boolean.someone_home
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.is_it_night
+        state: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        message: "Er is beweging gedecteerd door
+          {{trigger.to_state.attributes.friendly_name}}"
+        title: "Beweging"
+        data:
+          sound: "siren"
+          priority: 2
+          expire: 3600
+          retry: 60

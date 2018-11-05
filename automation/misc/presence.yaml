@@ -1,0 +1,56 @@
+---
+- alias: someone arrives
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.kevin_present
+        - input_boolean.wmijn_present
+      to: 'on'
+  action:
+    - service: input_number.increment
+      entity_id: input_number.amount_home
+
+- alias: someone leaves
+  trigger:
+    - platform: state
+      entity_id:
+        - input_boolean.kevin_present
+        - input_boolean.wmijn_present
+      to: 'off'
+  action:
+    - service: input_number.decrement
+      entity_id: input_number.amount_home
+
+- alias: convert 0 to none
+  trigger:
+    - platform: numeric_state
+      entity_id: input_number.amount_home
+      below: 1
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.someone_home
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.woonkamer
+        away_mode: 'on'
+    - service: notify.pushover
+      data_template:
+        title: "Alarm"
+        message: "Alarm ingeschakeld"
+
+- alias: convert >0 to some
+  trigger:
+    - platform: numeric_state
+      entity_id: input_number.amount_home
+      above: 0
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.someone_home
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.woonkamer
+        away_mode: 'off'
+    - service: notify.pushover
+      data_template:
+        title: "Alarm"
+        message: "Alarm uitgeschakeld"

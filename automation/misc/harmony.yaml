@@ -1,0 +1,35 @@
+---
+- alias: Change Harmony Remote input
+  trigger:
+    platform: state
+    entity_id: remote.living_room
+  action:
+    service: input_select.select_option
+    data_template:
+      entity_id: input_select.harmony_hub
+      option: >
+        {{ states.remote.living_room.attributes.current_activity }}
+
+- alias: Change Harmony Select input
+  trigger:
+    platform: state
+    entity_id: input_select.harmony_hub
+  action:
+    service: remote.turn_on
+    data_template:
+      entity_id: remote.living_room
+      activity: >
+        {% if is_state("input_select.harmony_hub", "TV") %}
+          24957817
+        {% elif is_state("input_select.harmony_hub", "Plex") %}
+          24957818
+        {% elif is_state("input_select.harmony_hub", "Netflix") %}
+          35951268
+        {% elif is_state("input_select.harmony_hub", "ATV Music") %}
+          24957820
+        {% elif is_state("input_select.harmony_hub", "Turntable") %}
+          24957821
+        {% elif is_state("input_select.harmony_hub", "PowerOff") %}
+          -1
+        {% else %}
+        {% endif %}

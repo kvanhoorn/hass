@@ -1,0 +1,20 @@
+---
+- alias: Fire alarm
+  trigger:
+    platform: state
+    entity_id:
+      - sensor.brandalarm_keuken_sensor_status
+      - sensor.brandalarm_woonkamer_sensor_status
+      - sensor.brandalarm_zolder_sensor_status
+    to: 'Panic'
+  action:
+    - service: notify.pushover
+      data_template:
+        message: "Er is brand in de
+          {{trigger.to_state.attributes.friendly_name}}"
+        title: "Brandalarm"
+        data:
+          sound: "siren"
+          priority: 2
+          expire: 3600
+          retry: 60
