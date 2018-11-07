@@ -112,3 +112,9 @@ radios:
     - switch.radio__keuken
     - switch.radio__badkamer
     - switch.radio__garage
+attic_lights:
+  name: Verlichting zolder
+  view: false
+  entities:
+    - light.zolder__scherm
+    - light.zolder__bank

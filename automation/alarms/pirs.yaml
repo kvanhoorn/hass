@@ -22,7 +22,7 @@
           expire: 3600
           retry: 60
 
-# use PIRs to turn on light at night
+# use PIR to turn on light at night
 - alias: PIR turn hall on
   trigger:
     platform: state
@@ -51,3 +51,25 @@
   action:
     service: light.turn_off
     entity_id: light.hal__led_bak
+
+# use PIR to turn on attic lights
+- alias: PIR turn attic on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_zolder
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: group.attic_lights
+
+# use PIR to turn on attic lights
+- alias: PIR turn attic off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_zolder
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+    service: light.turn_off
+    entity_id: group.attic_lights
