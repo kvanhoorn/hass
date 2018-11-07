@@ -7,14 +7,9 @@
       - binary_sensor.pir_zolder
     to: 'on'
   condition:
-    condition: or
-    conditions:
-      - condition: state
-        entity_id: input_boolean.someone_home
-        state: 'off'
-      - condition: state
-        entity_id: input_boolean.is_it_night
-        state: 'on'
+    condition: state
+    entity_id: input_boolean.someone_home
+    state: 'off'
   action:
     - service: notify.pushover
       data_template:
@@ -26,3 +21,33 @@
           priority: 2
           expire: 3600
           retry: 60
+
+# use PIRs to turn on light at night
+- alias: PIR turn hall on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_hal
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.is_it_night
+    state: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.hal__led_bak
+
+# and turn it back off
+- alias: PIR turn hall off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_hal
+    to: 'off'
+    for:
+      minutes: 5
+  condition:
+    condition: state
+    entity_id: input_boolean.is_it_night
+    state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.hal__led_bak

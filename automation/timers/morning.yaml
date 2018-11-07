@@ -39,10 +39,10 @@
         - thu
         - fri
   action:
-    service: switch.turn_on
-    entity_id:
-      - light.badkamer__lamp
-      - switch.radio__badkamer
+    - service: switch.turn_on
+      entity_id: switch.radio__badkamer
+    - service: light.turn_on
+      entity_id: light.badkamer__lamp
 
 - alias: 'timer_morning_breakfast'
   trigger:

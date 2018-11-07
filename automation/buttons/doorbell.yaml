@@ -1,17 +1,27 @@
 ---
 - alias: Doorbell rings
   trigger:
-    platform: state
-    entity_id: switch.deurbel
-    to: 'on'
+    - platform: event
+      event_type: button_pressed
+      event_data:
+        entity_id: switch.deurbel
+        state: "group on"
+    - platform: state
+      entity_id: switch.deurbel
+      to: 'on'
+    - platform: state
+      entity_id: input_boolean.send_photo
+      to: 'on'
   action:
     - service: notify.pushover
       data:
-        message: "De deurbel gaat"
         title: "Deurbel"
+        message: "De deurbel gaat"
         data:
           priority: 0
     - service: switch.turn_off
       entity_id: switch.deurbel
-#     - service: media_player.media_pause
-#       entity_id: media_player.kevin__mac_mini
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.send_photo
+      #  - service: media_player.media_pause
+      #    entity_id: media_player.kevin__mac_mini

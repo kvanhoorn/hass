@@ -17,9 +17,8 @@ homeassistant:
 
 logger:
   default: info
-  logs:
-    homeassistant.components.device_tracker: critical
-    homeassistant.components.camera: critical
+  #  logs:
+  #    homeassistant.components.rfxtrx: debug
 
 # Show links to resources in log and frontend
 # introduction:
@@ -138,7 +137,7 @@ input_boolean:
     name: Vakantie
     icon: mdi:beach
   someone_home:
-    name: IemandThuis
+    name: Iemand thuis
     icon: mdi:home
   kevin_present:
     name: Kevin aanwezig
@@ -146,13 +145,22 @@ input_boolean:
   wmijn_present:
     name: Willemijn aanwezig
     icon: mdi:account
+  send_photo:
+    name: Stuur foto
+    icon: mdi:picture
 
 input_number:
   amount_home:
-    name: AantalThuis
+    name: Aantal thuis
     icon: mdi:home
     min: 0
     max: 2
+    step: 1
+  active_speakers:
+    name: Aantal actieve airport speakers
+    icon: mdi:speaker
+    min: 0
+    max: 3
     step: 1
 
 # Weather prediction
@@ -212,7 +220,7 @@ sensor:
     name: External IP
     command: "/usr/bin/curl kvanhoorn.nl/myip/"
   - platform: darksky
-    api_key: !secret darksky_apikey
+    api_key: 2cbc3be161a2e13481e8c56cf491c525
     monitored_conditions:
       - apparent_temperature
       - daily_summary
@@ -228,12 +236,12 @@ sensor:
   - platform: template
     sensors:
       peace_lily__witte_bloem_humidity:
-        value_template: '{{states.sensor.
-          temperatuur_peace_lily__witte_bloem_temperature.attributes.Humidity}}'
+        # can't cut this up into two lines :(
+        value_template: "{{states.sensor.temperatuur_peace_lily__witte_bloem_temperature.attributes.Humidity}}"
         friendly_name: 'Peace Lily - witte bloem vochtigheid'
       yucca__palmboom_humidity:
-        value_template: '{{states.sensor.
-          temperatuur_yucca__palmboom_temperature.attributes.Humidity}}'
+        # can't cut this up into two lines :(
+        value_template: "{{states.sensor.temperatuur_yucca__palmboom_temperature.attributes.Humidity}}"
         friendly_name: 'Yucca - palmboom vochtigheid'
   - platform: speedtest
     hour:
@@ -314,7 +322,7 @@ switch:
       0b11002d00e1e5ea0c010f50:
         name: Radio - Badkamer
         fire_event: true
-      0b11002f00efe9b201040f60:
+      0b11000b00efe9b201040f60:
         name: Deurbel
         # icon: mdi:doorbell-video
         fire_event: true
@@ -326,6 +334,7 @@ light:
         name: Badkamer - Lamp
       0b110032007d364601010f60:
         name: Plafondlamp
+        #  dimmable: true
       0b11003300f70e1202010f60:
         name: Hal - LED bak
       0b11003400a6b99e01010f60:
@@ -397,7 +406,6 @@ homekit:
 
 rfxtrx:
   device: !secret rfxtrx_device
-  debug: true
   dummy: false
 
 shell_command:

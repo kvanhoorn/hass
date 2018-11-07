@@ -29,10 +29,6 @@
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.someone_home
-    - service: climate.set_away_mode
-      data:
-        entity_id: climate.woonkamer
-        away_mode: 'on'
     - service: notify.pushover
       data_template:
         title: "Alarm"
@@ -43,13 +39,13 @@
     - platform: numeric_state
       entity_id: input_number.amount_home
       above: 0
+  condition:
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'off'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.someone_home
-    - service: climate.set_away_mode
-      data:
-        entity_id: climate.woonkamer
-        away_mode: 'off'
     - service: notify.pushover
       data_template:
         title: "Alarm"

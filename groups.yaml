@@ -105,3 +105,10 @@ plants_humidity:
   entities:
     - sensor.peace_lily__witte_bloem_humidity
     - sensor.yucca__palmboom_humidity
+radios:
+  name: Radios
+  view: false
+  entities:
+    - switch.radio__keuken
+    - switch.radio__badkamer
+    - switch.radio__garage

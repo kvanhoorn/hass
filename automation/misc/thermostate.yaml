@@ -1,0 +1,58 @@
+---
+# coming home and it's not night, turn on
+- alias: turn on thermostate by entering
+  trigger:
+    - platform: state
+      entity_id: input_boolean.someone_home
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_night
+      state: 'off'
+  action:
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.downstairs
+        away_mode: 'off'
+
+# morning has broken and it is weekend and we are home etc.
+- alias: turn on thermostate by morning
+  trigger:
+    - platform: state
+      entity_id: input_boolean.is_it_night
+      to: 'off'
+  condition:
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'on'
+    - condition: time
+      after: '08:00:00'
+  action:
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.downstairs
+        away_mode: 'off'
+
+# night is coming, turn off
+- alias: turn off thermostate by night
+  trigger:
+    - platform: state
+      entity_id: input_boolean.is_it_night
+      to: 'on'
+  action:
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.downstairs
+        away_mode: 'on'
+
+# last one is leaving, turn off
+- alias: turn off thermostate
+  trigger:
+    - platform: state
+      entity_id: input_boolean.someone_home
+      to: 'off'
+  action:
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.downstairs
+        away_mode: 'on'
