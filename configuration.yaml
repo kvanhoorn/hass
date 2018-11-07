@@ -20,27 +20,13 @@ logger:
   #  logs:
   #    homeassistant.components.rfxtrx: debug
 
-# Show links to resources in log and frontend
-# introduction:
-
 # Enables the frontend
 frontend:
 
 # Enables configuration UI
 config:
 
-# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
-# http:
-#   base_url: example.duckdns.org:8123
-
-# Checks for available updates
-# Note: This component will send some information about your system to
-# the developers to assist with development of Home Assistant.
-# For more information, please see:
-# https://home-assistant.io/blog/2016/10/25/explaining-the-updater/
 updater:
-# Optional, allows Home Assistant developers to focus on popular components.
-# include_used_components: true
 
 # Discover some devices automatically
 discovery:
@@ -74,51 +60,11 @@ input_select:
     initial: Kies activiteit
     icon: mdi:remote
 
-# sensor:
-#   - platform: template
-#     sensors:
-#       door:
-#         friendly_name: "Deur"
-#         value_template: >-
-#           {% if is_state('switch.door', 'off') %}
-#             dicht
-#           {% else %}
-#             open
-#           {% endif %}
-#         icon_template: >-
-#           {% if is_state('switch.door', 'off') %}
-#             mdi:door
-#           {% else %}
-#             mdi:door-open
-#           {% endif %}
-
 device_tracker:
   - platform: ping
     hosts:
       macpro: 192.168.0.56
       macmini: 192.168.0.57
-
-# climate:
-#   - platform: generic_thermostat
-#     name: Woonkamer
-#     heater: switch.cv_ketel
-#     target_sensor: sensor.temperatuur_woonkamer_temperature
-#     min_temp: 15
-#     max_temp: 22
-#     ac_mode: false
-#     target_temp: 19.5
-#     cold_tolerance: 0.3
-#     hot_tolerance: 0
-#     min_cycle_duration:
-#       minutes: 5
-#     keep_alive:
-#       minutes: 10
-#     initial_operation_mode: "off"
-#     away_temp: 17.5
-
-# mqtt:
-#   discovery: true
-#   discovery_prefix: homeassistant
 
 notify:
   - name: pushover
@@ -163,14 +109,12 @@ input_number:
     max: 3
     step: 1
 
-# Weather prediction
 sensor:
   - platform: yr
   - platform: time_date
     display_options:
       - 'time'
       - 'date'
-  # - platform: fitbit
   - platform: dsmr
     port: !secret dsmr_device
     dsmr_version: 4
@@ -264,10 +208,6 @@ binary_sensor:
         off_delay:
           seconds: 30
 
-# plant:
-#   platform: rfxtrx
-#   automatic_add: true
-
 # Remotes
 remote:
   - platform: harmony
@@ -280,9 +220,6 @@ nest:
 
 # Switches
 switch:
-  #  - platform: rpi_gpio
-  #    ports:
-  #      17: CV Ketel
   - platform: rfxtrx
     automatic_add: true
     devices:
@@ -346,18 +283,6 @@ light:
       0b110037007D364602010f60:
         name: Zolder - scherm
 
-# 0b = length
-# 11 = lighting2
-# 00 = AC
-# 3b0 = random hex
-# 1111111 = device id
-# 01 = unit id (convert dec to hex)
-# 0f60 = affix
-
-# Text to speech
-tts:
-  - platform: google
-
 # Cloud
 cloud:
 
@@ -365,19 +290,10 @@ media_player:
   - platform: itunes
     host: 192.168.0.56
 
-# Calendar
-# calendar:
-#  - platform: caldav
-#    url: !secret icloud_url
-#    username: !secret icloud_username
-#    password: !secret icloud_app_specific_password
-#    calendars:
-#      - 'Home'
-
 camera:
   - platform: generic
     name: Street
-    still_image_url: 'http://192.168.0.59:80/image/jpeg.cgi'
+    still_image_url: !secret camera1_still
     username: !secret camera1_username
     password: !secret camera1_password
 
