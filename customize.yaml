@@ -1,0 +1,19 @@
+---
+light.xmasactivegroup:
+  hidden: true
+light.xmasactivegroupeven:
+  hidden: true
+light.xmasactivegroupeven_2:
+  hidden: true
+light.xmasactivegroupodd:
+  hidden: true
+light.backyard:
+  hidden: true
+light.bedroom:
+  hidden: true
+light.living_room:
+  hidden: true
+light.slaapkamer_tv:
+  hidden: true
+light.tv:
+  hidden: true
