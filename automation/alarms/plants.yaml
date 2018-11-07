@@ -2,13 +2,12 @@
 - alias: Plant humidity warning
   trigger:
     platform: numeric_state
-    # entity_id: group.plants_humidity
     entity_id:
       - sensor.peace_lily__witte_bloem_humidity
       - sensor.yucca__palmboom_humidity
     below: 50
-    # for:
-    #   minutes: 15
+    for:
+      minutes: 30
   action:
     - service: notify.pushover
       data_template:
@@ -16,13 +15,16 @@
         message: "{{ trigger.to_state.attributes.friendly_name }} onder 50%"
         data:
           priority: 0
+
 - alias: Plant humidity alarm
   trigger:
     platform: numeric_state
-    entity_id: group.plants_humidity
+    entity_id:
+      - sensor.peace_lily__witte_bloem_humidity
+      - sensor.yucca__palmboom_humidity
     below: 30
-    # for:
-    #   minutes: 30
+    for:
+      minutes: 30
   action:
     - service: notify.pushover
       data_template:
@@ -30,3 +32,18 @@
         message: "{{ trigger.to_state.attributes.friendly_name }} onder 30%"
         data:
           priority: 1
+
+- alias: Plant humidity ok
+  trigger:
+    platform: numeric_state
+    entity_id:
+      - sensor.peace_lily__witte_bloem_humidity
+      - sensor.yucca__palmboom_humidity
+    above: 50
+    for:
+      minutes: 30
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Plant heeft geen dorst meer"
+        message: "{{ trigger.to_state.attributes.friendly_name }} boven 50%"
