@@ -1,0 +1,42 @@
+---
+- alias: Afval notificatie - papier
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    - condition: template
+      value_template: "{{(as_timestamp(strptime(states.sensor.papier_en_karton.state,
+        '%Y-%m-%d')) - as_timestamp(now())) < (24*60*60)}}"
+  action:
+    - service: notify.pushover
+      data:
+        title: "Afval"
+        message: "Morgen: {{ states.sensor.papier_en_karton.name }}"
+
+- alias: Afval notificatie - rest
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    - condition: template
+      value_template: "{{(as_timestamp(strptime(states.sensor.grijze_bak.state,
+      '%Y-%m-%d')) - as_timestamp(now())) < (24*60*60)}}"
+  action:
+    - service: notify.pushover
+      data:
+        title: "Afval"
+        message: "Morgen: {{ states.sensor.grijze_bak.name }}"
+
+- alias: Afval notificatie - gft
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    - condition: template
+      value_template: "{{(as_timestamp(strptime(states.sensor.groene_bak.state,
+      '%Y-%m-%d')) - as_timestamp(now())) < (24*60*60)}}"
+  action:
+    - service: notify.pushover
+      data:
+        title: "Afval"
+        message: "Morgen: {{ states.sensor.groene_bak.name }}"

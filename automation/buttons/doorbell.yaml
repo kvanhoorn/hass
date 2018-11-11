@@ -56,8 +56,8 @@
         state: "group on"
   condition:
     - condition: template
-      # can't cut this up into two lines :(
-      value_template: '{{states.remote.living_room.attributes.current_activity == "TV" }}'
+      value_template:
+        '{{states.remote.living_room.attributes.current_activity == "TV" }}'
   action:
     - service: remote.send_command
       data:

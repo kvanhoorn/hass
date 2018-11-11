@@ -121,3 +121,10 @@ attic_lights:
   entities:
     - light.zolder__scherm
     - light.zolder__bank
+trash_sensors:
+  name: Afval sensoren
+  view: false
+  entities:
+    - sensor.groene_bak
+    - sensor.grijze_bak
+    - sensor.papier_en_karton

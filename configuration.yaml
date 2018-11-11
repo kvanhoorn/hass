@@ -17,8 +17,9 @@ homeassistant:
 
 logger:
   default: info
-  #  logs:
+  # logs:
   #    homeassistant.components.rfxtrx: debug
+  #    homeassistant.components.mqtt: debug
 
 # Enables the frontend
 frontend:
@@ -30,6 +31,8 @@ updater:
 
 # Discover some devices automatically
 discovery:
+  ignore:
+    - roku
 
 # Allows you to issue voice commands from the frontend in enabled browsers
 conversation:
@@ -45,6 +48,9 @@ map:
 
 # Track the sun
 sun:
+
+http:
+#  api_password: !secret http_password
 
 input_select:
   harmony_hub:
@@ -86,14 +92,14 @@ input_boolean:
     name: Iemand thuis
     icon: mdi:home
   kevin_present:
-    name: Kevin aanwezig
+    name: Kevin
     icon: mdi:account
   wmijn_present:
-    name: Willemijn aanwezig
+    name: Willemijn
     icon: mdi:account
   send_photo:
     name: Stuur foto
-    icon: mdi:picture
+    icon: mdi:image
 
 input_number:
   amount_home:
@@ -111,6 +117,13 @@ input_number:
 
 sensor:
   - platform: yr
+  # - platform: fitbit
+  #   monitored_resources:
+  #     - activities/distance
+  #     - activities/heart
+  #     - activities/steps
+  #     - activities/tracker/steps
+  #     - devices/battery
   - platform: time_date
     display_options:
       - 'time'
@@ -188,12 +201,36 @@ sensor:
         value_template: "{{states.sensor.temperatuur_yucca__palmboom_temperature.attributes.Humidity}}"
         friendly_name: 'Yucca - palmboom vochtigheid'
   - platform: speedtest
-    hour:
-      - 2
+    minute:
+      - 0
+      - 10
+      - 20
+      - 30
+      - 40
+      - 50
     monitored_conditions:
       - ping
-      - download
-      - upload
+  - platform: rest
+    name: 'Grijze bak'
+    resource: !secret cure_afval_url
+    value_template: "{{value_json
+      | selectattr('title', 'eq', 'Restafval')
+      | map(attribute='ophaaldatum') | first }}"
+    scan_interval: 3600
+  - platform: rest
+    name: 'Groene bak'
+    resource: !secret cure_afval_url
+    value_template: "{{value_json
+      | selectattr('title', 'eq', 'Groente, fruit- en tuinafval')
+      | map(attribute='ophaaldatum') | first }}"
+    scan_interval: 3600
+  - platform: rest
+    name: 'Papier en karton'
+    resource: !secret cure_afval_url
+    value_template: "{{value_json
+      | selectattr('title', 'eq', 'Papier en karton')
+      | map(attribute='ophaaldatum') | first }}"
+    scan_interval: 3600
 
 binary_sensor:
   - platform: rfxtrx
@@ -289,6 +326,7 @@ cloud:
 media_player:
   - platform: itunes
     host: 192.168.0.56
+  - platform: plex
 
 camera:
   - platform: generic
@@ -331,10 +369,6 @@ shell_command:
   radio_off: "/usr/bin/ssh domoticz@192.168.0.56 '/usr/bin/sudo su - kevin -c
   	\"/usr/bin/osascript /scripts/radio_airplay.scpt off
   	{{ radio_name }} {{ volume }}\"'"
-  pause_plex: "/usr/bin/curl -X POST --data '{\"jsonrpc\": \"2.0\",
-    \"method\": \"Player.PlayPause\", \"params\": { \"playerid\": 1 },
-    \"id\": 1}' --header \"Content-Type: application/json\"
-    \"http://{{ ipaddress }}:3005/jsonrpc\""
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/
