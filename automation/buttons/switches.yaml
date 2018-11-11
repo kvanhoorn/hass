@@ -14,11 +14,14 @@
 # Woonkamer off
 - alias: Woonkamer verlichting uit
   trigger:
-    platform: event  # not using state, because double-pressing can happen
-    event_type: button_pressed
-    event_data:
+    - platform: event  # not using state, because double-pressing can happen
+      event_type: button_pressed
+      event_data:
+        entity_id: switch.woonkamerverlichting
+        state: 'off'
+    - platform: state
       entity_id: switch.woonkamerverlichting
-      state: 'off'
+      to: 'off'
   action:
     service: light.turn_off
     data:
@@ -47,11 +50,14 @@
 # Tafelverlichting off
 - alias: Tafelverlichting uit
   trigger:
-    platform: event  # not using state, because double-pressing can happen
-    event_type: button_pressed
-    event_data:
+    - platform: event  # not using state, because double-pressing can happen
+      event_type: button_pressed
+      event_data:
+        entity_id: switch.tafelverlichting
+        state: 'off'
+    - platform: state
       entity_id: switch.tafelverlichting
-      state: 'off'
+      to: 'off'
   action:
     service: light.turn_off
     data:

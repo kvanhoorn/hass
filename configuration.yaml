@@ -52,6 +52,16 @@ sun:
 http:
 #  api_password: !secret http_password
 
+mind:
+  username: !secret mind_username
+  password: !secret mind_password
+  client_id: c030ad63a0e4433d86e4a36fc4047ce2
+  client_secret: E97F8294804c49Cd83b0b9f0552577B2
+
+weather:
+  - platform: buienradar
+    name: 'Buienradar'
+
 input_select:
   harmony_hub:
     name: Woonkamer activiteit
@@ -190,16 +200,35 @@ sensor:
       - temperature_low
       - visibility
       - wind_speed
+      - uv_index
   - platform: template
     sensors:
       peace_lily__witte_bloem_humidity:
         # can't cut this up into two lines :(
-        value_template: "{{states.sensor.temperatuur_peace_lily__witte_bloem_temperature.attributes.Humidity}}"
+        value_template: "{{states.sensor.temperatuur_peace_lily__witte_bloem_temperature.attributes.Humidity
+          | int}}"
         friendly_name: 'Peace Lily - witte bloem vochtigheid'
+        unit_of_measurement: '%'
       yucca__palmboom_humidity:
         # can't cut this up into two lines :(
-        value_template: "{{states.sensor.temperatuur_yucca__palmboom_temperature.attributes.Humidity}}"
+        value_template: "{{states.sensor.temperatuur_yucca__palmboom_temperature.attributes.Humidity
+          | int}}"
         friendly_name: 'Yucca - palmboom vochtigheid'
+        unit_of_measurement: '%'
+      static_battery:
+        value_template: "{{100}}"
+        unit_of_measurement: '%'
+      static_conductivity:
+        value_template: "{{10}}"
+        unit_of_measurement: 'ec'
+      static_brightness:
+        value_template: "{{10}}"
+        unit_of_measurement: 'lm'
+      car_address:
+        value_template: "{{states.device_tracker.nr767t.attributes.street}},
+          {{states.device_tracker.nr767t.attributes.city}},
+          {{states.device_tracker.nr767t.attributes.country}}"
+        friendly_name: 'Adres'
   - platform: speedtest
     minute:
       - 0
@@ -238,12 +267,57 @@ binary_sensor:
     devices:
       09130052554555014e70:
         name: PIR hal
+        device_class: motion
         off_delay:
           seconds: 30
       09130015d55555016370:
         name: PIR zolder
+        device_class: motion
         off_delay:
           seconds: 30
+      0b11000500fbc7ce0a010f50:
+        name: Voordeur
+        device_class: door
+      0b11000d00eb4d860a010f50:
+        name: Deur keuken
+        device_class: door
+      0b11001801071a760a010f50:
+        name: Raam studeerkamer
+        device_class: window
+      0b11001d01002a360a010f40:
+        name: Raam slaapkamer
+        device_class: window
+      0b11002400e19a520a010f40:
+        name: Raam Zolder
+        device_class: window
+      0b1100290111eade0a010f50:
+        name: Raam logeerkamer
+        device_class: window
+      0b11003100fc0aea0a010f50:
+        name: Deur woonkamer
+        device_class: door
+      0b11003900eb56360a000040:
+        name: Schuurdeur
+        device_class: door
+      0b11003a00eb573e0a000050:
+        name: Garagedeur
+        device_class: garage_door
+
+plant:
+  Peace Lily - witte bloem:
+    sensors:
+      moisture: sensor.peace_lily__witte_bloem_humidity
+      temperature: sensor.temperatuur_peace_lily__witte_bloem_temperature
+      battery: sensor.static_battery
+      conductivity: sensor.static_conductivity
+      brightness: sensor.static_brightness
+  Yucca - palmboom:
+    sensors:
+      moisture: sensor.yucca__palmboom_humidity
+      temperature: sensor.temperatuur_yucca__palmboom_temperature
+      battery: sensor.static_battery
+      conductivity: sensor.static_conductivity
+      brightness: sensor.static_brightness
 
 # Remotes
 remote:
@@ -260,35 +334,14 @@ switch:
   - platform: rfxtrx
     automatic_add: true
     devices:
-      0b11000500fbc7ce0a010f50:
-        name: Voordeur
-      0b11000d00eb4d860a010f50:
-        name: Deur keuken
-      0b11001801071a760a010f50:
-        name: Raam studeerkamer
-      0b11001d01002a360a010f40:
-        name: Raam slaapkamer
-      0b11002400e19a520a010f40:
-        name: Raam Zolder
-      0b1100290111eade0a010f50:
-        name: Raam logeerkamer
-      0b11003100fc0aea0a010f50:
-        name: Deur woonkamer
-      0b11003900eb56360a000040:
-        name: Schuurdeur
-      0b11003a00eb573e0a000050:
-        name: Garagedeur
-        # icon: mdi:garage
       0b11001f00b5468a0c010f70:
         name: Tafelverlichting
-        # icon: mdi:light-switch
         fire_event: true
       0b11002300b5468a0b010f60:
         name: Woonkamerverlichting
         fire_event: true
       0b11002701233d660b010f40:
         name: Radio - Keuken
-        # icon: mdi:music
         fire_event: true
       0b11002b01233d660c010f50:
         name: Radio - Garage
@@ -298,7 +351,6 @@ switch:
         fire_event: true
       0b11000b00efe9b201040f60:
         name: Deurbel
-        # icon: mdi:doorbell-video
         fire_event: true
 
 light:
@@ -308,7 +360,6 @@ light:
         name: Badkamer - Lamp
       0b110032007d364601010f60:
         name: Plafondlamp
-        #  dimmable: true
       0b11003300f70e1202010f60:
         name: Hal - LED bak
       0b11003400a6b99e01010f60:

@@ -31,15 +31,15 @@ sensors:
     - sensor.power_consumption_normal
     - sensor.temperatuur_peace_lily__witte_bloem_temperature
     - sensor.temperatuur_yucca__palmboom_temperature
-    - switch.voordeur
-    - switch.deur_keuken
-    - switch.deur_woonkamer
-    - switch.schuurdeur
-    - switch.raam_logeerkamer
-    - switch.raam_slaapkamer
-    - switch.raam_studeerkamer
-    - switch.raam_zolder
-    - switch.garagedeur
+    - binary_sensor.voordeur
+    - binary_sensor.deur_keuken
+    - binary_sensor.deur_woonkamer
+    - binary_sensor.schuurdeur
+    - binary_sensor.raam_logeerkamer
+    - binary_sensor.raam_slaapkamer
+    - binary_sensor.raam_studeerkamer
+    - binary_sensor.raam_zolder
+    - binary_sensor.garagedeur
 buttons:
   name: Buttons
   icon: mdi:toggle-switch
@@ -87,15 +87,15 @@ doors:
   name: Deuren/ramen
   view: false
   entities:
-    - switch.voordeur
-    - switch.deur_keuken
-    - switch.deur_woonkamer
-    - switch.schuurdeur
-    - switch.raam_logeerkamer
-    - switch.raam_slaapkamer
-    - switch.raam_studeerkamer
-    - switch.raam_zolder
-    - switch.garagedeur
+    - binary_sensor.voordeur
+    - binary_sensor.deur_keuken
+    - binary_sensor.deur_woonkamer
+    - binary_sensor.schuurdeur
+    - binary_sensor.raam_logeerkamer
+    - binary_sensor.raam_slaapkamer
+    - binary_sensor.raam_studeerkamer
+    - binary_sensor.raam_zolder
+    - binary_sensor.garagedeur
 plants:
   name: Planten
   view: false
@@ -128,3 +128,11 @@ trash_sensors:
     - sensor.groene_bak
     - sensor.grijze_bak
     - sensor.papier_en_karton
+media_controls:
+  name: Media controls
+  view: false
+  entities:
+    - input_select.harmony_hub
+    - switch.radio__keuken
+    - switch.radio__badkamer
+    - switch.radio__garage  
