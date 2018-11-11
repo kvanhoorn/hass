@@ -56,6 +56,9 @@ buttons:
     - light.hal__led_bak
     - light.zolder__bank
     - light.zolder__scherm
+    - remote.living_room
+    - media_player.itunes
+    - media_player.kevin__mac_mini
 lights:
   name: Lichten
   icon: mdi:lightbulb-on
