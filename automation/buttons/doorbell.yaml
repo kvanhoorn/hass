@@ -6,9 +6,9 @@
       event_data:
         entity_id: switch.deurbel
         state: "group on"
-        # - platform: state
-        #   entity_id: input_boolean.send_photo
-        #   to: 'on'
+    - platform: state
+      entity_id: input_boolean.send_photo
+      to: 'on'
   action:
     - service: notify.pushover
       data:
@@ -46,3 +46,22 @@
           - OK
           - Pause
         delay_secs: 0.6
+
+- alias: TV mute doorbell
+  trigger:
+    - platform: event
+      event_type: button_pressed
+      event_data:
+        entity_id: switch.deurbel
+        state: "group on"
+  condition:
+    - condition: template
+      # can't cut this up into two lines :(
+      value_template: '{{states.remote.living_room.attributes.current_activity == "TV" }}'
+  action:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809890  # Pioneer AV Receiver
+        command:
+          - Mute
