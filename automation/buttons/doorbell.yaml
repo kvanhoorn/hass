@@ -6,12 +6,9 @@
       event_data:
         entity_id: switch.deurbel
         state: "group on"
-    - platform: state
-      entity_id: switch.deurbel
-      to: 'on'
-    - platform: state
-      entity_id: input_boolean.send_photo
-      to: 'on'
+        # - platform: state
+        #   entity_id: input_boolean.send_photo
+        #   to: 'on'
   action:
     - service: notify.pushover
       data:
@@ -28,5 +25,24 @@
       entity_id: switch.deurbel
     - service: input_boolean.turn_off
       entity_id: input_boolean.send_photo
-      #  - service: media_player.media_pause
-      #    entity_id: media_player.kevin__mac_mini
+
+- alias: Plex pause doorbell
+  trigger:
+    - platform: event
+      event_type: button_pressed
+      event_data:
+        entity_id: switch.deurbel
+        state: "group on"
+  condition:
+    - condition: state
+      entity_id: media_player.kevin__mac_mini
+      state: 'playing'
+  action:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809893  # Mac Mini
+        command:
+          - OK
+          - Pause
+        delay_secs: 0.6
