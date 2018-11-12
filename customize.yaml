@@ -1,4 +1,5 @@
 ---
+# unused hue groups
 light.xmasactivegroup:
   hidden: true
 light.xmasactivegroupeven:
@@ -17,6 +18,8 @@ light.slaapkamer_tv:
   hidden: true
 light.tv:
   hidden: true
+
+# unused nest sensors
 binary_sensor.downstairs_thermostat_fan:
   hidden: true
 binary_sensor.downstairs_thermostat_has_leaf:
@@ -24,4 +27,60 @@ binary_sensor.downstairs_thermostat_has_leaf:
 binary_sensor.downstairs_thermostat_is_locked:
   hidden: true
 binary_sensor.downstairs_thermostat_is_using_emergency_heat:
+  hidden: true
+sensor.eindhoven_eta:
+  hidden: true
+
+# unused smart meter sensors
+sensor.power_production:
+  hidden: true
+sensor.power_production_low:
+  hidden: true
+sensor.power_production_normal:
+  hidden: true
+sensor.power_production_phase_l1:
+  hidden: true
+sensor.power_production_phase_l2:
+  hidden: true
+sensor.power_production_phase_l3:
+  hidden: true
+sensor.voltage_sags_phase_l1:
+  hidden: true
+sensor.voltage_sags_phase_l2:
+  hidden: true
+sensor.voltage_sags_phase_l3:
+  hidden: true
+sensor.voltage_swells_phase_l1:
+  hidden: true
+sensor.voltage_swells_phase_l2:
+  hidden: true
+sensor.voltage_swells_phase_l3:
+  hidden: true
+
+# static things
+sensor.static_battery:
+  hidden: true
+sensor.static_brightness:
+  hidden: true
+sensor.static_conductivity:
+  hidden: true
+
+# airtunes speakers hide from landing
+media_player.ae_attic_airtunes_speaker:
+  hidden: true
+media_player.ae_bathroom_airtunes_speaker:
+  hidden: true
+media_player.ae_garage_airtunes_speaker:
+  hidden: true
+media_player.ae_kitchen_airtunes_speaker:
+  hidden: true
+media_player.atv_bedroom_airtunes_speaker:
+  hidden: true
+media_player.atv_guest_bedroom_airtunes_speaker:
+  hidden: true
+media_player.atv_living_room_airtunes_speaker:
+  hidden: true
+media_player.computer_airtunes_speaker:
+  hidden: true
+media_player.kevin__raspberry2_attic_airtunes_speaker:
   hidden: true
