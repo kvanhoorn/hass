@@ -14,6 +14,7 @@ homeassistant:
   time_zone: Europe/Amsterdam
   # Customization file
   customize: !include customize.yaml
+  customize_domain: !include customize_domain.yaml
 
 logger:
   default: info
@@ -145,7 +146,7 @@ sensor:
     automatic_add: true
     devices:
       0a5207013f0e00ba3a0179:
-        name: Temperatuur woonkamer
+        name: Temperatuur logeerkamer
       0a5207035c0e00cc3c0149:
         name: Temperatuur slaapkamer
       0a520302bf010075430049:
