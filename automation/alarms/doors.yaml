@@ -3,15 +3,15 @@
   trigger:
     platform: state
     entity_id:
-    - binary_sensor.voordeur
-    - binary_sensor.deur_keuken
-    - binary_sensor.deur_woonkamer
-    - binary_sensor.schuurdeur
-    - binary_sensor.raam_logeerkamer
-    - binary_sensor.raam_slaapkamer
-    - binary_sensor.raam_studeerkamer
-    - binary_sensor.raam_zolder
-    - binary_sensor.garagedeur
+      - binary_sensor.voordeur
+      - binary_sensor.deur_keuken
+      - binary_sensor.deur_woonkamer
+      - binary_sensor.schuurdeur
+      - binary_sensor.raam_logeerkamer
+      - binary_sensor.raam_slaapkamer
+      - binary_sensor.raam_studeerkamer
+      - binary_sensor.raam_zolder
+      - binary_sensor.garagedeur
     to: 'on'
   condition:
     - condition: state
@@ -33,15 +33,15 @@
   trigger:
     platform: state
     entity_id:
-    - binary_sensor.voordeur
-    - binary_sensor.deur_keuken
-    - binary_sensor.deur_woonkamer
-    - binary_sensor.schuurdeur
-    - binary_sensor.raam_logeerkamer
-    - binary_sensor.raam_slaapkamer
-    - binary_sensor.raam_studeerkamer
-    - binary_sensor.raam_zolder
-    - binary_sensor.garagedeur
+      - binary_sensor.voordeur
+      - binary_sensor.deur_keuken
+      - binary_sensor.deur_woonkamer
+      - binary_sensor.schuurdeur
+      - binary_sensor.raam_logeerkamer
+      - binary_sensor.raam_slaapkamer
+      - binary_sensor.raam_studeerkamer
+      - binary_sensor.raam_zolder
+      - binary_sensor.garagedeur
     to: 'on'
   condition:
     - condition: state

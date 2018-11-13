@@ -53,11 +53,26 @@ sun:
 http:
 #  api_password: !secret http_password
 
+sabnzbd:
+  api_key: !secret sab_apikey
+  host: !secret sab_host
+  sensors:
+    - current_status
+    - disk_free
+    - month_size
+    - total_size
+
 mind:
   username: !secret mind_username
   password: !secret mind_password
   client_id: c030ad63a0e4433d86e4a36fc4047ce2
   client_secret: E97F8294804c49Cd83b0b9f0552577B2
+
+p2000:
+  regios: 22
+  disciplines: 1,2,3
+  distance: 100000
+  interval: 30
 
 weather:
   - platform: buienradar
@@ -128,13 +143,11 @@ input_number:
 
 sensor:
   - platform: yr
-  # - platform: fitbit
-  #   monitored_resources:
-  #     - activities/distance
-  #     - activities/heart
-  #     - activities/steps
-  #     - activities/tracker/steps
-  #     - devices/battery
+  - platform: fitbit
+    monitored_resources:
+      - activities/distance
+      - activities/heart
+      - activities/steps
   - platform: time_date
     display_options:
       - 'time'
@@ -169,6 +182,8 @@ sensor:
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "C"
     value_template: '{{ value | multiply(0.001) | round(1) }}'
+  - platform: uptime
+  - platform: version
   - platform: systemmonitor
     resources:
       - type: disk_use_percent
@@ -240,27 +255,10 @@ sensor:
       - 50
     monitored_conditions:
       - ping
-  - platform: rest
-    name: 'Grijze bak'
-    resource: !secret cure_afval_url
-    value_template: "{{value_json
-      | selectattr('title', 'eq', 'Restafval')
-      | map(attribute='ophaaldatum') | first }}"
-    scan_interval: 3600
-  - platform: rest
-    name: 'Groene bak'
-    resource: !secret cure_afval_url
-    value_template: "{{value_json
-      | selectattr('title', 'eq', 'Groente, fruit- en tuinafval')
-      | map(attribute='ophaaldatum') | first }}"
-    scan_interval: 3600
-  - platform: rest
-    name: 'Papier en karton'
-    resource: !secret cure_afval_url
-    value_template: "{{value_json
-      | selectattr('title', 'eq', 'Papier en karton')
-      | map(attribute='ophaaldatum') | first }}"
-    scan_interval: 3600
+  - platform: cure_waste
+    location: Eindhoven
+    postalcode: 5632SB
+    housenumber: 47
 
 binary_sensor:
   - platform: rfxtrx

@@ -43,7 +43,7 @@
     entity_id: binary_sensor.pir_hal
     to: 'off'
     for:
-      minutes: 5
+      minutes: 10
   condition:
     condition: state
     entity_id: input_boolean.is_it_night
@@ -69,7 +69,7 @@
     entity_id: binary_sensor.pir_zolder
     to: 'off'
     for:
-      seconds: 10
+      minutes: 10
   action:
     service: light.turn_off
     entity_id: group.attic_lights

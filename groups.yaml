@@ -125,9 +125,12 @@ trash_sensors:
   name: Afval sensoren
   view: false
   entities:
-    - sensor.groene_bak
-    - sensor.grijze_bak
-    - sensor.papier_en_karton
+    - sensor.eindhoven_biodegradable_waste
+    - sensor.eindhoven_general_waste
+    - sensor.eindhoven_paper_waste
+    - sensor.eindhoven_biodegradable_waste_countdown
+    - sensor.eindhoven_general_waste_countdown
+    - sensor.eindhoven_paper_waste_countdown
 media_controls:
   name: Media controls
   view: false
@@ -135,7 +138,7 @@ media_controls:
     - input_select.harmony_hub
     - switch.radio__keuken
     - switch.radio__badkamer
-    - switch.radio__garage  
+    - switch.radio__garage
 nest_collection:
   name: Nest
   view: false
@@ -189,6 +192,8 @@ nerd_statistics:
     - sensor.memory_free
     - sensor.network_in_wlan0
     - sensor.network_out_wlan0
+    - sensor.uptime
+    - sensor.current_version
 darksky_collection:
   name: Dark Sky
   view: false
@@ -241,3 +246,20 @@ misc:
     - sensor.date
     - sensor.time
     - sensor.yr_symbol
+sab_collection:
+  name: SABnzbd
+  view: false
+  entities:
+    - sensor.sabnzbd_disk_free
+    - sensor.sabnzbd_monthly_total
+    - sensor.sabnzbd_status
+    - sensor.sabnzbd_total
+fitbit_collection:
+  name: Fitbit
+  view: false
+  entities:
+    - sensor.charge_2_battery
+    - sensor.distance
+    - sensor.resting_heart_rate
+    - sensor.steps
+    - sensor.tracker_steps
