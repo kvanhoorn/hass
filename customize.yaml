@@ -84,3 +84,17 @@ media_player.computer_airtunes_speaker:
   hidden: true
 media_player.kevin__raspberry2_attic_airtunes_speaker:
   hidden: true
+
+# overwrite waste sensors
+sensor.eindhoven_biodegradable_waste:
+  friendly_name: GFT afval
+sensor.eindhoven_general_waste:
+  friendly_name: Restafval
+sensor.eindhoven_paper_waste:
+  friendly_name: Papier en karton
+sensor.eindhoven_biodegradable_waste_countdown:
+  friendly_name: Dagen voor GFT
+sensor.eindhoven_general_waste_countdown:
+  friendly_name: Dagen voor rest
+sensor.eindhoven_paper_waste_countdown:
+  friendly_name: Dagen voor papier en karton
