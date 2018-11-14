@@ -53,6 +53,10 @@ sensor.eindhoven_biodegradable_waste_countdown:
 
 ```
 
+### Screenshot
+
+<img src="https://raw.githubusercontent.com/kvanhoorn/hass/master/screenshots/cure_waste_dashboard.png" alt="Screenshot Cure Waste component" width="300">
+
 ### Automation example
 
 If you would like to receive a proper notification one day before, you could use an automation like in the xample below:
