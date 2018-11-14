@@ -85,7 +85,7 @@ media_player.computer_airtunes_speaker:
 media_player.kevin__raspberry2_attic_airtunes_speaker:
   hidden: true
 
-# overwrite waste sensors
+# overwrite waste sensor names
 sensor.eindhoven_biodegradable_waste:
   friendly_name: GFT afval
 sensor.eindhoven_general_waste:
@@ -98,3 +98,35 @@ sensor.eindhoven_general_waste_countdown:
   friendly_name: Dagen voor rest
 sensor.eindhoven_paper_waste_countdown:
   friendly_name: Dagen voor papier en karton
+
+# overwrite temperature sensor names
+sensor.temperatuur_buiten_temperature:
+  friendly_name: Buiten
+sensor.temperatuur_slaapkamer_temperature:
+  friendly_name: Slaapkamer
+sensor.temperatuur_logeerkamer_temperature:
+  friendly_name: Logeerkamer
+
+# overwrite fire alarm
+sensor.brandalarm_keuken_sensor_status:
+  friendly_name: Brandalarm keuken
+  icon: mdi:fire
+sensor.brandalarm_woonkamer_sensor_status:
+  friendly_name: Brandalarm woonkamer
+  icon: mdi:fire
+sensor.brandalarm_zolder_sensor_status:
+  friendly_name: Brandalarm zolder
+  icon: mdi:fire
+
+# overwrite plant names
+sensor.temperatuur_peace_lily__witte_bloem_temperature:
+  friendly_name: Peace Lily - witte bloem
+sensor.temperatuur_yucca__palmboom_temperature:
+  friendly_name: Yucca - palmboom
+sensor.peace_lily__witte_bloem_humidity:
+  icon: mdi:water
+sensor.yucca__palmboom_humidity:
+  icon: mdi:water
+
+climate.downstairs:
+  friendly_name: Thermostaat beneden
