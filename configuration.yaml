@@ -19,8 +19,9 @@ homeassistant:
 logger:
   default: info
   # logs:
-  #    homeassistant.components.rfxtrx: debug
-  #    homeassistant.components.mqtt: debug
+  #  custom_components.p2000: debug
+  #  homeassistant.components.rfxtrx: debug
+  #  homeassistant.components.mqtt: debug
 
 # Enables the frontend
 frontend:
@@ -71,7 +72,7 @@ mind:
 p2000:
   regios: 22
   disciplines: 1,2,3
-  distance: 100000
+  distance: 10000
   interval: 30
 
 weather:
@@ -197,8 +198,11 @@ sensor:
       - type: processor_use
       - type: last_boot
   - platform: command_line
-    name: Internal IP
+    name: Internal IP WiFi
     command: "ip addr show wlan0 | grep -Po 'inet \\K[\\d.]+'"
+  - platform: command_line
+    name: Internal IP LAN
+    command: "ip addr show eth0 | grep -Po 'inet \\K[\\d.]+'"
   - platform: command_line
     name: External IP
     command: "/usr/bin/curl kvanhoorn.nl/myip/"

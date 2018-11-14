@@ -3,12 +3,14 @@
   trigger:
     platform: state
     entity_id:
-      - sensor.internal_ip
+      - sensor.internal_ip_wifi
+      - sensor.internal_ip_lan
       - sensor.external_ip
   action:
     service: notify.pushover
     data_template:
-      title: 'IP address changed'
+      title: 'IP address changed
+        ({{trigger.to_state.attributes.friendly_name}})'
       message: 'From {{trigger.from_state.state}} to {{trigger.to_state.state}}'
       data:
         priority: 0
