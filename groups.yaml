@@ -185,7 +185,8 @@ nerd_statistics:
     - sensor.disk_use_percent_home
     - sensor.last_boot
     - sensor.external_ip
-    - sensor.internal_ip
+    - sensor.internal_ip_wifi
+    - sensor.internal_ip_lan
     - sensor.load_5m
     - sensor.processor_use
     - sensor.speedtest_ping
