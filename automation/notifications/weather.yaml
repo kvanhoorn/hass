@@ -1,0 +1,18 @@
+---
+- alias: Weather morning notification
+  trigger:
+    platform: time
+    at: '07:00:00'
+  condition:
+    condition: state
+    entity_id: input_boolean.is_it_weekend
+    state: 'off'
+  action:
+    - service_template: notify.pushover
+      data_template:
+        title: "Weerbericht"
+        message: "Het wordt vandaag
+          min. {{states.sensor.yahoo_vandaag_temperature_min.state}} en
+          max. {{states.sensor.yahoo_vandaag_temperature_max.state}} graden.
+          Het is nu {{states.sensor.temperatuur_buiten_temperature.state}}
+          graden."

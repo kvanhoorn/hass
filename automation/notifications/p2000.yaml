@@ -9,3 +9,6 @@
         title: "P2000"
         message: "{{ trigger.event.data.text }}"
         target: "kevin-iphone"
+        data:
+          priority: -2
+

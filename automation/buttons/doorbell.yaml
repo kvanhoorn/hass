@@ -15,12 +15,20 @@
         title: "Deurbel"
         message: "De deurbel gaat"
         data:
-          priority: 0
+          priority: -2
           file:
             url: !secret camera1_still
             auth: basic
             username: !secret camera1_username
             password: !secret camera1_password
+    - service: notify.pushover
+      data:
+        title: "Deurbel"
+        message: "De deurbel gaat"
+        data:
+          priority: 0
+          file:
+            url: !secret camera2_still
     - service: switch.turn_off
       entity_id: switch.deurbel
     - service: input_boolean.turn_off

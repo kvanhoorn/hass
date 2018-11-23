@@ -246,7 +246,6 @@ misc:
     - sun.sun
     - sensor.date
     - sensor.time
-    - sensor.yr_symbol
 sab_collection:
   name: SABnzbd
   view: false
@@ -264,3 +263,20 @@ fitbit_collection:
     - sensor.resting_heart_rate
     - sensor.steps
     - sensor.tracker_steps
+yahoo_collection:
+  name: Yahoo weer
+  view: false
+  entities:
+    - sensor.yahoo_vandaag_condition
+    - sensor.yahoo_vandaag_current
+    - sensor.yahoo_vandaag_temperature_max
+    - sensor.yahoo_vandaag_temperature_min
+yr_collection:
+  name: YR weer
+  view: false
+  entities:
+    - sensor.yr_symbol
+    - sensor.yr_cloudiness
+    - sensor.yr_fog
+    - sensor.yr_precipitation
+    - sensor.yr_temperature

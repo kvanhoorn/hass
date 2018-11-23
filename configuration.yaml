@@ -25,6 +25,8 @@ logger:
 
 # Enables the frontend
 frontend:
+  themes:
+    solarized_dark: !include themes/solarized_dark.yaml
 
 # Enables configuration UI
 config:
@@ -144,6 +146,19 @@ input_number:
 
 sensor:
   - platform: yr
+    monitored_conditions:
+      - temperature
+      - precipitation
+      - fog
+      - cloudiness
+      - symbol
+  - platform: yweather
+    name: Yahoo vandaag
+    monitored_conditions:
+      - weather
+      - weather_current
+      - temp_min
+      - temp_max
   - platform: fitbit
     monitored_resources:
       - activities/distance
@@ -388,6 +403,13 @@ camera:
     still_image_url: !secret camera1_still
     username: !secret camera1_username
     password: !secret camera1_password
+  - platform: generic
+    name: Front door
+    still_image_url: !secret camera2_still
+  - platform: generic
+    name: Weather
+    still_image_url: https://www.yr.no/place/Netherlands/North_Brabant/Eindhoven/meteogram.svg
+    content_type: 'image/svg+xml'
 
 homekit:
   filter:
