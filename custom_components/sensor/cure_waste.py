@@ -96,15 +96,15 @@ class CureWasteSensor(Entity):
         
         if self._type == 'general_waste':
             for l in value:
-                if l['title'] == 'Restafval' and l['ophaaldatum'] is not None:
+                if l['icon'] == 'kliko-grijs-rest' and l['ophaaldatum'] is not None:
                     self._state = l['ophaaldatum']
         if self._type == 'biodegradable_waste':
             for l in value:
-                if l['title'] == 'Groente, fruit- en tuinafval' and l['ophaaldatum'] is not None:
+                if l['icon'] == 'appel-gft' and l['ophaaldatum'] is not None:
                     self._state = l['ophaaldatum']
         if self._type == 'paper_waste':
             for l in value:
-                if l['title'] == 'Papier en karton' and l['ophaaldatum'] is not None:
+                if l['icon'] == 'doos-karton-papier' and l['ophaaldatum'] is not None:
                     self._state = l['ophaaldatum']
 
 
@@ -146,17 +146,17 @@ class CureWasteCountdownSensor(Entity):
         
         if self._type == 'general_waste':
             for l in value:
-                if l['title'] == 'Restafval' and l['ophaaldatum'] is not None:
+                if l['icon'] == 'kliko-grijs-rest' and l['ophaaldatum'] is not None:
                     d = datetime.strptime(l['ophaaldatum'], '%Y-%m-%d') + timedelta(days=1)
                     self._state = (d - datetime.now()).days
         if self._type == 'biodegradable_waste':
             for l in value:
-                if l['title'] == 'Groente, fruit- en tuinafval' and l['ophaaldatum'] is not None:
+                if l['icon'] == 'appel-gft' and l['ophaaldatum'] is not None:
                     d = datetime.strptime(l['ophaaldatum'], '%Y-%m-%d') + timedelta(days=1)
                     self._state = (d - datetime.now()).days
         if self._type == 'paper_waste':
             for l in value:
-                if l['title'] == 'Papier en karton' and l['ophaaldatum'] is not None:
+                if l['icon'] == 'doos-karton-papier' and l['ophaaldatum'] is not None:
                     d = datetime.strptime(l['ophaaldatum'], '%Y-%m-%d') + timedelta(days=1)
                     self._state = (d - datetime.now()).days
 
