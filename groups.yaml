@@ -16,6 +16,8 @@ temperature:
     - sensor.temperatuur_buiten_temperature
     - sensor.temperatuur_logeerkamer_temperature
     - sensor.temperatuur_slaapkamer_temperature
+    - sensor.temperatuur_badkamer_temperature
+    - sensor.temperatuur_garage_temperature
     - climate.downstairs
 sensors:
   name: Sensoren
@@ -96,6 +98,11 @@ doors:
     - binary_sensor.raam_studeerkamer
     - binary_sensor.raam_zolder
     - binary_sensor.garagedeur
+doors_inside:
+  name: Deuren/ramen binnen
+  view: false
+  entities:
+    - binary_sensor.deur_logeerkamer
 plants:
   name: Planten
   view: false
@@ -217,6 +224,7 @@ pirs:
   entities:
     - binary_sensor.pir_hal
     - binary_sensor.pir_zolder
+    - binary_sensor.pir_logeerkamer
 firealarms:
   name: Fire alarms
   view: false
@@ -239,6 +247,8 @@ temperature_collection:
     - sensor.temperatuur_buiten_temperature
     - sensor.temperatuur_slaapkamer_temperature
     - sensor.temperatuur_logeerkamer_temperature
+    - sensor.temperatuur_garage_temperature
+    - sensor.temperatuur_badkamer_temperature
 misc:
   name: Miscellaneous
   view: false

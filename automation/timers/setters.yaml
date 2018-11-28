@@ -3,7 +3,7 @@
 - alias: timer_setter_weekend
   trigger:
     platform: time
-    at: '17:15:00'
+    at: '17:00:00'
   condition:
     - condition: time
       weekday:

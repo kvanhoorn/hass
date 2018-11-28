@@ -18,6 +18,8 @@ light.slaapkamer_tv:
   hidden: true
 light.tv:
   hidden: true
+light.entertainment_area_1:
+  hidden: true
 
 # unused nest sensors
 binary_sensor.downstairs_thermostat_fan:
@@ -106,6 +108,10 @@ sensor.temperatuur_slaapkamer_temperature:
   friendly_name: Slaapkamer
 sensor.temperatuur_logeerkamer_temperature:
   friendly_name: Logeerkamer
+sensor.temperatuur_garage_temperature:
+  friendly_name: Garage
+sensor.temperatuur_badkamer_temperature:
+  friendly_name: Badkamer
 
 # overwrite fire alarm
 sensor.brandalarm_keuken_sensor_status:
