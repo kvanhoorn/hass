@@ -1,0 +1,15 @@
+---
+- alias: Front door opens
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.voordeur
+      to: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Voordeur geopend"
+        message: "De voordeur is geopend"
+        data:
+          priority: -2
+          file:
+            url: !secret camera2_still
