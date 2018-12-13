@@ -6,10 +6,13 @@
     entity_id: switch.woonkamerverlichting
     to: 'on'
   action:
-    service: hue.hue_activate_scene
-    data:
-      group_name: "Living room"
-      scene_name: "DOM_evening"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Living room"
+        scene_name: "DOM_evening"
+    - service: light.turn_on
+      data:
+        entity_id: light.kerstboom
 
 # Woonkamer off
 - alias: Woonkamer verlichting uit
@@ -33,6 +36,7 @@
         - light.h_outdoor_1
         - light.h_outdoor_2
         - light.h_outdoor_3
+        - light.kerstboom
 
 # Tafelverlichting on
 - alias: Tafelverlichting aan
