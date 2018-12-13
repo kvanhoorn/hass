@@ -1,0 +1,357 @@
+{
+    "data": {
+        "config": {
+            "resources": [
+                {
+                    "type": "js",
+                    "url": "/local/js/group-card.js"
+                }
+            ],
+            "title": "VinkHoorn",
+            "views": [
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "card": {
+                                "show_state": false,
+                                "title": "Thuis",
+                                "type": "glance"
+                            },
+                            "entities": [
+                                "input_boolean.kevin_present",
+                                "input_boolean.wmijn_present"
+                            ],
+                            "state_filter": [
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "switch.woonkamerverlichting",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Woonk.",
+                                    "tap_action": "toggle",
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "switch.tafelverlichting",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Tafel",
+                                    "tap_action": "toggle",
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "light.kerstboom",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Kerstboom",
+                                    "tap_action": "toggle",
+                                    "type": "entity-button"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "entity": "climate.downstairs",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "weather.buienradar",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "card": {
+                                "entities": [
+                                    "input_select.harmony_hub",
+                                    "switch.radio__keuken",
+                                    "switch.radio__badkamer",
+                                    "switch.radio__garage"
+                                ],
+                                "show_header_toggle": false,
+                                "title": "Media",
+                                "type": "entities"
+                            },
+                            "group": "group.media_controls",
+                            "type": "custom:group-card"
+                        },
+                        {
+                            "camera_image": "camera.front_door",
+                            "entities": [
+                                "binary_sensor.voordeur",
+                                "binary_sensor.pir_hal",
+                                "light.carport"
+                            ],
+                            "type": "picture-glance"
+                        },
+                        {
+                            "camera_image": "camera.street",
+                            "entities": [
+                                "sensor.temperatuur_buiten_temperature",
+                                "sensor.dark_sky_icon"
+                            ],
+                            "type": "picture-glance"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "plant.peace_lily__witte_bloem",
+                                    "type": "plant-status"
+                                },
+                                {
+                                    "entity": "plant.yucca__palmboom",
+                                    "type": "plant-status"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                "media_player.itunes",
+                                "media_player.kevin__mac_mini",
+                                "media_player.kevin__mac_pro",
+                                "media_player.atv_living_room",
+                                "media_player.atv_bedroom_2"
+                            ],
+                            "state_filter": [
+                                "playing",
+                                "paused",
+                                "idle",
+                                "on"
+                            ],
+                            "type": "entity-filter"
+                        },
+                        {
+                            "card": {
+                                "entities": [
+                                    "sensor.temperatuur_buiten_temperature",
+                                    "sensor.temperatuur_slaapkamer_temperature",
+                                    "sensor.temperatuur_logeerkamer_temperature",
+                                    "sensor.temperatuur_garage_temperature",
+                                    "sensor.temperatuur_badkamer_temperature"
+                                ],
+                                "show_header_toggle": false,
+                                "title": "Temperaturen",
+                                "type": "entities"
+                            },
+                            "group": "group.temperature_collection",
+                            "type": "custom:group-card"
+                        },
+                        {
+                            "card": {
+                                "entities": [
+                                    "sensor.eindhoven_biodegradable_waste",
+                                    "sensor.eindhoven_general_waste",
+                                    "sensor.eindhoven_paper_waste",
+                                    "sensor.eindhoven_biodegradable_waste_countdown",
+                                    "sensor.eindhoven_general_waste_countdown",
+                                    "sensor.eindhoven_paper_waste_countdown"
+                                ],
+                                "show_header_toggle": false,
+                                "title": "Afval",
+                                "type": "entities"
+                            },
+                            "group": "group.trash_sensors",
+                            "type": "custom:group-card"
+                        }
+                    ],
+                    "icon": "mdi:home-account",
+                    "id": "welcome",
+                    "theme": "dark-mode",
+                    "title": "Welcome"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "group": "group.lights",
+                            "type": "custom:group-card"
+                        },
+                        {
+                            "group": "group.radios",
+                            "title": "Hoi",
+                            "type": "custom:group-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "input_boolean.is_it_holiday"
+                                },
+                                {
+                                    "entity": "input_boolean.is_it_night"
+                                },
+                                {
+                                    "entity": "input_boolean.is_it_party"
+                                },
+                                {
+                                    "entity": "input_boolean.send_photo"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Buttons",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:toggle-switch",
+                    "title": "Buttons"
+                },
+                {
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entity": "sensor.nr767t_mileage",
+                                    "image": "/local/img/skoda-front.png",
+                                    "type": "picture-entity"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.car_address"
+                                    ],
+                                    "type": "entities"
+                                },
+                                {
+                                    "entity": "sensor.nr767t_fuel_left",
+                                    "max": 65,
+                                    "min": 0,
+                                    "severity": {
+                                        "green": 20,
+                                        "red": 0,
+                                        "yellow": 10
+                                    },
+                                    "title": "Brandstof",
+                                    "type": "gauge"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.nr767t_mileage_left",
+                                        "binary_sensor.nr767t_ignition",
+                                        "binary_sensor.nr767t_parking_brake",
+                                        "sensor.nr767t_battery"
+                                    ],
+                                    "type": "glance"
+                                },
+                                {
+                                    "aspect_ratio": 0.7,
+                                    "default_zoom": 18,
+                                    "entities": [
+                                        "device_tracker.nr767t"
+                                    ],
+                                    "type": "map"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.euro95"
+                                },
+                                {
+                                    "entity": "sensor.euro95_tinq"
+                                },
+                                {
+                                    "entity": "sensor.diesel"
+                                },
+                                {
+                                    "entity": "sensor.diesel_tinq"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Brandstofprijzen",
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:car",
+                    "id": "car",
+                    "title": "Auto"
+                },
+                {
+                    "cards": [
+                        {
+                            "entity": "sensor.cpu_temperatuur",
+                            "max": 85,
+                            "severity": {
+                                "green": 0,
+                                "red": 75,
+                                "yellow": 60
+                            },
+                            "title": "CPU temperatuur",
+                            "type": "gauge",
+                            "unit_of_measurement": "C"
+                        },
+                        {
+                            "entity": "sensor.disk_use_percent_home",
+                            "severity": {
+                                "green": 75,
+                                "red": 95,
+                                "yellow": 90
+                            },
+                            "title": "Disk usage",
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.load_5m",
+                            "max": 1,
+                            "severity": {
+                                "green": 0.75,
+                                "red": 0.95,
+                                "yellow": 0.9
+                            },
+                            "title": "Load (5m)",
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.memory_free",
+                            "max": 1000,
+                            "severity": {
+                                "green": 500,
+                                "red": 900,
+                                "yellow": 750
+                            },
+                            "title": "Geheugen",
+                            "type": "gauge",
+                            "unit_of_measurement": "M"
+                        },
+                        {
+                            "entities": [
+                                "sensor.external_ip",
+                                "sensor.internal_ip_lan",
+                                "sensor.internal_ip_wifi",
+                                "sensor.last_boot",
+                                "sensor.network_in_wlan0",
+                                "sensor.network_out_wlan0",
+                                "sensor.speedtest_ping"
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.hourly_gas_consumption"
+                            ],
+                            "hours_to_show": 168,
+                            "type": "history-graph"
+                        }
+                    ],
+                    "icon": "mdi:finance",
+                    "id": "nerd",
+                    "title": "Nerd"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "title": "Boodschappen",
+                            "type": "shopping-list"
+                        }
+                    ],
+                    "icon": "mdi:cart",
+                    "title": "Boodschappen"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}
