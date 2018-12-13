@@ -19,6 +19,7 @@ homeassistant:
 logger:
   default: info
   # logs:
+  #  homeassistant.components.sensor.rest: debug
   #  custom_components.p2000: debug
   #  homeassistant.components.rfxtrx: debug
   #  homeassistant.components.mqtt: debug
@@ -282,6 +283,32 @@ sensor:
     location: Eindhoven
     postalcode: 5632SB
     housenumber: 47
+  - platform: scrape
+    name: Euro95
+    resource: !secret fuel_prices_nationwide
+    select: ".table div:nth-of-type(8)"
+    value_template: "{{ value.split(' ')[1].replace(',', '.') | float }}"
+    scan_interval: 3600
+  - platform: scrape
+    name: Diesel
+    resource: !secret fuel_prices_nationwide
+    select: ".table div:nth-of-type(14)"
+    value_template: "{{ value.split(' ')[1].replace(',', '.') | float }}"
+    scan_interval: 3600
+  - platform: scrape
+    name: Euro95 (Tinq)
+    resource: !secret fuel_prices_local
+    select: "#station-prijzen tr:nth-of-type(4) td:nth-of-type(2)"
+    value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
+    scan_interval: 3600
+    verify_ssl: false
+  - platform: scrape
+    name: Diesel (Tinq)
+    resource: !secret fuel_prices_local
+    select: "#station-prijzen tr:nth-of-type(3) td:nth-of-type(2)"
+    value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
+    scan_interval: 3600
+    verify_ssl: false
 
 binary_sensor:
   - platform: rfxtrx
@@ -404,6 +431,8 @@ light:
         name: Zolder - bank
       0b110037007D364602010f60:
         name: Zolder - scherm
+      0b11000361bc0cfe08010f70:
+        name: Kerstboom
 
 # Cloud
 cloud:
@@ -434,8 +463,6 @@ homekit:
       - input_boolean.wmijn_present
       - climate.downstairs
       - input_boolean.is_it_night
-      - sensor.temperatuur_peace_lily__witte_bloem_temperature
-      - sensor.temperatuur_yucca__palmboom_temperature
       - switch.radio__garage
       - switch.radio__keuken
       - switch.radio__badkamer
@@ -445,10 +472,7 @@ homekit:
       - light.bureaulamp
       - light.carport
       - light.hal__led_bak
-      - light.zolder__bank
-      - light.zolder__scherm
-      - sensor.gas_consumption
-      - sensor.power_consumption_normal
+      - light.kerstboom
 
 rfxtrx:
   device: !secret rfxtrx_device

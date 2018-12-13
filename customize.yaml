@@ -136,3 +136,16 @@ sensor.yucca__palmboom_humidity:
 
 climate.downstairs:
   friendly_name: Thermostaat beneden
+
+sensor.diesel:
+  unit_of_measurement: "€/l"
+  icon: mdi:gas-station
+sensor.euro95:
+  unit_of_measurement: "€/l"
+  icon: mdi:gas-station
+sensor.diesel_tinq:
+  unit_of_measurement: "€/l"
+  icon: mdi:gas-station
+sensor.euro95_tinq:
+  unit_of_measurement: "€/l"
+  icon: mdi:gas-station

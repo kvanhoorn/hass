@@ -67,7 +67,6 @@ lights:
   view: true
   entities:
     - light.b_tv
-    - light.backyard
     - light.h_outdoor_1
     - light.h_outdoor_2
     - light.h_outdoor_3
@@ -76,6 +75,7 @@ lights:
     - light.h_tv_lamp
     - light.h_tafel_kamer
     - light.h_tafel_raam
+    - light.kerstboom
     - light.plafondlamp
     - light.badkamer__lamp
     - light.bureaulamp
@@ -290,3 +290,11 @@ yr_collection:
     - sensor.yr_fog
     - sensor.yr_precipitation
     - sensor.yr_temperature
+fuel_collection:
+  name: Brandstofprijzen
+  view: false
+  entities:
+    - sensor.diesel
+    - sensor.euro95
+    - sensor.diesel_tinq
+    - sensor.euro95_tinq
