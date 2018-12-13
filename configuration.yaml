@@ -118,6 +118,9 @@ input_boolean:
   is_it_holiday:
     name: Vakantie
     icon: mdi:beach
+  is_it_party:
+    name: Party
+    icon: mdi:cake
   someone_home:
     name: Iemand thuis
     icon: mdi:home

@@ -1,0 +1,22 @@
+---
+- alias: Party mode on
+  trigger:
+    - platform: state
+      entity_id: input_boolean.is_it_party
+      to: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Party modus aan"
+        message: "Party modus is aan - lichten en alarmen blijven ongewijzigd."
+
+- alias: Party mode off
+  trigger:
+    - platform: state
+      entity_id: input_boolean.is_it_party
+      to: 'off'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Party modus uit"
+        message: "Party modus is uit - normale schema van kracht."
