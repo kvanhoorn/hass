@@ -1,0 +1,38 @@
+---
+- alias: Mac pro disk usage alarm
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.sabnzbd_disk_free
+    below: 12
+    for:
+      minutes: 5
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Mac Pro disk usage"
+        message: "Mac Pro heeft nog {{ states.sensor.sabnzbd_disk_free.state }}
+          GB vrij."
+        data:
+          sound: "siren"
+          priority: 2
+          expire: 3600
+          retry: 60
+
+- alias: Raspberry Pi disk usage alarm
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.disk_use_percent_home
+    above: 90
+    for:
+      minutes: 5
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Raspberry Pi disk usage"
+        message: "Raspbery Pi disk gebruik > 
+          {{ states.sensor.disk_use_percent_home.state }}%"
+        data:
+          sound: "siren"
+          priority: 2
+          expire: 3600
+          retry: 60
