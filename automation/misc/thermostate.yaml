@@ -56,3 +56,20 @@
       data:
         entity_id: climate.downstairs
         away_mode: 'on'
+
+# somebody turned off eco
+- alias: turn off away when eco off
+  trigger:
+    - platform: state
+      entity_id: sensor.downstairs_thermostat_operation_mode
+      from: 'eco'
+      to: 'heat'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.eindhoven_away
+      state: 'on'
+  action:
+    - service: climate.set_away_mode
+      data:
+        entity_id: climate.downstairs
+        away_mode: 'off'
