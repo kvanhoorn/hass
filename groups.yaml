@@ -202,6 +202,7 @@ nerd_statistics:
     - sensor.network_out_wlan0
     - sensor.uptime
     - sensor.current_version
+    - sensor.next_launch
 darksky_collection:
   name: Dark Sky
   view: false

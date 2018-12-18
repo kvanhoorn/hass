@@ -316,13 +316,30 @@
                         },
                         {
                             "entities": [
-                                "sensor.external_ip",
-                                "sensor.internal_ip_lan",
-                                "sensor.internal_ip_wifi",
-                                "sensor.last_boot",
-                                "sensor.network_in_wlan0",
-                                "sensor.network_out_wlan0",
-                                "sensor.speedtest_ping"
+                                {
+                                    "entity": "sensor.external_ip"
+                                },
+                                {
+                                    "entity": "sensor.internal_ip_lan"
+                                },
+                                {
+                                    "entity": "sensor.internal_ip_wifi"
+                                },
+                                {
+                                    "entity": "sensor.last_boot"
+                                },
+                                {
+                                    "entity": "sensor.network_in_wlan0"
+                                },
+                                {
+                                    "entity": "sensor.network_out_wlan0"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_ping"
+                                },
+                                {
+                                    "entity": "sensor.next_launch"
+                                }
                             ],
                             "type": "entities"
                         },

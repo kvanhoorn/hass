@@ -312,6 +312,7 @@ sensor:
     value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
     scan_interval: 3600
     verify_ssl: false
+  - platform: launch_library
 
 binary_sensor:
   - platform: rfxtrx

@@ -3,12 +3,12 @@
   trigger:
     platform: numeric_state
     entity_id: sensor.resting_heart_rate
-    above: 75
-    # for:
-    #   minutes: 5
+    above: 78
+    for:
+      minutes: 5
   action:
     - service: notify.pushover
       data_template:
         message: "Hartslag Willemijn is {{states.sensor.resting_heart_rate.state}},
-          dit is hoger dan 75, gaat alles goed?"
+          dit is hoger dan 78, gaat alles goed?"
         title: "Gezondheid"
