@@ -29,7 +29,7 @@
     - service: notify.pushover
       data_template:
         title: "Raspberry Pi disk usage"
-        message: "Raspbery Pi disk gebruik > 
+        message: "Raspbery Pi disk gebruik >
           {{ states.sensor.disk_use_percent_home.state }}%"
         data:
           sound: "siren"
