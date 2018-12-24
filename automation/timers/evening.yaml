@@ -34,6 +34,7 @@
         - light.h_schemerlamp
         - light.h_staande_lamp
         - light.h_tv_lamp
+        - light.h_piano
         - light.hal__led_bak
         - light.h_outdoor_1
         - light.h_outdoor_2

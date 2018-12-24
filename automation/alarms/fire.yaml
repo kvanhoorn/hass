@@ -10,7 +10,7 @@
   action:
     - service: notify.pushover
       data_template:
-        message: "Er is brand in de
+        message: "Er is brand gemeld door
           {{trigger.to_state.attributes.friendly_name}}"
         title: "Brandalarm"
         data:

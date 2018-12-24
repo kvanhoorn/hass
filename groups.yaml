@@ -61,6 +61,9 @@ buttons:
     - remote.living_room
     - media_player.itunes
     - media_player.kevin__mac_mini
+    - input_boolean.is_it_holiday
+    - input_boolean.is_it_night
+    - input_boolean.is_it_party
 lights:
   name: Lichten
   icon: mdi:lightbulb-on
@@ -73,6 +76,7 @@ lights:
     - light.h_schemerlamp
     - light.h_staande_lamp
     - light.h_tv_lamp
+    - light.h_piano
     - light.h_tafel_kamer
     - light.h_tafel_raam
     - light.kerstboom

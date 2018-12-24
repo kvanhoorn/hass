@@ -75,7 +75,7 @@ mind:
 p2000:
   regios: 22
   disciplines: 1,2,3
-  distance: 10000
+  distance: 500
   interval: 30
 
 weather:
@@ -465,8 +465,9 @@ homekit:
     include_entities:
       - input_boolean.kevin_present
       - input_boolean.wmijn_present
-      - climate.downstairs
+      - input_boolean.is_it_holiday
       - input_boolean.is_it_night
+      - climate.downstairs
       - switch.radio__garage
       - switch.radio__keuken
       - switch.radio__badkamer
