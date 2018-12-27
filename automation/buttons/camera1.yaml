@@ -1,0 +1,52 @@
+---
+- alias: Camera1 left
+  trigger:
+    platform: state
+    entity_id: input_boolean.camera1_left
+    to: 'on'
+  action:
+    - service: rest_command.camera1_control
+      data:
+        posX: -10
+        posY: 0
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.camera1_left
+
+- alias: Camera1 right
+  trigger:
+    platform: state
+    entity_id: input_boolean.camera1_right
+    to: 'on'
+  action:
+    - service: rest_command.camera1_control
+      data:
+        posX: 10
+        posY: 0
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.camera1_right
+
+- alias: Camera1 up
+  trigger:
+    platform: state
+    entity_id: input_boolean.camera1_up
+    to: 'on'
+  action:
+    - service: rest_command.camera1_control
+      data:
+        posX: 0
+        posY: 10
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.camera1_up
+
+- alias: Camera1 down
+  trigger:
+    platform: state
+    entity_id: input_boolean.camera1_down
+    to: 'on'
+  action:
+    - service: rest_command.camera1_control
+      data:
+        posX: 0
+        posY: -10
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.camera1_down

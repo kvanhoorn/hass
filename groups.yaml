@@ -303,3 +303,13 @@ fuel_collection:
     - sensor.euro95
     - sensor.diesel_tinq
     - sensor.euro95_tinq
+camera_control_collection:
+  name: Camera straat controls
+  icon: mdi:camera-control
+  view: true
+  entities:
+    - camera.street
+    - input_boolean.camera1_left
+    - input_boolean.camera1_right
+    - input_boolean.camera1_up
+    - input_boolean.camera1_down

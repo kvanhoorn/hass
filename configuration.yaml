@@ -133,6 +133,18 @@ input_boolean:
   send_photo:
     name: Stuur foto
     icon: mdi:image
+  camera1_left:
+    name: Camera straat links
+    icon: mdi:arrow-left-bold-circle-outline
+  camera1_right:
+    name: Camera straat rechts
+    icon: mdi:arrow-right-bold-circle-outline
+  camera1_up:
+    name: Camera straat omhoog
+    icon: mdi:arrow-up-bold-circle-outline
+  camera1_down:
+    name: Camera straat omlaag
+    icon: mdi:arrow-down-bold-circle-outline
 
 input_number:
   amount_home:
@@ -490,6 +502,12 @@ shell_command:
   radio_off: "/usr/bin/ssh domoticz@192.168.0.56 '/usr/bin/sudo su - kevin -c
   	\"/usr/bin/osascript /scripts/radio_airplay.scpt off
   	{{ radio_name }} {{ volume }}\"'"
+
+rest_command:
+  camera1_control:
+    url: 'http://192.168.0.59:80/cgi/ptdc.cgi?command=set_relative_pos&posX={{posX}}&posY={{posY}}'
+    username: !secret camera1_username
+    password: !secret camera1_password
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/
