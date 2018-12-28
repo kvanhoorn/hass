@@ -1,0 +1,252 @@
+---
+harmony_tv:
+  alias: Harmony TV
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.harmony_hub
+        option: 'TV'
+
+harmony_plex:
+  alias: Harmony Plex
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.harmony_hub
+        option: 'Plex'
+
+harmony_netflix:
+  alias: Harmony Netflix
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.harmony_hub
+        option: 'Netflix'
+
+harmony_poweroff:
+  alias: Harmony PowerOff
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.harmony_hub
+        option: 'PowerOff'    
+
+lr_volume_up:
+  alias: Volume +
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809890 # Pioneer AV Receiver
+        command:
+          - VolumeUp
+
+lr_volume_down:
+  alias: Volume -
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809890 # Pioneer AV Receiver
+        command:
+          - VolumeDown
+
+lr_volume_mute:
+  alias: Volume mute
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809890 # Pioneer AV Receiver
+        command:
+          - Mute
+
+lr_plex_ok:
+  alias: Plex OK
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809893 # Apple Mac Mini
+        command:
+          - OK
+
+lr_plex_menu:
+  alias: Plex menu
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809893 # Apple Mac Mini
+        command:
+          - Menu
+
+lr_plex_down:
+  alias: Plex down
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809893 # Apple Mac Mini
+        command:
+          - DirectionDown
+
+lr_plex_up:
+  alias: Plex up
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809893 # Apple Mac Mini
+        command:
+          - DirectionUp
+
+lr_plex_left:
+  alias: Plex left
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809893 # Apple Mac Mini
+        command:
+          - DirectionLeft
+
+lr_plex_right:
+  alias: Plex right
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809893 # Apple Mac Mini
+        command:
+          - DirectionRight
+
+lr_tv_ch1:
+  alias: TV ch1
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 1
+
+lr_tv_ch2:
+  alias: TV ch2
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 2
+
+lr_tv_ch3:
+  alias: TV ch3
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 3
+
+lr_tv_ch4:
+  alias: TV ch4
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 4
+
+lr_tv_ch5:
+  alias: TV ch5
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 5
+
+lr_tv_ch6:
+  alias: TV ch6
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 6
+
+lr_tv_ch7:
+  alias: TV ch7
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 7
+
+lr_tv_ch8:
+  alias: TV ch8
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 8
+
+lr_tv_ch9:
+  alias: TV ch9
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 9
+
+lr_tv_ch0:
+  alias: TV ch0
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - 0
+
+lr_tv_guide:
+  alias: TV guide
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - Guide
+
+lr_tv_chdown:
+  alias: TV chdown
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - ChannelDown
+
+lr_tv_chup:
+  alias: TV chup
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809894 # Entone DVR
+        command:
+          - ChannelUp

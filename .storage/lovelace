@@ -5,6 +5,10 @@
                 {
                     "type": "js",
                     "url": "/local/js/group-card.js"
+                },
+                {
+                    "type": "js",
+                    "url": "/local/js/thermostat-card.js"
                 }
             ],
             "title": "VinkHoorn",
@@ -55,6 +59,7 @@
                         },
                         {
                             "entity": "climate.downstairs",
+                            "name": "Thermostaat",
                             "type": "thermostat"
                         },
                         {
@@ -365,6 +370,450 @@
                     ],
                     "icon": "mdi:cart",
                     "title": "Boodschappen"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entity": "script.harmony_tv",
+                                    "icon": "mdi:television",
+                                    "name": "TV",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.turn_on",
+                                        "service_data": {
+                                            "entity_id": "script.harmony_tv"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "script.harmony_plex",
+                                    "icon": "mdi:plex",
+                                    "name": "Plex",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.turn_on",
+                                        "service_data": {
+                                            "entity_id": "script.harmony_plex"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "script.harmony_netflix",
+                                    "icon": "mdi:netflix",
+                                    "name": "netflix",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.turn_on",
+                                        "service_data": {
+                                            "entity_id": "script.harmony_netflix"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "script.harmony_poweroff",
+                                    "icon": "mdi:power",
+                                    "name": "uit",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.turn_on",
+                                        "service_data": {
+                                            "entity_id": "script.harmony_poweroff"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "card": {
+                                "cards": [
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_volume_down",
+                                                "icon": "mdi:volume-minus",
+                                                "name": "Vol",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_down"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_plex_up",
+                                                "icon": "mdi:arrow-up",
+                                                "name": "boven",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_up"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_volume_up",
+                                                "icon": "mdi:volume-plus",
+                                                "name": "Vol",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_up"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    },
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_plex_left",
+                                                "icon": "mdi:arrow-left",
+                                                "name": "links",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_left"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_plex_ok",
+                                                "icon": "mdi:circle-outline",
+                                                "name": "ok",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_ok"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_plex_right",
+                                                "icon": "mdi:arrow-right",
+                                                "name": "rechts",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_right"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    },
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_plex_menu",
+                                                "icon": "mdi:menu",
+                                                "name": "menu",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_menu"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_plex_down",
+                                                "icon": "mdi:arrow-down",
+                                                "name": "beneden",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_down"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_volume_mute",
+                                                "icon": "mdi:volume-mute",
+                                                "name": "Mute",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_mute"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    }
+                                ],
+                                "type": "vertical-stack"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "input_select.harmony_hub",
+                                    "state": "Plex"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "cards": [
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_tv_ch1",
+                                                "icon": "mdi:numeric-1",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch1"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_ch2",
+                                                "icon": "mdi:numeric-2",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch2"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_ch3",
+                                                "icon": "mdi:numeric-3",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch3"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    },
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_tv_ch4",
+                                                "icon": "mdi:numeric-4",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch4"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_ch5",
+                                                "icon": "mdi:numeric-5",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch5"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_ch6",
+                                                "icon": "mdi:numeric-6",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch6"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    },
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_tv_ch7",
+                                                "icon": "mdi:numeric-7",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch7"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_ch8",
+                                                "icon": "mdi:numeric-8",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch8"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_ch9",
+                                                "icon": "mdi:numeric-9",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch9"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    },
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_volume_down",
+                                                "icon": "mdi:volume-minus",
+                                                "name": "Vol",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_down"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_ch0",
+                                                "icon": "mdi:numeric-0",
+                                                "name": ".",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_ch0"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_volume_up",
+                                                "icon": "mdi:volume-plus",
+                                                "name": "Vol",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_up"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    },
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_tv_chdown",
+                                                "icon": "mdi:arrow-collapse-down",
+                                                "name": "page down",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_chdown"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_guide",
+                                                "icon": "mdi:television-guide",
+                                                "name": "guide",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_guide"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_tv_chup",
+                                                "icon": "mdi:arrow-collapse-up",
+                                                "name": "page up",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_tv_chup"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    }
+                                ],
+                                "type": "vertical-stack"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "input_select.harmony_hub",
+                                    "state": "TV"
+                                }
+                            ],
+                            "type": "conditional"
+                        }
+                    ],
+                    "icon": "mdi:remote",
+                    "title": "Media control"
                 }
             ]
         }
