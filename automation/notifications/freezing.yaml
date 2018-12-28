@@ -1,0 +1,14 @@
+---
+- alias: Freeze notification
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: template
+    value_template: '{{states.weather.buienradar.attributes.forecast[0].templow < 4.1}}'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Krabmelding"
+        message: "Waarschijnlijk vriest het vannacht! Minimumtemperatuur:
+          {{states.weather.buienradar.attributes.forecast[0].templow}}"
