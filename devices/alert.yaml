@@ -1,0 +1,12 @@
+---
+car_door:
+  name: Car doors left unlocked
+  entity_id: binary_sensor.nr767t_locked
+  state: 'on'
+  repeat: 10
+  skip_first: true
+  can_acknowledge: true
+  message: "Auto is niet op slot!"
+  done_message: "Auto is op slot nu!"
+  notifiers:
+    - pushover

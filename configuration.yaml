@@ -55,7 +55,7 @@ nest:
 p2000:
   regios: 22
   disciplines: 1,2,3
-  distance: 500
+  distance: 1000
   interval: 30
 
 rfxtrx:
@@ -83,6 +83,7 @@ updater:
 # END OTHER CONFIG - START INCLUDES #
 #
 
+alert: !include devices/alert.yaml
 binary_sensor: !include devices/binary_sensor.yaml
 device_tracker: !include devices/device_tracker.yaml
 camera: !include devices/camera.yaml
