@@ -2,11 +2,15 @@
 # unused hue groups
 light.xmasactivegroup:
   hidden: true
+light.xmasactivegroup_2:
+  hidden: true
 light.xmasactivegroupeven:
   hidden: true
 light.xmasactivegroupeven_2:
   hidden: true
 light.xmasactivegroupodd:
+  hidden: true
+light.xmasactivegroupodd_2:
   hidden: true
 light.backyard:
   hidden: true

@@ -1,0 +1,168 @@
+---
+- platform: hue
+  ip_address: !secret hue_ip
+  token: !secret hue_token
+- platform: yr
+  monitored_conditions:
+    - temperature
+    - precipitation
+    - fog
+    - cloudiness
+    - symbol
+- platform: yweather
+  name: Yahoo vandaag
+  monitored_conditions:
+    - weather
+    - weather_current
+    - temp_min
+    - temp_max
+- platform: fitbit
+  monitored_resources:
+    - activities/distance
+    - activities/heart
+    - activities/steps
+- platform: time_date
+  display_options:
+    - 'time'
+    - 'date'
+- platform: dsmr
+  port: !secret dsmr_device
+  dsmr_version: 4
+- platform: rfxtrx
+  automatic_add: false
+  devices:
+    0a5207013f0e00ba3a0179:
+      name: Temperatuur logeerkamer
+    0a5207035c0e00cc3c0149:
+      name: Temperatuur slaapkamer
+    0a52071d7c0e00d32e0149:
+      name: Temperatuur badkamer
+    0a520734530e00d52c0159:
+      name: Temperatuur garage
+    0a520302bf010075430049:
+      name: Temperatuur buiten
+    0a520c1f000200c8050269:
+      name: Temperatuur Yucca - palmboom
+    0a520c35000100dc050269:
+      name: Temperatuur Peace Lily - witte bloem
+    0820032805f1000650:
+      name: Brandalarm woonkamer
+      fire_event: true
+    082003304c40000650:
+      name: Brandalarm keuken
+      fire_event: true
+    08200335d486000640:
+      name: Brandalarm zolder
+      fire_event: true
+- platform: command_line
+  name: CPU Temperatuur
+  command: "cat /sys/class/thermal/thermal_zone0/temp"
+  unit_of_measurement: "C"
+  value_template: '{{ value | multiply(0.001) | round(1) }}'
+- platform: uptime
+- platform: version
+- platform: systemmonitor
+  resources:
+    - type: disk_use_percent
+      arg: /home
+    - type: memory_free
+    - type: load_5m
+    - type: network_in
+      arg: wlan0
+    - type: network_out
+      arg: wlan0
+    - type: processor_use
+    - type: last_boot
+- platform: command_line
+  name: Internal IP WiFi
+  command: "ip addr show wlan0 | grep -Po 'inet \\K[\\d.]+'"
+- platform: command_line
+  name: Internal IP LAN
+  command: "ip addr show eth0 | grep -Po 'inet \\K[\\d.]+'"
+- platform: command_line
+  name: External IP
+  command: "/usr/bin/curl kvanhoorn.nl/myip/"
+- platform: darksky
+  api_key: 2cbc3be161a2e13481e8c56cf491c525
+  monitored_conditions:
+    - summary
+    - icon
+    - precip_type
+    - precip_probability
+    - temperature
+    - apparent_temperature
+    - wind_speed
+    - humidity
+    - visibility
+    - temperature_high
+    - temperature_low
+    - uv_index
+- platform: template
+  sensors:
+    peace_lily__witte_bloem_humidity:
+      # can't cut this up into two lines :(
+      value_template: "{{states.sensor.temperatuur_peace_lily__witte_bloem_temperature.attributes.Humidity
+        | int}}"
+      friendly_name: 'Peace Lily - witte bloem vochtigheid'
+      unit_of_measurement: '%'
+    yucca__palmboom_humidity:
+      # can't cut this up into two lines :(
+      value_template: "{{states.sensor.temperatuur_yucca__palmboom_temperature.attributes.Humidity
+        | int}}"
+      friendly_name: 'Yucca - palmboom vochtigheid'
+      unit_of_measurement: '%'
+    static_battery:
+      value_template: "{{100}}"
+      unit_of_measurement: '%'
+    static_conductivity:
+      value_template: "{{10}}"
+      unit_of_measurement: 'ec'
+    static_brightness:
+      value_template: "{{10}}"
+      unit_of_measurement: 'lm'
+    car_address:
+      value_template: "{{states.device_tracker.nr767t.attributes.street}},
+        {{states.device_tracker.nr767t.attributes.city}},
+        {{states.device_tracker.nr767t.attributes.country}}"
+      friendly_name: 'Adres'
+- platform: speedtest
+  minute:
+    - 0
+    - 10
+    - 20
+    - 30
+    - 40
+    - 50
+  monitored_conditions:
+    - ping
+- platform: cure_waste
+  location: Eindhoven
+  postalcode: 5632SB
+  housenumber: 47
+- platform: scrape
+  name: Euro95
+  resource: !secret fuel_prices_nationwide
+  select: ".table div:nth-of-type(8)"
+  value_template: "{{ value.split(' ')[1].replace(',', '.') | float }}"
+  scan_interval: 3600
+- platform: scrape
+  name: Diesel
+  resource: !secret fuel_prices_nationwide
+  select: ".table div:nth-of-type(14)"
+  value_template: "{{ value.split(' ')[1].replace(',', '.') | float }}"
+  scan_interval: 3600
+- platform: scrape
+  name: Euro95 (Tinq)
+  resource: !secret fuel_prices_local
+  select: "#station-prijzen tr:nth-of-type(4) td:nth-of-type(2)"
+  value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
+  scan_interval: 3600
+  verify_ssl: false
+- platform: scrape
+  name: Diesel (Tinq)
+  resource: !secret fuel_prices_local
+  select: "#station-prijzen tr:nth-of-type(3) td:nth-of-type(2)"
+  value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
+  scan_interval: 3600
+  verify_ssl: false
+- platform: launch_library

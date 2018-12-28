@@ -1,0 +1,37 @@
+---
+is_it_night:
+  name: Nacht
+  icon: mdi:weather-night
+is_it_weekend:
+  name: Weekend
+  icon: mdi:calendar-week
+is_it_holiday:
+  name: Vakantie
+  icon: mdi:beach
+is_it_party:
+  name: Party
+  icon: mdi:cake
+someone_home:
+  name: Iemand thuis
+  icon: mdi:home
+kevin_present:
+  name: Kevin
+  icon: mdi:account
+wmijn_present:
+  name: Willemijn
+  icon: mdi:account
+send_photo:
+  name: Stuur foto
+  icon: mdi:image
+camera1_left:
+  name: Camera straat links
+  icon: mdi:arrow-left-bold-circle-outline
+camera1_right:
+  name: Camera straat rechts
+  icon: mdi:arrow-right-bold-circle-outline
+camera1_up:
+  name: Camera straat omhoog
+  icon: mdi:arrow-up-bold-circle-outline
+camera1_down:
+  name: Camera straat omlaag
+  icon: mdi:arrow-down-bold-circle-outline

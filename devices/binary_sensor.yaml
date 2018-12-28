@@ -1,0 +1,53 @@
+---
+- platform: rfxtrx
+  automatic_add: false
+  devices:
+    09130052554555014e70:
+      name: PIR hal
+      device_class: motion
+      off_delay:
+        seconds: 30
+    09130015d55555016370:
+      name: PIR zolder
+      device_class: motion
+      off_delay:
+        seconds: 30
+    091300be1ee0e9018570:
+      name: PIR logeerkamer
+      device_class: motion
+      off_delay:
+        seconds: 30
+    0b11000500fbc7ce0a010f50:
+      name: Voordeur
+      device_class: door
+    0b11000d00eb4d860a010f50:
+      name: Deur keuken
+      device_class: door
+    0b11001801071a760a010f50:
+      name: Raam studeerkamer
+      device_class: window
+    0b11001d01002a360a010f40:
+      name: Raam slaapkamer
+      device_class: window
+    0b11002400e19a520a010f40:
+      name: Raam Zolder
+      device_class: window
+    0b1100290111eade0a010f50:
+      name: Raam logeerkamer
+      device_class: window
+    0b11003100fc0aea0a010f50:
+      name: Deur woonkamer
+      device_class: door
+    0b11003900eb56360a000040:
+      name: Schuurdeur
+      device_class: door
+    0b11003a00eb573e0a000050:
+      name: Garagedeur
+      device_class: garage_door
+    09130000a499ee013b70:
+      name: Deur logeerkamer
+      device_class: door
+      data_bits: 4
+      command_on: 0xe
+      command_off: 0x7
+      # command_tamper: 0xb

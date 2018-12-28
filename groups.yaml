@@ -64,6 +64,8 @@ buttons:
     - input_boolean.is_it_holiday
     - input_boolean.is_it_night
     - input_boolean.is_it_party
+    - input_select.harmony_hub
+    - sensor.hue_dimmer_switch_1
 lights:
   name: Lichten
   icon: mdi:lightbulb-on
@@ -126,6 +128,7 @@ radios:
     - switch.radio__keuken
     - switch.radio__badkamer
     - switch.radio__garage
+    - sensor.hue_dimmer_switch_1
 attic_lights:
   name: Verlichting zolder
   view: false
@@ -213,9 +216,10 @@ darksky_collection:
   entities:
     - sensor.dark_sky_apparent_temperature
     - sensor.dark_sky_daily_summary
-    - sensor.dark_sky_daytime_high_temperature
+#    - sensor.dark_sky_daytime_high_temperature
     - sensor.dark_sky_icon
-    - sensor.dark_sky_overnight_low_temperature
+    - sensor.dark_sky_humidity
+#    - sensor.dark_sky_overnight_low_temperature
     - sensor.dark_sky_precip
     - sensor.dark_sky_precip_probability
     - sensor.dark_sky_summary

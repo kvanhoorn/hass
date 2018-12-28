@@ -1,0 +1,5 @@
+---
+camera1_control:
+  url: 'http://192.168.0.59:80/cgi/ptdc.cgi?command=set_relative_pos&posX={{posX}}&posY={{posY}}'
+  username: !secret camera1_username
+  password: !secret camera1_password

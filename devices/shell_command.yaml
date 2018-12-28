@@ -1,0 +1,7 @@
+---
+radio_on: "/usr/bin/ssh domoticz@192.168.0.56 '/usr/bin/sudo su - kevin -c
+	\"/usr/bin/osascript /scripts/radio_airplay.scpt on
+	{{ radio_name }} {{ volume }}\"'"
+radio_off: "/usr/bin/ssh domoticz@192.168.0.56 '/usr/bin/sudo su - kevin -c
+	\"/usr/bin/osascript /scripts/radio_airplay.scpt off
+	{{ radio_name }} {{ volume }}\"'"

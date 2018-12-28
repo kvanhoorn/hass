@@ -1,0 +1,18 @@
+---
+filter:
+  include_entities:
+    - input_boolean.kevin_present
+    - input_boolean.wmijn_present
+    - input_boolean.is_it_holiday
+    - input_boolean.is_it_night
+    - climate.downstairs
+    - switch.radio__garage
+    - switch.radio__keuken
+    - switch.radio__badkamer
+    - switch.woonkamerverlichting
+    - switch.tafelverlichting
+    - light.badkamer__lamp
+    - light.bureaulamp
+    - light.carport
+    - light.hal__led_bak
+    - light.kerstboom

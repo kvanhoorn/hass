@@ -1,18 +1,11 @@
 ---
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
+  name: Eindhoven
   latitude: 51.479751
   longitude: 5.503628
-  # Impacts weather/sunrise data (altitude above sea level in meters)
   elevation: 0
-  # metric for Metric, imperial for Imperial
   unit_system: metric
-  # Pick yours from here:
-  # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: Europe/Amsterdam
-  # Customization file
   customize: !include customize.yaml
   customize_domain: !include customize_domain.yaml
 
@@ -24,38 +17,55 @@ logger:
   #  homeassistant.components.rfxtrx: debug
   #  homeassistant.components.mqtt: debug
 
-# Enables the frontend
-frontend:
-  themes:
-    solarized_dark: !include themes/solarized_dark.yaml
+#
+# END MAIN CONFIG - START OTHER CONFIG #
+#
 
-# Enables configuration UI
+cloud:
 config:
+conversation:
 
-updater:
-
-# Discover some devices automatically
 discovery:
   ignore:
     - roku
 
-# Allows you to issue voice commands from the frontend in enabled browsers
-conversation:
+frontend:
+  themes:
+    solarized_dark: !include themes/solarized_dark.yaml
 
-# Enables support for tracking state changes over time
 history:
-
-# View all events in a logbook
 logbook:
-
-# Enables a map showing the location of tracked devices
 map:
 
-# Track the sun
-sun:
+media_player:
+  - platform: itunes
+    host: 192.168.0.56
+  - platform: plex
 
-http:
-#  api_password: !secret http_password
+mind:
+  username: !secret mind_username
+  password: !secret mind_password
+  client_id: c030ad63a0e4433d86e4a36fc4047ce2
+  client_secret: E97F8294804c49Cd83b0b9f0552577B2
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest_client_secret
+
+p2000:
+  regios: 22
+  disciplines: 1,2,3
+  distance: 500
+  interval: 30
+
+rfxtrx:
+  device: !secret rfxtrx_device
+  dummy: false
+
+remote:
+  - platform: harmony
+    name: Living Room
+    host: 192.168.0.105
 
 sabnzbd:
   api_key: !secret sab_apikey
@@ -66,448 +76,28 @@ sabnzbd:
     - month_size
     - total_size
 
-mind:
-  username: !secret mind_username
-  password: !secret mind_password
-  client_id: c030ad63a0e4433d86e4a36fc4047ce2
-  client_secret: E97F8294804c49Cd83b0b9f0552577B2
+sun:
+updater:
 
-p2000:
-  regios: 22
-  disciplines: 1,2,3
-  distance: 500
-  interval: 30
+#
+# END OTHER CONFIG - START INCLUDES #
+#
 
-weather:
-  - platform: buienradar
-    name: 'Buienradar'
-
-input_select:
-  harmony_hub:
-    name: Woonkamer activiteit
-    options:
-      - Kies activiteit
-      - TV
-      - Plex
-      - Netflix
-      - ATV Music
-      - Turntable
-      - PowerOff
-    initial: Kies activiteit
-    icon: mdi:remote
-
-device_tracker:
-  - platform: ping
-    hosts:
-      macpro: 192.168.0.56
-      macmini: 192.168.0.57
-
-notify:
-  - name: pushover
-    platform: pushover
-    api_key: !secret pushover_api_key
-    user_key: !secret pushover_user_secret
-
-input_boolean:
-  is_it_night:
-    name: Nacht
-    icon: mdi:weather-night
-  is_it_weekend:
-    name: Weekend
-    icon: mdi:calendar-week
-  is_it_holiday:
-    name: Vakantie
-    icon: mdi:beach
-  is_it_party:
-    name: Party
-    icon: mdi:cake
-  someone_home:
-    name: Iemand thuis
-    icon: mdi:home
-  kevin_present:
-    name: Kevin
-    icon: mdi:account
-  wmijn_present:
-    name: Willemijn
-    icon: mdi:account
-  send_photo:
-    name: Stuur foto
-    icon: mdi:image
-  camera1_left:
-    name: Camera straat links
-    icon: mdi:arrow-left-bold-circle-outline
-  camera1_right:
-    name: Camera straat rechts
-    icon: mdi:arrow-right-bold-circle-outline
-  camera1_up:
-    name: Camera straat omhoog
-    icon: mdi:arrow-up-bold-circle-outline
-  camera1_down:
-    name: Camera straat omlaag
-    icon: mdi:arrow-down-bold-circle-outline
-
-input_number:
-  amount_home:
-    name: Aantal thuis
-    icon: mdi:home
-    min: 0
-    max: 2
-    step: 1
-  active_speakers:
-    name: Aantal actieve airport speakers
-    icon: mdi:speaker
-    min: 0
-    max: 3
-    step: 1
-
-sensor:
-  - platform: yr
-    monitored_conditions:
-      - temperature
-      - precipitation
-      - fog
-      - cloudiness
-      - symbol
-  - platform: yweather
-    name: Yahoo vandaag
-    monitored_conditions:
-      - weather
-      - weather_current
-      - temp_min
-      - temp_max
-  - platform: fitbit
-    monitored_resources:
-      - activities/distance
-      - activities/heart
-      - activities/steps
-  - platform: time_date
-    display_options:
-      - 'time'
-      - 'date'
-  - platform: dsmr
-    port: !secret dsmr_device
-    dsmr_version: 4
-  - platform: rfxtrx
-    automatic_add: false
-    devices:
-      0a5207013f0e00ba3a0179:
-        name: Temperatuur logeerkamer
-      0a5207035c0e00cc3c0149:
-        name: Temperatuur slaapkamer
-      0a52071d7c0e00d32e0149:
-        name: Temperatuur badkamer
-      0a520734530e00d52c0159:
-        name: Temperatuur garage
-      0a520302bf010075430049:
-        name: Temperatuur buiten
-      0a520c1f000200c8050269:
-        name: Temperatuur Yucca - palmboom
-      0a520c35000100dc050269:
-        name: Temperatuur Peace Lily - witte bloem
-      0820032805f1000650:
-        name: Brandalarm woonkamer
-        fire_event: true
-      082003304c40000650:
-        name: Brandalarm keuken
-        fire_event: true
-      08200335d486000640:
-        name: Brandalarm zolder
-        fire_event: true
-  - platform: command_line
-    name: CPU Temperatuur
-    command: "cat /sys/class/thermal/thermal_zone0/temp"
-    unit_of_measurement: "C"
-    value_template: '{{ value | multiply(0.001) | round(1) }}'
-  - platform: uptime
-  - platform: version
-  - platform: systemmonitor
-    resources:
-      - type: disk_use_percent
-        arg: /home
-      - type: memory_free
-      - type: load_5m
-      - type: network_in
-        arg: wlan0
-      - type: network_out
-        arg: wlan0
-      - type: processor_use
-      - type: last_boot
-  - platform: command_line
-    name: Internal IP WiFi
-    command: "ip addr show wlan0 | grep -Po 'inet \\K[\\d.]+'"
-  - platform: command_line
-    name: Internal IP LAN
-    command: "ip addr show eth0 | grep -Po 'inet \\K[\\d.]+'"
-  - platform: command_line
-    name: External IP
-    command: "/usr/bin/curl kvanhoorn.nl/myip/"
-  - platform: darksky
-    api_key: 2cbc3be161a2e13481e8c56cf491c525
-    monitored_conditions:
-      - apparent_temperature
-      - daily_summary
-      - icon
-      - precip_probability
-      - precip_type
-      - summary
-      - temperature
-      - temperature_high
-      - temperature_low
-      - visibility
-      - wind_speed
-      - uv_index
-  - platform: template
-    sensors:
-      peace_lily__witte_bloem_humidity:
-        # can't cut this up into two lines :(
-        value_template: "{{states.sensor.temperatuur_peace_lily__witte_bloem_temperature.attributes.Humidity
-          | int}}"
-        friendly_name: 'Peace Lily - witte bloem vochtigheid'
-        unit_of_measurement: '%'
-      yucca__palmboom_humidity:
-        # can't cut this up into two lines :(
-        value_template: "{{states.sensor.temperatuur_yucca__palmboom_temperature.attributes.Humidity
-          | int}}"
-        friendly_name: 'Yucca - palmboom vochtigheid'
-        unit_of_measurement: '%'
-      static_battery:
-        value_template: "{{100}}"
-        unit_of_measurement: '%'
-      static_conductivity:
-        value_template: "{{10}}"
-        unit_of_measurement: 'ec'
-      static_brightness:
-        value_template: "{{10}}"
-        unit_of_measurement: 'lm'
-      car_address:
-        value_template: "{{states.device_tracker.nr767t.attributes.street}},
-          {{states.device_tracker.nr767t.attributes.city}},
-          {{states.device_tracker.nr767t.attributes.country}}"
-        friendly_name: 'Adres'
-  - platform: speedtest
-    minute:
-      - 0
-      - 10
-      - 20
-      - 30
-      - 40
-      - 50
-    monitored_conditions:
-      - ping
-  - platform: cure_waste
-    location: Eindhoven
-    postalcode: 5632SB
-    housenumber: 47
-  - platform: scrape
-    name: Euro95
-    resource: !secret fuel_prices_nationwide
-    select: ".table div:nth-of-type(8)"
-    value_template: "{{ value.split(' ')[1].replace(',', '.') | float }}"
-    scan_interval: 3600
-  - platform: scrape
-    name: Diesel
-    resource: !secret fuel_prices_nationwide
-    select: ".table div:nth-of-type(14)"
-    value_template: "{{ value.split(' ')[1].replace(',', '.') | float }}"
-    scan_interval: 3600
-  - platform: scrape
-    name: Euro95 (Tinq)
-    resource: !secret fuel_prices_local
-    select: "#station-prijzen tr:nth-of-type(4) td:nth-of-type(2)"
-    value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
-    scan_interval: 3600
-    verify_ssl: false
-  - platform: scrape
-    name: Diesel (Tinq)
-    resource: !secret fuel_prices_local
-    select: "#station-prijzen tr:nth-of-type(3) td:nth-of-type(2)"
-    value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
-    scan_interval: 3600
-    verify_ssl: false
-  - platform: launch_library
-
-binary_sensor:
-  - platform: rfxtrx
-    automatic_add: false
-    devices:
-      09130052554555014e70:
-        name: PIR hal
-        device_class: motion
-        off_delay:
-          seconds: 30
-      09130015d55555016370:
-        name: PIR zolder
-        device_class: motion
-        off_delay:
-          seconds: 30
-      091300be1ee0e9018570:
-        name: PIR logeerkamer
-        device_class: motion
-        off_delay:
-          seconds: 30
-      0b11000500fbc7ce0a010f50:
-        name: Voordeur
-        device_class: door
-      0b11000d00eb4d860a010f50:
-        name: Deur keuken
-        device_class: door
-      0b11001801071a760a010f50:
-        name: Raam studeerkamer
-        device_class: window
-      0b11001d01002a360a010f40:
-        name: Raam slaapkamer
-        device_class: window
-      0b11002400e19a520a010f40:
-        name: Raam Zolder
-        device_class: window
-      0b1100290111eade0a010f50:
-        name: Raam logeerkamer
-        device_class: window
-      0b11003100fc0aea0a010f50:
-        name: Deur woonkamer
-        device_class: door
-      0b11003900eb56360a000040:
-        name: Schuurdeur
-        device_class: door
-      0b11003a00eb573e0a000050:
-        name: Garagedeur
-        device_class: garage_door
-      09130000a499ee013b70:
-        name: Deur logeerkamer
-        device_class: door
-        data_bits: 4
-        command_on: 0xe
-        command_off: 0x7
-        # command_tamper: 0xb
-
-plant:
-  Peace Lily - witte bloem:
-    sensors:
-      moisture: sensor.peace_lily__witte_bloem_humidity
-      temperature: sensor.temperatuur_peace_lily__witte_bloem_temperature
-      battery: sensor.static_battery
-      conductivity: sensor.static_conductivity
-      brightness: sensor.static_brightness
-  Yucca - palmboom:
-    sensors:
-      moisture: sensor.yucca__palmboom_humidity
-      temperature: sensor.temperatuur_yucca__palmboom_temperature
-      battery: sensor.static_battery
-      conductivity: sensor.static_conductivity
-      brightness: sensor.static_brightness
-
-# Remotes
-remote:
-  - platform: harmony
-    name: Living Room
-    host: 192.168.0.105
-
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
-
-# Switches
-switch:
-  - platform: rfxtrx
-    automatic_add: false
-    devices:
-      0b11001f00b5468a0c010f70:
-        name: Tafelverlichting
-        fire_event: true
-      0b11002300b5468a0b010f60:
-        name: Woonkamerverlichting
-        fire_event: true
-      0b11002701233d660b010f40:
-        name: Radio - Keuken
-        fire_event: true
-      0b11002b01233d660c010f50:
-        name: Radio - Garage
-        fire_event: true
-      0b11002d00e1e5ea0c010f50:
-        name: Radio - Badkamer
-        fire_event: true
-      0b11000b00efe9b201040f60:
-        name: Deurbel
-        fire_event: true
-
-light:
-  - platform: rfxtrx
-    devices:
-      0b11003100e1e5ea0b010f50:
-        name: Badkamer - Lamp
-      0b110032007d364601010f60:
-        name: Plafondlamp
-      0b11003300f70e1202010f60:
-        name: Hal - LED bak
-      0b11003400a6b99e01010f60:
-        name: Bureaulamp
-      0b110035007d364704010f60:
-        name: Carport
-      0b110036007d364603010f60:
-        name: Zolder - bank
-      0b110037007D364602010f60:
-        name: Zolder - scherm
-      0b11000361bc0cfe08010f70:
-        name: Kerstboom
-
-# Cloud
-cloud:
-
-media_player:
-  - platform: itunes
-    host: 192.168.0.56
-  - platform: plex
-
-camera:
-  - platform: generic
-    name: Street
-    still_image_url: !secret camera1_still
-    username: !secret camera1_username
-    password: !secret camera1_password
-  - platform: generic
-    name: Front door
-    still_image_url: !secret camera2_still
-  - platform: generic
-    name: Weather
-    still_image_url: !secret weather_camera_url
-    content_type: 'image/svg+xml'
-
-homekit:
-  filter:
-    include_entities:
-      - input_boolean.kevin_present
-      - input_boolean.wmijn_present
-      - input_boolean.is_it_holiday
-      - input_boolean.is_it_night
-      - climate.downstairs
-      - switch.radio__garage
-      - switch.radio__keuken
-      - switch.radio__badkamer
-      - switch.woonkamerverlichting
-      - switch.tafelverlichting
-      - light.badkamer__lamp
-      - light.bureaulamp
-      - light.carport
-      - light.hal__led_bak
-      - light.kerstboom
-
-rfxtrx:
-  device: !secret rfxtrx_device
-  dummy: false
-
-shell_command:
-  radio_on: "/usr/bin/ssh domoticz@192.168.0.56 '/usr/bin/sudo su - kevin -c
-  	\"/usr/bin/osascript /scripts/radio_airplay.scpt on
-  	{{ radio_name }} {{ volume }}\"'"
-  radio_off: "/usr/bin/ssh domoticz@192.168.0.56 '/usr/bin/sudo su - kevin -c
-  	\"/usr/bin/osascript /scripts/radio_airplay.scpt off
-  	{{ radio_name }} {{ volume }}\"'"
-
-rest_command:
-  camera1_control:
-    url: 'http://192.168.0.59:80/cgi/ptdc.cgi?command=set_relative_pos&posX={{posX}}&posY={{posY}}'
-    username: !secret camera1_username
-    password: !secret camera1_password
+binary_sensor: !include devices/binary_sensor.yaml
+device_tracker: !include devices/device_tracker.yaml
+camera: !include devices/camera.yaml
+homekit: !include devices/homekit.yaml
+input_select: !include devices/input_select.yaml
+input_boolean: !include devices/input_boolean.yaml
+input_number: !include devices/input_number.yaml
+light: !include devices/light.yaml
+notify: !include devices/notify.yaml
+plant: !include devices/plant.yaml
+rest_command: !include devices/rest_command.yaml
+sensor: !include devices/sensor.yaml
+shell_command: !include devices/shell_command.yaml
+switch: !include devices/switch.yaml
+weather: !include devices/weather.yaml
 
 group: !include groups.yaml
 automation: !include_dir_merge_list automation/

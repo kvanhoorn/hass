@@ -1,0 +1,13 @@
+---
+harmony_hub:
+  name: Woonkamer activiteit
+  options:
+    - Kies activiteit
+    - TV
+    - Plex
+    - Netflix
+    - ATV Music
+    - Turntable
+    - PowerOff
+  initial: Kies activiteit
+  icon: mdi:remote
