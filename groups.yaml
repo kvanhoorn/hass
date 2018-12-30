@@ -317,3 +317,10 @@ camera_control_collection:
     - input_boolean.camera1_right
     - input_boolean.camera1_up
     - input_boolean.camera1_down
+feedparser_collection:
+  name: Feedparsers
+  view: false
+  entities:
+    - sensor.omroep_brabant_zuidoost
+    - sensor.nos_algemeen
+    - sensor.nunl_algemeen

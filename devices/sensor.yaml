@@ -97,6 +97,23 @@
     - temperature_high
     - temperature_low
     - uv_index
+- platform: feedparser
+  name: Omroep Brabant Zuid-Oost
+  url: !secret omroepbrabant_rss_url
+  attributes:
+    - summary
+    - link
+- platform: feedparser
+  name: NOS Algemeen
+  url: !secret nosalgemeen_rss_url
+  attributes:
+    - link
+- platform: feedparser
+  name: nu.nl Algemeen
+  url: !secret nunlalgemeen_rss_url
+  attributes:
+    - link
+    - summary
 - platform: template
   sensors:
     peace_lily__witte_bloem_humidity:
