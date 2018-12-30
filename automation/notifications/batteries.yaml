@@ -1,0 +1,57 @@
+---
+- alias: update_battery_template_sensors
+  trigger:
+    platform: time
+    minutes: '/1'
+    seconds: 0
+  action:
+    - service: homeassistant.update_entity
+      entity_id:
+        - sensor.long_time_not_seen_devices
+        - sensor.short_time_not_seen_devices
+
+- alias: send_long_time_battery_devices_notification
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    condition: template
+    value_template: >
+      {% if (states.sensor.long_time_not_seen_devices.state != '') %}
+        true
+      {% else %}
+        false
+      {% endif %}
+  action:
+    - service: notify.pushover
+      data:
+        title: "Sensor batterijen (lang)"
+        message: "{{ states.sensor.long_time_not_seen_devices.state }}"
+
+- alias: send_short_time_battery_devices_notification
+  trigger:
+    platform: time
+    hours: '/1'
+    minutes: 0
+    seconds: 0
+  condition:
+    - condition: template
+      value_template: >
+        {% if (states.sensor.short_time_not_seen_devices.state != '') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+    - condition: or
+      conditions:
+        - condition: time
+          after: '06:00:00'
+          before: '07:00:00'
+        - condition: time
+          after: '17:00:00'
+          before: '22:00:00'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Sensor batterijen (kort)"
+        message: "{{ states.sensor.short_time_not_seen_devices.state }}"

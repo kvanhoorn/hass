@@ -142,6 +142,24 @@
         {{states.device_tracker.nr767t.attributes.city}},
         {{states.device_tracker.nr767t.attributes.country}}"
       friendly_name: 'Adres'
+    long_time_not_seen_devices:
+      friendly_name: 'Meer dan 3 dagen niet gezien'
+      icon_template: 'mdi:battery'
+      value_template: >
+        {% for entity in (states | selectattr('entity_id','in', state_attr('group.long_battery_devices','entity_id'))) %}
+          {%- if (as_timestamp(now()) - as_timestamp(entity.last_updated) > (60 * 60 * 24 * 3)) -%}
+            {{ entity.name }},
+          {%- endif -%}
+        {% endfor %}
+    short_time_not_seen_devices:
+      friendly_name: 'Meer dan 2 uur niet gezien'
+      icon_template: 'mdi:battery'
+      value_template: >
+        {% for entity in (states | selectattr('entity_id','in', state_attr('group.short_battery_devices','entity_id'))) %}
+          {%- if (as_timestamp(now()) - as_timestamp(entity.last_updated) > (60 * 60 * 2)) -%}
+            {{ entity.name }},
+          {%- endif -%}
+        {% endfor %}
 - platform: speedtest
   minute:
     - 0
