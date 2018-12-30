@@ -5,6 +5,7 @@ Most of my configuration and some custom components.
 Component overview
 ------------------
   * [Cure Waste component](#cure-waste-component)
+  * [Feedparser component](#feedparser-component)
 
 ## Cure Waste component
 
@@ -80,3 +81,39 @@ If you would like to receive a proper notification one day before, you could use
         message: "Tomorrow: Paper waste"
 
 ```
+
+## Feedparser component
+
+This component calls RSS feeds to retrieve the latest item
+
+### Installation
+
+- Copy file 'custom_components/sensor/feedparser.py' to your '[ha_config_dir]/custom_components/sensor' directory;
+- Configure with configuration below.
+- Restart Home-Assistant
+
+### Usage
+
+To use this component in you installation, add the following to your 'configuration.yaml' file:
+
+```yaml
+# Example configuration.yaml entry
+
+sensors:
+  - platform: feedparser
+    name: NOS Algemeen
+    url: http://feeds.nos.nl/nosnieuwsalgemeen
+    attributes:
+      - link
+```
+
+Configuration variables:
+
+- **name** (*Required*): Specify the name of these sensors, this can be your city or home name
+- **url** (*Required*): Specify your postalcode, existing out of four numbers and two letters
+- **title_attribute** (*Optional*): Specify the attribute that should be used as the value of the sensor (default 'title')
+- **attributes** (*Optional*): Specify a list of extra attributes to append to the sensor (default: none)
+
+### Screenshot
+
+<img src="https://raw.githubusercontent.com/kvanhoorn/hass/master/screenshots/feedparser_dashboard.png" alt="Screenshot Feedparser component" width="300">
