@@ -8,6 +8,8 @@ homeassistant:
   time_zone: Europe/Amsterdam
   customize: !include customize.yaml
   customize_domain: !include customize_domain.yaml
+  auth_providers:
+    - type: trusted_networks
 
 logger:
   default: info
@@ -34,6 +36,12 @@ frontend:
     solarized_dark: !include themes/solarized_dark.yaml
 
 history:
+
+http:
+  trusted_networks:
+    - 127.0.0.1
+    - 192.168.0.133
+
 logbook:
 map:
 
@@ -91,6 +99,7 @@ homekit: !include devices/homekit.yaml
 input_select: !include devices/input_select.yaml
 input_boolean: !include devices/input_boolean.yaml
 input_number: !include devices/input_number.yaml
+# input_text: !include devices/input_text.yaml
 light: !include devices/light.yaml
 notify: !include devices/notify.yaml
 plant: !include devices/plant.yaml
