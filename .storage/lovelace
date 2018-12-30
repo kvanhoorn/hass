@@ -354,6 +354,15 @@
                             ],
                             "hours_to_show": 168,
                             "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.power_consumption_phase_l1",
+                                "sensor.power_consumption_phase_l2",
+                                "sensor.power_consumption_phase_l3"
+                            ],
+                            "hours_to_show": 8,
+                            "type": "history-graph"
                         }
                     ],
                     "icon": "mdi:finance",
