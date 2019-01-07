@@ -31,8 +31,7 @@
 - alias: send_short_time_battery_devices_notification
   trigger:
     platform: time
-    hours: '/1'
-    minutes: 0
+    minutes: '/30'
     seconds: 0
   condition:
     - condition: template
@@ -42,14 +41,12 @@
         {% else %}
           false
         {% endif %}
-    - condition: or
-      conditions:
-        - condition: time
-          after: '06:00:00'
-          before: '07:00:00'
-        - condition: time
-          after: '17:00:00'
-          before: '22:00:00'
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.is_it_night
+      state: 'off'
   action:
     - service: notify.pushover
       data:
