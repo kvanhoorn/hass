@@ -77,14 +77,12 @@
       - condition: state
         entity_id: input_boolean.is_it_party
         state: 'off'
-      - condition: or
-        conditions:
-          - condition: state
-            entity_id: input_boolean.is_it_weekend
-            state: 'off'
-          - condition: state
-            entity_id: input_boolean.is_it_holiday
-            state: 'off'
+      - condition: state
+        entity_id: input_boolean.is_it_weekend
+        state: 'off'
+      - condition: state
+        entity_id: input_boolean.is_it_holiday
+        state: 'off'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.is_it_night
