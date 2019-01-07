@@ -67,7 +67,8 @@ buttons:
     - input_boolean.is_it_night
     - input_boolean.is_it_party
     - input_select.harmony_hub
-    - sensor.hue_dimmer_switch_1
+    - sensor.hs_bedroom
+    - sensor.hs_kitchen
 lights:
   name: Lichten
   icon: mdi:lightbulb-on
@@ -130,7 +131,8 @@ radios:
     - switch.radio__keuken
     - switch.radio__badkamer
     - switch.radio__garage
-    - sensor.hue_dimmer_switch_1
+    - sensor.hs_bedroom
+    - sensor.hs_kitchen
 attic_lights:
   name: Verlichting zolder
   view: false
