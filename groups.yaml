@@ -214,6 +214,8 @@ nerd_statistics:
     - sensor.uptime
     - sensor.current_version
     - sensor.next_launch
+    - sensor.long_time_not_seen_devices
+    - sensor.short_time_not_seen_devices
 darksky_collection:
   name: Dark Sky
   view: false
@@ -269,6 +271,7 @@ misc:
   view: false
   entities:
     - sun.sun
+    - sensor.moon
     - sensor.date
     - sensor.time
 sab_collection:

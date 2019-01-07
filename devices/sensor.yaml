@@ -16,6 +16,7 @@
     - weather_current
     - temp_min
     - temp_max
+- platform: moon
 - platform: fitbit
   monitored_resources:
     - activities/distance
