@@ -18,6 +18,8 @@ temperature:
     - sensor.temperatuur_slaapkamer_temperature
     - sensor.temperatuur_badkamer_temperature
     - sensor.temperatuur_garage_temperature
+    - sensor.bedroom_vs_outside_temperature
+    - sensor.living_vs_outside_temperature
     - climate.downstairs
 sensors:
   name: Sensoren
@@ -258,6 +260,8 @@ temperature_collection:
     - sensor.temperatuur_logeerkamer_temperature
     - sensor.temperatuur_garage_temperature
     - sensor.temperatuur_badkamer_temperature
+    - sensor.bedroom_vs_outside_temperature
+    - sensor.living_vs_outside_temperature
 misc:
   name: Miscellaneous
   view: false
@@ -352,3 +356,10 @@ short_battery_devices:
     - sensor.temperatuur_garage_temperature
     - sensor.temperatuur_logeerkamer_temperature
     - sensor.temperatuur_slaapkamer_temperature
+bus4_collection:
+  name: Bus 4 vertrektijden
+  view: false
+  entities:
+    - sensor.bus_4_departure1
+    - sensor.bus_4_departure2
+    - sensor.bus_4_departure3

@@ -160,6 +160,58 @@
             {{ entity.name }},
           {%- endif -%}
         {% endfor %}
+    bedroom_vs_outside_temperature:
+      friendly_name: 'Slaapkamer vs buiten temperatuur'
+      icon_template: 'mdi:temperature-celsius'
+      unit_of_measurement: '°C'
+      value_template: >
+        {{ (states.sensor.temperatuur_slaapkamer_temperature.state | float -
+        states.sensor.temperatuur_buiten_temperature.state | float) |
+        float | round(2) }}
+    living_vs_outside_temperature:
+      friendly_name: 'Woonkamer vs buiten temperatuur'
+      icon_template: 'mdi:temperature-celsius'
+      unit_of_measurement: '°C'
+      value_template: >
+        {{ (states.sensor.downstairs_thermostat_temperature.state | float -
+        states.sensor.temperatuur_buiten_temperature.state | float) |
+        float | round(2) }}
+    bus_4_departure1:
+      friendly_name: Vertrek Bus 4
+      entity_id: sensor.bus_4
+      icon_template: "{{ state_attr('sensor.bus_4','icon') }}"
+      value_template: >
+        {%- set departure = state_attr('sensor.bus_4','departures')[0] if state_attr('sensor.bus_4','departures')[0] is defined else None %}
+        {%- if departure %}
+          {%- set message = ' - Vertraging: %s'%departure['Delay'] if departure['Delay'] | int > 0 else '' %}
+          {{ departure['TargetDepartureTime'] }}{{ message }}
+        {%- else %}
+          Nog geen gegevens
+        {%- endif %}
+    bus_4_departure2:
+      friendly_name: Vertrek Bus 4 (2)
+      entity_id: sensor.bus_4
+      icon_template: "{{ state_attr('sensor.bus_4','icon') }}"
+      value_template: >
+        {%- set departure = state_attr('sensor.bus_4','departures')[1] if state_attr('sensor.bus_4','departures')[1] is defined else None %}
+        {%- if departure %}
+          {%- set message = ' - Vertraging: %s'%departure['Delay'] if departure['Delay'] | int > 0 else '' %}
+          {{ departure['TargetDepartureTime'] }}{{ message }}
+        {%- else %}
+          Nog geen gegevens
+        {%- endif %}
+    bus_4_departure3:
+      friendly_name: Vertrek Bus 4 (3)
+      entity_id: sensor.bus_4
+      icon_template: "{{ state_attr('sensor.bus_4','icon') }}"
+      value_template: >
+        {%- set departure = state_attr('sensor.bus_4','departures')[2] if state_attr('sensor.bus_4','departures')[2] is defined else None %}
+        {%- if departure %}
+          {%- set message = ' - Vertraging: %s'%departure['Delay'] if departure['Delay'] | int > 0 else '' %}
+          {{ departure['TargetDepartureTime'] }}{{ message }}
+        {%- else %}
+          Nog geen gegevens
+        {%- endif %}
 - platform: speedtest
   minute:
     - 0
@@ -201,3 +253,6 @@
   scan_interval: 3600
   verify_ssl: false
 - platform: launch_library
+- platform: ovapi
+  name: Bus 4
+  stop_code: !secret busstop_code

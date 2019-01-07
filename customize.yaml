@@ -91,6 +91,10 @@ media_player.computer_airtunes_speaker:
 media_player.kevin__raspberry2_attic_airtunes_speaker:
   hidden: true
 
+# hide other things
+sensor.bus_4:
+  hidden: true
+
 # overwrite waste sensor names
 sensor.eindhoven_biodegradable_waste:
   friendly_name: GFT afval
