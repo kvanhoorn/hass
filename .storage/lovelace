@@ -134,7 +134,9 @@
                                     "sensor.temperatuur_slaapkamer_temperature",
                                     "sensor.temperatuur_logeerkamer_temperature",
                                     "sensor.temperatuur_garage_temperature",
-                                    "sensor.temperatuur_badkamer_temperature"
+                                    "sensor.temperatuur_badkamer_temperature",
+                                    "sensor.bedroom_vs_outside_temperature",
+                                    "sensor.living_vs_outside_temperature"
                                 ],
                                 "show_header_toggle": false,
                                 "title": "Temperaturen",
@@ -158,6 +160,20 @@
                                 "type": "entities"
                             },
                             "group": "group.trash_sensors",
+                            "type": "custom:group-card"
+                        },
+                        {
+                            "card": {
+                                "entities": [
+                                    "sensor.bus_4_departure1",
+                                    "sensor.bus_4_departure2",
+                                    "sensor.bus_4_departure3"
+                                ],
+                                "show_header_toggle": false,
+                                "title": "Bus 4",
+                                "type": "entities"
+                            },
+                            "group": "group.bus4_collection",
                             "type": "custom:group-card"
                         }
                     ],
@@ -202,6 +218,7 @@
                     "title": "Buttons"
                 },
                 {
+                    "badges": [],
                     "cards": [
                         {
                             "cards": [
@@ -266,6 +283,20 @@
                             "show_header_toggle": false,
                             "title": "Brandstofprijzen",
                             "type": "entities"
+                        },
+                        {
+                            "card": {
+                                "entities": [
+                                    "sensor.bus_4_departure1",
+                                    "sensor.bus_4_departure2",
+                                    "sensor.bus_4_departure3"
+                                ],
+                                "show_header_toggle": false,
+                                "title": "Bus 4",
+                                "type": "entities"
+                            },
+                            "group": "group.bus4_collection",
+                            "type": "custom:group-card"
                         }
                     ],
                     "icon": "mdi:car",
@@ -823,6 +854,65 @@
                     ],
                     "icon": "mdi:remote",
                     "title": "Media control"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                "sensor.bedroom_vs_outside_temperature",
+                                "sensor.temperatuur_slaapkamer_temperature",
+                                "sensor.temperatuur_buiten_temperature"
+                            ],
+                            "hours_to_show": 8,
+                            "refresh": 60,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entity": "weather.buienradar",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.downstairs_thermostat_temperature",
+                                    "name": "Woonkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_slaapkamer_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_logeerkamer_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_badkamer_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_garage_temperature",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Temperatuur",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.living_vs_outside_temperature",
+                                "sensor.downstairs_thermostat_temperature",
+                                "sensor.temperatuur_buiten_temperature"
+                            ],
+                            "hours_to_show": 8,
+                            "refresh": 60,
+                            "type": "history-graph"
+                        }
+                    ],
+                    "icon": "mdi:thermometer",
+                    "title": "Temperature"
                 }
             ]
         }
