@@ -21,7 +21,7 @@
         group_name: "Living room"
         scene_name: "DOM_morning"
     - service: light.turn_on
-      entity_id: light.hal__led_bak
+      entity_id: light.hal_led_bak
 
 - alias: 'timer_morning_bathroom'
   trigger:
@@ -40,9 +40,9 @@
         - fri
   action:
     - service: switch.turn_on
-      entity_id: switch.radio__badkamer
+      entity_id: switch.radio_badkamer
     - service: light.turn_on
-      entity_id: light.badkamer__lamp
+      entity_id: light.badkamer_lamp
 
 - alias: 'timer_morning_breakfast'
   trigger:
@@ -62,7 +62,7 @@
   action:
     service: switch.turn_on
     entity_id:
-      - switch.radio__keuken
+      - switch.radio_keuken
 
 - alias: 'timer_morning_tvon'
   trigger:
@@ -81,7 +81,7 @@
         - fri
   action:
     - service: switch.turn_off
-      entity_id: switch.radio__keuken
+      entity_id: switch.radio_keuken
     - service: remote.turn_on
       entity_id: remote.living_room
       data:
@@ -114,10 +114,10 @@
       entity_id:
         - switch.woonkamerverlichting
         - switch.tafelverlichting
-        - switch.radio__badkamer
+        - switch.radio_badkamer
     - service: light.turn_off
       entity_id:
-        - light.hal__led_bak
-        - light.badkamer__lamp
+        - light.hal_led_bak
+        - light.badkamer_lamp
     - service: remote.turn_off
       entity_id: remote.living_room

@@ -43,7 +43,7 @@
         state: "group on"
   condition:
     - condition: state
-      entity_id: media_player.kevin__mac_mini
+      entity_id: media_player.kevin_mac_mini
       state: 'playing'
   action:
     - service: remote.send_command

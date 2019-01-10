@@ -133,13 +133,13 @@ sensor.brandalarm_zolder_sensor_status:
   icon: mdi:fire
 
 # overwrite plant names
-sensor.temperatuur_peace_lily__witte_bloem_temperature:
+sensor.temperatuur_peace_lily_witte_bloem_temperature:
   friendly_name: Peace Lily - witte bloem
-sensor.temperatuur_yucca__palmboom_temperature:
+sensor.temperatuur_yucca_palmboom_temperature:
   friendly_name: Yucca - palmboom
-sensor.peace_lily__witte_bloem_humidity:
+sensor.peace_lily_witte_bloem_humidity:
   icon: mdi:water
-sensor.yucca__palmboom_humidity:
+sensor.yucca_palmboom_humidity:
   icon: mdi:water
 
 climate.downstairs:

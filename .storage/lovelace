@@ -37,21 +37,27 @@
                                     "entity": "switch.woonkamerverlichting",
                                     "icon": "mdi:lightbulb",
                                     "name": "Woonk.",
-                                    "tap_action": "toggle",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
                                     "type": "entity-button"
                                 },
                                 {
                                     "entity": "switch.tafelverlichting",
                                     "icon": "mdi:lightbulb",
                                     "name": "Tafel",
-                                    "tap_action": "toggle",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
                                     "type": "entity-button"
                                 },
                                 {
                                     "entity": "light.kerstboom",
                                     "icon": "mdi:lightbulb",
                                     "name": "Kerstboom",
-                                    "tap_action": "toggle",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
                                     "type": "entity-button"
                                 }
                             ],
@@ -70,9 +76,9 @@
                             "card": {
                                 "entities": [
                                     "input_select.harmony_hub",
-                                    "switch.radio__keuken",
-                                    "switch.radio__badkamer",
-                                    "switch.radio__garage"
+                                    "switch.radio_keuken",
+                                    "switch.radio_badkamer",
+                                    "switch.radio_garage"
                                 ],
                                 "show_header_toggle": false,
                                 "title": "Media",
@@ -101,11 +107,11 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "plant.peace_lily__witte_bloem",
+                                    "entity": "plant.peace_lily_witte_bloem",
                                     "type": "plant-status"
                                 },
                                 {
-                                    "entity": "plant.yucca__palmboom",
+                                    "entity": "plant.yucca_palmboom",
                                     "type": "plant-status"
                                 }
                             ],

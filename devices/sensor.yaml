@@ -117,15 +117,15 @@
     - summary
 - platform: template
   sensors:
-    peace_lily__witte_bloem_humidity:
+    peace_lily_witte_bloem_humidity:
       # can't cut this up into two lines :(
-      value_template: "{{states.sensor.temperatuur_peace_lily__witte_bloem_temperature.attributes.Humidity
+      value_template: "{{states.sensor.temperatuur_peace_lily_witte_bloem_temperature.attributes.Humidity
         | int}}"
       friendly_name: 'Peace Lily - witte bloem vochtigheid'
       unit_of_measurement: '%'
-    yucca__palmboom_humidity:
+    yucca_palmboom_humidity:
       # can't cut this up into two lines :(
-      value_template: "{{states.sensor.temperatuur_yucca__palmboom_temperature.attributes.Humidity
+      value_template: "{{states.sensor.temperatuur_yucca_palmboom_temperature.attributes.Humidity
         | int}}"
       friendly_name: 'Yucca - palmboom vochtigheid'
       unit_of_measurement: '%'

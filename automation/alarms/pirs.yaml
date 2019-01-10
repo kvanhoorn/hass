@@ -34,7 +34,7 @@
     state: 'on'
   action:
     service: light.turn_on
-    entity_id: light.hal__led_bak
+    entity_id: light.hal_led_bak
 
 # and turn it back off
 - alias: PIR turn hall off
@@ -50,7 +50,7 @@
     state: 'on'
   action:
     service: light.turn_off
-    entity_id: light.hal__led_bak
+    entity_id: light.hal_led_bak
 
 # use PIR to turn on attic lights
 - alias: PIR turn attic on

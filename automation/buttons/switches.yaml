@@ -33,7 +33,7 @@
         - light.h_staande_lamp
         - light.h_tv_lamp
         - light.h_piano
-        - light.hal__led_bak
+        - light.hal_led_bak
         - light.h_outdoor_1
         - light.h_outdoor_2
         - light.h_outdoor_3

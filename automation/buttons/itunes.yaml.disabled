@@ -33,7 +33,7 @@
     platform: event
     event_type: button_pressed
     event_data:
-      entity_id: switch.radio__keuken
+      entity_id: switch.radio_keuken
       state: 'on'
   condition:
     - condition: state
@@ -54,7 +54,7 @@
     platform: event
     event_type: button_pressed
     event_data:
-      entity_id: switch.radio__keuken
+      entity_id: switch.radio_keuken
       state: 'on'
   condition:
     - condition: state
@@ -69,7 +69,7 @@
     platform: event
     event_type: button_pressed
     event_data:
-      entity_id: switch.radio__keuken
+      entity_id: switch.radio_keuken
       state: 'off'
   condition:
     - condition: state

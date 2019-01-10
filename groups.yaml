@@ -33,8 +33,8 @@ sensors:
     - sensor.brandalarm_zolder_sensor_status
     - sensor.gas_consumption
     - sensor.power_consumption_normal
-    - sensor.temperatuur_peace_lily__witte_bloem_temperature
-    - sensor.temperatuur_yucca__palmboom_temperature
+    - sensor.temperatuur_peace_lily_witte_bloem_temperature
+    - sensor.temperatuur_yucca_palmboom_temperature
     - binary_sensor.voordeur
     - binary_sensor.deur_keuken
     - binary_sensor.deur_woonkamer
@@ -49,20 +49,20 @@ buttons:
   icon: mdi:toggle-switch
   view: true
   entities:
-    - switch.radio__garage
-    - switch.radio__keuken
-    - switch.radio__badkamer
+    - switch.radio_garage
+    - switch.radio_keuken
+    - switch.radio_badkamer
     - switch.woonkamerverlichting
     - switch.tafelverlichting
-    - light.badkamer__lamp
+    - light.badkamer_lamp
     - light.bureaulamp
     - light.carport
-    - light.hal__led_bak
-    - light.zolder__bank
-    - light.zolder__scherm
+    - light.hal_led_bak
+    - light.zolder_bank
+    - light.zolder_scherm
     - remote.living_room
     - media_player.itunes
-    - media_player.kevin__mac_mini
+    - media_player.kevin_mac_mini
     - input_boolean.is_it_holiday
     - input_boolean.is_it_night
     - input_boolean.is_it_party
@@ -86,12 +86,12 @@ lights:
     - light.h_tafel_raam
     - light.kerstboom
     - light.plafondlamp
-    - light.badkamer__lamp
+    - light.badkamer_lamp
     - light.bureaulamp
     - light.carport
-    - light.hal__led_bak
-    - light.zolder__bank
-    - light.zolder__scherm
+    - light.hal_led_bak
+    - light.zolder_bank
+    - light.zolder_scherm
     - switch.woonkamerverlichting
     - switch.tafelverlichting
 doors:
@@ -116,29 +116,29 @@ plants:
   name: Planten
   view: false
   entities:
-    - sensor.temperatuur_peace_lily__witte_bloem_temperature
-    - sensor.temperatuur_yucca__palmboom_temperature
+    - sensor.temperatuur_peace_lily_witte_bloem_temperature
+    - sensor.temperatuur_yucca_palmboom_temperature
 plants_humidity:
   name: Planten vochtigheid
   view: false
   entities:
-    - sensor.peace_lily__witte_bloem_humidity
-    - sensor.yucca__palmboom_humidity
+    - sensor.peace_lily_witte_bloem_humidity
+    - sensor.yucca_palmboom_humidity
 radios:
   name: Radios
   view: false
   entities:
-    - switch.radio__keuken
-    - switch.radio__badkamer
-    - switch.radio__garage
+    - switch.radio_keuken
+    - switch.radio_badkamer
+    - switch.radio_garage
     - sensor.hs_bedroom
     - sensor.hs_kitchen
 attic_lights:
   name: Verlichting zolder
   view: false
   entities:
-    - light.zolder__scherm
-    - light.zolder__bank
+    - light.zolder_scherm
+    - light.zolder_bank
 trash_sensors:
   name: Afval sensoren
   view: false
@@ -154,9 +154,9 @@ media_controls:
   view: false
   entities:
     - input_select.harmony_hub
-    - switch.radio__keuken
-    - switch.radio__badkamer
-    - switch.radio__garage
+    - switch.radio_keuken
+    - switch.radio_badkamer
+    - switch.radio_garage
 nest_collection:
   name: Nest
   view: false
@@ -251,8 +251,8 @@ trackers:
   name: Device trackers
   view: false
   entities:
-    - sensor.kevin__iphone_7_battery_level
-    - sensor.kevin__iphone_7_battery_state
+    - sensor.kevin_iphone_7_battery_level
+    - sensor.kevin_iphone_7_battery_state
     - device_tracker.macmini
     - device_tracker.macpro
 temperature_collection:
@@ -354,8 +354,8 @@ short_battery_devices:
   name: Batterij apparaten onlangs niet gezien
   view: false
   entities:
-    - sensor.temperatuur_peace_lily__witte_bloem_temperature
-    - sensor.temperatuur_yucca__palmboom_temperature
+    - sensor.temperatuur_peace_lily_witte_bloem_temperature
+    - sensor.temperatuur_yucca_palmboom_temperature
     - sensor.temperatuur_badkamer_temperature
     - sensor.temperatuur_buiten_temperature
     - sensor.temperatuur_garage_temperature
