@@ -97,3 +97,34 @@
         title: "Deur of raam nog open: "
         data:
           priority: 1
+
+# use door(s) to turn on garage light
+- alias: Garage door turn lights on
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.garagedeur
+      - binary_sensor.schuurdeur
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.garage
+
+# use door(s) to turn off garage light
+- alias: Garage door turn lights off
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.garagedeur
+      - binary_sensor.schuurdeur
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: binary_sensor.garagedeur
+      state: 'off'
+    - condition: state
+      entity_id: binary_sensor.schuurdeur
+      state: 'off'
+  action:
+    service: light.turn_off
+    entity_id: light.garage
