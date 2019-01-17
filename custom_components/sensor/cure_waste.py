@@ -13,12 +13,17 @@ from datetime import timedelta
 import voluptuous as vol
 import requests
 
+from homeassistant.components.sensor import PLATFORM_SCHEMA
 from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.util.json import load_json, save_json
 
 REQUIREMENTS = []
 
+# enable debug logging with:
+# logger:
+#   logs:
+#     custom_components.sensor.cure_waste: debug
 _LOGGER = logging.getLogger(__name__)
 
 CONF_POSTALCODE = 'postalcode'
@@ -26,6 +31,8 @@ CONF_HOUSENUMBER = 'housenumber'
 CONF_LOCATION = 'location'
 
 DEPENDENCIES = ['http']
+
+SCAN_INTERVAL = timedelta(seconds=1800)
 
 ICON = 'mdi:calendar'
 
@@ -35,7 +42,7 @@ CUREWASTE_RESOURCE_LIST = {
     'paper_waste': ['Paper waste', '', ICON],
 }
 
-CONFIG_SCHEMA = vol.Schema({
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_POSTALCODE): cv.string,
     vol.Required(CONF_HOUSENUMBER): cv.string,
     vol.Optional(CONF_LOCATION, default='Home'): cv.string,
@@ -47,15 +54,11 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     location = config.get(CONF_LOCATION)
     postalcode = config.get(CONF_POSTALCODE)
     housenumber = config.get(CONF_HOUSENUMBER)
-    data = CureWasteData(postalcode, housenumber)
-
-    if not data.update():
-      return False
 
     devs = []
     for t,resource in CUREWASTE_RESOURCE_LIST.items():
-        devs.append(CureWasteSensor(data, location, t, resource))
-        devs.append(CureWasteCountdownSensor(data, location, t, resource))
+        devs.append(CureWasteSensor(location, postalcode, housenumber, t, resource))
+        devs.append(CureWasteCountdownSensor(location, postalcode, housenumber, t, resource))
 
     add_devices(devs, True)
 
@@ -63,15 +66,18 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
 class CureWasteSensor(Entity):
     """A CureWaste sensor."""
 
-    def __init__(self, data, location, t, resource):
+    def __init__(self, location, postalcode, housenumber, t, resource):
         """Initialize sensors from the location."""
-        self.data = data
+        self.data = None
         self._name = location + ' ' + resource[0]
         self._type = t
         self._location = location
+        self._postalcode = postalcode
+        self._housenumber = housenumber
         self._state = None
         self._unit_of_measurement = resource[1]
         self._icon = resource[2]
+        self.update()
 
     @property
     def name(self):
@@ -94,7 +100,10 @@ class CureWasteSensor(Entity):
 
     def update(self):
         """Retrieve sensor data from the data."""
+        self.data = CureWasteData(self._postalcode, self._housenumber)
         value = self.data.data
+
+        _LOGGER.debug("Running update of CureWasteSensor")
         
         if self._type == 'general_waste':
             for l in value:
@@ -113,15 +122,18 @@ class CureWasteSensor(Entity):
 class CureWasteCountdownSensor(Entity):
     """A CureWaste sensor."""
 
-    def __init__(self, data, location, t, resource):
+    def __init__(self, location, postalcode, housenumber, t, resource):
         """Initialize sensors from the location."""
-        self.data = data
+        self.data = None
         self._name = location + ' ' + resource[0] + ' Countdown'
         self._type = t
         self._location = location
+        self._postalcode = postalcode
+        self._housenumber = housenumber
         self._state = None
         self._unit_of_measurement = resource[1]
         self._icon = resource[2]
+        self.update()
 
     @property
     def name(self):
@@ -144,7 +156,10 @@ class CureWasteCountdownSensor(Entity):
 
     def update(self):
         """Retrieve sensor data from the data."""
+        self.data = CureWasteData(self._postalcode, self._housenumber)
         value = self.data.data
+
+        _LOGGER.debug("Running update of CureWasteCountdownSensor")
         
         if self._type == 'general_waste':
             for l in value:
@@ -172,9 +187,12 @@ class CureWasteData(Entity):
         self._housenumber = housenumber
         self._bag_id = None
         self.data = None
+        self.update()
 
     def update(self):
         bag_req = None
+
+        _LOGGER.debug("Running update of data retrieval")
         
         try:
             bag_req = requests.get(
