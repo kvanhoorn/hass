@@ -251,8 +251,8 @@ trackers:
   name: Device trackers
   view: false
   entities:
-    - sensor.kevin_iphone_7_battery_level
-    - sensor.kevin_iphone_7_battery_state
+    - sensor.kevin__iphone_7_battery_level
+    - sensor.kevin__iphone_7_battery_state
     - device_tracker.macmini
     - device_tracker.macpro
 temperature_collection:
@@ -330,9 +330,9 @@ feedparser_collection:
   name: Feedparsers
   view: false
   entities:
-    - sensor.omroep_brabant_zuidoost
+    - sensor.omroep_brabant_zuid_oost
     - sensor.nos_algemeen
-    - sensor.nunl_algemeen
+    - sensor.nu_nl_algemeen
 long_battery_devices:
   name: Batterij apparaten lang niet gezien
   view: false
@@ -368,3 +368,10 @@ bus4_collection:
     - sensor.bus_4_departure1
     - sensor.bus_4_departure2
     - sensor.bus_4_departure3
+untappd_collection:
+  name: Untappd kvanhoorn
+  view: false
+  entities:
+    - sensor.untappd_last_badge_kvanhoorn
+    - sensor.untappd_last_check_in_kvanhoorn
+    - sensor.untappd_wishlist_kvanhoorn
