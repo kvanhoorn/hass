@@ -257,3 +257,7 @@
 - platform: ovapi
   name: Bus 4
   stop_code: !secret busstop_code
+- platform: untappd
+  username: kvanhoorn
+  id: !secret untappd_id
+  secret: !secret untappd_secret
