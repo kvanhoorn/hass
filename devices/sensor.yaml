@@ -32,7 +32,7 @@
 - platform: rfxtrx
   automatic_add: false
   devices:
-    0a5207013f0e00ba3a0179:
+    0a520702390e00b72f0149:
       name: Temperatuur logeerkamer
     0a5207035c0e00cc3c0149:
       name: Temperatuur slaapkamer
