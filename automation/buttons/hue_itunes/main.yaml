@@ -1,0 +1,50 @@
+---
+- alias: any airplay speaker pressed on
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.hs_kitchen
+        - sensor.hs_bathroom
+      to: '1_click_up'
+    - platform: state
+      entity_id:
+        - input_boolean.radio_kitchen
+        - input_boolean.radio_bathroom
+        - input_boolean.radio_garage
+      to: 'on'
+  condition:
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: media_player.itunes
+        state: 'paused'
+      - condition: state
+        entity_id: media_player.itunes
+        state: 'idle'
+  action:
+    - service: media_player.play_media
+      data:
+        entity_id: media_player.itunes
+        media_content_type: playlist
+        media_content_id: stream-radio
+
+- alias: last airplay speaker pressed off
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.hs_kitchen
+        - sensor.hs_bathroom
+      to: '4_click_up'
+    - platform: state
+      entity_id:
+        - input_boolean.radio_kitchen
+        - input_boolean.radio_bathroom
+        - input_boolean.radio_garage
+      to: 'off'    
+  condition:
+    - condition: numeric_state
+      entity_id: input_number.active_speakers
+      below: 2
+  action:
+    - service: media_player.media_pause
+      entity_id: media_player.itunes

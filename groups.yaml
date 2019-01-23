@@ -13,6 +13,7 @@ temperature:
   icon: mdi:thermometer
   view: true
   entities:
+    - sensor.downstairs_thermostat_temperature
     - sensor.temperatuur_buiten_temperature
     - sensor.temperatuur_logeerkamer_temperature
     - sensor.temperatuur_slaapkamer_temperature
@@ -20,7 +21,6 @@ temperature:
     - sensor.temperatuur_garage_temperature
     - sensor.bedroom_vs_outside_temperature
     - sensor.living_vs_outside_temperature
-    - climate.downstairs
 sensors:
   name: Sensoren
   icon: mdi:chip
@@ -49,9 +49,9 @@ buttons:
   icon: mdi:toggle-switch
   view: true
   entities:
-    - switch.radio_garage
-    - switch.radio_keuken
-    - switch.radio_badkamer
+    - input_boolean.radio_kitchen
+    - input_boolean.radio_bathroom
+    - input_boolean.radio_garage
     - switch.woonkamerverlichting
     - switch.tafelverlichting
     - light.badkamer_lamp
@@ -69,6 +69,7 @@ buttons:
     - input_select.harmony_hub
     - sensor.hs_bedroom
     - sensor.hs_kitchen
+    - sensor.hs_bathroom
 lights:
   name: Lichten
   icon: mdi:lightbulb-on
@@ -84,6 +85,7 @@ lights:
     - light.h_piano
     - light.h_tafel_kamer
     - light.h_tafel_raam
+    - light.garage
     - light.kerstboom
     - light.plafondlamp
     - light.badkamer_lamp
@@ -128,11 +130,9 @@ radios:
   name: Radios
   view: false
   entities:
-    - switch.radio_keuken
-    - switch.radio_badkamer
-    - switch.radio_garage
     - sensor.hs_bedroom
     - sensor.hs_kitchen
+    - sensor.hs_bathroom
 attic_lights:
   name: Verlichting zolder
   view: false
@@ -154,9 +154,9 @@ media_controls:
   view: false
   entities:
     - input_select.harmony_hub
-    - switch.radio_keuken
-    - switch.radio_badkamer
-    - switch.radio_garage
+    - input_boolean.radio_kitchen
+    - input_boolean.radio_bathroom
+    - input_boolean.radio_garage
 nest_collection:
   name: Nest
   view: false

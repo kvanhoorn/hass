@@ -6,9 +6,9 @@ filter:
     - input_boolean.is_it_holiday
     - input_boolean.is_it_night
     - climate.downstairs
-    - switch.radio_garage
-    - switch.radio_keuken
-    - switch.radio_badkamer
+    - input_boolean.radio_kitchen
+    - input_boolean.radio_bathroom
+    - input_boolean.radio_garage
     - switch.woonkamerverlichting
     - switch.tafelverlichting
     - light.badkamer_lamp

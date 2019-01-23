@@ -39,8 +39,8 @@
         - thu
         - fri
   action:
-    - service: switch.turn_on
-      entity_id: switch.radio_badkamer
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.radio_bathroom
     - service: light.turn_on
       entity_id: light.badkamer_lamp
 
@@ -60,9 +60,8 @@
         - thu
         - fri
   action:
-    service: switch.turn_on
-    entity_id:
-      - switch.radio_keuken
+    service: input_boolean.turn_on
+    entity_id: input_boolean.radio_kitchen
 
 - alias: 'timer_morning_tvon'
   trigger:
@@ -80,8 +79,8 @@
         - thu
         - fri
   action:
-    - service: switch.turn_off
-      entity_id: switch.radio_keuken
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.radio_kitchen
     - service: remote.turn_on
       entity_id: remote.living_room
       data:
@@ -114,10 +113,11 @@
       entity_id:
         - switch.woonkamerverlichting
         - switch.tafelverlichting
-        - switch.radio_badkamer
     - service: light.turn_off
       entity_id:
         - light.hal_led_bak
         - light.badkamer_lamp
     - service: remote.turn_off
       entity_id: remote.living_room
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.radio_bathroom

@@ -3,12 +3,12 @@
         "config": {
             "resources": [
                 {
-                    "type": "js",
+                    "type": "module",
                     "url": "/local/js/group-card.js"
                 },
                 {
-                    "type": "js",
-                    "url": "/local/js/thermostat-card.js"
+                    "type": "module",
+                    "url": "/local/js/button-card.js"
                 }
             ],
             "title": "VinkHoorn",
@@ -50,15 +50,38 @@
                                         "action": "toggle"
                                     },
                                     "type": "entity-button"
-                                },
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "cards": [
                                 {
-                                    "entity": "light.kerstboom",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "Kerstboom",
+                                    "entity": "input_boolean.radio_kitchen",
+                                    "icon": "mdi:speaker",
+                                    "name": "Keuken",
                                     "tap_action": {
                                         "action": "toggle"
                                     },
-                                    "type": "entity-button"
+                                    "type": "custom:button-card"
+                                },
+                                {
+                                    "entity": "input_boolean.radio_bathroom",
+                                    "icon": "mdi:speaker",
+                                    "name": "Badkamer",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "custom:button-card"
+                                },
+                                {
+                                    "entity": "input_boolean.radio_garage",
+                                    "icon": "mdi:speaker",
+                                    "name": "Garage",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "custom:button-card"
                                 }
                             ],
                             "type": "horizontal-stack"
@@ -73,19 +96,11 @@
                             "type": "weather-forecast"
                         },
                         {
-                            "card": {
-                                "entities": [
-                                    "input_select.harmony_hub",
-                                    "switch.radio_keuken",
-                                    "switch.radio_badkamer",
-                                    "switch.radio_garage"
-                                ],
-                                "show_header_toggle": false,
-                                "title": "Media",
-                                "type": "entities"
-                            },
-                            "group": "group.media_controls",
-                            "type": "custom:group-card"
+                            "entities": [
+                                "input_select.harmony_hub"
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
                         },
                         {
                             "camera_image": "camera.front_door",
@@ -217,6 +232,65 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Buttons",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.voordeur",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_keuken",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_woonkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.schuurdeur",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_logeerkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_slaapkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_studeerkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_zolder",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.garagedeur",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_logeerkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_hal",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_zolder",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_logeerkamer",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Long sensors",
                             "type": "entities"
                         }
                     ],
@@ -381,6 +455,9 @@
                                 },
                                 {
                                     "entity": "sensor.next_launch"
+                                },
+                                {
+                                    "entity": "sensor.current_version"
                                 }
                             ],
                             "type": "entities"
@@ -400,22 +477,24 @@
                             ],
                             "hours_to_show": 8,
                             "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.short_time_not_seen_devices",
+                                    "secondary_info": "name"
+                                },
+                                {
+                                    "entity": "sensor.long_time_not_seen_devices"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:finance",
                     "id": "nerd",
                     "title": "Nerd"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "title": "Boodschappen",
-                            "type": "shopping-list"
-                        }
-                    ],
-                    "icon": "mdi:cart",
-                    "title": "Boodschappen"
                 },
                 {
                     "badges": [],

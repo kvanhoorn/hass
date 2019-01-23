@@ -11,6 +11,15 @@ is_it_holiday:
 is_it_party:
   name: Party
   icon: mdi:cake
+radio_kitchen:
+  name: Radio Keuken
+  icon: mdi:speaker
+radio_bathroom:
+  name: Radio Badkamer
+  icon: mdi:speaker
+radio_garage:
+  name: Radio Garage
+  icon: mdi:speaker
 someone_home:
   name: Iemand thuis
   icon: mdi:home

@@ -1,40 +1,12 @@
 ---
-- alias: Any radio on
-  trigger:
-    platform: state
-    entity_id: group.radios
-    to: 'on'
-  condition:
-    - condition: state
-      entity_id: media_player.itunes
-      state: 'paused'
-  action:
-    - service: media_player.play_media
-      data:
-        entity_id: media_player.itunes
-        media_content_type: playlist
-        media_content_id: stream-radio
-
-- alias: Any radio off
-  trigger:
-    platform: state
-    entity_id: group.radios
-    to: 'off'
-  condition:
-    - condition: numeric_state
-      entity_id: input_number.active_speakers
-      below: 2
-  action:
-    - service: media_player.media_pause
-      entity_id: media_player.itunes
-
 - alias: Keuken on
   trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
-      entity_id: switch.radio_keuken
-      state: 'on'
+    - platform: state
+      entity_id: sensor.hs_kitchen
+      to: '1_click_up'
+    - platform: state
+      entity_id: input_boolean.radio_kitchen
+      to: 'on'
   condition:
     - condition: state
       entity_id: media_player.ae_kitchen_airtunes_speaker
@@ -48,14 +20,14 @@
       data:
         entity_id: media_player.ae_kitchen_airtunes_speaker
         volume_level: .4
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.radio_kitchen
 
 - alias: Keuken next
   trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
-      entity_id: switch.radio_keuken
-      state: 'on'
+    platform: state
+    entity_id: sensor.hs_kitchen
+    to: '1_click_up'
   condition:
     - condition: state
       entity_id: media_player.ae_kitchen_airtunes_speaker
@@ -66,11 +38,12 @@
 
 - alias: Keuken off
   trigger:
-    platform: event
-    event_type: button_pressed
-    event_data:
-      entity_id: switch.radio_keuken
-      state: 'off'
+    - platform: state
+      entity_id: sensor.hs_kitchen
+      to: '4_click_up'
+    - platform: state
+      entity_id: input_boolean.radio_kitchen
+      to: 'off'
   condition:
     - condition: state
       entity_id: media_player.ae_kitchen_airtunes_speaker
@@ -80,3 +53,23 @@
       entity_id: media_player.ae_kitchen_airtunes_speaker
     - service: input_number.decrement
       entity_id: input_number.active_speakers
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.radio_kitchen
+
+- alias: Keuken volume up
+  trigger:
+    platform: state
+    entity_id: sensor.hs_kitchen
+    to: '2_click_up'
+  action:
+    - service: media_player.volume_up
+      entity_id: media_player.ae_kitchen_airtunes_speaker
+
+- alias: Keuken volume down
+  trigger:
+    platform: state
+    entity_id: sensor.hs_kitchen
+    to: '3_click_up'
+  action:
+    - service: media_player.volume_down
+      entity_id: media_player.ae_kitchen_airtunes_speaker
