@@ -50,6 +50,15 @@
                                         "action": "toggle"
                                     },
                                     "type": "entity-button"
+                                },
+                                {
+                                    "entity": "switch.outdoor_lightning",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Buiten",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
                                 }
                             ],
                             "type": "horizontal-stack"

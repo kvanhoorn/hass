@@ -37,6 +37,8 @@
         - light.h_outdoor_1
         - light.h_outdoor_2
         - light.h_outdoor_3
+        - light.hue_outdoor_pedestal_1
+        - light.hue_outdoor_pedestal_1_2
         - light.kerstboom
 
 # Tafelverlichting on

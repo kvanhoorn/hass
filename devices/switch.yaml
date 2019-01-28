@@ -20,3 +20,22 @@
     0b11000b00efe9b201040f60:
       name: Deurbel
       fire_event: true
+- platform: template
+  switches:
+    outdoor_lightning:
+      value_template: "{{ states.light.h_outdoor_1.state == 'on' 
+        and states.light.hue_outdoor_pedestal_1.state == 'on' }}"
+      turn_on:
+        service: hue.hue_activate_scene
+        data:
+          group_name: "Backyard"
+          scene_name: "DOM_outdoor_evening"
+      turn_off:
+        service: light.turn_off
+        data:
+          entity_id:
+            - light.h_outdoor_1
+            - light.h_outdoor_2
+            - light.h_outdoor_3
+            - light.hue_outdoor_pedestal_1
+            - light.hue_outdoor_pedestal_1_2
