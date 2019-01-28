@@ -88,7 +88,7 @@ media_player.atv_living_room_airtunes_speaker:
   hidden: true
 media_player.computer_airtunes_speaker:
   hidden: true
-media_player.kevin__raspberry2_attic_airtunes_speaker:
+media_player.kevin_raspberry2_attic_airtunes_speaker:
   hidden: true
 
 # hide other things

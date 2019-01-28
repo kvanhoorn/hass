@@ -251,8 +251,8 @@ trackers:
   name: Device trackers
   view: false
   entities:
-    - sensor.kevin__iphone_7_battery_level
-    - sensor.kevin__iphone_7_battery_state
+    - sensor.kevin_iphone_7_battery_level
+    - sensor.kevin_iphone_7_battery_state
     - device_tracker.macmini
     - device_tracker.macpro
 temperature_collection:

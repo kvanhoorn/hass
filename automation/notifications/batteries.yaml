@@ -1,7 +1,7 @@
 ---
 - alias: update_battery_template_sensors
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/1'
     seconds: 0
   action:
@@ -30,7 +30,7 @@
 
 - alias: send_short_time_battery_devices_notification
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/30'
     seconds: 0
   condition:
