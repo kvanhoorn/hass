@@ -296,6 +296,18 @@
                                 {
                                     "entity": "binary_sensor.pir_logeerkamer",
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_gangkast",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_badkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_studeerkamer",
+                                    "secondary_info": "last-changed"
                                 }
                             ],
                             "show_header_toggle": false,

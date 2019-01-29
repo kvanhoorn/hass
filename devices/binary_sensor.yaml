@@ -17,6 +17,21 @@
       device_class: motion
       off_delay:
         seconds: 30
+    091300032891e9018870:
+      name: PIR gangkast
+      device_class: motion
+      off_delay:
+        seconds: 30
+    09130011e94fe9017c70:
+      name: PIR badkamer
+      device_class: motion
+      off_delay:
+        minutes: 1
+    091300258cefa9017a70:
+      name: PIR studeerkamer
+      device_class: motion
+      off_delay:
+        seconds: 30
     0b11000500fbc7ce0a010f50:
       name: Voordeur
       device_class: door

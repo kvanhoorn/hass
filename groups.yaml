@@ -28,6 +28,9 @@ sensors:
   entities:
     - binary_sensor.pir_hal
     - binary_sensor.pir_zolder
+    - binary_sensor.pir_gangkast
+    - binary_sensor.pir_badkamer
+    - binary_sensor.pir_studeerkamer
     - sensor.brandalarm_keuken_sensor_status
     - sensor.brandalarm_woonkamer_sensor_status
     - sensor.brandalarm_zolder_sensor_status
@@ -240,6 +243,9 @@ pirs:
     - binary_sensor.pir_hal
     - binary_sensor.pir_zolder
     - binary_sensor.pir_logeerkamer
+    - binary_sensor.pir_gangkast
+    - binary_sensor.pir_badkamer
+    - binary_sensor.pir_studeerkamer
 firealarms:
   name: Fire alarms
   view: false
@@ -350,6 +356,9 @@ long_battery_devices:
     - binary_sensor.pir_hal
     - binary_sensor.pir_zolder
     - binary_sensor.pir_logeerkamer
+    - binary_sensor.pir_gangkast
+    - binary_sensor.pir_badkamer
+    - binary_sensor.pir_studeerkamer
 short_battery_devices:
   name: Batterij apparaten onlangs niet gezien
   view: false
