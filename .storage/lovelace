@@ -9,6 +9,14 @@
                 {
                     "type": "module",
                     "url": "/local/js/button-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/js/bignumber-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/js/entity-attributes-card.js"
                 }
             ],
             "title": "VinkHoorn",
@@ -16,6 +24,10 @@
                 {
                     "badges": [],
                     "cards": [
+                        {
+                            "entity": "sensor.time",
+                            "type": "custom:bignumber-card"
+                        },
                         {
                             "card": {
                                 "show_state": false,
@@ -101,96 +113,14 @@
                             "type": "thermostat"
                         },
                         {
-                            "entity": "weather.buienradar",
-                            "type": "weather-forecast"
-                        },
-                        {
                             "entities": [
-                                "input_select.harmony_hub"
+                                "sensor.eindhoven_biodegradable_waste",
+                                "sensor.eindhoven_general_waste",
+                                "sensor.eindhoven_paper_waste"
                             ],
                             "show_header_toggle": false,
+                            "title": "Afval",
                             "type": "entities"
-                        },
-                        {
-                            "camera_image": "camera.front_door",
-                            "entities": [
-                                "binary_sensor.voordeur",
-                                "binary_sensor.pir_hal",
-                                "light.carport"
-                            ],
-                            "type": "picture-glance"
-                        },
-                        {
-                            "camera_image": "camera.street",
-                            "entities": [
-                                "sensor.temperatuur_buiten_temperature",
-                                "sensor.dark_sky_icon"
-                            ],
-                            "type": "picture-glance"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "plant.peace_lily_witte_bloem",
-                                    "type": "plant-status"
-                                },
-                                {
-                                    "entity": "plant.yucca_palmboom",
-                                    "type": "plant-status"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "entities": [
-                                "media_player.itunes",
-                                "media_player.kevin__mac_mini",
-                                "media_player.kevin__mac_pro",
-                                "media_player.atv_living_room",
-                                "media_player.atv_bedroom_2"
-                            ],
-                            "state_filter": [
-                                "playing",
-                                "paused",
-                                "idle",
-                                "on"
-                            ],
-                            "type": "entity-filter"
-                        },
-                        {
-                            "card": {
-                                "entities": [
-                                    "sensor.temperatuur_buiten_temperature",
-                                    "sensor.temperatuur_slaapkamer_temperature",
-                                    "sensor.temperatuur_logeerkamer_temperature",
-                                    "sensor.temperatuur_garage_temperature",
-                                    "sensor.temperatuur_badkamer_temperature",
-                                    "sensor.bedroom_vs_outside_temperature",
-                                    "sensor.living_vs_outside_temperature"
-                                ],
-                                "show_header_toggle": false,
-                                "title": "Temperaturen",
-                                "type": "entities"
-                            },
-                            "group": "group.temperature_collection",
-                            "type": "custom:group-card"
-                        },
-                        {
-                            "card": {
-                                "entities": [
-                                    "sensor.eindhoven_biodegradable_waste",
-                                    "sensor.eindhoven_general_waste",
-                                    "sensor.eindhoven_paper_waste",
-                                    "sensor.eindhoven_biodegradable_waste_countdown",
-                                    "sensor.eindhoven_general_waste_countdown",
-                                    "sensor.eindhoven_paper_waste_countdown"
-                                ],
-                                "show_header_toggle": false,
-                                "title": "Afval",
-                                "type": "entities"
-                            },
-                            "group": "group.trash_sensors",
-                            "type": "custom:group-card"
                         },
                         {
                             "card": {
@@ -209,6 +139,7 @@
                     ],
                     "icon": "mdi:home-account",
                     "id": "welcome",
+                    "path": "home",
                     "theme": "dark-mode",
                     "title": "Welcome"
                 },
@@ -217,11 +148,6 @@
                     "cards": [
                         {
                             "group": "group.lights",
-                            "type": "custom:group-card"
-                        },
-                        {
-                            "group": "group.radios",
-                            "title": "Hoi",
                             "type": "custom:group-card"
                         },
                         {
@@ -242,280 +168,11 @@
                             "show_header_toggle": false,
                             "title": "Buttons",
                             "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.voordeur",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.deur_keuken",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.deur_woonkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.schuurdeur",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.raam_logeerkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.raam_slaapkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.raam_studeerkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.raam_zolder",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.garagedeur",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.deur_logeerkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.pir_hal",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.pir_zolder",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.pir_logeerkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.pir_gangkast",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.pir_badkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.pir_studeerkamer",
-                                    "secondary_info": "last-changed"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Long sensors",
-                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:toggle-switch",
+                    "path": "buttons",
                     "title": "Buttons"
-                },
-                {
-                    "badges": [],
-                    "cards": [
-                        {
-                            "cards": [
-                                {
-                                    "entity": "sensor.nr767t_mileage",
-                                    "image": "/local/img/skoda-front.png",
-                                    "type": "picture-entity"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.car_address"
-                                    ],
-                                    "type": "entities"
-                                },
-                                {
-                                    "entity": "sensor.nr767t_fuel_left",
-                                    "max": 65,
-                                    "min": 0,
-                                    "severity": {
-                                        "green": 20,
-                                        "red": 0,
-                                        "yellow": 10
-                                    },
-                                    "title": "Brandstof",
-                                    "type": "gauge"
-                                },
-                                {
-                                    "entities": [
-                                        "sensor.nr767t_mileage_left",
-                                        "binary_sensor.nr767t_ignition",
-                                        "binary_sensor.nr767t_parking_brake",
-                                        "sensor.nr767t_battery"
-                                    ],
-                                    "type": "glance"
-                                },
-                                {
-                                    "aspect_ratio": 0.7,
-                                    "default_zoom": 18,
-                                    "entities": [
-                                        "device_tracker.nr767t"
-                                    ],
-                                    "type": "map"
-                                }
-                            ],
-                            "type": "vertical-stack"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.euro95"
-                                },
-                                {
-                                    "entity": "sensor.euro95_tinq"
-                                },
-                                {
-                                    "entity": "sensor.diesel"
-                                },
-                                {
-                                    "entity": "sensor.diesel_tinq"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Brandstofprijzen",
-                            "type": "entities"
-                        },
-                        {
-                            "card": {
-                                "entities": [
-                                    "sensor.bus_4_departure1",
-                                    "sensor.bus_4_departure2",
-                                    "sensor.bus_4_departure3"
-                                ],
-                                "show_header_toggle": false,
-                                "title": "Bus 4",
-                                "type": "entities"
-                            },
-                            "group": "group.bus4_collection",
-                            "type": "custom:group-card"
-                        }
-                    ],
-                    "icon": "mdi:car",
-                    "id": "car",
-                    "title": "Auto"
-                },
-                {
-                    "cards": [
-                        {
-                            "entity": "sensor.cpu_temperatuur",
-                            "max": 85,
-                            "severity": {
-                                "green": 0,
-                                "red": 75,
-                                "yellow": 60
-                            },
-                            "title": "CPU temperatuur",
-                            "type": "gauge",
-                            "unit_of_measurement": "C"
-                        },
-                        {
-                            "entity": "sensor.disk_use_percent_home",
-                            "severity": {
-                                "green": 75,
-                                "red": 95,
-                                "yellow": 90
-                            },
-                            "title": "Disk usage",
-                            "type": "gauge"
-                        },
-                        {
-                            "entity": "sensor.load_5m",
-                            "max": 1,
-                            "severity": {
-                                "green": 0.75,
-                                "red": 0.95,
-                                "yellow": 0.9
-                            },
-                            "title": "Load (5m)",
-                            "type": "gauge"
-                        },
-                        {
-                            "entity": "sensor.memory_free",
-                            "max": 1000,
-                            "severity": {
-                                "green": 500,
-                                "red": 900,
-                                "yellow": 750
-                            },
-                            "title": "Geheugen",
-                            "type": "gauge",
-                            "unit_of_measurement": "M"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.external_ip"
-                                },
-                                {
-                                    "entity": "sensor.internal_ip_lan"
-                                },
-                                {
-                                    "entity": "sensor.internal_ip_wifi"
-                                },
-                                {
-                                    "entity": "sensor.last_boot"
-                                },
-                                {
-                                    "entity": "sensor.network_in_wlan0"
-                                },
-                                {
-                                    "entity": "sensor.network_out_wlan0"
-                                },
-                                {
-                                    "entity": "sensor.speedtest_ping"
-                                },
-                                {
-                                    "entity": "sensor.next_launch"
-                                },
-                                {
-                                    "entity": "sensor.current_version"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
-                            "entities": [
-                                "sensor.hourly_gas_consumption"
-                            ],
-                            "hours_to_show": 168,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                "sensor.power_consumption_phase_l1",
-                                "sensor.power_consumption_phase_l2",
-                                "sensor.power_consumption_phase_l3"
-                            ],
-                            "hours_to_show": 8,
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.short_time_not_seen_devices",
-                                    "secondary_info": "name"
-                                },
-                                {
-                                    "entity": "sensor.long_time_not_seen_devices"
-                                }
-                            ],
-                            "show_header_toggle": false,
-                            "type": "entities"
-                        }
-                    ],
-                    "icon": "mdi:finance",
-                    "id": "nerd",
-                    "title": "Nerd"
                 },
                 {
                     "badges": [],
@@ -562,6 +219,19 @@
                                     "type": "entity-button"
                                 },
                                 {
+                                    "entity": "script.harmony_recordplayer",
+                                    "icon": "mdi:record-player",
+                                    "name": "lp",
+                                    "tap_action": {
+                                        "action": "call-service",
+                                        "service": "script.turn_on",
+                                        "service_data": {
+                                            "entity_id": "script.harmony_recordplayer"
+                                        }
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
                                     "entity": "script.harmony_poweroff",
                                     "icon": "mdi:power",
                                     "name": "uit",
@@ -576,152 +246,6 @@
                                 }
                             ],
                             "type": "horizontal-stack"
-                        },
-                        {
-                            "card": {
-                                "cards": [
-                                    {
-                                        "cards": [
-                                            {
-                                                "entity": "script.lr_volume_down",
-                                                "icon": "mdi:volume-minus",
-                                                "name": "Vol",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_volume_down"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            },
-                                            {
-                                                "entity": "script.lr_plex_up",
-                                                "icon": "mdi:arrow-up",
-                                                "name": "boven",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_plex_up"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            },
-                                            {
-                                                "entity": "script.lr_volume_up",
-                                                "icon": "mdi:volume-plus",
-                                                "name": "Vol",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_volume_up"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            }
-                                        ],
-                                        "type": "horizontal-stack"
-                                    },
-                                    {
-                                        "cards": [
-                                            {
-                                                "entity": "script.lr_plex_left",
-                                                "icon": "mdi:arrow-left",
-                                                "name": "links",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_plex_left"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            },
-                                            {
-                                                "entity": "script.lr_plex_ok",
-                                                "icon": "mdi:circle-outline",
-                                                "name": "ok",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_plex_ok"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            },
-                                            {
-                                                "entity": "script.lr_plex_right",
-                                                "icon": "mdi:arrow-right",
-                                                "name": "rechts",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_plex_right"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            }
-                                        ],
-                                        "type": "horizontal-stack"
-                                    },
-                                    {
-                                        "cards": [
-                                            {
-                                                "entity": "script.lr_plex_menu",
-                                                "icon": "mdi:menu",
-                                                "name": "menu",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_plex_menu"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            },
-                                            {
-                                                "entity": "script.lr_plex_down",
-                                                "icon": "mdi:arrow-down",
-                                                "name": "beneden",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_plex_down"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            },
-                                            {
-                                                "entity": "script.lr_volume_mute",
-                                                "icon": "mdi:volume-mute",
-                                                "name": "Mute",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_volume_mute"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            }
-                                        ],
-                                        "type": "horizontal-stack"
-                                    }
-                                ],
-                                "type": "vertical-stack"
-                            },
-                            "conditions": [
-                                {
-                                    "entity": "input_select.harmony_hub",
-                                    "state": "Plex"
-                                }
-                            ],
-                            "type": "conditional"
                         },
                         {
                             "card": {
@@ -956,27 +480,539 @@
                                 }
                             ],
                             "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "cards": [
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_volume_down",
+                                                "icon": "mdi:volume-minus",
+                                                "name": "Vol",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_down"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_plex_up",
+                                                "icon": "mdi:arrow-up",
+                                                "name": "boven",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_up"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_volume_up",
+                                                "icon": "mdi:volume-plus",
+                                                "name": "Vol",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_up"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    },
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_plex_left",
+                                                "icon": "mdi:arrow-left",
+                                                "name": "links",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_left"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_plex_ok",
+                                                "icon": "mdi:circle-outline",
+                                                "name": "ok",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_ok"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_plex_right",
+                                                "icon": "mdi:arrow-right",
+                                                "name": "rechts",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_right"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    },
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_plex_menu",
+                                                "icon": "mdi:menu",
+                                                "name": "menu",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_menu"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_plex_down",
+                                                "icon": "mdi:arrow-down",
+                                                "name": "beneden",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_plex_down"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_volume_mute",
+                                                "icon": "mdi:volume-mute",
+                                                "name": "Mute",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_mute"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    }
+                                ],
+                                "type": "vertical-stack"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "input_select.harmony_hub",
+                                    "state": "Plex"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "cards": [
+                                    {
+                                        "cards": [
+                                            {
+                                                "entity": "script.lr_volume_down",
+                                                "icon": "mdi:volume-minus",
+                                                "name": "Vol",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_down"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_volume_mute",
+                                                "icon": "mdi:volume-mute",
+                                                "name": "mute",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_mute"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            },
+                                            {
+                                                "entity": "script.lr_volume_up",
+                                                "icon": "mdi:volume-plus",
+                                                "name": "Vol",
+                                                "tap_action": {
+                                                    "action": "call-service",
+                                                    "service": "script.turn_on",
+                                                    "service_data": {
+                                                        "entity_id": "script.lr_volume_up"
+                                                    }
+                                                },
+                                                "type": "entity-button"
+                                            }
+                                        ],
+                                        "type": "horizontal-stack"
+                                    }
+                                ],
+                                "type": "vertical-stack"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "input_select.harmony_hub",
+                                    "state": "Turntable"
+                                }
+                            ],
+                            "type": "conditional"
                         }
                     ],
                     "icon": "mdi:remote",
+                    "path": "remote",
                     "title": "Media control"
                 },
                 {
                     "badges": [],
                     "cards": [
                         {
-                            "entities": [
-                                "sensor.bedroom_vs_outside_temperature",
-                                "sensor.temperatuur_slaapkamer_temperature",
-                                "sensor.temperatuur_buiten_temperature"
-                            ],
-                            "hours_to_show": 8,
-                            "refresh": 60,
-                            "type": "history-graph"
-                        },
-                        {
                             "entity": "weather.buienradar",
                             "type": "weather-forecast"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.downstairs_thermostat_temperature",
+                                    "name": "Woonk."
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_slaapkamer_temperature",
+                                    "name": "Slaapk."
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_logeerkamer_temperature",
+                                    "name": "Logeerk."
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_badkamer_temperature",
+                                    "name": "Badk."
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_garage_temperature",
+                                    "name": "Garage"
+                                }
+                            ],
+                            "type": "glance"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "plant.peace_lily_witte_bloem",
+                                    "type": "plant-status"
+                                },
+                                {
+                                    "entity": "plant.yucca_palmboom",
+                                    "type": "plant-status"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        }
+                    ],
+                    "icon": "mdi:thermometer",
+                    "path": "temperatures",
+                    "title": "Temperature"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "cards": [
+                                {
+                                    "entity": "sensor.nr767t_mileage",
+                                    "image": "/local/img/skoda-front.png",
+                                    "type": "picture-entity"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.car_address"
+                                    ],
+                                    "type": "entities"
+                                },
+                                {
+                                    "entity": "sensor.nr767t_fuel_left",
+                                    "max": 65,
+                                    "min": 0,
+                                    "severity": {
+                                        "green": 20,
+                                        "red": 0,
+                                        "yellow": 10
+                                    },
+                                    "title": "Brandstof",
+                                    "type": "gauge"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.nr767t_mileage_left",
+                                        "binary_sensor.nr767t_ignition",
+                                        "binary_sensor.nr767t_parking_brake",
+                                        "sensor.nr767t_battery"
+                                    ],
+                                    "type": "glance"
+                                },
+                                {
+                                    "aspect_ratio": 0.7,
+                                    "default_zoom": 18,
+                                    "entities": [
+                                        "device_tracker.nr767t"
+                                    ],
+                                    "type": "map"
+                                }
+                            ],
+                            "type": "vertical-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.euro95"
+                                },
+                                {
+                                    "entity": "sensor.euro95_tinq"
+                                },
+                                {
+                                    "entity": "sensor.diesel"
+                                },
+                                {
+                                    "entity": "sensor.diesel_tinq"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Brandstofprijzen",
+                            "type": "entities"
+                        },
+                        {
+                            "card": {
+                                "entities": [
+                                    "sensor.bus_4_departure1",
+                                    "sensor.bus_4_departure2",
+                                    "sensor.bus_4_departure3"
+                                ],
+                                "show_header_toggle": false,
+                                "title": "Bus 4",
+                                "type": "entities"
+                            },
+                            "group": "group.bus4_collection",
+                            "type": "custom:group-card"
+                        }
+                    ],
+                    "icon": "mdi:car",
+                    "id": "car",
+                    "path": "travel",
+                    "title": "Auto"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "camera_image": "camera.front_door",
+                            "entities": [
+                                "binary_sensor.voordeur",
+                                "binary_sensor.pir_hal",
+                                "light.carport"
+                            ],
+                            "type": "picture-glance"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entity": "input_boolean.camera1_left",
+                                    "icon": "mdi:arrow-left",
+                                    "name": "links",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "input_boolean.camera1_down",
+                                    "icon": "mdi:arrow-down",
+                                    "name": "omlaag",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "input_boolean.camera1_up",
+                                    "icon": "mdi:arrow-up",
+                                    "name": "omhoog",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
+                                    "entity": "input_boolean.camera1_right",
+                                    "icon": "mdi:arrow-right",
+                                    "name": "rechts",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "camera_image": "camera.street",
+                            "entity": "sensor.temperatuur_buiten_temperature",
+                            "show_name": false,
+                            "type": "picture-entity"
+                        }
+                    ],
+                    "icon": "mdi:camera",
+                    "path": "camera",
+                    "title": "Camera control"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "sensor.temperatuur_buiten_temperature",
+                            "title": "buiten",
+                            "type": "custom:bignumber-card"
+                        },
+                        {
+                            "entities": [
+                                "input_boolean.radio_kitchen",
+                                "input_boolean.radio_kitchen"
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "climate.sous_vide",
+                            "name": "Sous-vide",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entity": "sensor.power_consumption",
+                            "type": "custom:bignumber-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "light.h_outdoor_1"
+                                },
+                                {
+                                    "entity": "light.h_outdoor_2"
+                                },
+                                {
+                                    "entity": "light.h_outdoor_3"
+                                },
+                                {
+                                    "entity": "light.hue_outdoor_pedestal_1"
+                                },
+                                {
+                                    "entity": "light.hue_outdoor_pedestal_1_2"
+                                }
+                            ],
+                            "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:stove",
+                    "path": "cooking",
+                    "title": "Barbecue"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.voordeur",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_keuken",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_woonkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.schuurdeur",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_logeerkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_slaapkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_studeerkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_zolder",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.garagedeur",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_logeerkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_hal",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_zolder",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_logeerkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_gangkast",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_badkamer",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_studeerkamer",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Long sensors",
+                            "type": "entities"
                         },
                         {
                             "entities": [
@@ -1005,20 +1041,245 @@
                             "show_header_toggle": false,
                             "title": "Temperatuur",
                             "type": "entities"
+                        }
+                    ],
+                    "icon": "mdi:battery",
+                    "path": "batteries",
+                    "title": "Batterijen"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entity": "sensor.cpu_temperatuur",
+                            "max": 85,
+                            "severity": {
+                                "green": 0,
+                                "red": 75,
+                                "yellow": 60
+                            },
+                            "title": "CPU temperatuur",
+                            "type": "gauge",
+                            "unit_of_measurement": "C"
+                        },
+                        {
+                            "entity": "sensor.disk_use_percent_home",
+                            "severity": {
+                                "green": 75,
+                                "red": 95,
+                                "yellow": 90
+                            },
+                            "title": "Disk usage",
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.load_5m",
+                            "max": 1,
+                            "severity": {
+                                "green": 0.75,
+                                "red": 0.95,
+                                "yellow": 0.9
+                            },
+                            "title": "Load (5m)",
+                            "type": "gauge"
+                        },
+                        {
+                            "entity": "sensor.memory_free",
+                            "max": 1000,
+                            "severity": {
+                                "green": 500,
+                                "red": 900,
+                                "yellow": 750
+                            },
+                            "title": "Geheugen",
+                            "type": "gauge",
+                            "unit_of_measurement": "M"
                         },
                         {
                             "entities": [
-                                "sensor.living_vs_outside_temperature",
-                                "sensor.downstairs_thermostat_temperature",
-                                "sensor.temperatuur_buiten_temperature"
+                                {
+                                    "entity": "sensor.external_ip"
+                                },
+                                {
+                                    "entity": "sensor.internal_ip_lan"
+                                },
+                                {
+                                    "entity": "sensor.internal_ip_wifi"
+                                },
+                                {
+                                    "entity": "sensor.last_boot"
+                                },
+                                {
+                                    "entity": "sensor.network_in_wlan0"
+                                },
+                                {
+                                    "entity": "sensor.network_out_wlan0"
+                                },
+                                {
+                                    "entity": "sensor.speedtest_ping"
+                                },
+                                {
+                                    "entity": "sensor.next_launch"
+                                },
+                                {
+                                    "entity": "sensor.current_version"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.hourly_gas_consumption"
+                            ],
+                            "hours_to_show": 168,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                "sensor.power_consumption_phase_l1",
+                                "sensor.power_consumption_phase_l2",
+                                "sensor.power_consumption_phase_l3"
                             ],
                             "hours_to_show": 8,
-                            "refresh": 60,
                             "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.short_time_not_seen_devices",
+                                    "secondary_info": "name"
+                                },
+                                {
+                                    "entity": "sensor.long_time_not_seen_devices"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                "sensor.speedtest_ping"
+                            ],
+                            "type": "history-graph"
+                        },
+                        {
+                            "entity": "sensor.plex",
+                            "title": "Plex",
+                            "type": "custom:bignumber-card"
+                        },
+                        {
+                            "filter": {
+                                "include": [
+                                    "sensor.untappd_last_check_in_kvanhoorn.brewery",
+                                    "sensor.untappd_last_check_in_kvanhoorn.beer",
+                                    "sensor.untappd_last_check_in_kvanhoorn.abv",
+                                    "sensor.untappd_last_check_in_kvanhoorn.total_beers"
+                                ]
+                            },
+                            "title": "Untappd",
+                            "type": "custom:entity-attributes-card"
                         }
                     ],
-                    "icon": "mdi:thermometer",
-                    "title": "Temperature"
+                    "icon": "mdi:finance",
+                    "id": "nerd",
+                    "path": "nerd",
+                    "title": "Nerd"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.pir_hal",
+                                    "name": "hal"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_badkamer",
+                                    "name": "badk."
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_logeerkamer",
+                                    "name": "logeerk."
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_studeerkamer",
+                                    "name": "studeerk."
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_zolder",
+                                    "name": "zolder"
+                                }
+                            ],
+                            "show_state": false,
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.voordeur"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_keuken",
+                                    "name": "Keuken"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_woonkamer",
+                                    "name": "Woonk."
+                                },
+                                {
+                                    "entity": "binary_sensor.schuurdeur",
+                                    "name": "Schuur"
+                                },
+                                {
+                                    "entity": "binary_sensor.garagedeur",
+                                    "name": "Garage"
+                                }
+                            ],
+                            "show_state": false,
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.raam_studeerkamer",
+                                    "name": "Studeerk."
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_slaapkamer",
+                                    "name": "Slaapk."
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_logeerkamer",
+                                    "name": "Logeerk."
+                                },
+                                {
+                                    "entity": "binary_sensor.raam_zolder",
+                                    "name": "Zolder"
+                                }
+                            ],
+                            "show_name": true,
+                            "show_state": false,
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.deur_logeerkamer",
+                                    "name": "Logeerk."
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_gangkast",
+                                    "name": "Gangkast"
+                                }
+                            ],
+                            "show_state": false,
+                            "type": "glance"
+                        }
+                    ],
+                    "icon": "mdi:run",
+                    "path": "sensors",
+                    "title": "Sensors"
                 }
             ]
         }

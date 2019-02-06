@@ -23,6 +23,14 @@ harmony_netflix:
         entity_id: input_select.harmony_hub
         option: 'Netflix'
 
+harmony_recordplayer:
+  alias: Harmony Recordplayer
+  sequence:
+    - service: input_select.select_option
+      data:
+        entity_id: input_select.harmony_hub
+        option: 'Turntable'
+
 harmony_poweroff:
   alias: Harmony PowerOff
   sequence:
