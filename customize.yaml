@@ -165,3 +165,9 @@ sensor.power_consumption_phase_l2:
   friendly_name: Fase 2 - Zolder/CV/Slaap-/Badkamer
 sensor.power_consumption_phase_l3:
   friendly_name: Fase 3 - Keuken/Koelkast/Magnetron/Wasmachine/WK
+
+# overwrite dusk dawn sensors
+sensor.next_setting:
+  icon: mdi:weather-sunset-down
+sensor.next_rising:
+  icon: mdi:weather-sunset-up

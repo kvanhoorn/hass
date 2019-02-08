@@ -17,6 +17,10 @@
                 {
                     "type": "module",
                     "url": "/local/js/entity-attributes-card.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/js/mini-media-player-bundle.js"
                 }
             ],
             "title": "VinkHoorn",
@@ -27,6 +31,17 @@
                         {
                             "entity": "sensor.time",
                             "type": "custom:bignumber-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.next_setting"
+                                },
+                                {
+                                    "entity": "sensor.next_rising"
+                                }
+                            ],
+                            "type": "glance"
                         },
                         {
                             "card": {
@@ -135,6 +150,47 @@
                             },
                             "group": "group.bus4_collection",
                             "type": "custom:group-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "media_player.ae_kitchen_airtunes_speaker",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true,
+                                        "icon": true,
+                                        "power": true,
+                                        "volume": false
+                                    },
+                                    "name": "Keuken",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.ae_bathroom_airtunes_speaker",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true,
+                                        "icon": true,
+                                        "power": true,
+                                        "volume": false
+                                    },
+                                    "name": "Badkamer",
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.ae_garage_airtunes_speaker",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true,
+                                        "icon": true,
+                                        "power": true,
+                                        "volume": false
+                                    },
+                                    "name": "Garage",
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:home-account",
@@ -901,8 +957,12 @@
                         },
                         {
                             "entities": [
-                                "input_boolean.radio_kitchen",
-                                "input_boolean.radio_kitchen"
+                                {
+                                    "entity": "input_boolean.radio_kitchen"
+                                },
+                                {
+                                    "entity": "input_boolean.radio_garage"
+                                }
                             ],
                             "type": "entities"
                         },

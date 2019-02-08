@@ -213,6 +213,23 @@
         {%- else %}
           Nog geen gegevens
         {%- endif %}
+    untappd_full_checkin:
+      friendly_name: Untappd last checkin full
+      entity_id: sensor.untappd_last_check_in_kvanhoorn
+      value_template: >
+        {{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.brewery }} -
+        {{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.beer }}
+        ({{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.abv }})
+    next_setting:
+      friendly_name: Zonsondergang
+      entity_id: sun.sun
+      value_template: >
+        {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%H:%M') }}
+    next_rising:
+      friendly_name: Zonsopgang
+      entity_id: sun.sun
+      value_template: >
+        {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%H:%M') }}
 - platform: speedtest
   minute:
     - 0
