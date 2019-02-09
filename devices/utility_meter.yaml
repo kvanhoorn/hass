@@ -1,0 +1,12 @@
+daily_energy:
+  source: sensor.power_consumption
+  cycle: daily
+daily_gas:
+  source: sensor.gas_consumption
+  cycle: daily
+mothly_gas:
+  source: sensor.gas_consumption
+  cycle: monthly
+monthly_energy:
+  source: sensor.power_consumption
+  cycle: monthly

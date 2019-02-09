@@ -88,6 +88,7 @@ sabnzbd:
     - total_size
 
 sun:
+system_health:
 updater:
 
 #
@@ -111,6 +112,7 @@ rest_command: !include devices/rest_command.yaml
 sensor: !include devices/sensor.yaml
 shell_command: !include devices/shell_command.yaml
 switch: !include devices/switch.yaml
+utility_meter: !include devices/utility_meter.yaml
 weather: !include devices/weather.yaml
 
 group: !include groups.yaml
