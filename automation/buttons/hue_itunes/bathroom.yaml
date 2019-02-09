@@ -58,18 +58,24 @@
 
 - alias: Badkamer volume up
   trigger:
-    platform: state
-    entity_id: sensor.hs_bathroom
-    to: '2_click_up'
+    - platform: state
+      entity_id: sensor.hs_bathroom
+      to: '2_click_up'
+    - platform: state
+      entity_id: sensor.hs_bathroom
+      to: '2_hold_up'
   action:
     - service: media_player.volume_up
       entity_id: media_player.ae_bathroom_airtunes_speaker
 
 - alias: Badkamer volume down
   trigger:
-    platform: state
-    entity_id: sensor.hs_bathroom
-    to: '3_click_up'
+    - platform: state
+      entity_id: sensor.hs_bathroom
+      to: '3_click_up'
+    - platform: state
+      entity_id: sensor.hs_bathroom
+      to: '3_hold_up'
   action:
     - service: media_player.volume_down
       entity_id: media_player.ae_bathroom_airtunes_speaker
