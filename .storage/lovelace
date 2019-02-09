@@ -191,6 +191,14 @@
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.postcodeloterij_prijs"
+                                }
+                            ],
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:home-account",
@@ -219,6 +227,9 @@
                                 },
                                 {
                                     "entity": "input_boolean.send_photo"
+                                },
+                                {
+                                    "entity": "input_boolean.homeworking_day"
                                 }
                             ],
                             "show_header_toggle": false,
