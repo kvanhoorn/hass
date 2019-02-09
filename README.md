@@ -6,6 +6,7 @@ Component overview
 ------------------
   * [Cure Waste component](#cure-waste-component)
   * [Feedparser component](#feedparser-component)
+  * [Postcodeloterij component](#postcodeloterij-component)
 
 ## Cure Waste component
 
@@ -117,3 +118,33 @@ Configuration variables:
 ### Screenshot
 
 <img src="https://raw.githubusercontent.com/kvanhoorn/hass/master/screenshots/feedparser_dashboard.png" alt="Screenshot Feedparser component" width="300">
+
+## Postcodeloterij component
+
+This component checks your lottery winnings
+
+### Installation
+
+- Copy file 'custom_components/sensor/postcodeloterij.py' to your '[ha_config_dir]/custom_components/sensor' directory;
+- Configure with configuration below.
+- Restart Home-Assistant
+
+### Usage
+
+To use this component in you installation, add the following to your 'configuration.yaml' file:
+
+```yaml
+# Example configuration.yaml entry
+
+sensors:
+  - platform: postcodeloterij
+    postcode: 1234AB
+```
+
+Configuration variables:
+
+- **postcode** (*Required*): Specify your postcode to retrieve winnings from
+
+### Screenshot
+
+<img src="https://raw.githubusercontent.com/kvanhoorn/hass/master/screenshots/postcodeloterij_dashboard.png" alt="Screenshot Postcodeloterij component" width="300">
