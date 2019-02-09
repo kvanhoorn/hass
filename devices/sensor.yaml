@@ -242,8 +242,8 @@
     - ping
 - platform: cure_waste
   location: Eindhoven
-  postalcode: 5632SB
-  housenumber: 47
+  postalcode: !secret postcode
+  housenumber: !secret housenumber
 - platform: scrape
   name: Euro95
   resource: !secret fuel_prices_nationwide
@@ -278,3 +278,7 @@
   username: kvanhoorn
   id: !secret untappd_id
   secret: !secret untappd_secret
+- platform: plex
+  host: !secret plex_host
+- platform: postcodeloterij
+  postcode: !secret postcode
