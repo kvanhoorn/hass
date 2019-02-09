@@ -11,6 +11,9 @@ is_it_holiday:
 is_it_party:
   name: Party
   icon: mdi:cake
+homeworking_day:
+  name: Morgen thuiswerken
+  icon: mdi:laptop-mac
 radio_kitchen:
   name: Radio Keuken
   icon: mdi:speaker
