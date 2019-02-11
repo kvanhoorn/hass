@@ -3,6 +3,10 @@
   trigger:
     platform: time
     at: '06:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.homeworking_day
+      state: 'on'
   action:
     - service: climate.set_operation_mode
       data:
