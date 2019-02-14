@@ -790,6 +790,22 @@
                             "type": "glance"
                         },
                         {
+                            "entities": [
+                                {
+                                    "entity": "sensor.outdoor_roof_temperature"
+                                },
+                                {
+                                    "entity": "sensor.outdoor_roof_lux"
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_motion_backyard"
+                                }
+                            ],
+                            "show_name": false,
+                            "title": "Overkapping",
+                            "type": "glance"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entity": "plant.peace_lily_witte_bloem",
@@ -1079,6 +1095,10 @@
                                 {
                                     "entity": "binary_sensor.pir_studeerkamer",
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_motion_backyard",
+                                    "secondary_info": "last-changed"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1342,6 +1362,10 @@
                                 {
                                     "entity": "binary_sensor.pir_gangkast",
                                     "name": "Gangkast"
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_motion_backyard",
+                                    "name": "Achtertuin"
                                 }
                             ],
                             "show_state": false,

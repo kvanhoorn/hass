@@ -5,6 +5,7 @@
     entity_id:
       - binary_sensor.pir_hal
       - binary_sensor.pir_zolder
+      - binary_sensor.hm_motion_backyard
     to: 'on'
   condition:
     condition: state
@@ -62,7 +63,7 @@
     service: light.turn_on
     entity_id: group.attic_lights
 
-# use PIR to turn on attic lights
+# use PIR to turn off attic lights
 - alias: PIR turn attic off
   trigger:
     platform: state
@@ -73,3 +74,75 @@
   action:
     service: light.turn_off
     entity_id: group.attic_lights
+
+# use PIR to turn on study lights
+- alias: PIR turn study on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_studeerkamer
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.bureaulamp
+
+# use PIR to turn off study lights
+- alias: PIR turn study off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_studeerkamer
+    to: 'off'
+    for:
+      minutes: 5
+  action:
+    service: light.turn_off
+    entity_id: light.bureaulamp
+
+# use PIR to turn on outside
+- alias: PIR turn backyard on during nightalarm
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hm_motion_backyard
+    to: 'on'
+  condition:
+    condition: state
+    entity_id: input_boolean.is_it_night
+    state: 'on'
+  action:
+    service: hue.hue_activate_scene
+    data:
+      group_name: "Backyard"
+      scene_name: "DOM_overday"
+
+# use PIR to turn on outside
+- alias: PIR turn backyard on during dark
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hm_motion_backyard
+    to: 'on'
+  condition:
+    - condition: sun
+      after: sunset
+    - condition: state
+      entity_id: input_boolean.is_it_night
+      state: 'off'
+  action:
+    service: hue.hue_activate_scene
+    data:
+      group_name: "Backyard"
+      scene_name: "DOM_outdoor_evening"
+
+# use PIR to turn off outside
+- alias: PIR turn backyard off during nightalarm
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hm_motion_backyard
+    to: 'off'
+    for:
+      minutes: 5
+  condition:
+    condition: state
+    entity_id: input_boolean.is_it_night
+    state: 'on'
+  action:
+    service: light.turn_off
+    entity_id: group.outdoor_lights

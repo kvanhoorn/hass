@@ -230,6 +230,19 @@
       entity_id: sun.sun
       value_template: >
         {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%H:%M') }}
+    outdoor_roof_temperature:
+      friendly_name: Overkapping temperatuur
+      unit_of_measurement: '°C'
+      entity_id: binary_sensor.hm_motion_backyard
+      value_template: >
+        {{ states.binary_sensor.hm_motion_backyard.attributes.temperature | float | round(2) }}
+    outdoor_roof_lux:
+      friendly_name: Overkapping lux
+      unit_of_measurement: 'Lux'
+      icon_template: 'mdi:white-balance-sunny'
+      entity_id: binary_sensor.hm_motion_backyard
+      value_template: >
+        {{ states.binary_sensor.hm_motion_backyard.attributes.lx | float | round(2) }}
 - platform: speedtest
   minute:
     - 0

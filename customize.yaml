@@ -171,3 +171,13 @@ sensor.next_setting:
   icon: mdi:weather-sunset-down
 sensor.next_rising:
   icon: mdi:weather-sunset-up
+
+# overwrite Hue accessories
+sensor.hs_bathroom:
+  friendly_name: Hue switch Badkamer
+sensor.hs_bedroom:
+  friendly_name: Hue switch Slaapkamer
+sensor.hs_kitchen:
+  friendly_name: Hue switch Keuken
+binary_sensor.hm_motion_backyard:
+  friendly_name: Hue sensor Achtertuin

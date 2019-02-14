@@ -31,6 +31,7 @@ sensors:
     - binary_sensor.pir_gangkast
     - binary_sensor.pir_badkamer
     - binary_sensor.pir_studeerkamer
+    - binary_sensor.hm_motion_backyard
     - sensor.brandalarm_keuken_sensor_status
     - sensor.brandalarm_woonkamer_sensor_status
     - sensor.brandalarm_zolder_sensor_status
@@ -82,6 +83,8 @@ lights:
     - light.h_outdoor_1
     - light.h_outdoor_2
     - light.h_outdoor_3
+    - light.hue_outdoor_pedestal_1
+    - light.hue_outdoor_pedestal_1_2
     - light.h_schemerlamp
     - light.h_staande_lamp
     - light.h_tv_lamp
@@ -99,6 +102,15 @@ lights:
     - light.zolder_scherm
     - switch.woonkamerverlichting
     - switch.tafelverlichting
+outdoor_lights:
+  name: Buitenlichten
+  view: false
+  entities:
+    - light.h_outdoor_1
+    - light.h_outdoor_2
+    - light.h_outdoor_3
+    - light.hue_outdoor_pedestal_1
+    - light.hue_outdoor_pedestal_1_2
 doors:
   name: Deuren/ramen
   view: false
@@ -246,6 +258,7 @@ pirs:
     - binary_sensor.pir_gangkast
     - binary_sensor.pir_badkamer
     - binary_sensor.pir_studeerkamer
+    - binary_sensor.hm_motion_backyard
 firealarms:
   name: Fire alarms
   view: false
@@ -359,6 +372,7 @@ long_battery_devices:
     - binary_sensor.pir_gangkast
     - binary_sensor.pir_badkamer
     - binary_sensor.pir_studeerkamer
+    - binary_sensor.hm_motion_backyard
 short_battery_devices:
   name: Batterij apparaten onlangs niet gezien
   view: false
