@@ -4,8 +4,8 @@
     platform: state
     entity_id:
       - binary_sensor.pir_hal
-      - binary_sensor.pir_zolder
-      - binary_sensor.hm_motion_backyard
+      # - binary_sensor.pir_zolder
+      # - binary_sensor.hm_motion_backyard
     to: 'on'
   condition:
     condition: state
@@ -21,7 +21,7 @@
           sound: "siren"
           priority: 2
           expire: 3600
-          retry: 60
+          retry: 10
 
 # use PIR to turn on light at night
 - alias: PIR turn hall on
@@ -44,7 +44,7 @@
     entity_id: binary_sensor.pir_hal
     to: 'off'
     for:
-      minutes: 10
+      minutes: 2
   condition:
     condition: state
     entity_id: input_boolean.is_it_night
@@ -70,7 +70,7 @@
     entity_id: binary_sensor.pir_zolder
     to: 'off'
     for:
-      minutes: 10
+      minutes: 2
   action:
     service: light.turn_off
     entity_id: group.attic_lights
@@ -92,7 +92,7 @@
     entity_id: binary_sensor.pir_studeerkamer
     to: 'off'
     for:
-      minutes: 5
+      minutes: 2
   action:
     service: light.turn_off
     entity_id: light.bureaulamp
@@ -138,7 +138,7 @@
     entity_id: binary_sensor.hm_motion_backyard
     to: 'off'
     for:
-      minutes: 5
+      minutes: 1
   condition:
     condition: state
     entity_id: input_boolean.is_it_night
