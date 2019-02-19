@@ -345,6 +345,7 @@ camera_control_collection:
     - input_boolean.camera1_right
     - input_boolean.camera1_up
     - input_boolean.camera1_down
+    - input_boolean.camera1_irmode
 feedparser_collection:
   name: Feedparsers
   view: false

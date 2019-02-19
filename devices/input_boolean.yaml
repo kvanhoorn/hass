@@ -47,3 +47,6 @@ camera1_up:
 camera1_down:
   name: Camera straat omlaag
   icon: mdi:arrow-down-bold-circle-outline
+camera1_irmode:
+  name: Camera straat IR
+  icon: mdi:weather-night

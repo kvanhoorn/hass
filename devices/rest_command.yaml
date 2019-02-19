@@ -3,3 +3,13 @@ camera1_control:
   url: 'http://192.168.0.59:80/cgi/ptdc.cgi?command=set_relative_pos&posX={{posX}}&posY={{posY}}'
   username: !secret camera1_username
   password: !secret camera1_password
+camera1_irmode:
+  url: 'http://192.168.0.59:80/config/icr.cgi?mode={{mode}}'
+  username: !secret camera1_username
+  password: !secret camera1_password
+set_sensor_value_manually:
+  url: 'http://192.168.0.133:8123/api/states/{{entity_id}}'
+  method: POST
+  headers:
+    content-type: application/json
+  payload: '{"state": "{{state_to_set}}", "{{extra_key}}": "{{extra_value}}"}'

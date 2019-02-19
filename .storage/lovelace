@@ -21,6 +21,14 @@
                 {
                     "type": "module",
                     "url": "/local/js/mini-media-player-bundle.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/js/mini-graph-card-bundle.js"
+                },
+                {
+                    "type": "module",
+                    "url": "/local/js/tracker-card.js"
                 }
             ],
             "title": "VinkHoorn",
@@ -33,20 +41,8 @@
                             "type": "custom:bignumber-card"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "sensor.next_setting"
-                                },
-                                {
-                                    "entity": "sensor.next_rising"
-                                }
-                            ],
-                            "type": "glance"
-                        },
-                        {
                             "card": {
                                 "show_state": false,
-                                "title": "Thuis",
                                 "type": "glance"
                             },
                             "entities": [
@@ -57,6 +53,18 @@
                                 "on"
                             ],
                             "type": "entity-filter"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.next_setting"
+                                },
+                                {
+                                    "entity": "sensor.next_rising"
+                                }
+                            ],
+                            "show_name": false,
+                            "type": "glance"
                         },
                         {
                             "cards": [
@@ -123,35 +131,6 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "entity": "climate.downstairs",
-                            "name": "Thermostaat",
-                            "type": "thermostat"
-                        },
-                        {
-                            "entities": [
-                                "sensor.eindhoven_biodegradable_waste",
-                                "sensor.eindhoven_general_waste",
-                                "sensor.eindhoven_paper_waste"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Afval",
-                            "type": "entities"
-                        },
-                        {
-                            "card": {
-                                "entities": [
-                                    "sensor.bus_4_departure1",
-                                    "sensor.bus_4_departure2",
-                                    "sensor.bus_4_departure3"
-                                ],
-                                "show_header_toggle": false,
-                                "title": "Bus 4",
-                                "type": "entities"
-                            },
-                            "group": "group.bus4_collection",
-                            "type": "custom:group-card"
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "media_player.ae_kitchen_airtunes_speaker",
@@ -193,12 +172,75 @@
                             "type": "entities"
                         },
                         {
+                            "entity": "climate.downstairs",
+                            "name": "Thermostaat",
+                            "type": "thermostat"
+                        },
+                        {
+                            "entities": [
+                                "sensor.eindhoven_biodegradable_waste",
+                                "sensor.eindhoven_general_waste",
+                                "sensor.eindhoven_paper_waste"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Afval",
+                            "type": "entities"
+                        },
+                        {
+                            "card": {
+                                "entities": [
+                                    "sensor.bus_4_departure1",
+                                    "sensor.bus_4_departure2",
+                                    "sensor.bus_4_departure3"
+                                ],
+                                "show_header_toggle": false,
+                                "title": "Bus 4",
+                                "type": "entities"
+                            },
+                            "group": "group.bus4_collection",
+                            "type": "custom:group-card"
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.postcodeloterij_prijs"
                                 }
                             ],
                             "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "animate": true,
+                                    "entities": [
+                                        "sensor.downstairs_thermostat_temperature"
+                                    ],
+                                    "hours_to_show": 4,
+                                    "name": "Woonkamer",
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "animate": true,
+                                    "entities": [
+                                        "sensor.temperatuur_slaapkamer_temperature"
+                                    ],
+                                    "hours_to_show": 4,
+                                    "line_color": "red",
+                                    "name": "Slaapkamer",
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "animate": true,
+                                    "entities": [
+                                        "sensor.temperatuur_badkamer_temperature"
+                                    ],
+                                    "hours_to_show": 4,
+                                    "line_color": "blue",
+                                    "name": "Badkamer",
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         }
                     ],
                     "icon": "mdi:home-account",
@@ -751,6 +793,26 @@
                                 }
                             ],
                             "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "artwork": "cover",
+                                "entity": "media_player.kevin_mac_mini",
+                                "hide": {
+                                    "icon": true,
+                                    "name": true,
+                                    "power": true,
+                                    "volume": true
+                                },
+                                "type": "custom:mini-media-player"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "input_select.harmony_hub",
+                                    "state": "Plex"
+                                }
+                            ],
+                            "type": "conditional"
                         }
                     ],
                     "icon": "mdi:remote",
@@ -968,6 +1030,17 @@
                             "entity": "sensor.temperatuur_buiten_temperature",
                             "show_name": false,
                             "type": "picture-entity"
+                        },
+                        {
+                            "entity": "input_boolean.camera1_irmode",
+                            "hold_action": {
+                                "action": "none"
+                            },
+                            "name": "Nachtmodus",
+                            "tap_action": {
+                                "action": "toggle"
+                            },
+                            "type": "entity-button"
                         }
                     ],
                     "icon": "mdi:camera",
@@ -1269,6 +1342,14 @@
                             },
                             "title": "Untappd",
                             "type": "custom:entity-attributes-card"
+                        },
+                        {
+                            "title": null,
+                            "trackers": [
+                                "sensor.custom_card_tracker",
+                                "sensor.custom_component_tracker"
+                            ],
+                            "type": "custom:tracker-card"
                         }
                     ],
                     "icon": "mdi:finance",

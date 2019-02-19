@@ -50,3 +50,23 @@
         posY: -10
     - service: input_boolean.turn_off
       entity_id: input_boolean.camera1_down
+
+- alias: Camera1 IR on
+  trigger:
+    platform: state
+    entity_id: input_boolean.camera1_irmode
+    to: 'on'
+  action:
+    service: rest_command.camera1_irmode
+    data:
+      mode: night
+
+- alias: Camera1 IR off
+  trigger:
+    platform: state
+    entity_id: input_boolean.camera1_irmode
+    to: 'off'
+  action:
+    service: rest_command.camera1_irmode
+    data:
+      mode: day
