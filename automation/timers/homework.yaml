@@ -1,8 +1,19 @@
 ---
+- alias: Work from home enabled
+  trigger:
+    platform: state
+    entity_id: input_boolean.homeworking_day
+    to: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Thuiswerken"
+        message: "Morgenochtend staat de verwarming aan."
+
 - alias: Work from home start and reset
   trigger:
     platform: time
-    at: '06:30:00'
+    at: '06:00:00'
   condition:
     - condition: state
       entity_id: input_boolean.homeworking_day
@@ -21,4 +32,4 @@
     - service: notify.pushover
       data:
         title: "Thuiswerken"
-        message: "Verwarming ingesteld op 19.5C."
+        message: "Verwarming staat alvast aan."
