@@ -169,7 +169,7 @@ class OvApiSensor(Entity):
             self._stop_name = item['TimingPointName']
 
         stops_list = []
-        for stop in itertools.islice(data[self._stop_code]['Passes'].values(), 5):
+        for stop in itertools.islice(data[self._stop_code]['Passes'].values(), 7):
 
             stops_item = {}
 
