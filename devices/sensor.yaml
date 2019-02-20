@@ -243,6 +243,11 @@
       entity_id: binary_sensor.hm_motion_backyard
       value_template: >
         {{ states.binary_sensor.hm_motion_backyard.attributes.lx | float | round(2) }}
+- platform: mqtt
+  name: Sous vide
+  state_topic: anova/timer
+  value_template: "{{ (((value_json.timer | int) * 60) - 3600) | timestamp_custom('%H:%M') }}"
+  icon: 'mdi:timer'
 - platform: speedtest
   minute:
     - 0

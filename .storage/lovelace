@@ -1067,9 +1067,35 @@
                             "type": "entities"
                         },
                         {
-                            "entity": "climate.sous_vide",
-                            "name": "Sous-vide",
-                            "type": "thermostat"
+                            "cards": [
+                                {
+                                    "entity": "climate.sous_vide",
+                                    "name": "Sous-vide",
+                                    "type": "thermostat"
+                                },
+                                {
+                                    "cards": [
+                                        {
+                                            "entity": "sensor.sous_vide",
+                                            "tap_action": {
+                                                "action": "navigate",
+                                                "navigation_path": "/lovelace/sousvidetimer"
+                                            },
+                                            "type": "custom:bignumber-card"
+                                        },
+                                        {
+                                            "entity": "switch.sous_vide",
+                                            "name": "timer",
+                                            "tap_action": {
+                                                "action": "toggle"
+                                            },
+                                            "type": "entity-button"
+                                        }
+                                    ],
+                                    "type": "horizontal-stack"
+                                }
+                            ],
+                            "type": "vertical-stack"
                         },
                         {
                             "entity": "sensor.power_consumption",

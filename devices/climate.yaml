@@ -15,4 +15,4 @@
     temperature_command_topic: anova/command/temp
     min_temp: 20
     max_temp: 99
-    temp_step: 0.1
+    temp_step: 0.5
