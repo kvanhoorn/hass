@@ -83,6 +83,9 @@
 - platform: command_line
   name: External IP
   command: "/usr/bin/curl kvanhoorn.nl/myip/"
+- platform: command_line
+  name: Database size
+  command: 'ls -hl /home/homeassistant/.homeassistant/home-assistant_v2.db | cut -d " " -f5'
 - platform: darksky
   api_key: 2cbc3be161a2e13481e8c56cf491c525
   monitored_conditions:
