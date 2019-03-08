@@ -73,6 +73,15 @@ rfxtrx:
   device: !secret rfxtrx_device
   dummy: false
 
+recorder:
+  purge_keep_days: 30
+  exclude:
+    domains:
+      - sensor
+      - binary_sensor
+      - light
+      - switch
+
 remote:
   - platform: harmony
     name: Living Room
