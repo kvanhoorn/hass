@@ -1,7 +1,5 @@
 ---
-- platform: hue
-  ip_address: !secret hue_ip
-  token: !secret hue_token
+- platform: huesensor
 - platform: yr
   monitored_conditions:
     - temperature
@@ -9,13 +7,13 @@
     - fog
     - cloudiness
     - symbol
-- platform: yweather
-  name: Yahoo vandaag
-  monitored_conditions:
-    - weather
-    - weather_current
-    - temp_min
-    - temp_max
+# - platform: yweather
+#   name: Yahoo vandaag
+#   monitored_conditions:
+#     - weather
+#     - weather_current
+#     - temp_min
+#     - temp_max
 - platform: moon
 - platform: fitbit
   monitored_resources:
@@ -251,16 +249,6 @@
   state_topic: anova/timer
   value_template: "{{ (((value_json.timer | int) * 60) - 3600) | timestamp_custom('%H:%M') }}"
   icon: 'mdi:timer'
-- platform: speedtest
-  minute:
-    - 0
-    - 10
-    - 20
-    - 30
-    - 40
-    - 50
-  monitored_conditions:
-    - ping
 - platform: cure_waste
   location: Eindhoven
   postalcode: !secret postcode

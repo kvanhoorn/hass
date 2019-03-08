@@ -83,15 +83,15 @@ lights:
     - light.h_outdoor_1
     - light.h_outdoor_2
     - light.h_outdoor_3
-    - light.hue_outdoor_pedestal_1
-    - light.hue_outdoor_pedestal_1_2
+    - light.h_outdoor_4
+    - light.h_outdoor_5
     - light.h_schemerlamp
     - light.h_staande_lamp
     - light.h_tv_lamp
     - light.h_piano
     - light.h_tafel_kamer
     - light.h_tafel_raam
-    - light.garage
+    - light.h_garage
     - light.kerstboom
     - light.plafondlamp
     - light.badkamer_lamp
@@ -109,8 +109,8 @@ outdoor_lights:
     - light.h_outdoor_1
     - light.h_outdoor_2
     - light.h_outdoor_3
-    - light.hue_outdoor_pedestal_1
-    - light.hue_outdoor_pedestal_1_2
+    - light.h_outdoor_4
+    - light.h_outdoor_5
 doors:
   name: Deuren/ramen
   view: false

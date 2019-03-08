@@ -1102,24 +1102,8 @@
                             "type": "custom:bignumber-card"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "light.h_outdoor_1"
-                                },
-                                {
-                                    "entity": "light.h_outdoor_2"
-                                },
-                                {
-                                    "entity": "light.h_outdoor_3"
-                                },
-                                {
-                                    "entity": "light.hue_outdoor_pedestal_1"
-                                },
-                                {
-                                    "entity": "light.hue_outdoor_pedestal_1_2"
-                                }
-                            ],
-                            "type": "entities"
+                            "group": "group.outdoor_lights",
+                            "type": "custom:group-card"
                         }
                     ],
                     "icon": "mdi:stove",

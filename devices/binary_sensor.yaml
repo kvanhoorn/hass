@@ -1,7 +1,5 @@
 ---
-- platform: hue
-  ip_address: !secret hue_ip
-  token: !secret hue_token
+- platform: huesensor
 - platform: rfxtrx
   automatic_add: false
   devices:
