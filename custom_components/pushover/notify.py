@@ -1,3 +1,4 @@
+
 """
 Pushover platform for notify component.
 
@@ -17,7 +18,7 @@ import voluptuous as vol
 
 from homeassistant.components.notify import (
     ATTR_TITLE, ATTR_TITLE_DEFAULT, ATTR_TARGET, ATTR_DATA,
-    BaseNotificationService)
+    BaseNotificationService, PLATFORM_SCHEMA)
 from homeassistant.const import CONF_API_KEY
 import homeassistant.helpers.config_validation as cv
 
@@ -41,7 +42,7 @@ ATTR_FILE_AUTH_DIGEST = 'digest'
 CONF_TIMEOUT = 15
 CONF_USER_KEY = 'user_key'
 
-PLATFORM_SCHEMA = cv.PLATFORM_SCHEMA.extend({
+PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_USER_KEY): cv.string,
     vol.Required(CONF_API_KEY): cv.string,
 })
@@ -53,7 +54,8 @@ def get_service(hass, config, discovery_info=None):
 
     try:
         return PushoverNotificationService(
-            config[CONF_USER_KEY], config[CONF_API_KEY])
+            config[CONF_USER_KEY], config[CONF_API_KEY],
+            hass.config.is_allowed_path, hass.config.path('www'))
     except InitError:
         _LOGGER.error("Wrong API key supplied")
         return None
@@ -62,11 +64,13 @@ def get_service(hass, config, discovery_info=None):
 class PushoverNotificationService(BaseNotificationService):
     """Implement the notification service for Pushover."""
 
-    def __init__(self, user_key, api_token):
+    def __init__(self, user_key, api_token, is_allowed_path, local_www_path):
         """Initialize the service."""
         from pushover import Client
         self._user_key = user_key
         self._api_token = api_token
+        self._is_allowed_path = is_allowed_path
+        self._local_www_path = local_www_path
         self.pushover = Client(
             self._user_key, api_token=self._api_token)
 
@@ -90,6 +94,7 @@ class PushoverNotificationService(BaseNotificationService):
         if file_data is not None:
             filename = self.load_file(
                 url=file_data.get(ATTR_FILE_URL),
+                local_path=file_data.get(ATTR_FILE_PATH),
                 username=file_data.get(ATTR_FILE_USERNAME),
                 password=file_data.get(ATTR_FILE_PASSWORD),
                 auth=file_data.get(ATTR_FILE_AUTH))
@@ -103,44 +108,63 @@ class PushoverNotificationService(BaseNotificationService):
                 data['device'] = target
 
             try:
-                self.pushover.send_message(message=message, attachment=file, **data)
+                self.pushover.send_message(
+                    message=message, attachment=file, **data)
             except ValueError as val_err:
                 _LOGGER.error(str(val_err))
             except RequestError:
                 _LOGGER.exception("Could not send pushover notification")
+            finally:
+                # Remove the tempfile if one was created
+                if file_data and file_data.get(ATTR_FILE_URL) and filename:
+                    os.remove(filename)
 
-    def load_file(self, url=None, username=None, password=None, auth=None):
+    def load_file(self, url=None, local_path=None, username=None,
+                  password=None, auth=None):
         """Load image/document/etc from a local path or URL."""
-
-        # Check whether authentication parameters are provided
-        if username:
-            # Use digest or basic authentication
-            if ATTR_FILE_AUTH_DIGEST == auth:
-                auth = HTTPDigestAuth(username, password)
+        # Load the file from URL
+        if url:
+            # Check whether authentication parameters are provided
+            if username:
+                # Use digest or basic authentication
+                if ATTR_FILE_AUTH_DIGEST == auth:
+                    auth = HTTPDigestAuth(username, password)
+                else:
+                    auth = HTTPBasicAuth(username, password)
             else:
-                auth = HTTPBasicAuth(username, password)
+                auth = None
+    
+            # Make the request and raise an error if necessary
+            try:
+                if auth:
+                    response = requests.get(url, auth=auth, timeout=CONF_TIMEOUT)
+                else:
+                    response = requests.get(url, timeout=CONF_TIMEOUT)
+    
+                response.raise_for_status()
+            except requests.exceptions.RequestException as request_error:
+                _LOGGER.error("Can't load from url: %s", request_error)
+    
+            downloaded_file = (
+                tempfile.NamedTemporaryFile(delete=False)
+            )
+    
+            try:
+                filename = downloaded_file.name
+                downloaded_file.write(response.content)
+            except OSError as error:
+                _LOGGER.error("Can't load from url or local path: %s", error)
+    
+            return filename
+    
+        # Load the file from the filesystem
+        elif local_path:
+            # Check whether path is whitelisted in configuration.yaml
+            if self._is_allowed_path(local_path):
+                return local_path
+            _LOGGER.warning("'%s' is not secure to load data from!",
+                            local_path)
         else:
-            auth = None
-
-        # Make the request and raise an error if necessary
-        try:
-            if auth:
-                response = requests.get(url, auth=auth, timeout=CONF_TIMEOUT)
-            else:
-                response = requests.get(url, timeout=CONF_TIMEOUT)
-
-            response.raise_for_status()
-        except requests.exceptions.RequestException as request_error:
-            _LOGGER.error("Can't load from url: %s", request_error)
-
-        downloaded_file = (
-            tempfile.NamedTemporaryFile(delete=False)
-        )
-
-        try:
-            filename = downloaded_file.name
-            downloaded_file.write(response.content)
-        except OSError as error:
-            _LOGGER.error("Can't load from url or local path: %s", error)
-
-        return filename
+            _LOGGER.warning("Neither URL nor local path found in params!")
+    
+        return None
