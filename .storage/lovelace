@@ -1300,6 +1300,9 @@
                                     "entity": "sensor.last_boot"
                                 },
                                 {
+                                    "entity": "sensor.database_size"
+                                },
+                                {
                                     "entity": "sensor.network_in_wlan0"
                                 },
                                 {
