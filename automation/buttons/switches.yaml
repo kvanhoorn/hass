@@ -53,7 +53,7 @@
       entity_id:
         - light.h_tafel_kamer
         - light.h_tafel_raam
-      rgb_color: [255,198,104]
+      rgb_color: [255, 198, 104]
       brightness: 127
 
 # Tafelverlichting off

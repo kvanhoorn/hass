@@ -389,9 +389,9 @@ bus4_collection:
   name: Bus 4 vertrektijden
   view: false
   entities:
-    - sensor.bus_4_departure1
-    - sensor.bus_4_departure2
-    - sensor.bus_4_departure3
+    - sensor.bus_4
+    - sensor.bus_4_future_1
+    - sensor.bus_4_future_2
 untappd_collection:
   name: Untappd kvanhoorn
   view: false

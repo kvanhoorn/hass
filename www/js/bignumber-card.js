@@ -83,16 +83,8 @@ class BigNumberCard extends HTMLElement {
   set hass(hass) {
     const config = this._config;
     const root = this.shadowRoot;
+    const entityState = hass.states[config.entity].state;
     const measurement = hass.states[config.entity].attributes.unit_of_measurement || "";
-    let entityValue;
-    
-    if (config.attribute && hass.states[config.entity].attributes[config.attribute]) {
-      entityValue = hass.states[config.entity].attributes[config.attribute] || "";
-    } else {
-      entityValue = hass.states[config.entity].state;
-    }
-    
-    const entityState = entityValue;
 
     if (entityState !== this._entityState) {
       if (config.min !== undefined && config.max !== undefined) {

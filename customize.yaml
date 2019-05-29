@@ -91,10 +91,6 @@ media_player.computer_airtunes_speaker:
 media_player.kevin_raspberry2_attic_airtunes_speaker:
   hidden: true
 
-# hide other things
-sensor.bus_4:
-  hidden: true
-
 # overwrite waste sensor names
 sensor.eindhoven_biodegradable_waste:
   friendly_name: GFT afval
@@ -181,3 +177,11 @@ sensor.hs_kitchen:
   friendly_name: Hue switch Keuken
 binary_sensor.hm_motion_backyard:
   friendly_name: Hue sensor Achtertuin
+sensor.hm_backyard_light_level:
+  icon: mdi:sun
+
+# overwrite ovapi sensors
+sensor.bus_4_future_1:
+  friendly_name: Bus 4
+sensor.bus_4_future_2:
+  friendly_name: Bus 4

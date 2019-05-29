@@ -28,7 +28,7 @@
                 },
                 {
                     "type": "module",
-                    "url": "/local/js/tracker-card.js"
+                    "url": "/local/js/tracker-card.js?track=true"
                 }
             ],
             "title": "VinkHoorn",
@@ -189,9 +189,9 @@
                         {
                             "card": {
                                 "entities": [
-                                    "sensor.bus_4_departure1",
-                                    "sensor.bus_4_departure2",
-                                    "sensor.bus_4_departure3"
+                                    "sensor.bus_4",
+                                    "sensor.bus_4_future_1",
+                                    "sensor.bus_4_future_2"
                                 ],
                                 "show_header_toggle": false,
                                 "title": "Bus 4",
@@ -241,6 +241,22 @@
                                 }
                             ],
                             "type": "horizontal-stack"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.omroep_brabant_zuid_oost"
+                                },
+                                {
+                                    "entity": "sensor.nos_algemeen"
+                                },
+                                {
+                                    "entity": "sensor.nu_nl_algemeen"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Nieuws",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:home-account",
@@ -854,13 +870,13 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.outdoor_roof_temperature"
+                                    "entity": "sensor.hm_backyard_temperature"
                                 },
                                 {
-                                    "entity": "sensor.outdoor_roof_lux"
+                                    "entity": "sensor.hm_backyard_light_level"
                                 },
                                 {
-                                    "entity": "binary_sensor.hm_motion_backyard"
+                                    "entity": "binary_sensor.hm_backyard_motion"
                                 }
                             ],
                             "show_name": false,
@@ -955,9 +971,9 @@
                         {
                             "card": {
                                 "entities": [
-                                    "sensor.bus_4_departure1",
-                                    "sensor.bus_4_departure2",
-                                    "sensor.bus_4_departure3"
+                                    "sensor.bus_4",
+                                    "sensor.bus_4_future_1",
+                                    "sensor.bus_4_future_2"
                                 ],
                                 "show_header_toggle": false,
                                 "title": "Bus 4",
@@ -1104,6 +1120,13 @@
                         {
                             "group": "group.outdoor_lights",
                             "type": "custom:group-card"
+                        },
+                        {
+                            "entities": [
+                                "climate.sous_vide"
+                            ],
+                            "hours_to_show": 3,
+                            "type": "history-graph"
                         }
                     ],
                     "icon": "mdi:stove",
@@ -1180,7 +1203,7 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.hm_motion_backyard",
+                                    "entity": "binary_sensor.hm_backyard_motion",
                                     "secondary_info": "last-changed"
                                 }
                             ],
@@ -1300,6 +1323,10 @@
                                 },
                                 {
                                     "entity": "sensor.current_version"
+                                },
+                                {
+                                    "entity": "sensor.steps",
+                                    "name": "Aantal stappen Willemijn"
                                 }
                             ],
                             "type": "entities"
@@ -1458,7 +1485,7 @@
                                     "name": "Gangkast"
                                 },
                                 {
-                                    "entity": "binary_sensor.hm_motion_backyard",
+                                    "entity": "binary_sensor.hm_backyard_motion",
                                     "name": "Achtertuin"
                                 }
                             ],

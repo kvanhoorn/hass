@@ -11,12 +11,14 @@ homeassistant:
   auth_providers:
     - type: trusted_networks
       trusted_networks:
-        - 192.168.0.133
+        - 192.168.0.71
     - type: homeassistant
 
 logger:
   default: info
   # logs:
+  #  homeassistant.components.config: debug
+  #  homeassistant.components.config.automation: debug
   #  homeassistant.components.sensor.rest: debug
   #  custom_components.p2000: debug
   #  homeassistant.components.rfxtrx: debug
@@ -29,6 +31,11 @@ logger:
 cloud:
 config:
 conversation:
+
+cure_waste:
+  location: Eindhoven
+  postalcode: !secret postcode
+  housenumber: !secret housenumber
 
 custom_updater:
   card_urls:
@@ -88,17 +95,11 @@ rfxtrx:
 
 recorder:
   purge_keep_days: 30
-  exclude:
-    domains:
-      - sensor
-      - binary_sensor
-      - light
-      - switch
 
 remote:
   - platform: harmony
     name: Living Room
-    host: 192.168.0.110
+    host: 192.168.0.104 # Slim Devices, Inc.
 
 sabnzbd:
   api_key: !secret sab_apikey
@@ -123,7 +124,7 @@ updater:
 # END OTHER CONFIG - START INCLUDES #
 #
 
-alert: !include devices/alert.yaml
+# alert: !include devices/alert.yaml
 binary_sensor: !include devices/binary_sensor.yaml
 device_tracker: !include devices/device_tracker.yaml
 camera: !include devices/camera.yaml

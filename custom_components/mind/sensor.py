@@ -1,3 +1,4 @@
+
 """
 For more details about this platform, please refer to the documentation at
 https://home-assistant.io/components/sensor.mind/
@@ -79,3 +80,4 @@ class MindSensor(Entity):
         else:
             self._state = None
             _LOGGER.warning("Could not retrieve state from %s", self.name)
+

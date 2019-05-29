@@ -1,3 +1,4 @@
+
 """
 A component which allows you to get information from Untappd.
 
@@ -13,12 +14,15 @@ from datetime import datetime
 from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.switch import (PLATFORM_SCHEMA)
+from homeassistant.const import ATTR_ATTRIBUTION
 
 REQUIREMENTS = ['pyuntappd==0.0.5']
 
-__version__ = '0.1.3'
+__version__ = '0.1.5'
 
 _LOGGER = logging.getLogger(__name__)
+
+ATTRIBUTION = 'Information provided by Untappd'
 
 CONF_USERNAME = 'username'
 CONF_ID = 'id'
@@ -55,7 +59,6 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
 })
 
 def setup_platform(hass, config, add_devices, discovery_info=None):
-    _LOGGER.warning('Data provided by Untappd, report any issues to %s', COMPONENT_REPO)
     username = config.get(CONF_USERNAME)
     api_id = config.get(CONF_ID)
     api_secret = config.get(CONF_SECRET)
@@ -146,6 +149,7 @@ class UntappdCheckinSensor(Entity):
             ATTR_TOTAL_FRIENDS: self._total_friends,
             ATTR_TOTAL_FOLLOWINGS: self._total_followings,
             ATTR_TOTAL_PHOTOS: self._total_photos,
+            ATTR_ATTRIBUTION: ATTRIBUTION,
         }
 
 class UntappdWishlistSensor(Entity):
@@ -257,4 +261,5 @@ class UntappdLastBadgeSensor(Entity):
             ATTR_BADGE: self._badge,
             ATTR_LEVEL: self._level,
             ATTR_DESCRIPTION: self._description,
+            ATTR_ATTRIBUTION: ATTRIBUTION,
         }

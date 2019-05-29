@@ -1,3 +1,4 @@
+
 """
 For more details about this platform, please refer to the documentation at
 https://home-assistant.io/components/binary_sensor.mind/
@@ -86,3 +87,4 @@ class MindBinarySensor(BinarySensorDevice):
         else:
             self._state = None
             _LOGGER.warning("Could not retrieve state from %s", self.name)
+

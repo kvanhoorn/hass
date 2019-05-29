@@ -1,3 +1,4 @@
+
 """
 Support for Mind Mobility connected cars.
 
@@ -12,7 +13,6 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.const import (
     CONF_USERNAME, CONF_PASSWORD, CONF_SCAN_INTERVAL)
 from homeassistant.helpers import discovery
-from homeassistant.loader import get_component
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -43,7 +43,7 @@ CONFIG_SCHEMA = vol.Schema({
 
 def setup(hass, config):
     """Set up the Mind component."""
-    conf = config.get(DOMAIN);
+    conf = config.get(DOMAIN)
     hass.data[DATA_MIND] = Mind(hass, conf)
 
     _LOGGER.debug("Setup Mind")

@@ -108,7 +108,7 @@
     to: 'on'
   action:
     service: light.turn_on
-    entity_id: light.garage
+    entity_id: light.h_garage
 
 # use door(s) to turn off garage light
 - alias: Garage door turn lights off
@@ -127,4 +127,4 @@
       state: 'off'
   action:
     service: light.turn_off
-    entity_id: light.garage
+    entity_id: light.h_garage
