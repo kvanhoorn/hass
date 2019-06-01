@@ -1,39 +1,30 @@
-
-"""
-Pushover platform for notify component.
-
-For more details about this platform, please refer to the documentation at
-https://home-assistant.io/components/notify.pushover/
-"""
+"""Pushover platform for notify component."""
 import logging
-import mimetypes
-import os
 import re
-import tempfile
 
 import requests
 from requests.auth import HTTPBasicAuth
 from requests.auth import HTTPDigestAuth
 import voluptuous as vol
 
-from homeassistant.components.notify import (
-    ATTR_TITLE, ATTR_TITLE_DEFAULT, ATTR_TARGET, ATTR_DATA,
-    BaseNotificationService, PLATFORM_SCHEMA)
 from homeassistant.const import CONF_API_KEY
 import homeassistant.helpers.config_validation as cv
 
-REQUIREMENTS = ['python-pushover==0.4']
+from homeassistant.components.notify import (
+    ATTR_DATA, ATTR_TARGET, ATTR_TITLE, ATTR_TITLE_DEFAULT, PLATFORM_SCHEMA,
+    BaseNotificationService)
+
 _LOGGER = logging.getLogger(__name__)
 
 # Top level attributes in 'data'
 ATTR_FILE = 'file'
 
 # Attributes contained in file
-ATTR_FILE_URL = 'url'
 ATTR_FILE_PATH = 'path'
+ATTR_FILE_URL = 'url'
+ATTR_FILE_AUTH = 'auth'
 ATTR_FILE_USERNAME = 'username'
 ATTR_FILE_PASSWORD = 'password'
-ATTR_FILE_AUTH = 'auth'
 
 # Valid values for 'auth' attribute
 ATTR_FILE_AUTH_BASIC = 'basic'
@@ -92,16 +83,12 @@ class PushoverNotificationService(BaseNotificationService):
         file = {}
 
         if file_data is not None:
-            filename = self.load_file(
+            file = self.load_file(
                 url=file_data.get(ATTR_FILE_URL),
                 local_path=file_data.get(ATTR_FILE_PATH),
                 username=file_data.get(ATTR_FILE_USERNAME),
                 password=file_data.get(ATTR_FILE_PASSWORD),
                 auth=file_data.get(ATTR_FILE_AUTH))
-
-            if filename is not None:
-                file = (filename, open(
-                    filename, "rb"), mimetypes.guess_type(filename))
 
         for target in targets:
             if target is not None:
@@ -110,61 +97,50 @@ class PushoverNotificationService(BaseNotificationService):
             try:
                 self.pushover.send_message(
                     message=message, attachment=file, **data)
+
             except ValueError as val_err:
                 _LOGGER.error(str(val_err))
             except RequestError:
                 _LOGGER.exception("Could not send pushover notification")
-            finally:
-                # Remove the tempfile if one was created
-                if file_data and file_data.get(ATTR_FILE_URL) and filename:
-                    os.remove(filename)
 
     def load_file(self, url=None, local_path=None, username=None,
                   password=None, auth=None):
         """Load image/document/etc from a local path or URL."""
         # Load the file from URL
         if url:
-            # Check whether authentication parameters are provided
             if username:
-                # Use digest or basic authentication
                 if ATTR_FILE_AUTH_DIGEST == auth:
                     auth = HTTPDigestAuth(username, password)
                 else:
                     auth = HTTPBasicAuth(username, password)
             else:
                 auth = None
-    
+
             # Make the request and raise an error if necessary
             try:
-                if auth:
-                    response = requests.get(url, auth=auth, timeout=CONF_TIMEOUT)
-                else:
-                    response = requests.get(url, timeout=CONF_TIMEOUT)
-    
+                response = requests.get(url, auth=auth, timeout=CONF_TIMEOUT)
                 response.raise_for_status()
+                return response.content
+
             except requests.exceptions.RequestException as request_error:
-                _LOGGER.error("Can't load from url: %s", request_error)
-    
-            downloaded_file = (
-                tempfile.NamedTemporaryFile(delete=False)
-            )
-    
-            try:
-                filename = downloaded_file.name
-                downloaded_file.write(response.content)
-            except OSError as error:
-                _LOGGER.error("Can't load from url or local path: %s", error)
-    
-            return filename
-    
+                _LOGGER.error("Could not load from url: %s", request_error)
+
         # Load the file from the filesystem
         elif local_path:
+            # Change the path if the file is in the local www directory
+            regex = re.compile('^/local/')
+            local_path = regex.sub(self._local_www_path + "/", local_path)
+
             # Check whether path is whitelisted in configuration.yaml
             if self._is_allowed_path(local_path):
-                return local_path
-            _LOGGER.warning("'%s' is not secure to load data from!",
-                            local_path)
+                try:
+                    return open(local_path, "rb")
+                except OSError as error:
+                    _LOGGER.error("Could not load file: %s", error)
+            else:
+                _LOGGER.warning("Could not load file from insecure path: '%s'",
+                                local_path)
         else:
             _LOGGER.warning("Neither URL nor local path found in params!")
-    
+
         return None
