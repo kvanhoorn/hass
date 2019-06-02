@@ -53,6 +53,28 @@
     service: light.turn_off
     entity_id: light.hal_led_bak
 
+# use PIR to turn on light
+- alias: PIR turn staircase closet on
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_gangkast
+    to: 'on'
+  action:
+    service: light.turn_on
+    entity_id: light.h_gangkast
+
+# and turn it back off
+- alias: PIR turn staircase closet off
+  trigger:
+    platform: state
+    entity_id: binary_sensor.pir_gangkast
+    to: 'off'
+    for:
+      minutes: 1
+  action:
+    service: light.turn_off
+    entity_id: light.h_gangkast
+
 # use PIR to turn on attic lights
 - alias: PIR turn attic on
   trigger:
