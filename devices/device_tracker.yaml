@@ -1,5 +1,4 @@
 ---
-- platform: huesensor
 - platform: ping
   hosts:
     macpro: 192.168.0.56

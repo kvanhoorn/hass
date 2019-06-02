@@ -1,5 +1,4 @@
 ---
-- platform: huesensor
 - platform: rfxtrx
   automatic_add: false
   devices:
