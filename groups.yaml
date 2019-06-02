@@ -92,6 +92,7 @@ lights:
     - light.h_tafel_kamer
     - light.h_tafel_raam
     - light.h_garage
+    - light.h_gangkast
     - light.kerstboom
     - light.plafondlamp
     - light.badkamer_lamp
