@@ -27,6 +27,8 @@
         entity_id: media_player.itunes
         media_content_type: playlist
         media_content_id: stream-radio
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.itunes_active
 
 - alias: last airplay speaker pressed off
   trigger:
@@ -38,3 +40,5 @@
   action:
     - service: media_player.media_pause
       entity_id: media_player.itunes
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.itunes_active

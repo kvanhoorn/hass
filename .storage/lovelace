@@ -131,45 +131,89 @@
                             "type": "horizontal-stack"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "media_player.ae_kitchen_airtunes_speaker",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true,
-                                        "icon": true,
-                                        "power": true,
-                                        "volume": false
+                            "card": {
+                                "entities": [
+                                    {
+                                        "entity": "media_player.itunes",
+                                        "group": true,
+                                        "hide": {
+                                            "power": true,
+                                            "volume": true
+                                        },
+                                        "info": "short",
+                                        "shortcuts": {
+                                            "buttons": [
+                                                {
+                                                    "id": "awesome-90s-00s-rock",
+                                                    "name": "ROCK",
+                                                    "type": "playlist"
+                                                },
+                                                {
+                                                    "id": "awesome-oldies",
+                                                    "name": "OLDIES",
+                                                    "type": "playlist"
+                                                },
+                                                {
+                                                    "id": "awesome-deep-house",
+                                                    "name": "CHILL",
+                                                    "type": "playlist"
+                                                },
+                                                {
+                                                    "id": "awesome-summer",
+                                                    "name": "SUMMER",
+                                                    "type": "playlist"
+                                                }
+                                            ],
+                                            "columns": 4
+                                        },
+                                        "type": "custom:mini-media-player"
                                     },
-                                    "name": "Keuken",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.ae_bathroom_airtunes_speaker",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true,
-                                        "icon": true,
-                                        "power": true,
-                                        "volume": false
+                                    {
+                                        "entity": "media_player.ae_kitchen_airtunes_speaker",
+                                        "group": true,
+                                        "hide": {
+                                            "controls": true,
+                                            "icon": false,
+                                            "power": true,
+                                            "volume": false
+                                        },
+                                        "name": "Keuken",
+                                        "type": "custom:mini-media-player"
                                     },
-                                    "name": "Badkamer",
-                                    "type": "custom:mini-media-player"
-                                },
-                                {
-                                    "entity": "media_player.ae_garage_airtunes_speaker",
-                                    "group": true,
-                                    "hide": {
-                                        "controls": true,
-                                        "icon": true,
-                                        "power": true,
-                                        "volume": false
+                                    {
+                                        "entity": "media_player.ae_bathroom_airtunes_speaker",
+                                        "group": true,
+                                        "hide": {
+                                            "controls": true,
+                                            "icon": false,
+                                            "power": true,
+                                            "volume": false
+                                        },
+                                        "name": "Badkamer",
+                                        "type": "custom:mini-media-player"
                                     },
-                                    "name": "Garage",
-                                    "type": "custom:mini-media-player"
+                                    {
+                                        "entity": "media_player.ae_garage_airtunes_speaker",
+                                        "group": true,
+                                        "hide": {
+                                            "controls": true,
+                                            "icon": false,
+                                            "power": true,
+                                            "volume": false
+                                        },
+                                        "name": "Garage",
+                                        "type": "custom:mini-media-player"
+                                    }
+                                ],
+                                "type": "entities"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "input_boolean.itunes_active",
+                                    "state": "on"
                                 }
                             ],
-                            "type": "entities"
+                            "type": "conditional"
                         },
                         {
                             "entity": "climate.downstairs",
