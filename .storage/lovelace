@@ -1390,6 +1390,22 @@
                                 "sensor.custom_component_tracker"
                             ],
                             "type": "custom:tracker-card"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "device_tracker.macpro"
+                                },
+                                {
+                                    "entity": "device_tracker.huebridge"
+                                },
+                                {
+                                    "entity": "device_tracker.harmonybridge"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Device trackers",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:finance",

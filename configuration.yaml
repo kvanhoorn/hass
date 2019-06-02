@@ -99,7 +99,7 @@ recorder:
 remote:
   - platform: harmony
     name: Living Room
-    host: 192.168.0.104 # Slim Devices, Inc.
+    host: !secret harmony_ip # Slim Devices, Inc.
 
 sabnzbd:
   api_key: !secret sab_apikey
