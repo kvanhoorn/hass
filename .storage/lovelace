@@ -138,6 +138,7 @@
                                         "group": true,
                                         "hide": {
                                             "power": true,
+                                            "shuffle": false,
                                             "volume": true
                                         },
                                         "info": "short",

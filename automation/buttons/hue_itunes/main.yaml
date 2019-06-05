@@ -22,6 +22,10 @@
         entity_id: media_player.itunes
         state: 'idle'
   action:
+    - service: media_player.shuffle_set
+      data:
+        entity_id: media_player.itunes
+        shuffle: false
     - service: media_player.play_media
       data:
         entity_id: media_player.itunes
