@@ -87,6 +87,15 @@
                                     "type": "entity-button"
                                 },
                                 {
+                                    "entity": "switch.badkamerverlichting",
+                                    "icon": "mdi:lightbulb",
+                                    "name": "Badk.",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "entity-button"
+                                },
+                                {
                                     "entity": "switch.outdoor_lightning",
                                     "icon": "mdi:lightbulb",
                                     "name": "Buiten",
@@ -113,6 +122,15 @@
                                     "entity": "input_boolean.radio_bathroom",
                                     "icon": "mdi:speaker",
                                     "name": "Badkamer",
+                                    "tap_action": {
+                                        "action": "toggle"
+                                    },
+                                    "type": "custom:button-card"
+                                },
+                                {
+                                    "entity": "input_boolean.radio_living",
+                                    "icon": "mdi:speaker",
+                                    "name": "Woonk.",
                                     "tap_action": {
                                         "action": "toggle"
                                     },
@@ -244,6 +262,14 @@
                             },
                             "group": "group.bus4_collection",
                             "type": "custom:group-card"
+                        },
+                        {
+                            "artwork": "cover",
+                            "entity": "media_player.living_room",
+                            "group": true,
+                            "icon": "mdi:music",
+                            "name": "Woonkamer",
+                            "type": "custom:mini-media-player"
                         },
                         {
                             "entities": [
