@@ -57,7 +57,7 @@
 - alias: PIR turn staircase closet on
   trigger:
     platform: state
-    entity_id: binary_sensor.pir_gangkast
+    entity_id: binary_sensor.hm_hall_motion
     to: 'on'
   action:
     service: light.turn_on
@@ -67,7 +67,7 @@
 - alias: PIR turn staircase closet off
   trigger:
     platform: state
-    entity_id: binary_sensor.pir_gangkast
+    entity_id: binary_sensor.hm_hall_motion
     to: 'off'
     for:
       minutes: 1
