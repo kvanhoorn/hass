@@ -23,6 +23,9 @@ radio_bathroom:
 radio_garage:
   name: Radio Garage
   icon: mdi:speaker
+radio_living:
+  name: Radio Woonkamer
+  icon: mdi:speaker
 itunes_active:
   name: iTunes playing
   icon: mdi:speaker
