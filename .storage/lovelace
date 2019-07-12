@@ -955,6 +955,22 @@
                             "type": "glance"
                         },
                         {
+                            "entities": [
+                                {
+                                    "entity": "sensor.hm_hall_temperature"
+                                },
+                                {
+                                    "entity": "sensor.hm_hall_light_level"
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_hall_motion"
+                                }
+                            ],
+                            "show_name": false,
+                            "title": "Gangkast",
+                            "type": "glance"
+                        },
+                        {
                             "cards": [
                                 {
                                     "entity": "plant.peace_lily_witte_bloem",
