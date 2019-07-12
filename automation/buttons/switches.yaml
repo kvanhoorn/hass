@@ -73,3 +73,34 @@
       entity_id:
         - light.h_tafel_kamer
         - light.h_tafel_raam
+
+# Badkamerverlichting on
+- alias: Badkamerverlichting aan
+  trigger:
+    platform: state
+    entity_id: switch.badkamerverlichting
+    to: 'on'
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Badkamer"
+        scene_name: "DOM_bathroom_full"
+
+# Badkamerverlichting off
+- alias: Badkamerverlichting uit
+  trigger:
+    - platform: event
+      event_type: button_pressed
+      event_data:
+        entity_id: switch.badkamerverlichting
+        state: 'off'
+    - platform: state
+      entity_id: switch.badkamerverlichting
+      to: 'off'
+  action:
+    service: light.turn_off
+    data:
+      entity_id:
+        - light.h_badkamer_links
+        - light.h_badkamer_midden
+        - light.h_badkamer_rechts

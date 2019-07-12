@@ -1,8 +1,6 @@
 ---
 - platform: rfxtrx
   devices:
-    0b11003100e1e5ea0b010f50:
-      name: Badkamer - Lamp
     0b110032007d364601010f60:
       name: Plafondlamp
     0b11003300f70e1202010f60:

@@ -59,7 +59,8 @@ buttons:
     - input_boolean.radio_garage
     - switch.woonkamerverlichting
     - switch.tafelverlichting
-    - light.badkamer_lamp
+    - switch.badkamerverlichting
+#    - light.badkamer_lamp
     - light.bureaulamp
     - light.carport
     - light.hal_led_bak
@@ -94,9 +95,15 @@ lights:
     - light.h_tafel_raam
     - light.h_garage
     - light.h_gangkast
+    - light.h_badkamer_links
+    - light.h_badkamer_midden
+    - light.h_badkamer_rechts
+    - light.h_zolder_hoog_deur
+    - light.h_zolder_hoog_muur
+    - light.h_zolder_laag_deur
+    - light.h_zolder_laag_muur
     - light.kerstboom
     - light.plafondlamp
-    - light.badkamer_lamp
     - light.bureaulamp
     - light.carport
     - light.hal_led_bak
