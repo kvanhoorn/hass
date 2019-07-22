@@ -213,6 +213,31 @@
   state_topic: anova/timer
   value_template: "{{ (((value_json.timer | int) * 60) - 3600) | timestamp_custom('%H:%M') }}"
   icon: 'mdi:timer'
+- platform: mqtt
+  state_topic: igrill/bbq/probe1
+  name: "Probe 1"
+  qos: 0
+  unit_of_measurement: "°C"
+- platform: mqtt
+  state_topic: igrill/bbq/probe2
+  name: "Probe 2"
+  qos: 0
+  unit_of_measurement: "°C"
+- platform: mqtt
+  state_topic: igrill/bbq/probe3
+  name: "Probe 3"
+  qos: 0
+  unit_of_measurement: "°C"
+- platform: mqtt
+  state_topic: igrill/bbq/probe4
+  name: "Probe 4"
+  qos: 0
+  unit_of_measurement: "°C"
+- platform: mqtt
+  state_topic: igrill/bbq/battery
+  name: "igrill battery"
+  qos: 0
+  unit_of_measurement: "%"
 - platform: scrape
   name: Euro95
   resource: !secret fuel_prices_nationwide
