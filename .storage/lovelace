@@ -1177,6 +1177,7 @@
                                         "sensor.probe_1"
                                     ],
                                     "hours_to_show": 4,
+                                    "name": "P1",
                                     "type": "custom:mini-graph-card"
                                 },
                                 {
@@ -1186,6 +1187,17 @@
                                     ],
                                     "hours_to_show": 4,
                                     "line_color": "red",
+                                    "name": "P2",
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "animate": true,
+                                    "entities": [
+                                        "sensor.probe_3"
+                                    ],
+                                    "hours_to_show": 4,
+                                    "line_color": "blue",
+                                    "name": "Am.",
                                     "type": "custom:mini-graph-card"
                                 },
                                 {
@@ -1194,8 +1206,35 @@
                                         "sensor.igrill_battery"
                                     ],
                                     "hours_to_show": 4,
-                                    "line_color": "blue",
-                                    "name": "Batterij",
+                                    "line_color": "green",
+                                    "name": "Bat.",
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "name": null,
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "animate": true,
+                                    "entities": [
+                                        "sensor.mini_probe_1"
+                                    ],
+                                    "hours_to_show": 4,
+                                    "line_color": "red",
+                                    "name": "iGrill Mini",
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "animate": true,
+                                    "entities": [
+                                        "sensor.igrill_mini_battery"
+                                    ],
+                                    "hours_to_show": 4,
+                                    "icon": "mdi:battery",
+                                    "line_color": "green",
+                                    "name": "iGrill Mini",
                                     "type": "custom:mini-graph-card"
                                 }
                             ],

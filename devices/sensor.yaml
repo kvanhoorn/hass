@@ -238,6 +238,16 @@
   name: "igrill battery"
   qos: 0
   unit_of_measurement: "%"
+- platform: mqtt
+  state_topic: igrill/bbq_mini/probe1
+  name: "Mini Probe 1"
+  qos: 0
+  unit_of_measurement: "°C"
+- platform: mqtt
+  state_topic: igrill/bbq_mini/battery
+  name: "igrill mini battery"
+  qos: 0
+  unit_of_measurement: "%"
 - platform: scrape
   name: Euro95
   resource: !secret fuel_prices_nationwide
