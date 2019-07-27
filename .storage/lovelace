@@ -303,7 +303,7 @@
                                 {
                                     "animate": true,
                                     "entities": [
-                                        "sensor.temperatuur_badkamer_temperature"
+                                        "sensor.hm_bathroom_temperature"
                                     ],
                                     "hours_to_show": 4,
                                     "line_color": "blue",
@@ -917,57 +917,38 @@
                             "entities": [
                                 {
                                     "entity": "sensor.downstairs_thermostat_temperature",
-                                    "name": "Woonk."
+                                    "name": "Woonkamer"
                                 },
                                 {
                                     "entity": "sensor.temperatuur_slaapkamer_temperature",
-                                    "name": "Slaapk."
+                                    "name": "Slaapkamer"
                                 },
                                 {
                                     "entity": "sensor.temperatuur_logeerkamer_temperature",
-                                    "name": "Logeerk."
+                                    "name": "Logeerkamer"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_badkamer_temperature",
-                                    "name": "Badk."
-                                },
+                                    "entity": "sensor.hm_bathroom_temperature",
+                                    "name": "Badkamer"
+                                }
+                            ],
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
                                 {
                                     "entity": "sensor.temperatuur_garage_temperature",
                                     "name": "Garage"
+                                },
+                                {
+                                    "entity": "sensor.hm_hall_temperature",
+                                    "name": "Gangkast"
+                                },
+                                {
+                                    "entity": "sensor.hm_backyard_temperature",
+                                    "name": "Achtertuin"
                                 }
                             ],
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.hm_backyard_temperature"
-                                },
-                                {
-                                    "entity": "sensor.hm_backyard_light_level"
-                                },
-                                {
-                                    "entity": "binary_sensor.hm_backyard_motion"
-                                }
-                            ],
-                            "show_name": false,
-                            "title": "Overkapping",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "sensor.hm_hall_temperature"
-                                },
-                                {
-                                    "entity": "sensor.hm_hall_light_level"
-                                },
-                                {
-                                    "entity": "binary_sensor.hm_hall_motion"
-                                }
-                            ],
-                            "show_name": false,
-                            "title": "Gangkast",
                             "type": "glance"
                         },
                         {
@@ -1350,14 +1331,6 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.pir_gangkast",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.pir_badkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
                                     "entity": "binary_sensor.pir_studeerkamer",
                                     "secondary_info": "last-changed"
                                 },
@@ -1383,10 +1356,6 @@
                                 },
                                 {
                                     "entity": "sensor.temperatuur_logeerkamer_temperature",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "sensor.temperatuur_badkamer_temperature",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1582,8 +1551,8 @@
                                     "name": "hal"
                                 },
                                 {
-                                    "entity": "binary_sensor.pir_badkamer",
-                                    "name": "badk."
+                                    "entity": "binary_sensor.hm_bathroom_motion",
+                                    "name": "badkamer"
                                 },
                                 {
                                     "entity": "binary_sensor.pir_logeerkamer",
@@ -1656,7 +1625,7 @@
                                     "name": "Logeerk."
                                 },
                                 {
-                                    "entity": "binary_sensor.pir_gangkast",
+                                    "entity": "binary_sensor.hm_hall_motion",
                                     "name": "Gangkast"
                                 },
                                 {

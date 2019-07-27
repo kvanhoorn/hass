@@ -34,8 +34,8 @@
       name: Temperatuur logeerkamer
     0a5207035c0e00cc3c0149:
       name: Temperatuur slaapkamer
-    0a52071d7c0e00d32e0149:
-      name: Temperatuur badkamer
+#     0a52071d7c0e00d32e0149:
+#       name: Temperatuur badkamer
     0a520734530e00d52c0159:
       name: Temperatuur garage
     0a520302bf010075430049:
@@ -154,11 +154,11 @@
           {%- endif -%}
         {% endfor %}
     short_time_not_seen_devices:
-      friendly_name: 'Meer dan 2 uur niet gezien'
+      friendly_name: 'Meer dan 6 uur niet gezien'
       icon_template: 'mdi:battery'
       value_template: >
         {% for entity in (states | selectattr('entity_id','in', state_attr('group.short_battery_devices','entity_id'))) %}
-          {%- if (as_timestamp(now()) - as_timestamp(entity.last_updated) > (60 * 60 * 2)) -%}
+          {%- if (as_timestamp(now()) - as_timestamp(entity.last_updated) > (60 * 60 * 6)) -%}
             {{ entity.name }},
           {%- endif -%}
         {% endfor %}

@@ -22,11 +22,11 @@
 #       device_class: motion
 #       off_delay:
 #         seconds: 30
-    09130011e94fe9017c70:
-      name: PIR badkamer
-      device_class: motion
-      off_delay:
-        minutes: 1
+#     09130011e94fe9017c70:
+#       name: PIR badkamer
+#       device_class: motion
+#       off_delay:
+#         minutes: 1
     091300258cefa9017a70:
       name: PIR studeerkamer
       device_class: motion
