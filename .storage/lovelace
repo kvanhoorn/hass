@@ -973,6 +973,18 @@
                     "badges": [],
                     "cards": [
                         {
+                            "title": "Supermarkt",
+                            "type": "shopping-list"
+                        }
+                    ],
+                    "icon": "mdi:cart",
+                    "path": "groceries",
+                    "title": "Boodschappen"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
                             "cards": [
                                 {
                                     "entity": "sensor.nr767t_mileage",

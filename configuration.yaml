@@ -110,6 +110,8 @@ sabnzbd:
     - month_size
     - total_size
 
+shopping_list:
+
 speedtestdotnet:
   scan_interval:
     minutes: 10
