@@ -33,6 +33,7 @@ sensors:
     - binary_sensor.pir_studeerkamer
     - binary_sensor.hm_motion_backyard
     - binary_sensor.hm_motion_hall
+    - binary_sensor.hm_motion_bathroom
     - sensor.brandalarm_keuken_sensor_status
     - sensor.brandalarm_woonkamer_sensor_status
     - sensor.brandalarm_zolder_sensor_status
@@ -76,6 +77,7 @@ buttons:
     - sensor.hs_bedroom
     - sensor.hs_kitchen
     - sensor.hs_bathroom
+    - sensor.hs_attic
 lights:
   name: Lichten
   icon: mdi:lightbulb-on
@@ -157,6 +159,7 @@ radios:
     - sensor.hs_bedroom
     - sensor.hs_kitchen
     - sensor.hs_bathroom
+    - sensor.hs_attic
 attic_lights:
   name: Verlichting zolder
   view: false
@@ -206,6 +209,15 @@ smartmeter_collection:
     - sensor.power_tariff
     - sensor.gas_consumption
     - sensor.hourly_gas_consumption
+    - sensor.voltage_phase_l1
+    - sensor.voltage_phase_l2
+    - sensor.voltage_phase_l3
+    - sensor.voltage_sags_phase_l1
+    - sensor.voltage_sags_phase_l2
+    - sensor.voltage_sags_phase_l3
+    - sensor.voltage_swells_phase_l1
+    - sensor.voltage_swells_phase_l2
+    - sensor.voltage_swells_phase_l3
 car_collection:
   name: Car
   view: false
@@ -269,6 +281,7 @@ pirs:
     - binary_sensor.pir_studeerkamer
     - binary_sensor.hm_motion_backyard
     - binary_sensor.hm_motion_hall
+    - binary_sensor.hm_motion_bathroom
 firealarms:
   name: Fire alarms
   view: false
@@ -385,6 +398,7 @@ long_battery_devices:
     - binary_sensor.pir_studeerkamer
     - binary_sensor.hm_motion_backyard
     - binary_sensor.hm_motion_hall
+    - binary_sensor.hm_motion_bathroom
 short_battery_devices:
   name: Batterij apparaten onlangs niet gezien
   view: false
