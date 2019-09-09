@@ -28,7 +28,7 @@ logger:
 # END MAIN CONFIG - START OTHER CONFIG #
 #
 
-cloud:
+#cloud:
 config:
 conversation:
 
