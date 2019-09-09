@@ -195,19 +195,6 @@
       entity_id: sun.sun
       value_template: >
         {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%H:%M') }}
-    outdoor_roof_temperature:
-      friendly_name: Overkapping temperatuur
-      unit_of_measurement: '°C'
-      entity_id: binary_sensor.hm_motion_backyard
-      value_template: >
-        {{ states.binary_sensor.hm_motion_backyard.attributes.temperature | float | round(2) }}
-    outdoor_roof_lux:
-      friendly_name: Overkapping lux
-      unit_of_measurement: 'Lux'
-      icon_template: 'mdi:white-balance-sunny'
-      entity_id: binary_sensor.hm_motion_backyard
-      value_template: >
-        {{ states.binary_sensor.hm_motion_backyard.attributes.lx | float | round(2) }}
 - platform: mqtt
   name: Sous vide
   state_topic: anova/timer
@@ -287,3 +274,38 @@
   host: !secret plex_host
 - platform: postcodeloterij
   postcode: !secret postcode
+- platform: synologydsm
+  host: !secret synology_host
+  username: !secret synology_username
+  password: !secret synology_password
+  monitored_conditions:
+    - cpu_other_load
+    - cpu_user_load
+    - cpu_system_load
+    - cpu_total_load
+    - cpu_1min_load
+    - cpu_5min_load
+    - cpu_15min_load
+    - memory_real_usage
+    - memory_size
+    - memory_cached
+    - memory_available_swap
+    - memory_available_real
+    - memory_total_swap
+    - memory_total_real
+    - network_up
+    - network_down
+    - disk_name
+    - disk_device
+    - disk_smart_status
+    - disk_status
+    - disk_exceed_bad_sector_thr
+    - disk_below_remain_life_thr
+    - disk_temp
+    - volume_status
+    - volume_device_type
+    - volume_size_total
+    - volume_size_used
+    - volume_percentage_used
+    - volume_disk_temp_avg
+    - volume_disk_temp_max

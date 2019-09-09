@@ -410,3 +410,76 @@ untappd_collection:
     - sensor.untappd_last_badge_kvanhoorn
     - sensor.untappd_last_check_in_kvanhoorn
     - sensor.untappd_wishlist_kvanhoorn
+    - sensor.untappd_full_checkin
+synology_collection:
+  name: Synology collection
+  view: false
+  entities:
+    - sensor.synology_dsm_average_disk_temp_volume_1
+    - sensor.synology_dsm_average_disk_temp_volume_2
+    - sensor.synology_dsm_below_min_remaining_life_sda
+    - sensor.synology_dsm_below_min_remaining_life_sdb
+    - sensor.synology_dsm_cpu_load_15_min
+    - sensor.synology_dsm_cpu_load_1_min
+    - sensor.synology_dsm_cpu_load_5_min
+    - sensor.synology_dsm_cpu_load_other
+    - sensor.synology_dsm_cpu_load_system
+    - sensor.synology_dsm_cpu_load_total
+    - sensor.synology_dsm_cpu_load_user
+    - sensor.synology_dsm_device_sda
+    - sensor.synology_dsm_device_sdb
+    - sensor.synology_dsm_exceeded_max_bad_sectors_sda
+    - sensor.synology_dsm_exceeded_max_bad_sectors_sdb
+    - sensor.synology_dsm_maximum_disk_temp_volume_1
+    - sensor.synology_dsm_maximum_disk_temp_volume_2
+    - sensor.synology_dsm_memory_available_real
+    - sensor.synology_dsm_memory_available_swap
+    - sensor.synology_dsm_memory_cached
+    - sensor.synology_dsm_memory_size
+    - sensor.synology_dsm_memory_total_real
+    - sensor.synology_dsm_memory_total_swap
+    - sensor.synology_dsm_memory_usage_real
+    - sensor.synology_dsm_name_sda
+    - sensor.synology_dsm_name_sdb
+    - sensor.synology_dsm_network_down
+    - sensor.synology_dsm_network_up
+    - sensor.synology_dsm_status_sda
+    - sensor.synology_dsm_status_sdb
+    - sensor.synology_dsm_status_smart_sda
+    - sensor.synology_dsm_status_smart_sdb
+    - sensor.synology_dsm_status_volume_1
+    - sensor.synology_dsm_status_volume_2
+    - sensor.synology_dsm_temperature_sda
+    - sensor.synology_dsm_temperature_sdb
+    - sensor.synology_dsm_total_size_volume_1
+    - sensor.synology_dsm_total_size_volume_2
+    - sensor.synology_dsm_type_volume_1
+    - sensor.synology_dsm_type_volume_2
+    - sensor.synology_dsm_used_space_volume_1
+    - sensor.synology_dsm_used_space_volume_2
+    - sensor.synology_dsm_volume_used_volume_1
+    - sensor.synology_dsm_volume_used_volume_2
+igrill_collection:
+  name: iGrill collection
+  view: false
+  entities:
+    - sensor.igrill_mini_battery
+    - sensor.igrill_battery
+    - sensor.mini_probe_1
+    - sensor.probe_1
+    - sensor.probe_2
+    - sensor.probe_3
+    - sensor.probe_4
+hue_sensor_collection:
+  name: Hue sensor collection
+  view: false
+  entities:
+    - binary_sensor.hm_backyard_motion
+    - binary_sensor.hm_bathroom_motion
+    - binary_sensor.hm_hall_motion
+    - sensor.hm_backyard_temperature
+    - sensor.hm_bathroom_temperature
+    - sensor.hm_hall_temperature
+    - sensor.hm_backyard_light_level
+    - sensor.hm_bathroom_light_level
+    - sensor.hm_hall_light_level
