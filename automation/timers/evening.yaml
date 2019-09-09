@@ -29,7 +29,7 @@
       entity_id: input_boolean.is_it_party
       state: 'off'
   action:
-    - service: switch.turn_off
+    - service: light.turn_off
       entity_id:
         - light.h_schemerlamp
         - light.h_staande_lamp
