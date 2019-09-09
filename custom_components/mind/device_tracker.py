@@ -7,8 +7,9 @@ import logging
 from datetime import timedelta
 
 from custom_components.mind import DATA_MIND, DOMAIN
-from homeassistant.components.device_tracker import (
-    PLATFORM_SCHEMA, DEFAULT_SCAN_INTERVAL, CONF_SCAN_INTERVAL)
+from homeassistant.components.device_tracker import (PLATFORM_SCHEMA)
+from homeassistant.components.device_tracker.const import (
+    CONF_SCAN_INTERVAL, SCAN_INTERVAL)
 from homeassistant.helpers.event import track_point_in_utc_time
 from homeassistant.util.dt import utcnow
 
@@ -23,7 +24,7 @@ def setup_scanner(hass, config, see, discovery_info=None):
     
     _LOGGER.debug('Setting up device_tracker')
 
-    interval = config.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL)
+    interval = config.get(CONF_SCAN_INTERVAL, SCAN_INTERVAL)
     
     mind = hass.data[DATA_MIND]
 

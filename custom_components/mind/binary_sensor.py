@@ -87,4 +87,3 @@ class MindBinarySensor(BinarySensorDevice):
         else:
             self._state = None
             _LOGGER.warning("Could not retrieve state from %s", self.name)
-
