@@ -27,7 +27,7 @@
   switches:
     outdoor_lightning:
       value_template: "{{ states.light.h_outdoor_1.state == 'on' 
-        and states.light.hue_outdoor_pedestal_1.state == 'on' }}"
+        and states.light.h_outdoor_4.state == 'on' }}"
       turn_on:
         service: hue.hue_activate_scene
         data:
