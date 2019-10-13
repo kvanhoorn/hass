@@ -20,15 +20,9 @@
       entity_id: remote.living_room
       activity: >
         {% if is_state("input_select.harmony_hub", "TV") %}
-          24957817
-        {% elif is_state("input_select.harmony_hub", "Plex") %}
-          24957818
-        {% elif is_state("input_select.harmony_hub", "Netflix") %}
-          35951268
-        {% elif is_state("input_select.harmony_hub", "ATV Music") %}
-          24957820
-        {% elif is_state("input_select.harmony_hub", "Turntable") %}
-          24957821
+          41424370
+        {% elif is_state("input_select.harmony_hub", "Apple TV") %}
+          41424379
         {% elif is_state("input_select.harmony_hub", "PowerOff") %}
           -1
         {% else %}

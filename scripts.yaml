@@ -7,29 +7,13 @@ harmony_tv:
         entity_id: input_select.harmony_hub
         option: 'TV'
 
-harmony_plex:
-  alias: Harmony Plex
-  sequence:
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.harmony_hub
-        option: 'Plex'
-
-harmony_netflix:
+harmony_atv:
   alias: Harmony Netflix
   sequence:
     - service: input_select.select_option
       data:
         entity_id: input_select.harmony_hub
-        option: 'Netflix'
-
-harmony_recordplayer:
-  alias: Harmony Recordplayer
-  sequence:
-    - service: input_select.select_option
-      data:
-        entity_id: input_select.harmony_hub
-        option: 'Turntable'
+        option: 'Apple TV'
 
 harmony_poweroff:
   alias: Harmony PowerOff
@@ -45,7 +29,7 @@ lr_volume_up:
     - service: remote.send_command
       data:
         entity_id: remote.living_room
-        device: 42809890 # Pioneer AV Receiver
+        device: 42809895 # Samsung TV Living
         command:
           - VolumeUp
 
@@ -55,7 +39,7 @@ lr_volume_down:
     - service: remote.send_command
       data:
         entity_id: remote.living_room
-        device: 42809890 # Pioneer AV Receiver
+        device: 42809895 # Samsung TV Living
         command:
           - VolumeDown
 
@@ -65,69 +49,9 @@ lr_volume_mute:
     - service: remote.send_command
       data:
         entity_id: remote.living_room
-        device: 42809890 # Pioneer AV Receiver
+        device: 42809895 # Samsung TV Living
         command:
           - Mute
-
-lr_plex_ok:
-  alias: Plex OK
-  sequence:
-    - service: remote.send_command
-      data:
-        entity_id: remote.living_room
-        device: 42809893 # Apple Mac Mini
-        command:
-          - OK
-
-lr_plex_menu:
-  alias: Plex menu
-  sequence:
-    - service: remote.send_command
-      data:
-        entity_id: remote.living_room
-        device: 42809893 # Apple Mac Mini
-        command:
-          - Menu
-
-lr_plex_down:
-  alias: Plex down
-  sequence:
-    - service: remote.send_command
-      data:
-        entity_id: remote.living_room
-        device: 42809893 # Apple Mac Mini
-        command:
-          - DirectionDown
-
-lr_plex_up:
-  alias: Plex up
-  sequence:
-    - service: remote.send_command
-      data:
-        entity_id: remote.living_room
-        device: 42809893 # Apple Mac Mini
-        command:
-          - DirectionUp
-
-lr_plex_left:
-  alias: Plex left
-  sequence:
-    - service: remote.send_command
-      data:
-        entity_id: remote.living_room
-        device: 42809893 # Apple Mac Mini
-        command:
-          - DirectionLeft
-
-lr_plex_right:
-  alias: Plex right
-  sequence:
-    - service: remote.send_command
-      data:
-        entity_id: remote.living_room
-        device: 42809893 # Apple Mac Mini
-        command:
-          - DirectionRight
 
 lr_tv_ch1:
   alias: TV ch1
@@ -258,3 +182,73 @@ lr_tv_chup:
         device: 42809894 # Entone DVR
         command:
           - ChannelUp
+
+lr_atv_up:
+  alias: ATV up
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809892 # ATV Living room
+        command:
+          - DirectionUp
+
+lr_atv_down:
+  alias: ATV down
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809892 # ATV Living room
+        command:
+          - DirectionDown
+
+lr_atv_left:
+  alias: ATV lef
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809892 # ATV Living room
+        command:
+          - DirectionLeft
+
+lr_atv_right:
+  alias: ATV right
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809892 # ATV Living room
+        command:
+          - DirectionRight
+
+lr_atv_select:
+  alias: ATV select
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809892 # ATV Living room
+        command:
+          - Select
+
+lr_atv_menu:
+  alias: ATV menu
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809892 # ATV Living room
+        command:
+          - Menu
+
+lr_atv_home:
+  alias: ATV home
+  sequence:
+    - service: remote.send_command
+      data:
+        entity_id: remote.living_room
+        device: 42809892 # ATV Living room
+        command:
+          - Home

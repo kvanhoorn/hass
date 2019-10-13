@@ -22,71 +22,7 @@
         scene_name: "DOM_morning"
     - service: light.turn_on
       entity_id: light.hal_led_bak
-
-- alias: 'timer_morning_bathroom'
-  trigger:
-    platform: time
-    at: '06:35:00'
-  condition:
-    - condition: state
-      entity_id: input_boolean.is_it_holiday
-      state: 'off'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-    - condition: state
-      entity_id: input_boolean.radio_bathroom
-      state: 'off'
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.radio_bathroom
-    - service: light.turn_on
-      entity_id: light.badkamer_lamp
-
-- alias: 'timer_morning_breakfast'
-  trigger:
-    platform: time
-    at: '06:45:00'
-  condition:
-    - condition: state
-      entity_id: input_boolean.is_it_holiday
-      state: 'off'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-    - condition: state
-      entity_id: input_boolean.radio_kitchen
-      state: 'off'
-  action:
-    service: input_boolean.turn_on
-    entity_id: input_boolean.radio_kitchen
-
-- alias: 'timer_morning_tvon'
-  trigger:
-    platform: time
-    at: '06:59:40'
-  condition:
-    - condition: state
-      entity_id: input_boolean.is_it_holiday
-      state: 'off'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
-  action:
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.radio_kitchen
+    - delay: '00:44:40'
     - service: remote.turn_on
       entity_id: remote.living_room
       data:
@@ -122,8 +58,5 @@
     - service: light.turn_off
       entity_id:
         - light.hal_led_bak
-        - light.badkamer_lamp
     - service: remote.turn_off
       entity_id: remote.living_room
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.radio_bathroom

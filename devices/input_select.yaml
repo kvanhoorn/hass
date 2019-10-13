@@ -4,10 +4,7 @@ harmony_hub:
   options:
     - Kies activiteit
     - TV
-    - Plex
-    - Netflix
-    - ATV Music
-    - Turntable
+    - Apple TV
     - PowerOff
   initial: Kies activiteit
   icon: mdi:remote

@@ -1,6 +1,6 @@
 ---
 - platform: ping
   hosts:
-    macpro: !secret macpro_ip
     huebridge: !secret hue_ip
     harmonybridge: !secret harmony_ip
+    synology: !secret synology_ip

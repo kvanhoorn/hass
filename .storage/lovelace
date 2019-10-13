@@ -343,40 +343,14 @@
                                     "type": "entity-button"
                                 },
                                 {
-                                    "entity": "script.harmony_plex",
-                                    "icon": "mdi:plex",
-                                    "name": "Plex",
+                                    "entity": "script.harmony_atv",
+                                    "icon": "mdi:apple",
+                                    "name": "Apple TV",
                                     "tap_action": {
                                         "action": "call-service",
                                         "service": "script.turn_on",
                                         "service_data": {
-                                            "entity_id": "script.harmony_plex"
-                                        }
-                                    },
-                                    "type": "entity-button"
-                                },
-                                {
-                                    "entity": "script.harmony_netflix",
-                                    "icon": "mdi:netflix",
-                                    "name": "netflix",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "script.turn_on",
-                                        "service_data": {
-                                            "entity_id": "script.harmony_netflix"
-                                        }
-                                    },
-                                    "type": "entity-button"
-                                },
-                                {
-                                    "entity": "script.harmony_recordplayer",
-                                    "icon": "mdi:record-player",
-                                    "name": "lp",
-                                    "tap_action": {
-                                        "action": "call-service",
-                                        "service": "script.turn_on",
-                                        "service_data": {
-                                            "entity_id": "script.harmony_recordplayer"
+                                            "entity_id": "script.harmony_atv"
                                         }
                                     },
                                     "type": "entity-button"
@@ -650,14 +624,14 @@
                                                 "type": "entity-button"
                                             },
                                             {
-                                                "entity": "script.lr_plex_up",
+                                                "entity": "script.lr_atv_up",
                                                 "icon": "mdi:arrow-up",
                                                 "name": "boven",
                                                 "tap_action": {
                                                     "action": "call-service",
                                                     "service": "script.turn_on",
                                                     "service_data": {
-                                                        "entity_id": "script.lr_plex_up"
+                                                        "entity_id": "script.lr_atv_up"
                                                     }
                                                 },
                                                 "type": "entity-button"
@@ -681,40 +655,40 @@
                                     {
                                         "cards": [
                                             {
-                                                "entity": "script.lr_plex_left",
+                                                "entity": "script.lr_atv_left",
                                                 "icon": "mdi:arrow-left",
                                                 "name": "links",
                                                 "tap_action": {
                                                     "action": "call-service",
                                                     "service": "script.turn_on",
                                                     "service_data": {
-                                                        "entity_id": "script.lr_plex_left"
+                                                        "entity_id": "script.lr_atv_left"
                                                     }
                                                 },
                                                 "type": "entity-button"
                                             },
                                             {
-                                                "entity": "script.lr_plex_ok",
+                                                "entity": "script.lr_atv_select",
                                                 "icon": "mdi:circle-outline",
                                                 "name": "ok",
                                                 "tap_action": {
                                                     "action": "call-service",
                                                     "service": "script.turn_on",
                                                     "service_data": {
-                                                        "entity_id": "script.lr_plex_ok"
+                                                        "entity_id": "script.lr_atv_select"
                                                     }
                                                 },
                                                 "type": "entity-button"
                                             },
                                             {
-                                                "entity": "script.lr_plex_right",
+                                                "entity": "script.lr_atv_right",
                                                 "icon": "mdi:arrow-right",
                                                 "name": "rechts",
                                                 "tap_action": {
                                                     "action": "call-service",
                                                     "service": "script.turn_on",
                                                     "service_data": {
-                                                        "entity_id": "script.lr_plex_right"
+                                                        "entity_id": "script.lr_atv_right"
                                                     }
                                                 },
                                                 "type": "entity-button"
@@ -725,27 +699,27 @@
                                     {
                                         "cards": [
                                             {
-                                                "entity": "script.lr_plex_menu",
+                                                "entity": "script.lr_atv_menu",
                                                 "icon": "mdi:menu",
                                                 "name": "menu",
                                                 "tap_action": {
                                                     "action": "call-service",
                                                     "service": "script.turn_on",
                                                     "service_data": {
-                                                        "entity_id": "script.lr_plex_menu"
+                                                        "entity_id": "script.lr_atv_menu"
                                                     }
                                                 },
                                                 "type": "entity-button"
                                             },
                                             {
-                                                "entity": "script.lr_plex_down",
+                                                "entity": "script.lr_atv_down",
                                                 "icon": "mdi:arrow-down",
                                                 "name": "beneden",
                                                 "tap_action": {
                                                     "action": "call-service",
                                                     "service": "script.turn_on",
                                                     "service_data": {
-                                                        "entity_id": "script.lr_plex_down"
+                                                        "entity_id": "script.lr_atv_down"
                                                     }
                                                 },
                                                 "type": "entity-button"
@@ -765,58 +739,18 @@
                                             }
                                         ],
                                         "type": "horizontal-stack"
-                                    }
-                                ],
-                                "type": "vertical-stack"
-                            },
-                            "conditions": [
-                                {
-                                    "entity": "input_select.harmony_hub",
-                                    "state": "Plex"
-                                }
-                            ],
-                            "type": "conditional"
-                        },
-                        {
-                            "card": {
-                                "cards": [
+                                    },
                                     {
                                         "cards": [
                                             {
-                                                "entity": "script.lr_volume_down",
-                                                "icon": "mdi:volume-minus",
-                                                "name": "Vol",
+                                                "entity": "script.lr_atv_home",
+                                                "icon": "mdi:home",
+                                                "name": "menu",
                                                 "tap_action": {
                                                     "action": "call-service",
                                                     "service": "script.turn_on",
                                                     "service_data": {
-                                                        "entity_id": "script.lr_volume_down"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            },
-                                            {
-                                                "entity": "script.lr_volume_mute",
-                                                "icon": "mdi:volume-mute",
-                                                "name": "mute",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_volume_mute"
-                                                    }
-                                                },
-                                                "type": "entity-button"
-                                            },
-                                            {
-                                                "entity": "script.lr_volume_up",
-                                                "icon": "mdi:volume-plus",
-                                                "name": "Vol",
-                                                "tap_action": {
-                                                    "action": "call-service",
-                                                    "service": "script.turn_on",
-                                                    "service_data": {
-                                                        "entity_id": "script.lr_volume_up"
+                                                        "entity_id": "script.lr_atv_home"
                                                     }
                                                 },
                                                 "type": "entity-button"
@@ -830,27 +764,7 @@
                             "conditions": [
                                 {
                                     "entity": "input_select.harmony_hub",
-                                    "state": "Turntable"
-                                }
-                            ],
-                            "type": "conditional"
-                        },
-                        {
-                            "card": {
-                                "artwork": "cover",
-                                "entity": "media_player.kevin_mac_mini",
-                                "hide": {
-                                    "icon": true,
-                                    "name": true,
-                                    "power": true,
-                                    "volume": true
-                                },
-                                "type": "custom:mini-media-player"
-                            },
-                            "conditions": [
-                                {
-                                    "entity": "input_select.harmony_hub",
-                                    "state": "Plex"
+                                    "state": "Apple TV"
                                 }
                             ],
                             "type": "conditional"
@@ -1395,10 +1309,19 @@
                                     "entity": "sensor.internal_ip_lan"
                                 },
                                 {
+                                    "entity": "sensor.internal_ip_wifi"
+                                },
+                                {
                                     "entity": "sensor.last_boot"
                                 },
                                 {
                                     "entity": "sensor.database_size"
+                                },
+                                {
+                                    "entity": "sensor.network_in_wlan0"
+                                },
+                                {
+                                    "entity": "sensor.network_out_wlan0"
                                 },
                                 {
                                     "entity": "sensor.speedtest_ping"
@@ -1408,6 +1331,10 @@
                                 },
                                 {
                                     "entity": "sensor.current_version"
+                                },
+                                {
+                                    "entity": "sensor.steps",
+                                    "name": "Aantal stappen Willemijn"
                                 }
                             ],
                             "type": "entities"
@@ -1474,6 +1401,9 @@
                         },
                         {
                             "entities": [
+                                {
+                                    "entity": "device_tracker.macpro"
+                                },
                                 {
                                     "entity": "device_tracker.huebridge"
                                 },
