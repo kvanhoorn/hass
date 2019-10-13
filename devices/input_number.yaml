@@ -5,9 +5,3 @@ amount_home:
   min: 0
   max: 2
   step: 1
-active_speakers:
-  name: Aantal actieve airport speakers
-  icon: mdi:speaker
-  min: 0
-  max: 3
-  step: 1

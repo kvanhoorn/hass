@@ -8,11 +8,11 @@
   action:
     - service: hue.hue_activate_scene
       data:
-        group_name: "Living room"
+        group_name: "Woonkamer"
         scene_name: "DOM_evening"
     - service: hue.hue_activate_scene
       data:
-        group_name: "Backyard"
+        group_name: "Achtertuin"
         scene_name: "DOM_outdoor_evening"
     - service: light.turn_on
       entity_id:

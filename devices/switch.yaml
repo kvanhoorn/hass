@@ -8,9 +8,9 @@
     0b11002300b5468a0b010f60:
       name: Woonkamerverlichting
       fire_event: true
-    0b11003100e1e5ea0b010f50:
-      name: Badkamerverlichting
-      fire_event: true
+#     0b11003100e1e5ea0b010f50:
+#       name: Badkamerverlichting
+#       fire_event: true
 #     0b11002701233d660b010f40:
 #       name: Radio - Keuken
 #       fire_event: true
@@ -31,7 +31,7 @@
       turn_on:
         service: hue.hue_activate_scene
         data:
-          group_name: "Backyard"
+          group_name: "Achtertuin"
           scene_name: "DOM_outdoor_evening"
       turn_off:
         service: light.turn_off
@@ -40,8 +40,25 @@
             - light.h_outdoor_1
             - light.h_outdoor_2
             - light.h_outdoor_3
-            - light.hue_outdoor_pedestal_1
-            - light.hue_outdoor_pedestal_1_2
+            - light.h_outdoor_4
+            - light.h_outdoor_5
+    bathroom_lightning:
+      value_template: "{{ states.light.h_badkamer_links.state == 'on'
+        and states.light.h_badkamer_rechts.state == 'on' }}"
+      turn_on:
+        service: light.turn_on
+        data:
+          entity_id:
+            - light.h_badkamer_links
+            - light.h_badkamer_midden
+            - light.h_badkamer_rechts
+      turn_off:
+        service: light.turn_off
+        data:
+          entity_id:
+            - light.h_badkamer_links
+            - light.h_badkamer_midden
+            - light.h_badkamer_rechts
 - platform: mqtt
   name: Sous vide
   state_topic: anova/timer

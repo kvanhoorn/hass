@@ -6,13 +6,10 @@ filter:
     - input_boolean.is_it_holiday
     - input_boolean.is_it_night
     - climate.downstairs
-    - input_boolean.radio_kitchen
-    - input_boolean.radio_bathroom
-    - input_boolean.radio_garage
     - switch.woonkamerverlichting
     - switch.tafelverlichting
-    - light.badkamer_lamp
-    - light.bureaulamp
+    - switch.outdoor_lightning
     - light.carport
     - light.hal_led_bak
     - light.kerstboom
+    - light.plafondlamp

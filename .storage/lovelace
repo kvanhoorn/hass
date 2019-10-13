@@ -87,7 +87,7 @@
                                     "type": "entity-button"
                                 },
                                 {
-                                    "entity": "switch.badkamerverlichting",
+                                    "entity": "switch.bathroom_lightning",
                                     "icon": "mdi:lightbulb",
                                     "name": "Badk.",
                                     "tap_action": {
@@ -103,47 +103,6 @@
                                         "action": "toggle"
                                     },
                                     "type": "entity-button"
-                                }
-                            ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "cards": [
-                                {
-                                    "entity": "input_boolean.radio_kitchen",
-                                    "icon": "mdi:speaker",
-                                    "name": "Keuken",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "type": "custom:button-card"
-                                },
-                                {
-                                    "entity": "input_boolean.radio_bathroom",
-                                    "icon": "mdi:speaker",
-                                    "name": "Badkamer",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "type": "custom:button-card"
-                                },
-                                {
-                                    "entity": "input_boolean.radio_living",
-                                    "icon": "mdi:speaker",
-                                    "name": "Woonk.",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "type": "custom:button-card"
-                                },
-                                {
-                                    "entity": "input_boolean.radio_garage",
-                                    "icon": "mdi:speaker",
-                                    "name": "Garage",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
-                                    "type": "custom:button-card"
                                 }
                             ],
                             "type": "horizontal-stack"
@@ -235,11 +194,6 @@
                             "type": "conditional"
                         },
                         {
-                            "entity": "climate.downstairs",
-                            "name": "Thermostaat",
-                            "type": "thermostat"
-                        },
-                        {
                             "entities": [
                                 "sensor.eindhoven_biodegradable_waste",
                                 "sensor.eindhoven_general_waste",
@@ -284,10 +238,10 @@
                                 {
                                     "animate": true,
                                     "entities": [
-                                        "sensor.downstairs_thermostat_temperature"
+                                        "sensor.temperatuur_buiten_temperature"
                                     ],
                                     "hours_to_show": 4,
-                                    "name": "Woonkamer",
+                                    "name": "Buiten",
                                     "type": "custom:mini-graph-card"
                                 },
                                 {
@@ -1441,19 +1395,10 @@
                                     "entity": "sensor.internal_ip_lan"
                                 },
                                 {
-                                    "entity": "sensor.internal_ip_wifi"
-                                },
-                                {
                                     "entity": "sensor.last_boot"
                                 },
                                 {
                                     "entity": "sensor.database_size"
-                                },
-                                {
-                                    "entity": "sensor.network_in_wlan0"
-                                },
-                                {
-                                    "entity": "sensor.network_out_wlan0"
                                 },
                                 {
                                     "entity": "sensor.speedtest_ping"
@@ -1463,10 +1408,6 @@
                                 },
                                 {
                                     "entity": "sensor.current_version"
-                                },
-                                {
-                                    "entity": "sensor.steps",
-                                    "name": "Aantal stappen Willemijn"
                                 }
                             ],
                             "type": "entities"
@@ -1533,9 +1474,6 @@
                         },
                         {
                             "entities": [
-                                {
-                                    "entity": "device_tracker.macpro"
-                                },
                                 {
                                     "entity": "device_tracker.huebridge"
                                 },

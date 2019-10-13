@@ -14,21 +14,6 @@ is_it_party:
 homeworking_day:
   name: Morgen thuiswerken
   icon: mdi:laptop-mac
-radio_kitchen:
-  name: Radio Keuken
-  icon: mdi:speaker
-radio_bathroom:
-  name: Radio Badkamer
-  icon: mdi:speaker
-radio_garage:
-  name: Radio Garage
-  icon: mdi:speaker
-radio_living:
-  name: Radio Woonkamer
-  icon: mdi:speaker
-itunes_active:
-  name: iTunes playing
-  icon: mdi:speaker
 someone_home:
   name: Iemand thuis
   icon: mdi:home
