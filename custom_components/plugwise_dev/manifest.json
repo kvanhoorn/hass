@@ -1,0 +1,8 @@
+{
+  "domain": "plugwise_dev",
+  "name": "Plugwise Development Anna",
+  "documentation": "https://github.com/laetificat/anna-ha",
+  "dependencies": [],
+  "codeowners": ["@laetificat","CoMPaTech","@bouwew"],
+  "requirements": ["haanna==0.12.3"]
+}

@@ -19,14 +19,10 @@
       entity_id: input_boolean.homeworking_day
       state: 'on'
   action:
-    - service: climate.set_operation_mode
+    - service: climate.set_preset_mode
       data:
-        entity_id: climate.downstairs
-        operation_mode: heat
-    - service: climate.set_temperature
-      data:
-        entity_id: climate.downstairs
-        temperature: 19.5
+        entity_id: climate.woonkamer
+        preset_mode: 'home'
     - service: input_boolean.turn_off
       entity_id: input_boolean.homeworking_day
     - service: notify.pushover

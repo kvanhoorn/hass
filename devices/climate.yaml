@@ -16,3 +16,7 @@
     min_temp: 20
     max_temp: 99
     temp_step: 0.5
+  - platform: plugwise_dev
+    password: !secret plugwise_id
+    host: !secret plugwise_ip
+    name: Woonkamer

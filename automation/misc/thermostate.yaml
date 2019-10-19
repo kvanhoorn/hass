@@ -10,10 +10,10 @@
       entity_id: input_boolean.is_it_night
       state: 'off'
   action:
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
-        entity_id: climate.downstairs
-        away_mode: 'off'
+        entity_id: climate.woonkamer
+        preset_mode: 'home'
 
 # morning has broken and it is weekend and we are home etc.
 - alias: turn on thermostate by morning
@@ -28,10 +28,10 @@
     - condition: time
       after: '08:00:00'
   action:
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
-        entity_id: climate.downstairs
-        away_mode: 'off'
+        entity_id: climate.woonkamer
+        preset_mode: 'home'
 
 # night is coming, turn off
 - alias: turn off thermostate by night
@@ -40,10 +40,10 @@
       entity_id: input_boolean.is_it_night
       to: 'on'
   action:
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
-        entity_id: climate.downstairs
-        away_mode: 'on'
+        entity_id: climate.woonkamer
+        preset_mode: 'asleep'
 
 # last one is leaving, turn off
 - alias: turn off thermostate
@@ -52,24 +52,24 @@
       entity_id: input_boolean.someone_home
       to: 'off'
   action:
-    - service: climate.set_away_mode
+    - service: climate.set_preset_mode
       data:
-        entity_id: climate.downstairs
-        away_mode: 'on'
+        entity_id: climate.woonkamer
+        preset_mode: 'away'
 
 # somebody turned off eco
-- alias: turn off away when eco off
-  trigger:
-    - platform: state
-      entity_id: sensor.downstairs_thermostat_operation_mode
-      from: 'eco'
-      to: 'heat'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.eindhoven_away
-      state: 'on'
-  action:
-    - service: climate.set_away_mode
-      data:
-        entity_id: climate.downstairs
-        away_mode: 'off'
+# - alias: turn off away when eco off
+#   trigger:
+#     - platform: state
+#       entity_id: sensor.downstairs_thermostat_operation_mode
+#       from: 'eco'
+#       to: 'heat'
+#   condition:
+#     - condition: state
+#       entity_id: binary_sensor.eindhoven_away
+#       state: 'on'
+#   action:
+#     - service: climate.set_away_mode
+#       data:
+#         entity_id: climate.downstairs
+#         away_mode: 'off'

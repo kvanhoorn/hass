@@ -77,10 +77,6 @@ mind:
   client_id: c030ad63a0e4433d86e4a36fc4047ce2
   client_secret: E97F8294804c49Cd83b0b9f0552577B2
 
-nest:
-  client_id: !secret nest_client_id
-  client_secret: !secret nest_client_secret
-
 p2000:
   regios: 22
   disciplines: 1,2,3

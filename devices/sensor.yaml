@@ -175,7 +175,7 @@
       icon_template: 'mdi:temperature-celsius'
       unit_of_measurement: '°C'
       value_template: >
-        {{ (states.sensor.downstairs_thermostat_temperature.state | float -
+        {{ (states.climate.woonkamer.attributes.current_temperature | float -
         states.sensor.temperatuur_buiten_temperature.state | float) |
         float | round(2) }}
     untappd_full_checkin:

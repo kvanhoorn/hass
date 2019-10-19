@@ -5,7 +5,7 @@ filter:
     - input_boolean.wmijn_present
     - input_boolean.is_it_holiday
     - input_boolean.is_it_night
-    - climate.downstairs
+    - climate.woonkamer
     - switch.woonkamerverlichting
     - switch.tafelverlichting
     - switch.outdoor_lightning
