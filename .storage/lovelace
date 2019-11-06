@@ -41,10 +41,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "sensor.time",
-                            "type": "custom:bignumber-card"
-                        },
-                        {
                             "card": {
                                 "show_state": false,
                                 "type": "glance"
@@ -131,99 +127,189 @@
                             "type": "horizontal-stack"
                         },
                         {
+                            "entities": [
+                                {
+                                    "artwork": "cover",
+                                    "entity": "media_player.sonos_woonkamer",
+                                    "group": true,
+                                    "hide": {
+                                        "power": true,
+                                        "shuffle": false,
+                                        "source": true,
+                                        "volume": true
+                                    },
+                                    "icon": "mdi:apple",
+                                    "shortcuts": {
+                                        "buttons": [
+                                            {
+                                                "data": {
+                                                    "name": "Awesome 90s 00s Rock"
+                                                },
+                                                "id": "script.sonos_play_playlist",
+                                                "name": "ROCK",
+                                                "type": "script"
+                                            },
+                                            {
+                                                "data": {
+                                                    "name": "Awesome Deep House"
+                                                },
+                                                "id": "script.sonos_play_playlist",
+                                                "name": "CHILL",
+                                                "type": "script"
+                                            },
+                                            {
+                                                "data": {
+                                                    "name": "Awesome Oldies"
+                                                },
+                                                "id": "script.sonos_play_playlist",
+                                                "name": "OLDIES",
+                                                "type": "script"
+                                            },
+                                            {
+                                                "data": {
+                                                    "name": "Awesome Summer"
+                                                },
+                                                "id": "script.sonos_play_playlist",
+                                                "name": "SUMMER",
+                                                "type": "script"
+                                            },
+                                            {
+                                                "data": {
+                                                    "name": "Badkamer"
+                                                },
+                                                "id": "script.sonos_play_playlist",
+                                                "name": "BADK.",
+                                                "type": "script"
+                                            },
+                                            {
+                                                "data": {
+                                                    "name": "Awesome Electroswing"
+                                                },
+                                                "id": "script.sonos_play_playlist",
+                                                "name": "ESWING",
+                                                "type": "script"
+                                            },
+                                            {
+                                                "data": {
+                                                    "name": "Country - Germany"
+                                                },
+                                                "id": "script.sonos_play_playlist",
+                                                "name": "DUITS",
+                                                "type": "script"
+                                            },
+                                            {
+                                                "data": {
+                                                    "name": "Awesome Moombahton"
+                                                },
+                                                "id": "script.sonos_play_playlist",
+                                                "name": "WMIJN",
+                                                "type": "script"
+                                            }
+                                        ],
+                                        "columns": 4
+                                    },
+                                    "speaker_group": {
+                                        "entities": [
+                                            {
+                                                "entity_id": "media_player.sonos_woonkamer",
+                                                "name": "Woonkamer"
+                                            },
+                                            {
+                                                "entity_id": "media_player.sonos_badkamer",
+                                                "name": "Badkamer"
+                                            },
+                                            {
+                                                "entity_id": "media_player.sonos_keuken",
+                                                "name": "Keuken"
+                                            }
+                                        ],
+                                        "platform": "sonos",
+                                        "show_group_count": true
+                                    },
+                                    "type": "custom:mini-media-player"
+                                },
+                                {
+                                    "entity": "media_player.sonos_woonkamer",
+                                    "group": true,
+                                    "hide": {
+                                        "controls": true,
+                                        "icon": true,
+                                        "info": true,
+                                        "power": true,
+                                        "progress": true,
+                                        "source": true
+                                    },
+                                    "name": "Woonkamer",
+                                    "speaker_group": {
+                                        "show_group_count": false
+                                    },
+                                    "type": "custom:mini-media-player"
+                                }
+                            ],
+                            "type": "entities"
+                        },
+                        {
                             "card": {
-                                "entities": [
-                                    {
-                                        "entity": "media_player.itunes",
-                                        "group": true,
-                                        "hide": {
-                                            "power": true,
-                                            "shuffle": false,
-                                            "volume": true
-                                        },
-                                        "info": "short",
-                                        "shortcuts": {
-                                            "buttons": [
-                                                {
-                                                    "id": "awesome-90s-00s-rock",
-                                                    "name": "ROCK",
-                                                    "type": "playlist"
-                                                },
-                                                {
-                                                    "id": "awesome-oldies",
-                                                    "name": "OLDIES",
-                                                    "type": "playlist"
-                                                },
-                                                {
-                                                    "id": "awesome-deep-house",
-                                                    "name": "CHILL",
-                                                    "type": "playlist"
-                                                },
-                                                {
-                                                    "id": "awesome-summer",
-                                                    "name": "SUMMER",
-                                                    "type": "playlist"
-                                                }
-                                            ],
-                                            "columns": 4
-                                        },
-                                        "type": "custom:mini-media-player"
-                                    },
-                                    {
-                                        "entity": "media_player.ae_kitchen_airtunes_speaker",
-                                        "group": true,
-                                        "hide": {
-                                            "controls": true,
-                                            "icon": false,
-                                            "power": true,
-                                            "volume": false
-                                        },
-                                        "name": "Keuken",
-                                        "type": "custom:mini-media-player"
-                                    },
-                                    {
-                                        "entity": "media_player.ae_bathroom_airtunes_speaker",
-                                        "group": true,
-                                        "hide": {
-                                            "controls": true,
-                                            "icon": false,
-                                            "power": true,
-                                            "volume": false
-                                        },
-                                        "name": "Badkamer",
-                                        "type": "custom:mini-media-player"
-                                    },
-                                    {
-                                        "entity": "media_player.ae_garage_airtunes_speaker",
-                                        "group": true,
-                                        "hide": {
-                                            "controls": true,
-                                            "icon": false,
-                                            "power": true,
-                                            "volume": false
-                                        },
-                                        "name": "Garage",
-                                        "type": "custom:mini-media-player"
-                                    }
-                                ],
-                                "type": "entities"
+                                "entity": "media_player.sonos_badkamer",
+                                "hide": {
+                                    "controls": true,
+                                    "icon": true,
+                                    "info": true,
+                                    "power": true,
+                                    "progress": true,
+                                    "source": true
+                                },
+                                "name": "Badkamer",
+                                "speaker_group": {
+                                    "show_group_count": false
+                                },
+                                "type": "custom:mini-media-player"
                             },
                             "conditions": [
                                 {
-                                    "entity": "input_boolean.itunes_active",
-                                    "state": "on"
+                                    "entity": "media_player.sonos_badkamer",
+                                    "state": "playing"
+                                }
+                            ],
+                            "type": "conditional"
+                        },
+                        {
+                            "card": {
+                                "entity": "media_player.sonos_keuken",
+                                "hide": {
+                                    "controls": true,
+                                    "icon": true,
+                                    "info": true,
+                                    "power": true,
+                                    "progress": true,
+                                    "source": true
+                                },
+                                "name": "Keuken",
+                                "speaker_group": {
+                                    "show_group_count": false
+                                },
+                                "type": "custom:mini-media-player"
+                            },
+                            "conditions": [
+                                {
+                                    "entity": "media_player.sonos_keuken",
+                                    "state": "playing"
                                 }
                             ],
                             "type": "conditional"
                         },
                         {
                             "entities": [
-                                "sensor.eindhoven_biodegradable_waste",
-                                "sensor.eindhoven_general_waste",
-                                "sensor.eindhoven_paper_waste"
+                                {
+                                    "entity": "input_boolean.is_it_night"
+                                },
+                                {
+                                    "entity": "input_boolean.is_it_holiday"
+                                },
+                                {
+                                    "entity": "input_boolean.homeworking_day"
+                                }
                             ],
-                            "show_header_toggle": false,
-                            "title": "Afval",
                             "type": "entities"
                         },
                         {
@@ -239,6 +325,16 @@
                             },
                             "group": "group.bus4_collection",
                             "type": "custom:group-card"
+                        },
+                        {
+                            "entities": [
+                                "sensor.eindhoven_biodegradable_waste",
+                                "sensor.eindhoven_general_waste",
+                                "sensor.eindhoven_paper_waste"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Afval",
+                            "type": "entities"
                         },
                         {
                             "entities": [
@@ -799,7 +895,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.downstairs_thermostat_temperature",
+                                    "entity": "sensor.livingroom_temperature",
                                     "name": "Woonkamer"
                                 },
                                 {
@@ -1241,7 +1337,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.downstairs_thermostat_temperature",
+                                    "entity": "sensor.livingroom_temperature",
                                     "name": "Woonkamer",
                                     "secondary_info": "last-changed"
                                 },
@@ -1324,19 +1420,16 @@
                                     "entity": "sensor.internal_ip_lan"
                                 },
                                 {
-                                    "entity": "sensor.internal_ip_wifi"
-                                },
-                                {
                                     "entity": "sensor.last_boot"
                                 },
                                 {
                                     "entity": "sensor.database_size"
                                 },
                                 {
-                                    "entity": "sensor.network_in_wlan0"
+                                    "entity": "sensor.network_in_eth0"
                                 },
                                 {
-                                    "entity": "sensor.network_out_wlan0"
+                                    "entity": "sensor.network_out_eth0"
                                 },
                                 {
                                     "entity": "sensor.speedtest_ping"
@@ -1346,10 +1439,6 @@
                                 },
                                 {
                                     "entity": "sensor.current_version"
-                                },
-                                {
-                                    "entity": "sensor.steps",
-                                    "name": "Aantal stappen Willemijn"
                                 }
                             ],
                             "type": "entities"
@@ -1417,7 +1506,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "device_tracker.macpro"
+                                    "entity": "device_tracker.synology"
                                 },
                                 {
                                     "entity": "device_tracker.huebridge"
@@ -1428,6 +1517,21 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Device trackers",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.power_consumption_low"
+                                },
+                                {
+                                    "entity": "sensor.power_consumption_normal"
+                                },
+                                {
+                                    "entity": "sensor.gas_consumption"
+                                }
+                            ],
+                            "title": "Energie",
                             "type": "entities"
                         }
                     ],

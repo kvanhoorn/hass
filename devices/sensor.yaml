@@ -15,11 +15,11 @@
 #     - temp_min
 #     - temp_max
 - platform: moon
-- platform: fitbit
-  monitored_resources:
-    - activities/distance
-    - activities/heart
-    - activities/steps
+# - platform: fitbit
+#   monitored_resources:
+#     - activities/distance
+#     - activities/heart
+#     - activities/steps
 - platform: time_date
   display_options:
     - 'time'
@@ -139,6 +139,10 @@
     static_brightness:
       value_template: "{{10}}"
       unit_of_measurement: 'lm'
+    livingroom_temperature:
+      value_template: "{{states.climate.woonkamer.attributes.current_temperature}}"
+      friendly_name: 'Woonkamer'
+      unit_of_measurement: '°C'
     car_address:
       value_template: "{{states.device_tracker.nr767t.attributes.street}},
         {{states.device_tracker.nr767t.attributes.city}},
@@ -247,20 +251,20 @@
   select: ".table .table-row:nth-of-type(3) div:nth-of-type(3)"
   value_template: "{{ value.split(' ')[1].replace(',', '.') | float }}"
   scan_interval: 3600
-- platform: scrape
-  name: Euro95 (Tinq)
-  resource: !secret fuel_prices_local
-  select: "#station-prijzen tr:nth-of-type(4) td:nth-of-type(2)"
-  value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
-  scan_interval: 3600
-  verify_ssl: false
-- platform: scrape
-  name: Diesel (Tinq)
-  resource: !secret fuel_prices_local
-  select: "#station-prijzen tr:nth-of-type(3) td:nth-of-type(2)"
-  value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
-  scan_interval: 3600
-  verify_ssl: false
+# - platform: scrape
+#   name: Euro95 (Tinq)
+#   resource: !secret fuel_prices_local
+#   select: "#station-prijzen tr:nth-of-type(4) td:nth-of-type(2)"
+#   value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
+#   scan_interval: 3600
+#   verify_ssl: false
+# - platform: scrape
+#   name: Diesel (Tinq)
+#   resource: !secret fuel_prices_local
+#   select: "#station-prijzen tr:nth-of-type(3) td:nth-of-type(2)"
+#   value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
+#   scan_interval: 3600
+#   verify_ssl: false
 - platform: launch_library
 - platform: ovapi
   name: Bus 4
@@ -270,8 +274,6 @@
   username: kvanhoorn
   id: !secret untappd_id
   secret: !secret untappd_secret
-- platform: plex
-  host: !secret plex_host
 - platform: postcodeloterij
   postcode: !secret postcode
 - platform: synologydsm

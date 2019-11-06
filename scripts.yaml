@@ -1,4 +1,11 @@
 ---
+sonos_play_playlist:
+  alias: Sonos Play playlist from favorites
+  sequence:
+    - service: media_player.select_source
+      entity_id: media_player.sonos_woonkamer
+      data_template:
+        source: '{{ name }}'
 harmony_tv:
   alias: Harmony TV
   sequence:

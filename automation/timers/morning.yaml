@@ -22,12 +22,76 @@
         scene_name: "DOM_morning"
     - service: light.turn_on
       entity_id: light.hal_led_bak
-    - delay: '00:44:40'
+
+- alias: 'timer_morning_startradio'
+  trigger:
+    platform: time
+    at: '06:35:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: media_player.volume_set
+      entity_id:
+        - media_player.sonos_badkamer
+        - media_player.sonos_woonkamer
+        - media_player.sonos_keuken
+      data:
+        volume_level: .2
+    - service: media_player.select_source
+      entity_id: media_player.sonos_badkamer
+      data:
+        source: 'Badkamer' # favorite playlist
+    - service: media_player.shuffle_set
+      entity_id: media_player.sonos_badkamer
+      data:
+        shuffle: true
+    - service: media_player.media_next_track
+      entity_id: media_player.sonos_badkamer
+    - service: media_player.media_play
+      entity_id: media_player.sonos_badkamer
+    - service: sonos.join
+      entity_id:
+        - media_player.sonos_woonkamer
+        - media_player.sonos_keuken
+      data:
+        master: media_player.sonos_badkamer
+
+- alias: 'timer_morning_starttv'
+  trigger:
+    platform: time
+    at: '06:59:40'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+    - condition: time
+      weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+  action:
+    - service: sonos.unjoin
+      entity_id: media_player.sonos_woonkamer
+    - service: media_player.select_source
+      entity_id: media_player.sonos_woonkamer
+      data:
+        source: TV
     - service: remote.turn_on
       entity_id: remote.living_room
       data:
         activity: "TV"
-    - delay: '00:00:15'
+    - delay: '00:00:10'
     - service: remote.send_command
       entity_id: remote.living_room
       data:
@@ -51,12 +115,24 @@
         - thu
         - fri
   action:
-    - service: switch.turn_off
-      entity_id:
-        - switch.woonkamerverlichting
-        - switch.tafelverlichting
     - service: light.turn_off
       entity_id:
+        - light.h_schemerlamp
+        - light.h_staande_lamp
+        - light.h_tv_lamp
+        - light.h_piano
         - light.hal_led_bak
+        - light.h_outdoor_1
+        - light.h_outdoor_2
+        - light.h_outdoor_3
+        - light.h_outdoor_4
+        - light.h_outdoor_5
+        - light.kerstboom
+        - light.h_tafel_kamer
+        - light.h_tafel_raam
     - service: remote.turn_off
       entity_id: remote.living_room
+    - service: sonos.unjoin
+      entity_id: media_player.sonos_keuken
+    - service: media_player.media_pause
+      entity_id: media_player.sonos_badkamer
