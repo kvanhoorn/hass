@@ -67,6 +67,35 @@
                             "type": "glance"
                         },
                         {
+                            "cards": [
+                                {
+                                    "entity": "sensor.dark_sky_overnight_low_temperature_0d",
+                                    "scale": "20px",
+                                    "title": "min vandaag",
+                                    "type": "custom:bignumber-card"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_daytime_high_temperature_0d",
+                                    "scale": "20px",
+                                    "title": "max vandaag",
+                                    "type": "custom:bignumber-card"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_overnight_low_temperature_1d",
+                                    "scale": "20px",
+                                    "title": "min morgen",
+                                    "type": "custom:bignumber-card"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_daytime_high_temperature_1d",
+                                    "scale": "20px",
+                                    "title": "max morgen",
+                                    "type": "custom:bignumber-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
                             "control": {
                                 "preset": {
                                     "asleep": true,
@@ -1479,11 +1508,6 @@
                             "type": "history-graph"
                         },
                         {
-                            "entity": "sensor.plex",
-                            "title": "Plex",
-                            "type": "custom:bignumber-card"
-                        },
-                        {
                             "filter": {
                                 "include": [
                                     "sensor.untappd_last_check_in_kvanhoorn.brewery",
@@ -1532,6 +1556,25 @@
                                 }
                             ],
                             "title": "Energie",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.synology_dsm_temperature_sda"
+                                },
+                                {
+                                    "entity": "sensor.synology_dsm_temperature_sdb"
+                                },
+                                {
+                                    "entity": "sensor.synology_dsm_temperature_sdc"
+                                },
+                                {
+                                    "entity": "sensor.synology_dsm_temperature_sdd"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Synology",
                             "type": "entities"
                         }
                     ],
