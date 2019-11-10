@@ -3,16 +3,12 @@
   trigger:
     platform: time
     at: '07:00:00'
-  condition:
-    condition: state
-    entity_id: input_boolean.is_it_weekend
-    state: 'off'
   action:
     - service_template: notify.pushover
       data_template:
         title: "Weerbericht"
         message: "Het wordt vandaag
-          min. {{states.sensor.yahoo_vandaag_temperature_min.state | round(1)}} en
-          max. {{states.sensor.yahoo_vandaag_temperature_max.state | round(1)}} graden.
-          Het is nu {{states.sensor.temperatuur_buiten_temperature.state | round(1)}}
+          min. {{ states.sensor.dark_sky_overnight_low_temperature_0d.state | round(1) }} en
+          max. {{ states.sensor.dark_sky_daytime_high_temperature_0d.state | round(1) }} graden.
+          Het is nu {{ states.sensor.temperatuur_buiten_temperature.state | round(1) }}
           graden."
