@@ -66,3 +66,10 @@
       command_on: 0xe
       command_off: 0x7
       # command_tamper: 0xb
+- platform: workday
+  name: Werkdag vandaag
+  country: NL
+- platform: workday
+  name: Werkdag morgen
+  country: NL
+  days_offset: 1

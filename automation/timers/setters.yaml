@@ -5,9 +5,9 @@
     platform: time
     at: '17:00:00'
   condition:
-    - condition: time
-      weekday:
-        - fri
+    - condition: state
+      entity_id: binary_sensor.werkdag_morgen
+      state: 'off'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.is_it_weekend
@@ -18,9 +18,9 @@
     platform: time
     at: '17:00:00'
   condition:
-    - condition: time
-      weekday:
-        - sun
+    - condition: state
+      entity_id: binary_sensor.werkdag_morgen
+      state: 'on'
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.is_it_weekend
@@ -138,8 +138,8 @@
   action:
     - service: notify.pushover
       data_template:
-        title: "Weekend"
-        message: "Het is weekend"
+        title: "Vrij"
+        message: "Vanaf morgen ben je vrij, geen ochtendprogramma."
 
 # send week notification
 - alias: send_notification_weekend_off
@@ -150,5 +150,5 @@
   action:
     - service: notify.pushover
       data_template:
-        title: "Weekend"
-        message: "Het weekend is voorbij"
+        title: "Werken"
+        message: "Vanaf morgen moet je weerk werken, ochtendprogramma actief."
