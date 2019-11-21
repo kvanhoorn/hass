@@ -422,6 +422,58 @@
                             "show_header_toggle": false,
                             "title": "Nieuws",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.verjaardag_kevin"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_willemijn"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_wouter"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_bertie"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_adri"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_anniek"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_niek"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_eveliene"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_yorrick"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_kim"
+                                },
+                                {
+                                    "entity": "sensor.jubileum_trouwdag_kevin_en_willemijn"
+                                },
+                                {
+                                    "entity": "sensor.jubileum_trouwdag_wouter_en_bertie"
+                                },
+                                {
+                                    "entity": "sensor.jubileum_trouwdag_adri_en_anniek"
+                                },
+                                {
+                                    "entity": "sensor.jubileum_trouwdag_niek_en_eveliene"
+                                },
+                                {
+                                    "entity": "sensor.jubileum_trouwdag_yorrick_en_kim"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Verjaardagen & jubilea",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:home-account",

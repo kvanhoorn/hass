@@ -1,0 +1,56 @@
+- alias: Refresh date countdowns
+  initial_state: on
+  trigger:
+    - platform: time
+      at: '00:00:01'
+    - platform: homeassistant
+      event: start
+  action:
+    - service: python_script.date_countdown
+      data:
+        dates:
+          - name: Kevin
+            type: verjaardag
+            date: 21-07-1989
+          - name: Willemijn
+            type: verjaardag
+            date: 19-12-1986
+          - name: Trouwdag Kevin en Willemijn
+            type: jubileum
+            date: 13-05-2017
+          - name: Wouter
+            type: verjaardag
+            date: 23-11-1952
+          - name: Bertie
+            type: verjaardag
+            date: 19-03-1958
+          - name: Adri
+            type: verjaardag
+            date: 26-06-1961
+          - name: Anniek
+            type: verjaardag
+            date: 10-06-1961
+          - name: Trouwdag Wouter en Bertie
+            type: jubileum
+            date: 03-06-1981
+          - name: Trouwdag Adri en Anniek
+            type: jubileum
+            date: 27-05-1983
+          - name: Eveliene
+            type: verjaardag
+            date: 23-03-1984
+          - name: Niek
+            type: verjaardag
+            date: 13-10-1983
+          - name: Yorrick
+            type: verjaardag
+            date: 31-01-1991
+          - name: Kim
+            type: verjaardag
+            date: 13-02-1992
+          - name: Trouwdag Niek en Eveliene
+            type: jubileum
+            date: 18-10-2017
+          - name: Trouwdag Yorrick en Kim
+            type: jubileum
+            date: 16-08-2019
