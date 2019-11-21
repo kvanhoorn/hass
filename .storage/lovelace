@@ -1565,7 +1565,8 @@
                                     "sensor.untappd_last_check_in_kvanhoorn.brewery",
                                     "sensor.untappd_last_check_in_kvanhoorn.beer",
                                     "sensor.untappd_last_check_in_kvanhoorn.abv",
-                                    "sensor.untappd_last_check_in_kvanhoorn.total_beers"
+                                    "sensor.untappd_last_check_in_kvanhoorn.total_beers",
+                                    "sensor.untappd_last_check_in_kvanhoorn.score"
                                 ]
                             },
                             "title": "Untappd",
@@ -1598,15 +1599,23 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.power_consumption_low"
+                                    "entity": "sensor.daily_power",
+                                    "name": "Stroom per dag"
                                 },
                                 {
-                                    "entity": "sensor.power_consumption_normal"
+                                    "entity": "sensor.monthly_power",
+                                    "name": "Stroom per maand"
                                 },
                                 {
-                                    "entity": "sensor.gas_consumption"
+                                    "entity": "sensor.daily_gas",
+                                    "name": "Gas per dag"
+                                },
+                                {
+                                    "entity": "sensor.monthly_gas",
+                                    "name": "Gas per maand"
                                 }
                             ],
+                            "show_header_toggle": false,
                             "title": "Energie",
                             "type": "entities"
                         },

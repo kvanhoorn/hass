@@ -193,3 +193,9 @@ device_tracker.huebridge:
   friendly_name: HUE Bridge
 device_tracker.macpro:
   friendly_name: Mac Pro
+
+# overwrite gas usage icons
+sensor.daily_gas:
+  friendly_name: Daily Gas
+sensor.monthly_gas:
+  friendly_name: Monthly Gas
