@@ -1,3 +1,4 @@
+---
 - alias: Refresh date countdowns
   initial_state: on
   trigger:

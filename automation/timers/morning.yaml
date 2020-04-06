@@ -49,7 +49,7 @@
     - service: media_player.select_source
       entity_id: media_player.sonos_badkamer
       data:
-        source: 'Badkamer' # favorite playlist
+        source: 'Badkamer'  # favorite playlist
     - service: media_player.shuffle_set
       entity_id: media_player.sonos_badkamer
       data:

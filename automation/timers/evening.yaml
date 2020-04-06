@@ -39,6 +39,8 @@
         - light.h_outdoor_1
         - light.h_outdoor_2
         - light.h_outdoor_3
+        - light.h_outdoor_4
+        - light.h_outdoor_5
         - light.h_tafel_kamer
         - light.h_tafel_raam
         - light.kerstboom

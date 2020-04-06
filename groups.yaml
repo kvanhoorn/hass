@@ -2,7 +2,6 @@
 people:
   name: Personen
   icon: mdi:account
-  view: true
   entities:
     - input_boolean.kevin_present
     - input_boolean.wmijn_present
@@ -11,7 +10,6 @@ people:
 temperature:
   name: Temperatuur
   icon: mdi:thermometer
-  view: true
   entities:
     - sensor.downstairs_thermostat_temperature
     - sensor.temperatuur_buiten_temperature
@@ -24,7 +22,6 @@ temperature:
 sensors:
   name: Sensoren
   icon: mdi:chip
-  view: true
   entities:
     - binary_sensor.pir_hal
     - binary_sensor.pir_zolder
@@ -53,7 +50,6 @@ sensors:
 buttons:
   name: Buttons
   icon: mdi:toggle-switch
-  view: true
   entities:
     - input_boolean.radio_kitchen
     - input_boolean.radio_bathroom
@@ -81,7 +77,6 @@ buttons:
 lights:
   name: Lichten
   icon: mdi:lightbulb-on
-  view: true
   entities:
     - light.b_tv
     - light.h_outdoor_1
@@ -115,7 +110,6 @@ lights:
     - switch.tafelverlichting
 outdoor_lights:
   name: Buitenlichten
-  view: false
   entities:
     - light.h_outdoor_1
     - light.h_outdoor_2
@@ -124,7 +118,6 @@ outdoor_lights:
     - light.h_outdoor_5
 doors:
   name: Deuren/ramen
-  view: false
   entities:
     - binary_sensor.voordeur
     - binary_sensor.deur_keuken
@@ -137,24 +130,20 @@ doors:
     - binary_sensor.garagedeur
 doors_inside:
   name: Deuren/ramen binnen
-  view: false
   entities:
     - binary_sensor.deur_logeerkamer
 plants:
   name: Planten
-  view: false
   entities:
     - sensor.temperatuur_peace_lily_witte_bloem_temperature
     - sensor.temperatuur_yucca_palmboom_temperature
 plants_humidity:
   name: Planten vochtigheid
-  view: false
   entities:
     - sensor.peace_lily_witte_bloem_humidity
     - sensor.yucca_palmboom_humidity
 radios:
   name: Radios
-  view: false
   entities:
     - sensor.hs_bedroom
     - sensor.hs_kitchen
@@ -162,13 +151,11 @@ radios:
     - sensor.hs_attic
 attic_lights:
   name: Verlichting zolder
-  view: false
   entities:
     - light.zolder_scherm
     - light.zolder_bank
 trash_sensors:
   name: Afval sensoren
-  view: false
   entities:
     - sensor.eindhoven_biodegradable_waste
     - sensor.eindhoven_general_waste
@@ -178,7 +165,6 @@ trash_sensors:
     - sensor.eindhoven_paper_waste_countdown
 media_controls:
   name: Media controls
-  view: false
   entities:
     - input_select.harmony_hub
     - input_boolean.radio_kitchen
@@ -186,7 +172,6 @@ media_controls:
     - input_boolean.radio_garage
 nest_collection:
   name: Nest
-  view: false
   entities:
     - binary_sensor.downstairs_thermostat_online
     - sensor.downstairs_thermostat_humidity
@@ -197,7 +182,6 @@ nest_collection:
     - binary_sensor.eindhoven_away
 smartmeter_collection:
   name: Smart meter
-  view: false
   entities:
     - sensor.long_power_failure_count
     - sensor.power_consumption
@@ -220,7 +204,6 @@ smartmeter_collection:
     - sensor.voltage_swells_phase_l3
 car_collection:
   name: Car
-  view: false
   entities:
     - binary_sensor.nr767t_ignition
     - binary_sensor.nr767t_locked
@@ -233,7 +216,6 @@ car_collection:
     - sensor.car_address
 nerd_statistics:
   name: Nerd
-  view: false
   entities:
     - sensor.cpu_temperatuur
     - sensor.disk_use_percent_home
@@ -254,7 +236,6 @@ nerd_statistics:
     - sensor.short_time_not_seen_devices
 darksky_collection:
   name: Dark Sky
-  view: false
   entities:
     - sensor.dark_sky_apparent_temperature
     - sensor.dark_sky_daily_summary
@@ -271,7 +252,6 @@ darksky_collection:
     - sensor.dark_sky_wind_speed
 pirs:
   name: PIRs
-  view: false
   entities:
     - binary_sensor.pir_hal
     - binary_sensor.pir_zolder
@@ -284,14 +264,12 @@ pirs:
     - binary_sensor.hm_motion_bathroom
 firealarms:
   name: Fire alarms
-  view: false
   entities:
     - sensor.brandalarm_keuken_sensor_status
     - sensor.brandalarm_woonkamer_sensor_status
     - sensor.brandalarm_zolder_sensor_status
 trackers:
   name: Device trackers
-  view: false
   entities:
     - sensor.kevin_iphone_7_battery_level
     - sensor.kevin_iphone_7_battery_state
@@ -299,7 +277,6 @@ trackers:
     - device_tracker.macpro
 temperature_collection:
   name: Temperatuursensors
-  view: false
   entities:
     - sensor.temperatuur_buiten_temperature
     - sensor.temperatuur_slaapkamer_temperature
@@ -310,7 +287,6 @@ temperature_collection:
     - sensor.living_vs_outside_temperature
 misc:
   name: Miscellaneous
-  view: false
   entities:
     - sun.sun
     - sensor.moon
@@ -318,7 +294,6 @@ misc:
     - sensor.time
 sab_collection:
   name: SABnzbd
-  view: false
   entities:
     - sensor.sabnzbd_disk_free
     - sensor.sabnzbd_monthly_total
@@ -326,7 +301,6 @@ sab_collection:
     - sensor.sabnzbd_total
 fitbit_collection:
   name: Fitbit
-  view: false
   entities:
     - sensor.charge_2_battery
     - sensor.distance
@@ -335,7 +309,6 @@ fitbit_collection:
     - sensor.tracker_steps
 yahoo_collection:
   name: Yahoo weer
-  view: false
   entities:
     - sensor.yahoo_vandaag_condition
     - sensor.yahoo_vandaag_current
@@ -343,7 +316,6 @@ yahoo_collection:
     - sensor.yahoo_vandaag_temperature_min
 yr_collection:
   name: YR weer
-  view: false
   entities:
     - sensor.yr_symbol
     - sensor.yr_cloudiness
@@ -352,7 +324,6 @@ yr_collection:
     - sensor.yr_temperature
 fuel_collection:
   name: Brandstofprijzen
-  view: false
   entities:
     - sensor.diesel
     - sensor.euro95
@@ -361,7 +332,6 @@ fuel_collection:
 camera_control_collection:
   name: Camera straat controls
   icon: mdi:camera-control
-  view: true
   entities:
     - camera.street
     - input_boolean.camera1_left
@@ -371,14 +341,12 @@ camera_control_collection:
     - input_boolean.camera1_irmode
 feedparser_collection:
   name: Feedparsers
-  view: false
   entities:
     - sensor.omroep_brabant_zuid_oost
     - sensor.nos_algemeen
     - sensor.nu_nl_algemeen
 long_battery_devices:
   name: Batterij apparaten lang niet gezien
-  view: false
   entities:
     - binary_sensor.voordeur
     - binary_sensor.deur_keuken
@@ -401,7 +369,6 @@ long_battery_devices:
     - binary_sensor.hm_motion_bathroom
 short_battery_devices:
   name: Batterij apparaten onlangs niet gezien
-  view: false
   entities:
     - sensor.temperatuur_peace_lily_witte_bloem_temperature
     - sensor.temperatuur_yucca_palmboom_temperature
@@ -412,14 +379,12 @@ short_battery_devices:
     - sensor.temperatuur_slaapkamer_temperature
 bus4_collection:
   name: Bus 4 vertrektijden
-  view: false
   entities:
     - sensor.bus_4
     - sensor.bus_4_future_1
     - sensor.bus_4_future_2
 untappd_collection:
   name: Untappd kvanhoorn
-  view: false
   entities:
     - sensor.untappd_last_badge_kvanhoorn
     - sensor.untappd_last_check_in_kvanhoorn
@@ -427,7 +392,6 @@ untappd_collection:
     - sensor.untappd_full_checkin
 synology_collection:
   name: Synology collection
-  view: false
   entities:
     - sensor.synology_dsm_average_disk_temp_volume_1
     - sensor.synology_dsm_average_disk_temp_volume_2
@@ -475,7 +439,6 @@ synology_collection:
     - sensor.synology_dsm_volume_used_volume_2
 igrill_collection:
   name: iGrill collection
-  view: false
   entities:
     - sensor.igrill_mini_battery
     - sensor.igrill_battery
@@ -486,7 +449,6 @@ igrill_collection:
     - sensor.probe_4
 hue_sensor_collection:
   name: Hue sensor collection
-  view: false
   entities:
     - binary_sensor.hm_backyard_motion
     - binary_sensor.hm_bathroom_motion
@@ -497,3 +459,21 @@ hue_sensor_collection:
     - sensor.hm_backyard_light_level
     - sensor.hm_bathroom_light_level
     - sensor.hm_hall_light_level
+birthday_collection:
+  name: Birthday collection
+  entities:
+    - sensor.verjaardag_kevin
+    - sensor.verjaardag_willemijn
+    - sensor.verjaardag_wouter
+    - sensor.verjaardag_bertie
+    - sensor.verjaardag_adri
+    - sensor.verjaardag_anniek
+    - sensor.verjaardag_niek
+    - sensor.verjaardag_eveliene
+    - sensor.verjaardag_yorrick
+    - sensor.verjaardag_kim
+    - sensor.jubileum_trouwdag_kevin_en_willemijn
+    - sensor.jubileum_trouwdag_wouter_en_bertie
+    - sensor.jubileum_trouwdag_adri_en_anniek
+    - sensor.jubileum_trouwdag_niek_en_eveliene
+    - sensor.jubileum_trouwdag_yorrick_en_kim

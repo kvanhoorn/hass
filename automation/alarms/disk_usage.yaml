@@ -1,17 +1,22 @@
 ---
-- alias: Mac pro disk usage alarm
+- alias: Synology disk usage
   trigger:
     platform: numeric_state
-    entity_id: sensor.sabnzbd_disk_free
-    below: 12
+    entity_id:
+      - sensor.synology_dsm_volume_used_volume_1
+      - sensor.synology_dsm_volume_used_volume_2
+      - sensor.synology_dsm_volume_used_volume_3
+      - sensor.synology_dsm_volume_used_volume_4
+    above: 98
     for:
-      minutes: 5
+      minutes: 10
   action:
     - service: notify.pushover
       data_template:
-        title: "Mac Pro disk usage"
-        message: "Mac Pro heeft nog {{ states.sensor.sabnzbd_disk_free.state }}
-          GB vrij."
+        title: "Synology Disk vol"
+        message: >
+          "Disk {{ trigger.to_state.name }} is
+          {{ trigger.to_state.state }}% vol!"
         data:
           sound: "siren"
           priority: 2

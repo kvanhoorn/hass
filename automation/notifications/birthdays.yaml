@@ -1,0 +1,48 @@
+---
+- alias: Birthday in 1 week
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  condition:
+    - condition: template
+      value_template: >-
+        {%- for entity in states.group.birthday_collection.attributes.entity_id -%}
+          {%- if (states[entity.split('.')[0]][entity.split('.')[1]].state | int) == 7 -%}
+            true
+          {%- endif -%}
+        {%- endfor -%}
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Belangrijke datum"
+        message: >-
+          {%- for entity in states.group.birthday_collection.attributes.entity_id -%}
+            {%- if (states[entity.split('.')[0]][entity.split('.')[1]].state | int) == 7 -%}
+              {%- set entity = states[entity.split('.')[0]][entity.split('.')[1]] -%}
+              {{ entity.name }} wordt over 1 week {{ entity.attributes.years }} jaar
+            {%- endif -%}
+          {%- endfor -%}
+
+- alias: Birthday today
+  trigger:
+    - platform: time
+      at: '07:00:00'
+  condition:
+    - condition: template
+      value_template: >-
+        {%- for entity in states.group.birthday_collection.attributes.entity_id -%}
+          {%- if (states[entity.split('.')[0]][entity.split('.')[1]].state | int) == 0 -%}
+            true
+          {%- endif -%}
+        {%- endfor -%}
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Belangrijke datum"
+        message: >-
+          {%- for entity in states.group.birthday_collection.attributes.entity_id -%}
+            {%- if (states[entity.split('.')[0]][entity.split('.')[1]].state | int) == 0 -%}
+              {%- set entity = states[entity.split('.')[0]][entity.split('.')[1]] -%}
+              {{ entity.name }} wordt vandaag {{ entity.attributes.years }} jaar
+            {%- endif -%}
+          {%- endfor -%}

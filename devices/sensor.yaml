@@ -324,3 +324,7 @@
     - volume_percentage_used
     - volume_disk_temp_avg
     - volume_disk_temp_max
+- platform: afvalwijzer
+  zipcode: !secret postcode
+  housenumber: !secret housenumber
+  count_today: true

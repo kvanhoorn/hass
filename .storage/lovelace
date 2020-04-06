@@ -357,9 +357,18 @@
                         },
                         {
                             "entities": [
-                                "sensor.eindhoven_biodegradable_waste",
-                                "sensor.eindhoven_general_waste",
-                                "sensor.eindhoven_paper_waste"
+                                {
+                                    "entity": "sensor.trash_gft",
+                                    "name": "GFT afval"
+                                },
+                                {
+                                    "entity": "sensor.trash_restafval",
+                                    "name": "Restafval"
+                                },
+                                {
+                                    "entity": "sensor.trash_papier_en_karton",
+                                    "name": "Papier/karton"
+                                }
                             ],
                             "show_header_toggle": false,
                             "title": "Afval",
@@ -378,7 +387,10 @@
                                 {
                                     "animate": true,
                                     "entities": [
-                                        "sensor.temperatuur_buiten_temperature"
+                                        {
+                                            "entity": "sensor.temperatuur_buiten_temperature",
+                                            "index": 0
+                                        }
                                     ],
                                     "hours_to_show": 4,
                                     "name": "Buiten",
@@ -387,7 +399,10 @@
                                 {
                                     "animate": true,
                                     "entities": [
-                                        "sensor.temperatuur_slaapkamer_temperature"
+                                        {
+                                            "entity": "sensor.temperatuur_slaapkamer_temperature",
+                                            "index": 0
+                                        }
                                     ],
                                     "hours_to_show": 4,
                                     "line_color": "red",
@@ -397,7 +412,10 @@
                                 {
                                     "animate": true,
                                     "entities": [
-                                        "sensor.hm_bathroom_temperature"
+                                        {
+                                            "entity": "sensor.hm_bathroom_temperature",
+                                            "index": 0
+                                        }
                                     ],
                                     "hours_to_show": 4,
                                     "line_color": "blue",
@@ -422,6 +440,31 @@
                             "show_header_toggle": false,
                             "title": "Nieuws",
                             "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.netherlands_coronavirus_confirmed",
+                                    "name": "Bevestigd"
+                                },
+                                {
+                                    "entity": "sensor.netherlands_coronavirus_current",
+                                    "name": "Huidig"
+                                },
+                                {
+                                    "entity": "sensor.netherlands_coronavirus_recovered",
+                                    "name": "Hersteld"
+                                },
+                                {
+                                    "entity": "sensor.netherlands_coronavirus_deaths",
+                                    "name": "Doden"
+                                }
+                            ],
+                            "show_icon": true,
+                            "show_name": true,
+                            "show_state": true,
+                            "title": "Corona (Nederland)",
+                            "type": "glance"
                         },
                         {
                             "entities": [
@@ -960,6 +1003,14 @@
                                 }
                             ],
                             "type": "conditional"
+                        },
+                        {
+                            "entity": "media_player.plex_atv_bedroom",
+                            "type": "media-control"
+                        },
+                        {
+                            "entity": "media_player.plex_atv_living_room",
+                            "type": "media-control"
                         }
                     ],
                     "icon": "mdi:remote",
@@ -996,6 +1047,10 @@
                         },
                         {
                             "entities": [
+                                {
+                                    "entity": "sensor.hm_kinderkamer_temperature",
+                                    "name": "Kinderkamer"
+                                },
                                 {
                                     "entity": "sensor.temperatuur_garage_temperature",
                                     "name": "Garage"
@@ -1095,13 +1150,7 @@
                                     "entity": "sensor.euro95"
                                 },
                                 {
-                                    "entity": "sensor.euro95_tinq"
-                                },
-                                {
                                     "entity": "sensor.diesel"
-                                },
-                                {
-                                    "entity": "sensor.diesel_tinq"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1212,17 +1261,6 @@
                             "type": "custom:bignumber-card"
                         },
                         {
-                            "entities": [
-                                {
-                                    "entity": "input_boolean.radio_kitchen"
-                                },
-                                {
-                                    "entity": "input_boolean.radio_garage"
-                                }
-                            ],
-                            "type": "entities"
-                        },
-                        {
                             "cards": [
                                 {
                                     "animate": true,
@@ -1264,7 +1302,6 @@
                                     "type": "custom:mini-graph-card"
                                 }
                             ],
-                            "name": null,
                             "type": "horizontal-stack"
                         },
                         {
@@ -1569,6 +1606,8 @@
                                     "sensor.untappd_last_check_in_kvanhoorn.score"
                                 ]
                             },
+                            "heading_name": "key",
+                            "heading_state": "value",
                             "title": "Untappd",
                             "type": "custom:entity-attributes-card"
                         },
@@ -1662,8 +1701,8 @@
                                     "name": "logeerk."
                                 },
                                 {
-                                    "entity": "binary_sensor.pir_studeerkamer",
-                                    "name": "studeerk."
+                                    "entity": "binary_sensor.hm_kinderkamer_motion",
+                                    "name": "kinderk."
                                 },
                                 {
                                     "entity": "binary_sensor.pir_zolder",

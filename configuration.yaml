@@ -28,14 +28,11 @@ logger:
 # END MAIN CONFIG - START OTHER CONFIG #
 #
 
+apple_tv:
+
 #cloud:
 config:
 conversation:
-
-cure_waste:
-  location: Eindhoven
-  postalcode: !secret postcode
-  housenumber: !secret housenumber
 
 custom_updater:
   card_urls:
@@ -64,6 +61,7 @@ hue:
 
 logbook:
 map:
+mobile_app:
 
 mqtt:
   password: !secret mqtt_password
@@ -108,6 +106,13 @@ speedtestdotnet:
 
 sun:
 system_health:
+
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret telegram_chat_id
+
 updater:
 
 #

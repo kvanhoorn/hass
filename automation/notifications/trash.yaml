@@ -1,45 +1,14 @@
 ---
-- alias: Afval notificatie - papier
+- alias: Afval notificatie
   trigger:
     platform: time
     at: '20:00:00'
   condition:
-    condition: numeric_state
-    entity_id: sensor.eindhoven_paper_waste_countdown
-    below: 2
-    above: 0
+    condition: template
+    value_template: "{% if not is_state('sensor.trash_tomorrow', 'Geen') %}true{% endif %}"
   action:
     - service: notify.pushover
-      data:
+      data_template:
         title: "Afval"
-        message: "Morgen: Papier en karton"
+        message: "Morgen: {{ states.sensor.trash_tomorrow.state }}"
 
-- alias: Afval notificatie - rest
-  trigger:
-    platform: time
-    at: '20:00:00'
-  condition:
-    condition: numeric_state
-    entity_id: sensor.eindhoven_general_waste_countdown
-    below: 2
-    above: 0
-  action:
-    - service: notify.pushover
-      data:
-        title: "Afval"
-        message: "Morgen: Grijze bak"
-
-- alias: Afval notificatie - gft
-  trigger:
-    platform: time
-    at: '20:00:00'
-  condition:
-    condition: numeric_state
-    entity_id: sensor.eindhoven_biodegradable_waste_countdown
-    below: 2
-    above: 0
-  action:
-    - service: notify.pushover
-      data:
-        title: "Afval"
-        message: "Morgen: Groene bak"

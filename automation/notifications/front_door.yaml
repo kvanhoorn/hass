@@ -13,3 +13,10 @@
           priority: -2
           file:
             url: !secret camera2_still
+    - service: notify.telegram
+      data:
+        message: ''
+        data:
+          photo:
+            - url: !secret camera2_still
+              caption: "De voordeur is geopend"

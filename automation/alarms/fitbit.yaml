@@ -9,6 +9,7 @@
   action:
     - service: notify.pushover
       data_template:
-        message: "Hartslag Willemijn is {{states.sensor.resting_heart_rate.state}},
+        message: >
+          "Hartslag Willemijn is {{states.sensor.resting_heart_rate.state}},
           dit is hoger dan 78, gaat alles goed?"
         title: "Gezondheid"
