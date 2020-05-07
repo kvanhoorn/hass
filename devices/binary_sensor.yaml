@@ -17,18 +17,18 @@
       device_class: motion
       off_delay:
         seconds: 30
-#     091300032891e9018870:
-#       name: PIR gangkast
-#       device_class: motion
-#       off_delay:
-#         seconds: 30
-#     09130011e94fe9017c70:
-#       name: PIR badkamer
-#       device_class: motion
-#       off_delay:
-#         minutes: 1
+    091300032891e9018870:
+      name: PIR keuken
+      device_class: motion
+      off_delay:
+        seconds: 30
+    09130011e94fe9017c70:
+      name: PIR slaapkamer
+      device_class: motion
+      off_delay:
+        seconds: 30
     091300258cefa9017a70:
-      name: PIR studeerkamer
+      name: PIR woonkamer
       device_class: motion
       off_delay:
         seconds: 30
@@ -39,7 +39,7 @@
       name: Deur keuken
       device_class: door
     0b11001801071a760a010f50:
-      name: Raam studeerkamer
+      name: Raam kinderkamer
       device_class: window
     0b11001d01002a360a010f40:
       name: Raam slaapkamer

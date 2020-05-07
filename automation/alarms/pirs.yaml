@@ -53,28 +53,6 @@
     service: light.turn_off
     entity_id: light.hal_led_bak
 
-# use PIR to turn on light
-# - alias: PIR turn staircase closet on
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.hm_hall_motion
-#     to: 'on'
-#   action:
-#     service: light.turn_on
-#     entity_id: light.h_gangkast
-
-# and turn it back off
-# - alias: PIR turn staircase closet off
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.hm_hall_motion
-#     to: 'off'
-#     for:
-#       minutes: 1
-#   action:
-#     service: light.turn_off
-#     entity_id: light.h_gangkast
-
 # use PIR to turn on attic lights
 - alias: PIR turn attic on
   trigger:
@@ -96,28 +74,6 @@
   action:
     service: light.turn_off
     entity_id: group.attic_lights
-
-# use PIR to turn on study lights
-- alias: PIR turn study on
-  trigger:
-    platform: state
-    entity_id: binary_sensor.pir_studeerkamer
-    to: 'on'
-  action:
-    service: light.turn_on
-    entity_id: light.bureaulamp
-
-# use PIR to turn off study lights
-- alias: PIR turn study off
-  trigger:
-    platform: state
-    entity_id: binary_sensor.pir_studeerkamer
-    to: 'off'
-    for:
-      minutes: 2
-  action:
-    service: light.turn_off
-    entity_id: light.bureaulamp
 
 # use PIR to turn on outside
 - alias: PIR turn backyard on during nightalarm

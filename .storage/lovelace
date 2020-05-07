@@ -339,6 +339,7 @@
                                     "entity": "input_boolean.homeworking_day"
                                 }
                             ],
+                            "show_header_toggle": false,
                             "type": "entities"
                         },
                         {
@@ -487,16 +488,22 @@
                                     "entity": "sensor.verjaardag_anniek"
                                 },
                                 {
-                                    "entity": "sensor.verjaardag_niek"
-                                },
-                                {
-                                    "entity": "sensor.verjaardag_eveliene"
+                                    "entity": "sensor.verjaardag_kim"
                                 },
                                 {
                                     "entity": "sensor.verjaardag_yorrick"
                                 },
                                 {
-                                    "entity": "sensor.verjaardag_kim"
+                                    "entity": "sensor.verjaardag_eveliene"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_niek"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_emma"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_vera"
                                 },
                                 {
                                     "entity": "sensor.jubileum_trouwdag_kevin_en_willemijn"
@@ -508,10 +515,10 @@
                                     "entity": "sensor.jubileum_trouwdag_adri_en_anniek"
                                 },
                                 {
-                                    "entity": "sensor.jubileum_trouwdag_niek_en_eveliene"
+                                    "entity": "sensor.jubileum_trouwdag_yorrick_en_kim"
                                 },
                                 {
-                                    "entity": "sensor.jubileum_trouwdag_yorrick_en_kim"
+                                    "entity": "sensor.jubileum_trouwdag_niek_en_eveliene"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1048,15 +1055,15 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.hm_kinderkamer_temperature",
-                                    "name": "Kinderkamer"
+                                    "entity": "sensor.hm_room_emma_temperature",
+                                    "name": "Emma"
                                 },
                                 {
                                     "entity": "sensor.temperatuur_garage_temperature",
                                     "name": "Garage"
                                 },
                                 {
-                                    "entity": "sensor.hm_hall_temperature",
+                                    "entity": "sensor.hm_hallcloset_temperature",
                                     "name": "Gangkast"
                                 },
                                 {
@@ -1412,7 +1419,7 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_studeerkamer",
+                                    "entity": "binary_sensor.raam_kinderkamer",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1440,11 +1447,19 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.pir_studeerkamer",
+                                    "entity": "binary_sensor.hm_backyard_motion",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.hm_backyard_motion",
+                                    "entity": "binary_sensor.hm_hallcloset_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_room_emma_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_bathroom_motion",
                                     "secondary_info": "last-changed"
                                 }
                             ],
@@ -1469,6 +1484,22 @@
                                 },
                                 {
                                     "entity": "sensor.temperatuur_garage_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.hm_backyard_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.hm_hallcloset_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.hm_bathroom_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.hm_room_emma_temperature",
                                     "secondary_info": "last-changed"
                                 }
                             ],
@@ -1689,20 +1720,46 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "binary_sensor.pir_woonkamer",
+                                    "name": "woonkamer"
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_keuken",
+                                    "name": "keuken"
+                                },
+                                {
                                     "entity": "binary_sensor.pir_hal",
                                     "name": "hal"
                                 },
                                 {
-                                    "entity": "binary_sensor.hm_bathroom_motion",
-                                    "name": "badkamer"
+                                    "entity": "binary_sensor.hm_hallcloset_motion",
+                                    "name": "gangkast"
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_backyard_motion",
+                                    "name": "achtertuin"
+                                }
+                            ],
+                            "show_state": false,
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.pir_slaapkamer",
+                                    "name": "slaapk."
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_room_emma_motion",
+                                    "name": "Emma"
                                 },
                                 {
                                     "entity": "binary_sensor.pir_logeerkamer",
                                     "name": "logeerk."
                                 },
                                 {
-                                    "entity": "binary_sensor.hm_kinderkamer_motion",
-                                    "name": "kinderk."
+                                    "entity": "binary_sensor.hm_bathroom_motion",
+                                    "name": "badkamer"
                                 },
                                 {
                                     "entity": "binary_sensor.pir_zolder",
@@ -1740,7 +1797,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.raam_studeerkamer",
+                                    "entity": "binary_sensor.raam_kinderkamer",
                                     "name": "Studeerk."
                                 },
                                 {
@@ -1752,29 +1809,15 @@
                                     "name": "Logeerk."
                                 },
                                 {
+                                    "entity": "binary_sensor.deur_logeerkamer",
+                                    "name": "Logeerk."
+                                },
+                                {
                                     "entity": "binary_sensor.raam_zolder",
                                     "name": "Zolder"
                                 }
                             ],
                             "show_name": true,
-                            "show_state": false,
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
-                                    "entity": "binary_sensor.deur_logeerkamer",
-                                    "name": "Logeerk."
-                                },
-                                {
-                                    "entity": "binary_sensor.hm_hall_motion",
-                                    "name": "Gangkast"
-                                },
-                                {
-                                    "entity": "binary_sensor.hm_backyard_motion",
-                                    "name": "Achtertuin"
-                                }
-                            ],
                             "show_state": false,
                             "type": "glance"
                         }

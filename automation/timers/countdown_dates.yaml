@@ -49,6 +49,12 @@
           - name: Kim
             type: verjaardag
             date: 13-02-1992
+          - name: Emma
+            type: verjaardag
+            date: 12-02-2020
+          - name: Vera
+            type: verjaardag
+            date: 21-11-2018
           - name: Trouwdag Niek en Eveliene
             type: jubileum
             date: 18-10-2017

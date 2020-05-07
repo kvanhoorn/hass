@@ -9,7 +9,7 @@
       - binary_sensor.schuurdeur
       - binary_sensor.raam_logeerkamer
       - binary_sensor.raam_slaapkamer
-      - binary_sensor.raam_studeerkamer
+      - binary_sensor.raam_kinderkamer
       - binary_sensor.raam_zolder
       - binary_sensor.garagedeur
     to: 'on'
@@ -39,7 +39,7 @@
       - binary_sensor.schuurdeur
       - binary_sensor.raam_logeerkamer
       - binary_sensor.raam_slaapkamer
-      - binary_sensor.raam_studeerkamer
+      - binary_sensor.raam_kinderkamer
       - binary_sensor.raam_zolder
       - binary_sensor.garagedeur
     to: 'on'
