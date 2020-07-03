@@ -151,4 +151,4 @@
     - service: notify.pushover
       data_template:
         title: "Werken"
-        message: "Vanaf morgen moet je weerk werken, ochtendprogramma actief."
+        message: "Vanaf morgen moet je week werken, ochtendprogramma actief."

@@ -106,6 +106,27 @@
                                 }
                             },
                             "entity": "climate.woonkamer",
+                            "name": "Woonkamer",
+                            "sensors": [
+                                {
+                                    "entity": "sensor.temperatuur_buiten_temperature"
+                                }
+                            ],
+                            "step_size": 0.5,
+                            "type": "custom:simple-thermostat"
+                        },
+                        {
+                            "control": {
+                                "hvac": {
+                                    "cool": true,
+                                    "dry": false,
+                                    "fan_only": false,
+                                    "heat": true,
+                                    "heat_cool": false,
+                                    "off": true
+                                }
+                            },
+                            "entity": "climate.overloop",
                             "sensors": [
                                 {
                                     "entity": "sensor.temperatuur_buiten_temperature"
@@ -1038,16 +1059,20 @@
                                     "name": "Woonkamer"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_slaapkamer_temperature",
-                                    "name": "Slaapkamer"
+                                    "entity": "sensor.hm_hallcloset_temperature",
+                                    "name": "Gangkast"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_logeerkamer_temperature",
-                                    "name": "Logeerkamer"
+                                    "entity": "sensor.temperatuur_garage_temperature",
+                                    "name": "Garage"
                                 },
                                 {
-                                    "entity": "sensor.hm_bathroom_temperature",
-                                    "name": "Badkamer"
+                                    "entity": "sensor.temperatuur_buiten_temperature",
+                                    "name": "Buiten"
+                                },
+                                {
+                                    "entity": "sensor.hm_backyard_temperature",
+                                    "name": "Overkapping"
                                 }
                             ],
                             "type": "glance"
@@ -1055,36 +1080,52 @@
                         {
                             "entities": [
                                 {
+                                    "entity": "sensor.temperatuur_slaapkamer_temperature",
+                                    "name": "Slaapk."
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_kantoor_temperature",
+                                    "name": "Kantoor"
+                                },
+                                {
                                     "entity": "sensor.hm_room_emma_temperature",
                                     "name": "Emma"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_garage_temperature",
-                                    "name": "Garage"
+                                    "entity": "sensor.hm_bathroom_temperature",
+                                    "name": "Badkamer"
                                 },
                                 {
-                                    "entity": "sensor.hm_hallcloset_temperature",
-                                    "name": "Gangkast"
-                                },
-                                {
-                                    "entity": "sensor.hm_backyard_temperature",
-                                    "name": "Achtertuin"
+                                    "entity": "sensor.overloop_room_temperature",
+                                    "name": "Overloop"
                                 }
                             ],
                             "type": "glance"
                         },
                         {
-                            "cards": [
+                            "entities": [
                                 {
-                                    "entity": "plant.peace_lily_witte_bloem",
-                                    "type": "plant-status"
+                                    "entity": "sensor.hm_attic_temperature",
+                                    "name": "Zolder"
                                 },
                                 {
-                                    "entity": "plant.yucca_palmboom",
-                                    "type": "plant-status"
+                                    "entity": "sensor.dark_sky_daytime_high_temperature_0d",
+                                    "name": "Max Ehv"
+                                },
+                                {
+                                    "entity": "sensor.dark_sky_overnight_low_temperature_0d",
+                                    "name": "Min Ehv"
+                                },
+                                {
+                                    "entity": "sensor.peace_lily_witte_bloem_humidity",
+                                    "name": "Peace Lily"
+                                },
+                                {
+                                    "entity": "sensor.yucca_palmboom_humidity",
+                                    "name": "Palmboom"
                                 }
                             ],
-                            "type": "vertical-stack"
+                            "type": "glance"
                         }
                     ],
                     "icon": "mdi:thermometer",
@@ -1411,7 +1452,7 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_logeerkamer",
+                                    "entity": "binary_sensor.raam_kantoor",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1419,7 +1460,7 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_kinderkamer",
+                                    "entity": "binary_sensor.raam_emma",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1431,7 +1472,7 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_logeerkamer",
+                                    "entity": "binary_sensor.door_emma",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1439,11 +1480,7 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.pir_zolder",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.pir_logeerkamer",
+                                    "entity": "binary_sensor.pir_kantoor",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1460,6 +1497,10 @@
                                 },
                                 {
                                     "entity": "binary_sensor.hm_bathroom_motion",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_attic_motion",
                                     "secondary_info": "last-changed"
                                 }
                             ],
@@ -1479,7 +1520,7 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_logeerkamer_temperature",
+                                    "entity": "sensor.temperatuur_kantoor_temperature",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1505,6 +1546,49 @@
                             ],
                             "show_header_toggle": false,
                             "title": "Temperatuur",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.temperatuur_peace_lily_witte_bloem_temperature",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.temperatuur_yucca_palmboom_temperature",
+                                    "secondary_info": "last-changed"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Plantsensoren",
+                            "type": "entities"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.macbook_pro_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.willemijn_macbook_air_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.kevin_ipad_air_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.kevin_iphone_4s_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.kevin_iphone_xr_battery_level"
+                                },
+                                {
+                                    "entity": "sensor.iphone_van_willemijn_vink_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.kevin_apple_watch_4_battery_state"
+                                }
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Devices",
                             "type": "entities"
                         }
                     ],
@@ -1683,6 +1767,9 @@
                                 {
                                     "entity": "sensor.monthly_gas",
                                     "name": "Gas per maand"
+                                },
+                                {
+                                    "entity": "sensor.overloop_energy"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1692,16 +1779,16 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.synology_dsm_temperature_sda"
+                                    "entity": "sensor.vinkhoornnas01_drive_1_temperature"
                                 },
                                 {
-                                    "entity": "sensor.synology_dsm_temperature_sdb"
+                                    "entity": "sensor.vinkhoornnas01_drive_2_temperature"
                                 },
                                 {
-                                    "entity": "sensor.synology_dsm_temperature_sdc"
+                                    "entity": "sensor.vinkhoornnas01_drive_3_temperature"
                                 },
                                 {
-                                    "entity": "sensor.synology_dsm_temperature_sdd"
+                                    "entity": "sensor.vinkhoornnas01_drive_4_temperature"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1754,7 +1841,7 @@
                                     "name": "Emma"
                                 },
                                 {
-                                    "entity": "binary_sensor.pir_logeerkamer",
+                                    "entity": "binary_sensor.pir_kantoor",
                                     "name": "logeerk."
                                 },
                                 {
@@ -1797,20 +1884,20 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.raam_kinderkamer",
-                                    "name": "Studeerk."
+                                    "entity": "binary_sensor.raam_emma",
+                                    "name": "Enma"
                                 },
                                 {
                                     "entity": "binary_sensor.raam_slaapkamer",
                                     "name": "Slaapk."
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_logeerkamer",
+                                    "entity": "binary_sensor.raam_kantoor",
                                     "name": "Logeerk."
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_logeerkamer",
-                                    "name": "Logeerk."
+                                    "entity": "binary_sensor.door_emma",
+                                    "name": "Emma"
                                 },
                                 {
                                     "entity": "binary_sensor.raam_zolder",

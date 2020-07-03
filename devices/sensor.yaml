@@ -31,7 +31,7 @@
   automatic_add: false
   devices:
     0a520702390e00b72f0149:
-      name: Temperatuur logeerkamer
+      name: Temperatuur kantoor
     0a5207035c0e00cc3c0149:
       name: Temperatuur slaapkamer
 #     0a52071d7c0e00d32e0149:
@@ -289,41 +289,9 @@
   secret: !secret untappd_secret
 - platform: postcodeloterij
   postcode: !secret postcode
-- platform: synologydsm
-  host: !secret synology_host
-  username: !secret synology_username
-  password: !secret synology_password
-  monitored_conditions:
-    - cpu_other_load
-    - cpu_user_load
-    - cpu_system_load
-    - cpu_total_load
-    - cpu_1min_load
-    - cpu_5min_load
-    - cpu_15min_load
-    - memory_real_usage
-    - memory_size
-    - memory_cached
-    - memory_available_swap
-    - memory_available_real
-    - memory_total_swap
-    - memory_total_real
-    - network_up
-    - network_down
-    - disk_name
-    - disk_device
-    - disk_smart_status
-    - disk_status
-    - disk_exceed_bad_sector_thr
-    - disk_below_remain_life_thr
-    - disk_temp
-    - volume_status
-    - volume_device_type
-    - volume_size_total
-    - volume_size_used
-    - volume_percentage_used
-    - volume_disk_temp_avg
-    - volume_disk_temp_max
+#- platform: postnl
+#  username: !secret postnl_username
+#  password: !secret postnl_password
 - platform: afvalwijzer
   zipcode: !secret postcode
   housenumber: !secret housenumber

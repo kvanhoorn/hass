@@ -41,3 +41,5 @@ camera1_down:
 camera1_irmode:
   name: Camera straat IR
   icon: mdi:weather-night
+door_emma:
+  name: Emma deur bool

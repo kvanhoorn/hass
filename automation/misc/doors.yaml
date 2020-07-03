@@ -1,0 +1,36 @@
+---
+- alias: Emma door opened
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.deur_emma_open
+      to: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.door_emma
+
+- alias: Emma door closed
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.deur_emma_close
+      to: 'on'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.door_emma
+
+- alias: Turn on upstairs doorbell ring
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_emma
+      to: 'on'
+  action:
+    - service: light.turn_on
+      entity_id: light.h_doorbell
+
+- alias: Turn off upstairs doorbell ring
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.door_emma
+      to: 'off'
+  action:
+    - service: light.turn_off
+      entity_id: light.h_doorbell

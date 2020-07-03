@@ -17,6 +17,7 @@ homeassistant:
 logger:
   default: info
   # logs:
+  #  homeassistant.components.webhook: debug
   #  homeassistant.components.config: debug
   #  homeassistant.components.config.automation: debug
   #  homeassistant.components.sensor.rest: debug
@@ -43,10 +44,6 @@ custom_updater:
     - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
     - https://raw.githubusercontent.com/robmarkcole/Hue-sensors-HASS/master/custom_updater.json
     - https://raw.githubusercontent.com/custom-components/sensor.untappd/master/custom_updater.json
-
-discovery:
-  ignore:
-    - roku
 
 frontend:
   themes:

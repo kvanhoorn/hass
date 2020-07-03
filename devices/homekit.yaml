@@ -6,6 +6,7 @@ filter:
     - input_boolean.is_it_holiday
     - input_boolean.is_it_night
     - climate.woonkamer
+    - climate.overloop
     - switch.woonkamerverlichting
     - switch.tafelverlichting
     - switch.outdoor_lightning

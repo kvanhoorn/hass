@@ -2,14 +2,18 @@
 Peace Lily - witte bloem:
   sensors:
     moisture: sensor.peace_lily_witte_bloem_humidity
-    temperature: sensor.temperatuur_peace_lily_witte_bloem_temperature
     battery: sensor.static_battery
+    temperature: sensor.temperatuur_peace_lily_witte_bloem_temperature
     conductivity: sensor.static_conductivity
     brightness: sensor.static_brightness
+  min_moisture: 30
+  max_moisture: 100
 Yucca - palmboom:
   sensors:
     moisture: sensor.yucca_palmboom_humidity
-    temperature: sensor.temperatuur_yucca_palmboom_temperature
     battery: sensor.static_battery
+    temperature: sensor.temperatuur_yucca_palmboom_temperature
     conductivity: sensor.static_conductivity
     brightness: sensor.static_brightness
+  min_moisture: 30
+  max_moisture: 100
