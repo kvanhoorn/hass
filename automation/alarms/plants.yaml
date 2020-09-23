@@ -3,8 +3,8 @@
   trigger:
     platform: numeric_state
     entity_id:
-      - sensor.peace_lily_witte_bloem_humidity
-      - sensor.yucca_palmboom_humidity
+      - sensor.plant1_humidity
+      - sensor.plant2_humidity
     below: 50
     for:
       minutes: 30
@@ -20,8 +20,8 @@
   trigger:
     platform: numeric_state
     entity_id:
-      - sensor.peace_lily_witte_bloem_humidity
-      - sensor.yucca_palmboom_humidity
+      - sensor.plant1_humidity
+      - sensor.plant2_humidity
     below: 30
     for:
       minutes: 30
@@ -37,8 +37,8 @@
   trigger:
     platform: numeric_state
     entity_id:
-      - sensor.peace_lily_witte_bloem_humidity
-      - sensor.yucca_palmboom_humidity
+      - sensor.plant1_humidity
+      - sensor.plant2_humidity
     above: 50
     for:
       minutes: 30

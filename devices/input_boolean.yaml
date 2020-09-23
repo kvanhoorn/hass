@@ -23,9 +23,6 @@ kevin_present:
 wmijn_present:
   name: Willemijn
   icon: mdi:account
-send_photo:
-  name: Stuur foto
-  icon: mdi:image
 camera1_left:
   name: Camera straat links
   icon: mdi:arrow-left-bold-circle-outline
@@ -41,5 +38,7 @@ camera1_down:
 camera1_irmode:
   name: Camera straat IR
   icon: mdi:weather-night
-door_emma:
-  name: Emma deur bool
+deurbel:
+  name: Deurbel
+  icon: mdi:door
+

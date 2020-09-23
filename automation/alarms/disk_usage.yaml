@@ -3,10 +3,10 @@
   trigger:
     platform: numeric_state
     entity_id:
-      - sensor.synology_dsm_volume_used_volume_1
-      - sensor.synology_dsm_volume_used_volume_2
-      - sensor.synology_dsm_volume_used_volume_3
-      - sensor.synology_dsm_volume_used_volume_4
+      - sensor.vinkhoornnas01_volume_1_volume_used
+      - sensor.vinkhoornnas01_volume_2_volume_used
+      - sensor.vinkhoornnas01_volume_3_volume_used
+      - sensor.vinkhoornnas01_volume_4_volume_used
     above: 98
     for:
       minutes: 10
@@ -26,7 +26,9 @@
 - alias: Raspberry Pi disk usage alarm
   trigger:
     platform: numeric_state
-    entity_id: sensor.disk_use_percent_home
+    entity_id:
+      - sensor.disk_use_percent_home
+      - sensor.disk_use_percent_data
     above: 90
     for:
       minutes: 5

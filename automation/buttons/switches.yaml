@@ -3,7 +3,7 @@
 - alias: Woonkamer verlichting aan
   trigger:
     platform: state
-    entity_id: switch.woonkamerverlichting
+    entity_id: light.woonkamerverlichting
     to: 'on'
   action:
     - service: hue.hue_activate_scene
@@ -17,14 +17,9 @@
 # Woonkamer off
 - alias: Woonkamer verlichting uit
   trigger:
-    - platform: event  # not using state, because double-pressing can happen
-      event_type: button_pressed
-      event_data:
-        entity_id: switch.woonkamerverlichting
-        state: 'off'
-    - platform: state
-      entity_id: switch.woonkamerverlichting
-      to: 'off'
+    platform: state
+    entity_id: light.woonkamerverlichting
+    to: 'off'
   action:
     service: light.turn_off
     data:
@@ -53,20 +48,13 @@
       entity_id:
         - light.h_tafel_kamer
         - light.h_tafel_raam
-      rgb_color: [255, 198, 104]
-      brightness: 127
 
 # Tafelverlichting off
 - alias: Tafelverlichting uit
   trigger:
-    - platform: event  # not using state, because double-pressing can happen
-      event_type: button_pressed
-      event_data:
-        entity_id: switch.tafelverlichting
-        state: 'off'
-    - platform: state
-      entity_id: switch.tafelverlichting
-      to: 'off'
+    platform: state
+    entity_id: switch.tafelverlichting
+    to: 'off'
   action:
     service: light.turn_off
     data:

@@ -128,27 +128,3 @@
       data_template:
         title: "Nachatalarm"
         message: "Nachtalarm uitgeschakeld"
-
-# send weekend notification
-- alias: send_notification_weekend_on
-  trigger:
-    platform: state
-    entity_id: input_boolean.is_it_weekend
-    to: 'on'
-  action:
-    - service: notify.pushover
-      data_template:
-        title: "Vrij"
-        message: "Vanaf morgen ben je vrij, geen ochtendprogramma."
-
-# send week notification
-- alias: send_notification_weekend_off
-  trigger:
-    platform: state
-    entity_id: input_boolean.is_it_weekend
-    to: 'off'
-  action:
-    - service: notify.pushover
-      data_template:
-        title: "Werken"
-        message: "Vanaf morgen moet je week werken, ochtendprogramma actief."

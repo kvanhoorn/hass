@@ -1,85 +1,4 @@
 ---
-- platform: rfxtrx
-  automatic_add: false
-  devices:
-    09130052554555014e70:
-      name: PIR hal
-      device_class: motion
-      off_delay:
-        seconds: 30
-        #    09130015d55555016370:
-        #      name: PIR zolder
-        #      device_class: motion
-        #      off_delay:
-        #        seconds: 30
-    091300be1ee0e9018570:
-      name: PIR kantoor
-      device_class: motion
-      off_delay:
-        seconds: 30
-    091300032891e9018870:
-      name: PIR keuken
-      device_class: motion
-      off_delay:
-        seconds: 30
-    09130011e94fe9017c70:
-      name: PIR slaapkamer
-      device_class: motion
-      off_delay:
-        seconds: 30
-    091300258cefa9017a70:
-      name: PIR woonkamer
-      device_class: motion
-      off_delay:
-        seconds: 30
-    0b11000500fbc7ce0a010f50:
-      name: Voordeur
-      device_class: door
-    0b11000d00eb4d860a010f50:
-      name: Deur keuken
-      device_class: door
-    0b11001801071a760a010f50:
-      name: Raam Emma
-      device_class: window
-    0b11001d01002a360a010f40:
-      name: Raam slaapkamer
-      device_class: window
-    0b11002400e19a520a010f40:
-      name: Raam zolder
-      device_class: window
-    0b1100290111eade0a010f50:
-      name: Raam kantoor
-      device_class: window
-    0b11003100fc0aea0a010f50:
-      name: Deur woonkamer
-      device_class: door
-    0b11003900eb56360a000040:
-      name: Schuurdeur
-      device_class: door
-    0b11003a00eb573e0a000050:
-      name: Garagedeur
-      device_class: garage_door
-    09130010a499ee013940:
-      name: Deur Emma open
-      device_class: door
-      data_bits: 4
-      command_on: 0xe
-      off_delay:
-        seconds: 2
-    09130016a499e7013b50:
-      name: Deur Emma close
-      device_class: door
-      data_bits: 4
-      command_on: 0x7
-      off_delay:
-        seconds: 2
-    09130018a499eb013b50:
-      name: Deur Emma alarm
-      device_class: door
-      data_bits: 4
-      command_on: 0xb
-      off_delay:
-        seconds: 2
 - platform: workday
   name: Werkdag vandaag
   country: NL
@@ -89,6 +8,63 @@
   days_offset: 1
 - platform: template
   sensors:
-    door_emma:
+    voordeur:
       device_class: door
-      value_template: "{{ is_state('input_boolean.door_emma', 'on') }}"
+      value_template: "{{ is_state('binary_sensor.ac_0fbc7ce_10', 'on') }}"
+    deur_keuken:
+      device_class: door
+      value_template: "{{ is_state('binary_sensor.ac_0eb4d86_10', 'on') }}"
+    deur_slaapkamer:
+      device_class: door
+      value_template: "{{ is_state('binary_sensor.ac_0e19a52_10', 'on') }}"
+    deur_woonkamer:
+      device_class: door
+      value_template: "{{ is_state('binary_sensor.ac_0fc0aea_10', 'on') }}"
+    schuurdeur:
+      device_class: door
+      value_template: "{{ is_state('binary_sensor.ac_0eb5636_10', 'on') }}"
+    garagedeur:
+      device_class: garage_door
+      value_template: "{{ is_state('binary_sensor.ac_0eb573e_10', 'on') }}"
+    pir_hal:
+      device_class: motion
+      value_template: "{{ is_state('binary_sensor.pt2262_554555', 'on') }}"
+    pir_kantoor:
+      device_class: motion
+      value_template: "{{ is_state('binary_sensor.pt2262_1ee0e9', 'on') }}"
+    pir_keuken:
+      device_class: motion
+      value_template: "{{ is_state('binary_sensor.pt2262_2891e9', 'on') }}"
+    pir_slaapkamer:
+      device_class: motion
+      value_template: "{{ is_state('binary_sensor.pt2262_e94fe9', 'on') }}"
+    pir_woonkamer:
+      device_class: motion
+      value_template: "{{ is_state('binary_sensor.pt2262_8cefa9', 'on') }}"
+    raam_emma:
+      device_class: window
+      value_template: "{{ is_state('binary_sensor.ac_1071a76_10', 'on') }}"
+    raam_slaapkamer:
+      device_class: window
+      value_template: "{{ is_state('binary_sensor.ac_1002a36_10', 'on') }}"
+    raam_kantoor:
+      device_class: window
+      value_template: "{{ is_state('binary_sensor.ac_111eade_10', 'on') }}"
+    deur_emma:
+      device_class: door
+      value_template: "{{ is_state('binary_sensor.pt2262_a499ee', 'on') }}"
+    deur_kantoor:
+      device_class: door
+      value_template: "{{ is_state('binary_sensor.pt2262_e116ae', 'on') }}"
+    brandalarm_woonkamer:
+      device_class: smoke
+      value_template: "{{ is_state('binary_sensor.kd101_smoke_detector_05f100_32', 'on') }}"
+    brandalarm_keuken:
+      device_class: smoke
+      value_template: "{{ is_state('binary_sensor.kd101_smoke_detector_4c4000_32', 'on') }}"
+    brandalarm_zolder:
+      device_class: smoke
+      value_template: "{{ is_state('binary_sensor.kd101_smoke_detector_d48600_32', 'on') }}"
+    deurbel:
+      device_class: door
+      value_template: "{{ is_state('input_boolean.deurbel', 'on') }}"

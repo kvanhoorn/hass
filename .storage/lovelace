@@ -1,40 +1,8 @@
 {
+    "version": 1,
+    "key": "lovelace",
     "data": {
         "config": {
-            "resources": [
-                {
-                    "type": "module",
-                    "url": "/local/js/group-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/js/button-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/js/bignumber-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/js/entity-attributes-card.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/js/mini-media-player-bundle.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/js/mini-graph-card-bundle.js"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/js/tracker-card.js?track=true"
-                },
-                {
-                    "type": "module",
-                    "url": "/local/js/simple-thermostat.js?v=1"
-                }
-            ],
             "title": "VinkHoorn",
             "views": [
                 {
@@ -138,7 +106,7 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "switch.woonkamerverlichting",
+                                    "entity": "light.woonkamerverlichting",
                                     "icon": "mdi:lightbulb",
                                     "name": "Woonk.",
                                     "tap_action": {
@@ -147,7 +115,7 @@
                                     "type": "entity-button"
                                 },
                                 {
-                                    "entity": "switch.tafelverlichting",
+                                    "entity": "light.tafelverlichting",
                                     "icon": "mdi:lightbulb",
                                     "name": "Tafel",
                                     "tap_action": {
@@ -388,7 +356,7 @@
                                     "name": "Restafval"
                                 },
                                 {
-                                    "entity": "sensor.trash_papier_en_karton",
+                                    "entity": "sensor.trash_papier",
                                     "name": "Papier/karton"
                                 }
                             ],
@@ -410,7 +378,7 @@
                                     "animate": true,
                                     "entities": [
                                         {
-                                            "entity": "sensor.temperatuur_buiten_temperature",
+                                            "entity": "sensor.temperatuur_buiten",
                                             "index": 0
                                         }
                                     ],
@@ -422,7 +390,7 @@
                                     "animate": true,
                                     "entities": [
                                         {
-                                            "entity": "sensor.temperatuur_slaapkamer_temperature",
+                                            "entity": "sensor.temperatuur_slaapkamer",
                                             "index": 0
                                         }
                                     ],
@@ -572,7 +540,7 @@
                                     "entity": "input_boolean.is_it_party"
                                 },
                                 {
-                                    "entity": "input_boolean.send_photo"
+                                    "entity": "input_boolean.deurbel"
                                 },
                                 {
                                     "entity": "input_boolean.homeworking_day"
@@ -1033,12 +1001,63 @@
                             "type": "conditional"
                         },
                         {
-                            "entity": "media_player.plex_atv_bedroom",
+                            "entity": "media_player.atv_living_room",
                             "type": "media-control"
                         },
                         {
-                            "entity": "media_player.plex_atv_living_room",
+                            "entity": "media_player.atv_bedroom",
                             "type": "media-control"
+                        },
+                        {
+                            "entity": "sensor.plex_vinkhoornnas01",
+                            "max": 5,
+                            "min": 0,
+                            "name": "Plex Media Server",
+                            "severity": {
+                                "green": 0,
+                                "red": 5,
+                                "yellow": 3
+                            },
+                            "type": "gauge",
+                            "unit": "Viewer"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "media_player.plex_plex_for_ios_kevin_ipad_air",
+                                    "name": "Kevin iPad"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_for_ios_kevin_iphone_xr",
+                                    "name": "Kevin iPhone"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_media_player_macbook_pro",
+                                    "name": "Kevin MacBook"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_for_ios_ipad_van_willemijn",
+                                    "name": "Willemijn iPad"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_for_ios_iphone_van_willemijn_vink",
+                                    "name": "Willemijn iPhone"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_media_player_willemijn_macbook_air",
+                                    "name": "Willemijn MacBook"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_for_apple_tv_atv_living_room",
+                                    "name": "Apple TV Woonkamer"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_for_apple_tv_atv_bedroom",
+                                    "name": "Apple TV Slaapkamer"
+                                }
+                            ],
+                            "title": "Plex Media Players",
+                            "type": "entities"
                         }
                     ],
                     "icon": "mdi:remote",
@@ -1063,11 +1082,11 @@
                                     "name": "Gangkast"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_garage_temperature",
+                                    "entity": "sensor.temperatuur_garage",
                                     "name": "Garage"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_buiten_temperature",
+                                    "entity": "sensor.temperatuur_buiten",
                                     "name": "Buiten"
                                 },
                                 {
@@ -1080,11 +1099,11 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.temperatuur_slaapkamer_temperature",
+                                    "entity": "sensor.temperatuur_slaapkamer",
                                     "name": "Slaapk."
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_kantoor_temperature",
+                                    "entity": "sensor.temperatuur_kantoor",
                                     "name": "Kantoor"
                                 },
                                 {
@@ -1117,11 +1136,11 @@
                                     "name": "Min Ehv"
                                 },
                                 {
-                                    "entity": "sensor.peace_lily_witte_bloem_humidity",
+                                    "entity": "sensor.plant1_humidity",
                                     "name": "Peace Lily"
                                 },
                                 {
-                                    "entity": "sensor.yucca_palmboom_humidity",
+                                    "entity": "sensor.plant2_humidity",
                                     "name": "Palmboom"
                                 }
                             ],
@@ -1280,7 +1299,7 @@
                         },
                         {
                             "camera_image": "camera.street",
-                            "entity": "sensor.temperatuur_buiten_temperature",
+                            "entity": "sensor.temperatuur_buiten",
                             "show_name": false,
                             "type": "picture-entity"
                         },
@@ -1464,7 +1483,7 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_zolder",
+                                    "entity": "binary_sensor.deur_slaapkamer",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1472,8 +1491,11 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.door_emma",
+                                    "entity": "binary_sensor.deur_emma",
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_kantoor"
                                 },
                                 {
                                     "entity": "binary_sensor.pir_hal",
@@ -1516,15 +1538,15 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_slaapkamer_temperature",
+                                    "entity": "sensor.temperatuur_slaapkamer",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_kantoor_temperature",
+                                    "entity": "sensor.temperatuur_kantoor",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_garage_temperature",
+                                    "entity": "sensor.temperatuur_garage",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1551,11 +1573,11 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.temperatuur_peace_lily_witte_bloem_temperature",
+                                    "entity": "sensor.plant1",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "sensor.temperatuur_yucca_palmboom_temperature",
+                                    "entity": "sensor.plant2",
                                     "secondary_info": "last-changed"
                                 }
                             ],
@@ -1668,9 +1690,6 @@
                                     "entity": "sensor.speedtest_ping"
                                 },
                                 {
-                                    "entity": "sensor.next_launch"
-                                },
-                                {
                                     "entity": "sensor.current_version"
                                 }
                             ],
@@ -1744,6 +1763,24 @@
                                 },
                                 {
                                     "entity": "device_tracker.harmonybridge"
+                                },
+                                {
+                                    "entity": "device_tracker.nleidap01_hall"
+                                },
+                                {
+                                    "entity": "device_tracker.nleidap02_study"
+                                },
+                                {
+                                    "entity": "device_tracker.nleidap03_garage"
+                                },
+                                {
+                                    "entity": "device_tracker.nleidsw01_hall"
+                                },
+                                {
+                                    "entity": "device_tracker.nleidsw02_living_room"
+                                },
+                                {
+                                    "entity": "device_tracker.nleidgw01"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1808,7 +1845,7 @@
                             "entities": [
                                 {
                                     "entity": "binary_sensor.pir_woonkamer",
-                                    "name": "woonkamer"
+                                    "name": "woonk."
                                 },
                                 {
                                     "entity": "binary_sensor.pir_keuken",
@@ -1842,14 +1879,14 @@
                                 },
                                 {
                                     "entity": "binary_sensor.pir_kantoor",
-                                    "name": "logeerk."
+                                    "name": "kantoor"
                                 },
                                 {
                                     "entity": "binary_sensor.hm_bathroom_motion",
                                     "name": "badkamer"
                                 },
                                 {
-                                    "entity": "binary_sensor.pir_zolder",
+                                    "entity": "binary_sensor.hm_attic_motion",
                                     "name": "zolder"
                                 }
                             ],
@@ -1889,19 +1926,30 @@
                                 },
                                 {
                                     "entity": "binary_sensor.raam_slaapkamer",
-                                    "name": "Slaapk."
+                                    "name": "slaapk."
                                 },
                                 {
                                     "entity": "binary_sensor.raam_kantoor",
-                                    "name": "Logeerk."
-                                },
+                                    "name": "kantoor"
+                                }
+                            ],
+                            "show_name": true,
+                            "show_state": false,
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
                                 {
-                                    "entity": "binary_sensor.door_emma",
+                                    "entity": "binary_sensor.deur_emma",
                                     "name": "Emma"
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_zolder",
-                                    "name": "Zolder"
+                                    "entity": "binary_sensor.deur_kantoor",
+                                    "name": "Kantoor"
+                                },
+                                {
+                                    "entity": "binary_sensor.deur_slaapkamer",
+                                    "name": "Slaapkamer"
                                 }
                             ],
                             "show_name": true,
@@ -1915,7 +1963,5 @@
                 }
             ]
         }
-    },
-    "key": "lovelace",
-    "version": 1
+    }
 }

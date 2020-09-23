@@ -47,7 +47,9 @@ sensors:
     - binary_sensor.raam_kantoor
     - binary_sensor.raam_slaapkamer
     - binary_sensor.raam_emma
-    - binary_sensor.raam_zolder
+    - binary_sensor.door_emma
+    - binary_sensor.door_office
+    - binary_sensor.deur_slaapkamer
     - binary_sensor.garagedeur
 buttons:
   name: Buttons
@@ -56,10 +58,8 @@ buttons:
     - input_boolean.radio_kitchen
     - input_boolean.radio_bathroom
     - input_boolean.radio_garage
-    - switch.woonkamerverlichting
-    - switch.tafelverlichting
-#    - switch.badkamerverlichting
-#    - light.badkamer_lamp
+    - light.woonkamerverlichting
+    - light.tafelverlichting
     - light.bureaulamp
     - light.carport
     - light.hal_led_bak
@@ -108,8 +108,8 @@ lights:
     - light.hal_led_bak
     - light.zolder_bank
     - light.zolder_scherm
-    - switch.woonkamerverlichting
-    - switch.tafelverlichting
+    - light.woonkamerverlichting
+    - light.tafelverlichting
 outdoor_lights:
   name: Buitenlichten
   entities:
@@ -128,12 +128,19 @@ doors:
     - binary_sensor.raam_kantoor
     - binary_sensor.raam_slaapkamer
     - binary_sensor.raam_emma
-    - binary_sensor.raam_zolder
     - binary_sensor.garagedeur
+airco_windows:
+  name: Deuren/ramen airco
+  entities:
+    - binary_sensor.raam_emma
+    - binary_sensor.raam_kantoor
+    - binary_sensor.raam_slaapkamer
 doors_inside:
   name: Deuren/ramen binnen
   entities:
     - binary_sensor.door_emma
+    - binary_sensor.door_office
+    - binary_sensor.deur_slaapkamer
 plants:
   name: Planten
   entities:
@@ -360,7 +367,9 @@ long_battery_devices:
     - binary_sensor.raam_emma
     - binary_sensor.raam_zolder
     - binary_sensor.garagedeur
-    - binary_sensor.deur_emma
+    - binary_sensor.door_emma
+    - binary_sensor.door_office
+    - binary_sensor.deur_slaapkamer
     - binary_sensor.pir_hal
     - binary_sensor.pir_woonkamer
     - binary_sensor.pir_keuken

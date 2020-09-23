@@ -1,17 +1,28 @@
 ---
-- platform: rfxtrx
-  devices:
-    0b110032007d364601010f60:
-      name: Plafondlamp
-    0b11003300f70e1202010f60:
-      name: Hal - LED bak
-    0b11003400a6b99e01010f60:
-      name: Bureaulamp
-    0b110035007d364704010f60:
-      name: Carport
-    0b110036007d364603010f60:
-      name: Zolder - bank
-    0b110037007D364602010f60:
-      name: Zolder - scherm
-    0b11000361bc0cfe08010f70:
-      name: Kerstboom
+- platform: switch
+  name: Plafondlamp
+  entity_id: switch.ac_07d3646_1
+- platform: switch
+  name: Hal - LED bak
+  entity_id: switch.ac_0f70e12_2
+- platform: switch
+  name: Carport
+  entity_id: switch.ac_07d3647_4
+- platform: switch
+  name: Bureaulamp
+  entity_id: switch.ac_07d3647_4
+- platform: switch
+  name: Zolder - bank
+  entity_id: switch.ac_07d3646_3
+- platform: switch
+  name: Zolder - scherm
+  entity_id: switch.ac_07d3646_2
+- platform: switch
+  name: Kerstboom
+  entity_id: switch.ac_61bc0cfe_8
+- platform: switch
+  name: Tafelverlichting
+  entity_id: switch.ac_0b5468a_12
+- platform: switch
+  name: Woonkamerverlichting
+  entity_id: switch.ac_0b5468a_11

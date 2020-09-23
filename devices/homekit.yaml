@@ -14,3 +14,9 @@ filter:
     - light.hal_led_bak
     - light.kerstboom
     - light.plafondlamp
+    - camera.front_door
+    - camera.street
+    - input_boolean.deurbel
+entity_config:
+  camera.front_door:
+    linked_doorbell_sensor: binary_sensor.deurbel

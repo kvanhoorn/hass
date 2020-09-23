@@ -1,19 +1,5 @@
 ---
 - platform: huesensor
-- platform: yr
-  monitored_conditions:
-    - temperature
-    - precipitation
-    - fog
-    - cloudiness
-    - symbol
-# - platform: yweather
-#   name: Yahoo vandaag
-#   monitored_conditions:
-#     - weather
-#     - weather_current
-#     - temp_min
-#     - temp_max
 - platform: moon
 # - platform: fitbit
 #   monitored_resources:
@@ -27,32 +13,6 @@
 - platform: dsmr
   port: !secret dsmr_device
   dsmr_version: 4
-- platform: rfxtrx
-  automatic_add: false
-  devices:
-    0a520702390e00b72f0149:
-      name: Temperatuur kantoor
-    0a5207035c0e00cc3c0149:
-      name: Temperatuur slaapkamer
-#     0a52071d7c0e00d32e0149:
-#       name: Temperatuur badkamer
-    0a520734530e00d52c0159:
-      name: Temperatuur garage
-    0a520302bf010075430049:
-      name: Temperatuur buiten
-    0a520c1f000200c8050269:
-      name: Temperatuur Yucca - palmboom
-    0a520c35000100dc050269:
-      name: Temperatuur Peace Lily - witte bloem
-    0820032805f1000650:
-      name: Brandalarm woonkamer
-      fire_event: true
-    082003304c40000650:
-      name: Brandalarm keuken
-      fire_event: true
-    08200335d486000640:
-      name: Brandalarm zolder
-      fire_event: true
 - platform: command_line
   name: CPU Temperatuur
   command: "cat /sys/class/thermal/thermal_zone0/temp"
@@ -64,6 +24,8 @@
   resources:
     - type: disk_use_percent
       arg: /home
+    - type: disk_use_percent
+      arg: /data
     - type: memory_free
     - type: load_5m
     - type: network_in
@@ -72,9 +34,6 @@
       arg: eth0
     - type: processor_use
     - type: last_boot
-# - platform: command_line
-#   name: Internal IP WiFi
-#   command: "ip addr show wlan0 | grep -Po 'inet \\K[\\d.]+'"
 - platform: command_line
   name: Internal IP LAN
   command: "ip addr show eth0 | grep -Po 'inet \\K[\\d.]+'"
@@ -121,27 +80,64 @@
     - summary
 - platform: template
   sensors:
-    peace_lily_witte_bloem_humidity:
-      # can't cut this up into two lines :(
-      value_template: "{{states.sensor.temperatuur_peace_lily_witte_bloem_temperature.attributes.Humidity
-        | int}}"
-      friendly_name: 'Peace Lily - witte bloem vochtigheid'
+    temperatuur_kantoor:
+      friendly_name: 'Kantoor'
+      unit_of_measurement: '°C'
+      icon_template: 'mdi:thermometer'
+      value_template: "{{ states.sensor.tfa_ts34c_cresta_39_0e_temperature.state }}"
+      attribute_templates:
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_39_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_39_0e_battery_numeric.state }}"
+    temperatuur_slaapkamer:
+      friendly_name: 'Slaapkamer'
+      unit_of_measurement: '°C'
+      icon_template: 'mdi:thermometer'
+      value_template: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_temperature.state }}"
+      attribute_templates:
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_battery_numeric.state }}"
+    temperatuur_garage:
+      friendly_name: 'Garage'
+      unit_of_measurement: '°C'
+      icon_template: 'mdi:thermometer'
+      value_template: "{{ states.sensor.tfa_ts34c_cresta_53_0e_temperature.state }}"
+      attribute_templates:
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_53_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_53_0e_battery_numeric.state }}"
+    temperatuur_buiten:
+      friendly_name: 'Buiten'
+      unit_of_measurement: '°C'
+      icon_template: 'mdi:thermometer'
+      value_template: "{{ states.sensor.rtgr328_bf_01_temperature.state }}"
+      attribute_templates:
+        humidity: "{{ states.sensor.rtgr328_bf_01_humidity.state }}"
+        battery: "{{ states.sensor.rtgr328_bf_01_battery_numeric.state }}"
+    plant1:
+      friendly_name: 'Peace Lily - witte bloem'
+      unit_of_measurement: '°C'
+      icon_template: 'mdi:thermometer'
+      value_template: "{{ states.sensor.imagintronix_00_01_temperature.state }}"
+      attribute_templates:
+        humidity: "{{ states.sensor.imagintronix_00_01_humidity.state }}"
+        battery: "{{ states.sensor.imagintronix_00_01_battery_numeric.state }}"
+    plant2:
+      friendly_name: 'Yucca - palmboom'
+      unit_of_measurement: '°C'
+      icon_template: 'mdi:thermometer'
+      value_template: "{{ states.sensor.imagintronix_00_02_temperature.state }}"
+      attribute_templates:
+        humidity: "{{ states.sensor.imagintronix_00_02_humidity.state }}"
+        battery: "{{ states.sensor.imagintronix_00_02_battery_numeric.state }}"
+    plant1_humidity:
+      friendly_name: 'Peace Lily - witte bloem (humidity)'
       unit_of_measurement: '%'
-    yucca_palmboom_humidity:
-      # can't cut this up into two lines :(
-      value_template: "{{states.sensor.temperatuur_yucca_palmboom_temperature.attributes.Humidity
-        | int}}"
-      friendly_name: 'Yucca - palmboom vochtigheid'
+      icon_template: 'mdi:water'
+      value_template: "{{ states.sensor.imagintronix_00_01_humidity.state }}"
+    plant2_humidity:
+      friendly_name: 'Yucca - palmboom (humidity)'
       unit_of_measurement: '%'
-    static_battery:
-      value_template: "{{100}}"
-      unit_of_measurement: '%'
-    static_conductivity:
-      value_template: "{{10}}"
-      unit_of_measurement: 'ec'
-    static_brightness:
-      value_template: "{{10}}"
-      unit_of_measurement: 'lm'
+      icon_template: 'mdi:water'
+      value_template: "{{ states.sensor.imagintronix_00_02_humidity.state }}"
     livingroom_temperature:
       value_template: "{{states.climate.woonkamer.attributes.current_temperature}}"
       friendly_name: 'Woonkamer'
@@ -174,8 +170,8 @@
       icon_template: 'mdi:temperature-celsius'
       unit_of_measurement: '°C'
       value_template: >
-        {{ (states.sensor.temperatuur_slaapkamer_temperature.state | float -
-        states.sensor.temperatuur_buiten_temperature.state | float) |
+        {{ (states.sensor.temperatuur_slaapkamer.state | float -
+        states.sensor.temperatuur_buiten.state | float) |
         float | round(2) }}
     living_vs_outside_temperature:
       friendly_name: 'Woonkamer vs buiten temperatuur'
@@ -183,23 +179,23 @@
       unit_of_measurement: '°C'
       value_template: >
         {{ (states.climate.woonkamer.attributes.current_temperature | float -
-        states.sensor.temperatuur_buiten_temperature.state | float) |
+        states.sensor.temperatuur_buiten.state | float) |
         float | round(2) }}
     untappd_full_checkin:
       friendly_name: Untappd last checkin full
-      entity_id: sensor.untappd_last_check_in_kvanhoorn
+      #entity_id: sensor.untappd_last_check_in_kvanhoorn
       value_template: >
         {{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.brewery }} -
         {{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.beer }}
         ({{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.abv }})
     next_setting:
       friendly_name: Zonsondergang
-      entity_id: sun.sun
+      #entity_id: sun.sun
       value_template: >
         {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%H:%M') }}
     next_rising:
       friendly_name: Zonsopgang
-      entity_id: sun.sun
+      #entity_id: sun.sun
       value_template: >
         {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%H:%M') }}
     daily_power:
@@ -278,7 +274,6 @@
 #   value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
 #   scan_interval: 3600
 #   verify_ssl: false
-- platform: launch_library
 - platform: ovapi
   name: Bus 4
   timing_point_code: !secret busstop_code
@@ -289,9 +284,6 @@
   secret: !secret untappd_secret
 - platform: postcodeloterij
   postcode: !secret postcode
-#- platform: postnl
-#  username: !secret postnl_username
-#  password: !secret postnl_password
 - platform: afvalwijzer
   zipcode: !secret postcode
   housenumber: !secret housenumber

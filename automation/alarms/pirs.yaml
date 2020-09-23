@@ -4,6 +4,8 @@
     platform: state
     entity_id:
       - binary_sensor.pir_hal
+      - binary_sensor.pir_kantoor
+      - binary_sensor.pir_keuken
       # - binary_sensor.pir_zolder
       # - binary_sensor.hm_motion_backyard
     to: 'on'

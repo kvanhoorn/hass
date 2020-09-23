@@ -5,7 +5,7 @@
     at: '20:00:00'
   condition:
     condition: template
-    value_template: "{% if not is_state('sensor.trash_tomorrow', 'Geen') %}true{% endif %}"
+    value_template: "{% if not is_state('sensor.trash_tomorrow', 'None') %}true{% endif %}"
   action:
     - service: notify.pushover
       data_template:

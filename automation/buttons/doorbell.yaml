@@ -1,13 +1,17 @@
 ---
+- alias: Event doorbell
+  trigger:
+    - platform: state
+      entity_id: switch.ac_0efe9b2_1
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.deurbel
+
 - alias: Doorbell rings
   trigger:
-    - platform: event
-      event_type: button_pressed
-      event_data:
-        entity_id: switch.deurbel
-        state: "group on"
     - platform: state
-      entity_id: input_boolean.send_photo
+      entity_id:
+        - input_boolean.deurbel
       to: 'on'
   action:
     - service: notify.pushover
@@ -29,39 +33,27 @@
           priority: 0
           file:
             url: !secret camera2_still
-    - service: switch.turn_off
-      entity_id: switch.deurbel
     - service: input_boolean.turn_off
-      entity_id: input_boolean.send_photo
+      entity_id: input_boolean.deurbel
 
 - alias: Plex pause doorbell
   trigger:
-    - platform: event
-      event_type: button_pressed
-      event_data:
-        entity_id: switch.deurbel
-        state: "group on"
+    - platform: state
+      entity_id: input_boolean.deurbel
+      to: 'on'
   condition:
     - condition: state
-      entity_id: media_player.kevin_mac_mini
+      entity_id: media_player.atv_living_room
       state: 'playing'
   action:
-    - service: remote.send_command
-      data:
-        entity_id: remote.living_room
-        device: 42809893  # Mac Mini
-        command:
-          - OK
-          - Pause
-        delay_secs: 0.6
+    - service: media_player.media_pause
+      entity_id: media_player.atv_living_room
 
 - alias: TV mute doorbell
   trigger:
-    - platform: event
-      event_type: button_pressed
-      event_data:
-        entity_id: switch.deurbel
-        state: "group on"
+    - platform: state
+      entity_id: input_boolean.deurbel
+      to: 'on'
   condition:
     - condition: template
       value_template:

@@ -1,0 +1,145 @@
+device: !secret rfxtrx_device
+automatic_add: true
+devices:
+  # light
+  0b110032007d364601010f60:
+    # Plafondlamp
+    device_class: light
+  0b11003300f70e1202010f60:
+    # Hal - LED bak
+    device_class: light
+  0b11003400a6b99e01010f60:
+    # Bureaulamp
+    device_class: light
+  0b110035007d364704010f60:
+    # Carport
+    device_class: light
+  0b110036007d364603010f60:
+    # Zolder - bank
+    device_class: light
+  0b110037007D364602010f60:
+    # Zolder - scherm
+    device_class: light
+  0b11000361bc0cfe08010f70:
+    # Kerstboom
+    device_class: light
+
+  # switch
+  0b11001f00b5468a0c010f70:
+    # Tafelverlichting
+    device_class: light
+    fire_event: true
+  0b11002300b5468a0b010f60:
+    # Woonkamerverlichting
+    device_class: light
+    fire_event: true
+#   0b11003100e1e5ea0b010f50:
+#     name: Badkamerverlichting
+#     fire_event: true
+#   0b11002701233d660b010f40:
+#     name: Radio - Keuken
+#     fire_event: true
+#   0b11002b01233d660c010f50:
+#     name: Radio - Garage
+#     fire_event: true
+#   0b11002d00e1e5ea0c010f50:
+#     name: Radio - Badkamer
+#     fire_event: true
+  0b11000b00efe9b201040f60:
+    # Deurbel
+    device_class: occupancy
+    fire_event: true
+
+  # binary_sensor
+  09130052554555014e70:
+    # PIR hal
+    device_class: motion
+    off_delay:
+      seconds: 10
+  091300be1ee0e9018570:
+    # PIR kantoor
+    device_class: motion
+    off_delay:
+      seconds: 10
+  091300032891e9018870:
+    # PIR keuken
+    device_class: motion
+    off_delay:
+      seconds: 10
+  09130011e94fe9017c70:
+    # PIR slaapkamer
+    device_class: motion
+    off_delay:
+      seconds: 10
+  091300258cefa9017a70:
+    # PIR woonkamer
+    device_class: motion
+    off_delay:
+      seconds: 10
+  0b11000500fbc7ce0a010f50:
+    # Voordeur
+    device_class: door
+  0b11000d00eb4d860a010f50:
+    # Deur keuken
+    device_class: door
+  0b11001801071a760a010f50:
+    # Raam Emma
+    device_class: window
+  0b11001d01002a360a010f40:
+    # Raam slaapkamer
+    device_class: window
+  0b11002400e19a520a010f40:
+    # Deur slaapkamer
+    device_class: door
+  0b1100290111eade0a010f50:
+    # Raam kantoor
+    device_class: window
+  0b11003100fc0aea0a010f50:
+    # Deur woonkamer
+    device_class: door
+  0b11003900eb56360a000040:
+    # Schuurdeur
+    device_class: door
+  0b11003a00eb573e0a000050:
+    # Garagedeur
+    device_class: garage_door
+  09130010a499ee013940:
+    # Deur Emma
+    device_class: door
+    data_bits: 4
+    command_on: 0xe
+    command_off: 0x7
+  091300cde116ae013b60:
+    # Deur Kantoor
+    device_class: door
+    data_bits: 4
+    command_on: 0xe
+    command_off: 0x7
+  0820032805f1000650:
+    # Brandalarm woonkamer
+    device_class: smoke
+    fire_event: true
+  082003304c40000650:
+    # Brandalarm keuken
+    device_class: smoke
+    fire_event: true
+  08200335d486000640:
+    # Brandalarm zolder
+    device_class: smoke
+    fire_event: true
+
+  # sensor
+  0a520702390e00b72f0149:
+    # Temperatuur kantoor
+  0a5207035c0e00cc3c0149:
+    # Temperatuur slaapkamer
+  # 0a52071d7c0e00d32e0149:
+  #   # Temperatuur badkamer
+  0a520734530e00d52c0159:
+    # Temperatuur garage
+  0a520302bf010075430049:
+    # Temperatuur buiten
+  0a520c1f000200c8050269:
+    # Temperatuur Yucca - palmboom
+  0a520c35000100dc050269:
+    # Temperatuur Peace Lily - witte bloem

@@ -1,0 +1,103 @@
+---
+# turn on airco, hot upstairs
+- alias: turn on airco
+  trigger:
+    platform: numeric_state
+    entity_id:
+      - sensor.temperatuur_slaapkamer
+      - sensor.temperatuur_kantoor
+    above: 23.5
+    for:
+      minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: climate.overloop
+        state: 'off'
+      - condition: or
+        conditions:
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.temperatuur_kantoor
+              above: 23.5
+            - condition: state
+              entity_id: binary_sensor.door_kantoor
+              state: 'on'
+        - condition: and
+          conditions:
+            - condition: numeric_state
+              entity_id: sensor.temperatuur_slaapkamer
+              above: 23.5
+            - condition: state
+              entity_id: binary_sensor.deur_slaapkamer
+              state: 'on'
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.overloop
+        temperature: 19.0
+        hvac_mode: cool
+    - service: climate.turn_on
+      entity_id: climate.overloop
+    - service: notify.pushover
+      data_template:
+        title: "Airco"
+        message: "Airco gaat aan omdat er een kamer > 23.5 graden is."
+
+# turn off airco, cooled down upstairs
+- alias: turn off airco
+  trigger:
+    platform: numeric_state
+    entity_id:
+      - sensor.temperatuur_slaapkamer
+      - sensor.temperatuur_kantoor
+    below: 23.0
+    for:
+      minutes: 10
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: climate.overloop
+        state: 'cool'
+      - condition: numeric_state
+        entity_id: sensor.temperatuur_slaapkamer
+        below: 23.0
+      - condition: numeric_state
+        entity_id: sensor.temperatuur_kantoor
+        below: 23.0
+  action:
+    - service: climate.turn_off
+      entity_id: climate.overloop
+    - service: notify.pushover
+      data_template:
+        title: "Airco"
+        message: "Airco gaat uit omdat alle kamers < 23.0 graden zijn."
+
+- alias: Left window/door open airco
+  trigger:
+    platform: state
+    entity_id: climate.overloop
+    to: 'cool'
+  condition:
+    - condition: state
+      entity_id: group.airco_windows
+      state: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        message: >-
+          {%- for entity in states.group.airco_windows.attributes.entity_id -%}
+            {%- if states[entity.split('.')[0]][entity.split('.')[1]].state
+              == 'on' %}
+              {{ states[entity.split('.')[0]][entity.split('.')[1]]
+                .attributes.friendly_name }}
+            {%- endif %}
+          {%- endfor -%}
+        title: "Airco gaat aan, raam nog open: "
+        data:
+          priority: 1
+
+# TODO: shut down airco if doors closed upstairs

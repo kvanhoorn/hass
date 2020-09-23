@@ -3,10 +3,10 @@
   trigger:
     platform: state
     entity_id:
-      - sensor.brandalarm_keuken_sensor_status
-      - sensor.brandalarm_woonkamer_sensor_status
-      - sensor.brandalarm_zolder_sensor_status
-    to: 'Panic'
+      - binary_sensor.brandalarm_keuken
+      - binary_sensor.brandalarm_woonkamer
+      - binary_sensor.brandalarm_zolder
+    to: 'on'
   action:
     - service: notify.pushover
       data_template:

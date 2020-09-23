@@ -1,28 +1,4 @@
 ---
-- platform: rfxtrx
-  automatic_add: false
-  devices:
-    0b11001f00b5468a0c010f70:
-      name: Tafelverlichting
-      fire_event: true
-    0b11002300b5468a0b010f60:
-      name: Woonkamerverlichting
-      fire_event: true
-#     0b11003100e1e5ea0b010f50:
-#       name: Badkamerverlichting
-#       fire_event: true
-#     0b11002701233d660b010f40:
-#       name: Radio - Keuken
-#       fire_event: true
-#     0b11002b01233d660c010f50:
-#       name: Radio - Garage
-#       fire_event: true
-#     0b11002d00e1e5ea0c010f50:
-#       name: Radio - Badkamer
-#       fire_event: true
-    0b11000b00efe9b201040f60:
-      name: Deurbel
-      fire_event: true
 - platform: template
   switches:
     outdoor_lightning:
