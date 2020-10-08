@@ -10,10 +10,32 @@
         title: "Thuiswerken"
         message: "Morgenochtend staat de verwarming aan."
 
-- alias: Work from home start and reset
+- alias: Long working from home enabled
+  trigger:
+    platform: state
+    entity_id: input_boolean.longhomeworking
+    to: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Lang thuiswerken"
+        message: "Vanaf morgen staat de verwarming iedere werkdag 's morgens aan."
+
+- alias: Long working from home disabled
+  trigger:
+    platform: state
+    entity_id: input_boolean.longhomeworking
+    to: 'off'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Lang thuiswerken - uit"
+        message: "Vanaf morgen staat de verwarming niet meer telkens aan."
+
+- alias: Work from home start
   trigger:
     platform: time
-    at: '06:00:00'
+    at: '06:30:00'
   condition:
     - condition: state
       entity_id: input_boolean.homeworking_day
@@ -23,9 +45,22 @@
       data:
         entity_id: climate.woonkamer
         preset_mode: 'home'
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.homeworking_day
     - service: notify.pushover
       data:
         title: "Thuiswerken"
         message: "Verwarming staat alvast aan."
+
+- alias: Work from home reset
+  trigger:
+    platform: time
+    at: '06:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.homeworking_day
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.longhomeworking
+      state: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.homeworking_day

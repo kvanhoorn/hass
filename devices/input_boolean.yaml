@@ -14,6 +14,9 @@ is_it_party:
 homeworking_day:
   name: Morgen thuiswerken
   icon: mdi:laptop-mac
+longhomeworking:
+  name: Lang thuiswerken
+  icon: mdi:laptop-mac
 someone_home:
   name: Iemand thuis
   icon: mdi:home
