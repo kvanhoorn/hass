@@ -1,0 +1,26 @@
+---
+- alias: postcodeloterij geen prijs
+  trigger:
+    platform: time
+    at: '14:00:00'
+  condition:
+    - "{{ now().day == 8 }}"
+    - "{{ states.sensor.postcodeloterij_prijs.state | int == 0 }}"
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Postcodeloterij uitslag"
+        message: "Deze maand heb je geen prijs!"
+
+- alias: postcodeloterij prijs
+  trigger:
+    platform: time
+    at: '14:00:00'
+  condition:
+    - "{{ now().day == 8 }}"
+    - "{{ states.sensor.postcodeloterij_prijs.state | int > 0 }}"
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Postcodeloterij uitslag"
+        message: "Deze maand heb je {{ states.sensor.postcodeloterij_prijs.state }}x prijs!"
