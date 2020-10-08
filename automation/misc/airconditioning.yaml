@@ -23,7 +23,7 @@
               entity_id: sensor.temperatuur_kantoor
               above: 23.5
             - condition: state
-              entity_id: binary_sensor.door_kantoor
+              entity_id: binary_sensor.deur_kantoor
               state: 'on'
         - condition: and
           conditions:
