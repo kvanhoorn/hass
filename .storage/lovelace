@@ -9,20 +9,6 @@
                     "badges": [],
                     "cards": [
                         {
-                            "card": {
-                                "show_state": false,
-                                "type": "glance"
-                            },
-                            "entities": [
-                                "input_boolean.kevin_present",
-                                "input_boolean.wmijn_present"
-                            ],
-                            "state_filter": [
-                                "on"
-                            ],
-                            "type": "entity-filter"
-                        },
-                        {
                             "entities": [
                                 {
                                     "entity": "sensor.next_setting"
@@ -35,73 +21,19 @@
                             "type": "glance"
                         },
                         {
+                            "type": "horizontal-stack",
                             "cards": [
                                 {
+                                    "type": "entity",
                                     "entity": "sensor.dark_sky_overnight_low_temperature_0d",
-                                    "scale": "20px",
-                                    "title": "min vandaag",
-                                    "type": "custom:bignumber-card"
+                                    "name": "min vandaag"
                                 },
                                 {
+                                    "type": "entity",
                                     "entity": "sensor.dark_sky_daytime_high_temperature_0d",
-                                    "scale": "20px",
-                                    "title": "max vandaag",
-                                    "type": "custom:bignumber-card"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_overnight_low_temperature_1d",
-                                    "scale": "20px",
-                                    "title": "min morgen",
-                                    "type": "custom:bignumber-card"
-                                },
-                                {
-                                    "entity": "sensor.dark_sky_daytime_high_temperature_1d",
-                                    "scale": "20px",
-                                    "title": "max morgen",
-                                    "type": "custom:bignumber-card"
+                                    "name": "max vandaag"
                                 }
-                            ],
-                            "type": "horizontal-stack"
-                        },
-                        {
-                            "control": {
-                                "preset": {
-                                    "asleep": true,
-                                    "away": true,
-                                    "home": true,
-                                    "no_frost": false,
-                                    "vacation": false
-                                }
-                            },
-                            "entity": "climate.woonkamer",
-                            "name": "Woonkamer",
-                            "sensors": [
-                                {
-                                    "entity": "sensor.temperatuur_buiten_temperature"
-                                }
-                            ],
-                            "step_size": 0.5,
-                            "type": "custom:simple-thermostat"
-                        },
-                        {
-                            "control": {
-                                "hvac": {
-                                    "cool": true,
-                                    "dry": false,
-                                    "fan_only": false,
-                                    "heat": true,
-                                    "heat_cool": false,
-                                    "off": true
-                                }
-                            },
-                            "entity": "climate.overloop",
-                            "sensors": [
-                                {
-                                    "entity": "sensor.temperatuur_buiten_temperature"
-                                }
-                            ],
-                            "step_size": 0.5,
-                            "type": "custom:simple-thermostat"
+                            ]
                         },
                         {
                             "cards": [
@@ -143,6 +75,46 @@
                                 }
                             ],
                             "type": "horizontal-stack"
+                        },
+                        {
+                            "control": {
+                                "hvac": {
+                                    "cool": true,
+                                    "dry": false,
+                                    "fan_only": false,
+                                    "heat": true,
+                                    "heat_cool": false,
+                                    "off": true
+                                }
+                            },
+                            "entity": "climate.overloop",
+                            "sensors": [
+                                {
+                                    "entity": "sensor.temperatuur_buiten_temperature"
+                                }
+                            ],
+                            "step_size": 0.5,
+                            "type": "custom:simple-thermostat"
+                        },
+                        {
+                            "control": {
+                                "preset": {
+                                    "asleep": true,
+                                    "away": true,
+                                    "home": true,
+                                    "no_frost": false,
+                                    "vacation": false
+                                }
+                            },
+                            "entity": "climate.woonkamer",
+                            "name": "Woonkamer",
+                            "sensors": [
+                                {
+                                    "entity": "sensor.temperatuur_buiten_temperature"
+                                }
+                            ],
+                            "step_size": 0.5,
+                            "type": "custom:simple-thermostat"
                         },
                         {
                             "entities": [
@@ -1579,6 +1551,14 @@
                                 {
                                     "entity": "sensor.plant2",
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.plant1_humidity",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.plant2_humidity",
+                                    "secondary_info": "last-changed"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1594,7 +1574,10 @@
                                     "entity": "sensor.willemijn_macbook_air_battery_state"
                                 },
                                 {
-                                    "entity": "sensor.kevin_ipad_air_battery_state"
+                                    "entity": "sensor.kevin_ipad_pro_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.ipad_van_willemijn_battery_state"
                                 },
                                 {
                                     "entity": "sensor.kevin_iphone_4s_battery_state"
@@ -1607,6 +1590,9 @@
                                 },
                                 {
                                     "entity": "sensor.kevin_apple_watch_4_battery_state"
+                                },
+                                {
+                                    "entity": "sensor.apple_watch_van_willemijn_battery_state"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1691,6 +1677,9 @@
                                 },
                                 {
                                     "entity": "sensor.current_version"
+                                },
+                                {
+                                    "entity": "sensor.pi_hole_ads_blocked_today"
                                 }
                             ],
                             "type": "entities"
@@ -1807,6 +1796,9 @@
                                 },
                                 {
                                     "entity": "sensor.overloop_energy"
+                                },
+                                {
+                                    "entity": "sensor.power_consumption_phase_l1"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1831,6 +1823,17 @@
                             "show_header_toggle": false,
                             "title": "Synology",
                             "type": "entities"
+                        },
+                        {
+                            "type": "history-graph",
+                            "entities": [
+                                {
+                                    "entity": "sensor.power_consumption_phase_l1"
+                                }
+                            ],
+                            "refresh_interval": 0,
+                            "title": "boiler",
+                            "hours_to_show": 2
                         }
                     ],
                     "icon": "mdi:finance",
