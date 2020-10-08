@@ -2,9 +2,14 @@
 # Woonkamer on
 - alias: Woonkamer verlichting aan
   trigger:
-    platform: state
-    entity_id: light.woonkamerverlichting
-    to: 'on'
+    platform: event
+    event_type: rfxtrx_event
+    event_data:
+      id_string: '0b5468a:11'
+  condition:
+    condition: state
+    entity_id: binary_sensor.ac_0b5468a_12
+    state: 'on'
   action:
     - service: hue.hue_activate_scene
       data:
@@ -17,9 +22,14 @@
 # Woonkamer off
 - alias: Woonkamer verlichting uit
   trigger:
-    platform: state
-    entity_id: light.woonkamerverlichting
-    to: 'off'
+    platform: event
+    event_type: rfxtrx_event
+    event_data:
+      id_string: '0b5468a:11'
+  condition:
+    condition: state
+    entity_id: binary_sensor.ac_0b5468a_12
+    state: 'off'
   action:
     service: light.turn_off
     data:
@@ -39,9 +49,14 @@
 # Tafelverlichting on
 - alias: Tafelverlichting aan
   trigger:
-    platform: state
-    entity_id: switch.tafelverlichting
-    to: 'on'
+    platform: event
+    event_type: rfxtrx_event
+    event_data:
+      id_string: '0b5468a:12'
+  condition:
+    condition: state
+    entity_id: binary_sensor.ac_0b5468a_12
+    state: 'on'
   action:
     service: light.turn_on
     data:
@@ -52,9 +67,14 @@
 # Tafelverlichting off
 - alias: Tafelverlichting uit
   trigger:
-    platform: state
-    entity_id: switch.tafelverlichting
-    to: 'off'
+    platform: event
+    event_type: rfxtrx_event
+    event_data:
+      id_string: '0b5468a:12'
+  condition:
+    condition: state
+    entity_id: binary_sensor.ac_0b5468a_12
+    state: 'off'
   action:
     service: light.turn_off
     data:
