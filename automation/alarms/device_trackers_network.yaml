@@ -9,13 +9,13 @@
         - device_tracker.nleidsw01_hall
         - device_tracker.nleidsw02_living_room
         - device_tracker.nleidgw01
-        - device_tracker.cloudkeyhall
+        - device_tracker.unifi_cloudkey
         - device_tracker.philips_hue
         - device_tracker.pihole
         - device_tracker.synologynas
-      to: 'not_home'
+      from: 'home'
       for:
-        minutes: 5
+        minutes: 1
   action:
     - service: notify.pushover
       data_template:
@@ -27,25 +27,3 @@
           expire: 3600
           retry: 60
 
-- alias: A network device is back online
-  trigger:
-    - platform: state
-      entity_id:
-        - device_tracker.nleidap03_garage
-        - device_tracker.nleidap02_study
-        - device_tracker.nleidap01_hall
-        - device_tracker.nleidsw01_hall
-        - device_tracker.nleidsw02_living_room
-        - device_tracker.nleidgw01
-        - device_tracker.cloudkeyhall
-        - device_tracker.philips_hue
-        - device_tracker.pihole
-        - device_tracker.synologynas
-      to: 'home'
-  action:
-    - service: notify.pushover
-      data_template:
-        title: "AP online"
-        message: "{{trigger.to_state.attributes.friendly_name}} back online"
-        data:
-          priority: 1
