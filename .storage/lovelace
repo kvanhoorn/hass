@@ -515,9 +515,6 @@
                                     "entity": "input_boolean.is_it_party"
                                 },
                                 {
-                                    "entity": "input_boolean.deurbel"
-                                },
-                                {
                                     "entity": "input_boolean.homeworking_day"
                                 }
                             ],
@@ -1223,7 +1220,19 @@
                     "badges": [],
                     "cards": [
                         {
+                            "type": "picture-glance",
                             "camera_image": "camera.front_door",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.voordeur"
+                                },
+                                {
+                                    "entity": "binary_sensor.front_door_motion"
+                                }
+                            ]
+                        },
+                        {
+                            "camera_image": "camera.frontdoor",
                             "entities": [
                                 "binary_sensor.voordeur",
                                 "binary_sensor.pir_hal",
