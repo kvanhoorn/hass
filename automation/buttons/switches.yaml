@@ -8,12 +8,12 @@
       id_string: '0b5468a:11'
   condition:
     condition: state
-    entity_id: binary_sensor.ac_0b5468a_12
+    entity_id: binary_sensor.ac_0b5468a_11
     state: 'on'
   action:
     - service: hue.hue_activate_scene
       data:
-        group_name: "Woonkamer"
+        group_name: "Zitkamer"
         scene_name: "DOM_evening"
     - service: light.turn_on
       data:
@@ -28,7 +28,7 @@
       id_string: '0b5468a:11'
   condition:
     condition: state
-    entity_id: binary_sensor.ac_0b5468a_12
+    entity_id: binary_sensor.ac_0b5468a_11
     state: 'off'
   action:
     service: light.turn_off
@@ -39,11 +39,6 @@
         - light.h_tv_lamp
         - light.h_piano
         - light.hal_led_bak
-        - light.h_outdoor_1
-        - light.h_outdoor_2
-        - light.h_outdoor_3
-        - light.h_outdoor_4
-        - light.h_outdoor_5
         - light.kerstboom
 
 # Tafelverlichting on
@@ -58,11 +53,10 @@
     entity_id: binary_sensor.ac_0b5468a_12
     state: 'on'
   action:
-    service: light.turn_on
+    service: hue.hue_activate_scene
     data:
-      entity_id:
-        - light.h_tafel_kamer
-        - light.h_tafel_raam
+      group_name: "Eettafel"
+      scene_name: "DOM_default"
 
 # Tafelverlichting off
 - alias: Tafelverlichting uit
@@ -81,3 +75,4 @@
       entity_id:
         - light.h_tafel_kamer
         - light.h_tafel_raam
+

@@ -1,7 +1,37 @@
 ---
 - platform: template
   switches:
-    outdoor_lightning:
+    livingroom_lighting:
+      value_template: "{{ states.light.h_piano.state == 'on'
+        and states.light.h_schemerlamp.state == 'on' }}"
+      turn_on:
+        service: hue.hue_activate_scene
+        data:
+          group_name: "Zitkamer"
+          scene_name: "DOM_evening"
+      turn_off:
+        service: light.turn_off
+        data:
+          entity_id:
+            - light.h_schemerlamp
+            - light.h_staande_lamp
+            - light.h_tv_lamp
+            - light.h_piano
+    diningtable_lighting:
+      value_template: "{{ states.light.h_tafel_kamer.state == 'on'
+        and states.light.h_tafel_raam.state == 'on' }}"
+      turn_on:
+        service: hue.hue_activate_scene
+        data:
+          group_name: "Eettafel"
+          scene_name: "DOM_default"
+      turn_off:
+        service: light.turn_off
+        data:
+          entity_id:
+            - light.h_tafel_kamer
+            - light.h_tafel_raam
+    outdoor_lighting:
       value_template: "{{ states.light.h_outdoor_1.state == 'on' 
         and states.light.h_outdoor_4.state == 'on' }}"
       turn_on:
@@ -18,7 +48,7 @@
             - light.h_outdoor_3
             - light.h_outdoor_4
             - light.h_outdoor_5
-    bathroom_lightning:
+    bathroom_lighting:
       value_template: "{{ states.light.h_badkamer_links.state == 'on'
         and states.light.h_badkamer_rechts.state == 'on' }}"
       turn_on:

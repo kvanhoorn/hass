@@ -21,8 +21,20 @@
   name: Kerstboom
   entity_id: switch.ac_61bc0cfe_8
 - platform: switch
-  name: Tafelverlichting
+  name: Tafelverlichting (rfx)
   entity_id: switch.ac_0b5468a_12
 - platform: switch
-  name: Woonkamerverlichting
+  name: Woonkamerverlichting (rfx)
   entity_id: switch.ac_0b5468a_11
+- platform: switch
+  name: Woonkamer
+  entity_id: switch.livingroom_lighting
+- platform: switch
+  name: Tafel
+  entity_id: switch.diningtable_lighting
+- platform: switch
+  name: Buiten
+  entity_id: switch.outdoor_lighting
+- platform: switch
+  name: Badkamer
+  entity_id: switch.bathroom_lighting

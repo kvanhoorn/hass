@@ -7,9 +7,10 @@ filter:
     - input_boolean.is_it_night
     - climate.woonkamer
     - climate.overloop
-    - switch.woonkamerverlichting
-    - switch.tafelverlichting
-    - switch.outdoor_lightning
+    - light.woonkamer
+    - light.tafel
+    - light.badkamer
+    - light.buiten
     - light.carport
     - light.hal_led_bak
     - light.kerstboom

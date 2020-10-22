@@ -38,39 +38,19 @@
                         {
                             "cards": [
                                 {
-                                    "entity": "light.woonkamerverlichting",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "Woonk.",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
+                                    "entity": "light.woonkamer",
                                     "type": "entity-button"
                                 },
                                 {
-                                    "entity": "light.tafelverlichting",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "Tafel",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
+                                    "entity": "light.tafel",
                                     "type": "entity-button"
                                 },
                                 {
-                                    "entity": "switch.bathroom_lightning",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "Badk.",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
+                                    "entity": "light.badkamer",
                                     "type": "entity-button"
                                 },
                                 {
-                                    "entity": "switch.outdoor_lightning",
-                                    "icon": "mdi:lightbulb",
-                                    "name": "Buiten",
-                                    "tap_action": {
-                                        "action": "toggle"
-                                    },
+                                    "entity": "light.buiten",
                                     "type": "entity-button"
                                 }
                             ],
