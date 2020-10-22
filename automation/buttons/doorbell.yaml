@@ -2,16 +2,7 @@
 - alias: Event doorbell
   trigger:
     - platform: state
-      entity_id: switch.ac_0efe9b2_1
-  action:
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.deurbel
-
-- alias: Doorbell rings
-  trigger:
-    - platform: state
-      entity_id:
-        - input_boolean.deurbel
+      entity_id: binary_sensor.front_door_ding
       to: 'on'
   action:
     - service: notify.pushover
@@ -33,13 +24,27 @@
           priority: 0
           file:
             url: !secret camera2_still
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.deurbel
+    - service: notify.telegram
+      data:
+        message: ''
+        data:
+          photo:
+            - url: "{{ state_attr('camera.front_door', 'entity_picture') }}"
+              caption: "Deurbel gaat"
+    - delay: 30
+    - service: notify.telegram
+      data:
+        message: ''
+        data:
+          video:
+            - url: "{{ state_attr('camera.front_door', 'video_url') }}"
+              caption: "Video van laatste bezoek"
+
 
 - alias: Plex pause doorbell
   trigger:
     - platform: state
-      entity_id: input_boolean.deurbel
+      entity_id: binary_sensor.front_door_ding
       to: 'on'
   condition:
     - condition: state
@@ -52,7 +57,7 @@
 - alias: TV mute doorbell
   trigger:
     - platform: state
-      entity_id: input_boolean.deurbel
+      entity_id: binary_sensor.front_door_ding
       to: 'on'
   condition:
     - condition: template
@@ -62,6 +67,6 @@
     - service: remote.send_command
       data:
         entity_id: remote.living_room
-        device: 42809890  # Pioneer AV Receiver
+        device: 42809894 # Entone
         command:
-          - Mute
+          - Pause

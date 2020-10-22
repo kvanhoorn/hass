@@ -65,6 +65,6 @@
     brandalarm_zolder:
       device_class: smoke
       value_template: "{{ is_state('binary_sensor.kd101_smoke_detector_d48600_32', 'on') }}"
-    deurbel:
-      device_class: door
-      value_template: "{{ is_state('input_boolean.deurbel', 'on') }}"
+      #    deurbel:
+      #      device_class: door
+      #      value_template: "{{ is_state('input_boolean.deurbel', 'on') }}"

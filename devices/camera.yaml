@@ -5,7 +5,7 @@
   username: !secret camera1_username
   password: !secret camera1_password
 - platform: generic
-  name: Front door
+  name: Frontdoor
   still_image_url: !secret camera2_still
 - platform: generic
   name: Weather

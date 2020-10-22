@@ -41,7 +41,7 @@ camera1_down:
 camera1_irmode:
   name: Camera straat IR
   icon: mdi:weather-night
-deurbel:
-  name: Deurbel
-  icon: mdi:door
+  #deurbel:
+  #  name: Deurbel
+  #  icon: mdi:door
 
