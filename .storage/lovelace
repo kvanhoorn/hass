@@ -9,6 +9,57 @@
                     "badges": [],
                     "cards": [
                         {
+                            "type": "entity-filter",
+                            "entities": [
+                                {
+                                    "entity": "sensor.hm_motion_room_emma",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_hallcloset_motion",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_attic_motion",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_bathroom_motion",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.hm_backyard_motion",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_woonkamer",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_slaapkamer",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_kantoor",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_hal",
+                                    "show_last_changed": true
+                                },
+                                {
+                                    "entity": "binary_sensor.pir_keuken",
+                                    "show_last_changed": true
+                                }
+                            ],
+                            "name": "Beweging",
+                            "show_empty": false,
+                            "show_header_toggle": false,
+                            "state_filter": [
+                                "on"
+                            ]
+                        },
+                        {
                             "entities": [
                                 {
                                     "entity": "sensor.next_setting"
@@ -1575,7 +1626,7 @@
                                     "entity": "sensor.kevin_iphone_4s_battery_state"
                                 },
                                 {
-                                    "entity": "sensor.kevin_iphone_xr_battery_level"
+                                    "entity": "sensor.kevin_iphone_xr_battery_state"
                                 },
                                 {
                                     "entity": "sensor.iphone_van_willemijn_vink_battery_state"
