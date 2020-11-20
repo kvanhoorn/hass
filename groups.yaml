@@ -108,8 +108,6 @@ lights:
     - light.hal_led_bak
     - light.zolder_bank
     - light.zolder_scherm
-    - light.woonkamerverlichting
-    - light.tafelverlichting
 outdoor_lights:
   name: Buitenlichten
   entities:

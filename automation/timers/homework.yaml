@@ -40,15 +40,14 @@
     - condition: state
       entity_id: input_boolean.homeworking_day
       state: 'on'
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'on'
   action:
     - service: climate.set_preset_mode
       data:
         entity_id: climate.woonkamer
         preset_mode: 'home'
-    - service: notify.pushover
-      data:
-        title: "Thuiswerken"
-        message: "Verwarming staat alvast aan."
 
 - alias: Work from home reset
   trigger:
