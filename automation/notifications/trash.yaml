@@ -1,11 +1,11 @@
 ---
 - alias: Afval notificatie
   trigger:
-    platform: time
-    at: '20:00:00'
+    - platform: time
+      at: '20:00:00'
   condition:
-    condition: template
-    value_template: "{% if not is_state('sensor.trash_tomorrow', 'None') %}true{% endif %}"
+    - condition: template
+      value_template: "{{ not is_state('sensor.trash_tomorrow', 'None') }}"
   action:
     - service: notify.pushover
       data_template:
