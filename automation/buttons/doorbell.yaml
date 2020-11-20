@@ -29,9 +29,23 @@
         message: ''
         data:
           photo:
-            - url: "{{ state_attr('camera.front_door', 'entity_picture') }}"
+            - url: !secret camera2_still
               caption: "Deurbel gaat"
-    - delay: 30
+    - service: script.sonos_say
+      data_template:
+        sonos_entity: media_player.sonos_keuken
+        volume: "{{ states('input_number.doorbell_volume') }}"
+        message: 'De deurbel gaat!'
+        delay: '00:00:00'
+        language: 'nl'
+    - service: script.sonos_say
+      data_template:
+        sonos_entity: media_player.sonos_badkamer
+        volume: "{{ states('input_number.doorbell_volume') }}"
+        message: 'De deurbel gaat!'
+        delay: '00:00:00'
+        language: 'nl'
+    - delay: 120
     - service: notify.telegram
       data:
         message: ''

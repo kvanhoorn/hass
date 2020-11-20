@@ -92,6 +92,9 @@ telegram_bot:
     allowed_chat_ids:
       - !secret telegram_chat_id
 
+tts:
+  - platform: google_translate
+
 updater:
 
 #

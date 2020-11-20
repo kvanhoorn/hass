@@ -1,22 +1,22 @@
 ---
-- alias: Turn on upstairs doorbell ring
+- alias: Higher volume doorbell
   trigger:
     - platform: state
       entity_id: binary_sensor.deur_emma
       to: 'on'
-  condition:
-    - condition: time
-      after: '07:00:00'
-      before: '20:00:00'
   action:
-    - service: light.turn_on
-      entity_id: light.h_doorbell
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.doorbell_volume
+        value: .5
 
-- alias: Turn off upstairs doorbell ring
+- alias: Lower volume doorbelld
   trigger:
     - platform: state
       entity_id: binary_sensor.deur_emma
       to: 'off'
   action:
-    - service: light.turn_off
-      entity_id: light.h_doorbell
+    - service: input_number.set_value
+      data:
+        entity_id: input_number.doorbell_volume
+        value: .2

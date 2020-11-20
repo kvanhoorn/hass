@@ -1,4 +1,6 @@
 ---
+tts_test:
+  name: Test TTS
 is_it_night:
   name: Nacht
   icon: mdi:weather-night

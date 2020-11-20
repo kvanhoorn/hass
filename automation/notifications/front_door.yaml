@@ -26,6 +26,9 @@
     - platform: state
       entity_id: binary_sensor.front_door_motion
       to: 'on'
+    - platform: state
+      entity_id: input_boolean.tts_test
+      to: 'on'
   action:
     - service: notify.pushover
       data:
@@ -41,3 +44,19 @@
           photo:
             - url: !secret camera2_still
               caption: "Persoon bij de voordeur"
+    - service: script.sonos_say
+      data_template:
+        sonos_entity: media_player.sonos_keuken
+        volume: "{{ states('input_number.doorbell_volume') }}"
+        message: 'Er is iemand bij de voordeur!'
+        delay: '00:00:00'
+        language: 'nl'
+    - service: script.sonos_say
+      data_template:
+        sonos_entity: media_player.sonos_badkamer
+        volume: "{{ states('input_number.doorbell_volume') }}"
+        message: 'Er is iemand bij de voordeur!'
+        delay: '00:00:00'
+        language: 'nl'
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.tts_test

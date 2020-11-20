@@ -547,6 +547,12 @@
                                 },
                                 {
                                     "entity": "input_boolean.homeworking_day"
+                                },
+                                {
+                                    "entity": "input_boolean.longhomeworking"
+                                },
+                                {
+                                    "entity": "input_boolean.tts_test"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1510,7 +1516,8 @@
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_kantoor"
+                                    "entity": "binary_sensor.deur_kantoor",
+                                    "secondary_info": "last-changed"
                                 },
                                 {
                                     "entity": "binary_sensor.pir_hal",
@@ -1723,6 +1730,9 @@
                                 },
                                 {
                                     "entity": "sensor.pi_hole_ads_blocked_today"
+                                },
+                                {
+                                    "entity": "sensor.sonarr_upcoming"
                                 }
                             ],
                             "type": "entities"
