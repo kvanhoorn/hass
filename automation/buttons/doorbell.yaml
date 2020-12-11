@@ -31,20 +31,14 @@
           photo:
             - url: !secret camera2_still
               caption: "Deurbel gaat"
-    - service: script.sonos_say
+    - service: script.sonos_dingdong
       data_template:
         sonos_entity: media_player.sonos_keuken
         volume: "{{ states('input_number.doorbell_volume') }}"
-        message: 'De deurbel gaat!'
-        delay: '00:00:00'
-        language: 'nl'
-    - service: script.sonos_say
+    - service: script.sonos_dingdong
       data_template:
         sonos_entity: media_player.sonos_badkamer
         volume: "{{ states('input_number.doorbell_volume') }}"
-        message: 'De deurbel gaat!'
-        delay: '00:00:00'
-        language: 'nl'
     - delay: 120
     - service: notify.telegram
       data:
