@@ -2042,12 +2042,12 @@
                                     "name": "Enma"
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_slaapkamer",
-                                    "name": "slaapk."
+                                    "entity": "binary_sensor.raam_kantoor",
+                                    "name": "Kantoor"
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_kantoor",
-                                    "name": "kantoor"
+                                    "entity": "binary_sensor.raam_slaapkamer",
+                                    "name": "Slaapkamer"
                                 }
                             ],
                             "show_name": true,
