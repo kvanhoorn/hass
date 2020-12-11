@@ -1,6 +1,14 @@
 ---
 tts_test:
   name: Test TTS
+control_covers:
+  name: Gordijnen bedienen
+curtain_office_close:
+  name: Gordijn Kantoor dicht
+curtain_office_open:
+  name: Gordijn Kantoor open
+curtain_office_stop:
+  name: Gordijn Kantoor stop
 is_it_night:
   name: Nacht
   icon: mdi:weather-night

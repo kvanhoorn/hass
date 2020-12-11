@@ -1,0 +1,51 @@
+- alias: Gordijn kantoor dicht
+  trigger:
+    platform: state
+    entity_id: input_boolean.curtain_office_close
+    to: 'on'
+  action:
+    - service: cover.close_cover
+      data:
+        entity_id:
+          - cover.office_curtain
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.curtain_office_close
+- alias: Gordijn kantoor open
+  trigger:
+    platform: state
+    entity_id: input_boolean.curtain_office_open
+    to: 'on'
+  action:
+    - service: cover.open_cover
+      data:
+        entity_id:
+          - cover.office_curtain
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.curtain_office_open
+- alias: Gordijn kantoor stop
+  trigger:
+    platform: state
+    entity_id: input_boolean.curtain_office_stop
+    to: 'on'
+  action:
+    - service: cover.stop_cover
+      data:
+        entity_id:
+          - cover.office_curtain
+    - service: input_boolean.turn_off
+      data:
+        entity_id:
+          - input_boolean.curtain_office_stop
+- alias: Gordijn kantoor positie
+  trigger:
+    platform: state
+    entity_id: input_number.curtain_office_position
+  action:
+    service: cover.set_cover_position
+    data_template:
+      entity_id: cover.office_curtain
+      position: "{{ 100 - (states('input_number.curtain_office_position') | int) }}"

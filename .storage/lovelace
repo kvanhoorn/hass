@@ -338,6 +338,67 @@
                             "type": "entities"
                         },
                         {
+                            "type": "vertical-stack",
+                            "cards": [
+                                {
+                                    "type": "entities",
+                                    "entities": [
+                                        {
+                                            "entity": "input_boolean.control_covers"
+                                        }
+                                    ],
+                                    "title": "Gordijnen",
+                                    "show_header_toggle": false
+                                },
+                                {
+                                    "type": "conditional",
+                                    "conditions": [
+                                        {
+                                            "entity": "input_boolean.control_covers",
+                                            "state": "on"
+                                        }
+                                    ],
+                                    "card": {
+                                        "type": "vertical-stack",
+                                        "cards": [
+                                            {
+                                                "type": "entities",
+                                                "entities": [
+                                                    {
+                                                        "entity": "input_number.curtain_office_position",
+                                                        "name": "Kantoor"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "horizontal-stack",
+                                                "cards": [
+                                                    {
+                                                        "entity": "input_boolean.curtain_office_open",
+                                                        "icon": "mdi:arrow-left-thick",
+                                                        "type": "entity-button",
+                                                        "name": "Open"
+                                                    },
+                                                    {
+                                                        "entity": "input_boolean.curtain_office_stop",
+                                                        "icon": "mdi:stop",
+                                                        "type": "entity-button",
+                                                        "name": "Stop"
+                                                    },
+                                                    {
+                                                        "entity": "input_boolean.curtain_office_close",
+                                                        "icon": "mdi:arrow-right-thick",
+                                                        "type": "entity-button",
+                                                        "name": "Dicht"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        {
                             "card": {
                                 "entities": [
                                     "sensor.bus_4",

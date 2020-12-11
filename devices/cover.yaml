@@ -1,0 +1,3 @@
+- platform: switchbot-curtain
+  mac: 'E5:99:78:F5:FD:E8'
+  name: 'Office curtain'
