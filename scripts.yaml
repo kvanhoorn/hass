@@ -65,6 +65,41 @@ sonos_motion:
     - service: sonos.restore
       data:
         entity_id: "{{ sonos_entity }}"
+clean_living_room:
+  alias: "Woonkamer schoonmaken"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 16
+clean_hallway:
+  alias: "Hal schoonmaken"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 17
+clean_kitchen:
+  alias: "Keuken schoonmaken"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_segment
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        segments: 18
+empty_vacuum:
+  alias: "Stofzuiger legen"
+  sequence:
+    - service: xiaomi_miio.vacuum_goto
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        x_coord: 31000
+        y_coord: 24000
+gohome_vacuum:
+  alias: "Stofzuiger naar basis"
+  sequence:
+    - service: vacuum.return_to_base
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
 sonos_play_playlist:
   alias: Sonos Play playlist from favorites
   sequence:

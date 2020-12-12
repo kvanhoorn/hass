@@ -121,6 +121,7 @@ sensor: !include devices/sensor.yaml
 shell_command: !include devices/shell_command.yaml
 switch: !include devices/switch.yaml
 utility_meter: !include devices/utility_meter.yaml
+vacuum: !include devices/vacuum.yaml
 weather: !include devices/weather.yaml
 
 group: !include groups.yaml

@@ -580,6 +580,71 @@
                             "show_header_toggle": false,
                             "title": "Verjaardagen & jubilea",
                             "type": "entities"
+                        },
+                        {
+                            "type": "custom:vacuum-card",
+                            "entity": "vacuum.xiaomi_vacuum_cleaner",
+                            "stats": {
+                                "default": [
+                                    {
+                                        "attribute": "filter_left",
+                                        "unit": "hours",
+                                        "subtitle": "Filter"
+                                    },
+                                    {
+                                        "attribute": "side_brush_left",
+                                        "unit": "hours",
+                                        "subtitle": "Side brush"
+                                    },
+                                    {
+                                        "attribute": "main_brush_left",
+                                        "unit": "hours",
+                                        "subtitle": "Main brush"
+                                    },
+                                    {
+                                        "attribute": "sensor_dirty_left",
+                                        "unit": "hours",
+                                        "subtitle": "Sensors"
+                                    }
+                                ],
+                                "cleaning": [
+                                    {
+                                        "attribute": "cleaned_area",
+                                        "unit": "m2",
+                                        "subtitle": "Cleaning area"
+                                    },
+                                    {
+                                        "attribute": "cleaning_time",
+                                        "unit": "minutes",
+                                        "subtitle": "Cleaning time"
+                                    }
+                                ]
+                            },
+                            "actions": [
+                                {
+                                    "name": "Clean living room",
+                                    "service": "script.clean_living_room",
+                                    "icon": "mdi:sofa"
+                                },
+                                {
+                                    "name": "Clean Hall",
+                                    "service": "script.clean_hallway",
+                                    "icon": "mdi:door"
+                                },
+                                {
+                                    "name": "Clean Kitchen",
+                                    "service": "script.clean_kitchen",
+                                    "icon": "mdi:stove"
+                                },
+                                {
+                                    "name": "Empty dustbin",
+                                    "service": "script.empty_vacuum",
+                                    "icon": "mdi:trash-can"
+                                }
+                            ],
+                            "show_name": false,
+                            "show_status": true,
+                            "show_toolbar": true
                         }
                     ],
                     "icon": "mdi:home-account",
