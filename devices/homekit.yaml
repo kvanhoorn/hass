@@ -19,6 +19,8 @@ filter:
     - camera.front_door
     - camera.street
     - binary_sensor.front_door_ding
+    - vacuum.xiaomi_vacuum_cleaner
+    - cover.office_curtain
 entity_config:
   camera.front_door:
     linked_doorbell_sensor: binary_sensor.front_door_ding

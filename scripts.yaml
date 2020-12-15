@@ -71,14 +71,14 @@ clean_living_room:
     - service: xiaomi_miio.vacuum_clean_segment
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        segments: 16
+        segments: 17
 clean_hallway:
   alias: "Hal schoonmaken"
   sequence:
     - service: xiaomi_miio.vacuum_clean_segment
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
-        segments: 17
+        segments: 16
 clean_kitchen:
   alias: "Keuken schoonmaken"
   sequence:
