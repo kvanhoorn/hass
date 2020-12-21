@@ -1,6 +1,8 @@
 ---
 tts_test:
   name: Test TTS
+send_ring_video:
+  name: Send Ring video
 control_covers:
   name: Gordijnen bedienen
 curtain_office_close:
