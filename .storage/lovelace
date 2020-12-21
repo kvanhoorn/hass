@@ -637,6 +637,16 @@
                                     "icon": "mdi:stove"
                                 },
                                 {
+                                    "name": "Clean Emma chair",
+                                    "service": "script.clean_emma_chair",
+                                    "icon": "mdi:baby"
+                                },
+                                {
+                                    "name": "Clean upstairs",
+                                    "service": "script.clean_upstairs",
+                                    "icon": "mdi:bed"
+                                },
+                                {
                                     "name": "Empty dustbin",
                                     "service": "script.empty_vacuum",
                                     "icon": "mdi:trash-can"

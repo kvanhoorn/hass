@@ -86,6 +86,23 @@ clean_kitchen:
       data:
         entity_id: vacuum.xiaomi_vacuum_cleaner
         segments: 18
+clean_emma_chair:
+  alias: "Stoel Emma schoonmaken"
+  sequence:
+    - service: xiaomi_miio.vacuum_clean_zone
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        zone:
+          - [25800,26500,27800,28500]
+        repeats: 1
+clean_upstairs:
+  alias: "Bovenverdieping schoonmaken"
+  sequence:
+    - service: xiaomi_miio.vacuum_goto
+      data:
+        entity_id: vacuum.xiaomi_vacuum_cleaner
+        x_coord: 27500
+        y_coord: 23600
 empty_vacuum:
   alias: "Stofzuiger legen"
   sequence:
