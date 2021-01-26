@@ -15,7 +15,7 @@ import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.entity import Entity
 
 _LOGGER = getLogger(__name__)
-_RESOURCE = 'https://www.postcodeloterij.nl/web/rest/gdrm/getmywinnings/npl/P_MT_P%s/?postalCode=%s&resultSize=10' # % (201812, 1234AB)
+_RESOURCE = 'https://www.postcodeloterij.nl/public/rest/drawresults/winnings/NPL/P_MT_P%s/?query=%s&resultSize=10' # % (201812, 1234AB)
 
 CONF_POSTCODE = 'postcode'
 
@@ -87,11 +87,11 @@ class PostcodeloterijSensor(Entity):
               self._url)
             self.data = req.json()
             _LOGGER.debug(self.data)
-            self._state = self.data['prizecount']
+            self._state = self.data['prizeCount']
             
             prizes = []
-            for p in self.data['wonprizes']:
-                prizes.append(p['descr'])
+            for p in self.data['wonPrizes']:
+                prizes.append(p['description'])
             self._prizes = ', '.join(str(x) for x in prizes)
             self._period = moment.strftime('%m-%Y')
             
