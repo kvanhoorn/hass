@@ -129,6 +129,8 @@
         - light.kerstboom
         - light.h_tafel_kamer
         - light.h_tafel_raam
+        - light.h_tv_play_left
+        - light.h_tv_play_right
 #    - service: remote.turn_off
 #      entity_id: remote.living_room
     - service: sonos.unjoin
