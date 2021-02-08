@@ -2155,6 +2155,46 @@
                     "icon": "mdi:run",
                     "path": "sensors",
                     "title": "Sensors"
+                },
+                {
+                    "title": "Beer",
+                    "path": "beer",
+                    "icon": "mdi:beer",
+                    "theme": "",
+                    "badges": [],
+                    "cards": [
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.plaato_eindbaas1_0_batch_volume"
+                                },
+                                {
+                                    "entity": "sensor.plaato_eindbaas1_0_bubbles"
+                                },
+                                {
+                                    "entity": "sensor.plaato_eindbaas1_0_og"
+                                },
+                                {
+                                    "entity": "sensor.plaato_eindbaas1_0_sg"
+                                },
+                                {
+                                    "entity": "sensor.plaato_eindbaas1_0_abv"
+                                },
+                                {
+                                    "entity": "sensor.plaato_eindbaas1_0_temp"
+                                },
+                                {
+                                    "entity": "sensor.plaato_eindbaas1_0_co2_volume"
+                                },
+                                {
+                                    "entity": "sensor.plaato_eindbaas1_0_bpm"
+                                }
+                            ],
+                            "title": "Plaato",
+                            "show_header_toggle": false
+                        }
+                    ]
                 }
             ]
         }
