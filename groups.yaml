@@ -40,17 +40,9 @@ sensors:
     - sensor.power_consumption_normal
     - sensor.temperatuur_peace_lily_witte_bloem_temperature
     - sensor.temperatuur_yucca_palmboom_temperature
-    - binary_sensor.voordeur
-    - binary_sensor.deur_keuken
-    - binary_sensor.deur_woonkamer
-    - binary_sensor.schuurdeur
-    - binary_sensor.raam_kantoor
-    - binary_sensor.raam_slaapkamer
-    - binary_sensor.raam_emma
     - binary_sensor.door_emma
     - binary_sensor.door_office
     - binary_sensor.deur_slaapkamer
-    - binary_sensor.garagedeur
 buttons:
   name: Buttons
   icon: mdi:toggle-switch
@@ -119,20 +111,20 @@ outdoor_lights:
 doors:
   name: Deuren/ramen
   entities:
-    - binary_sensor.voordeur
-    - binary_sensor.deur_keuken
-    - binary_sensor.deur_woonkamer
-    - binary_sensor.schuurdeur
-    - binary_sensor.raam_kantoor
-    - binary_sensor.raam_slaapkamer
-    - binary_sensor.raam_emma
-    - binary_sensor.garagedeur
+    - binary_sensor.shelly_door_frontdoor_door_window
+    - binary_sensor.shelly_door_livingroom_door_window
+    - binary_sensor.shelly_door_kitchen_door_window
+    - binary_sensor.shelly_door_shed_door_window
+    - binary_sensor.shelly_door_garage_door_window
+    - binary_sensor.shelly_window_office_door_window
+    - binary_sensor.shelly_window_bedroom_door_window
+    - binary_sensor.shelly_window_emma_door_window
 airco_windows:
   name: Deuren/ramen airco
   entities:
-    - binary_sensor.raam_emma
-    - binary_sensor.raam_kantoor
-    - binary_sensor.raam_slaapkamer
+    - binary_sensor.shelly_window_office_door_window
+    - binary_sensor.shelly_window_bedroom_door_window
+    - binary_sensor.shelly_window_emma_door_window
 doors_inside:
   name: Deuren/ramen binnen
   entities:
@@ -356,15 +348,6 @@ feedparser_collection:
 long_battery_devices:
   name: Batterij apparaten lang niet gezien
   entities:
-    - binary_sensor.voordeur
-    - binary_sensor.deur_keuken
-    - binary_sensor.deur_woonkamer
-    - binary_sensor.schuurdeur
-    - binary_sensor.raam_kantoor
-    - binary_sensor.raam_slaapkamer
-    - binary_sensor.raam_emma
-    - binary_sensor.raam_zolder
-    - binary_sensor.garagedeur
     - binary_sensor.door_emma
     - binary_sensor.door_office
     - binary_sensor.deur_slaapkamer

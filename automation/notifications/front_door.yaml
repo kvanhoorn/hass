@@ -2,7 +2,7 @@
 - alias: Front door opens
   trigger:
     - platform: state
-      entity_id: binary_sensor.voordeur
+      entity_id: binary_sensor.shelly_door_frontdoor_door_window
       to: 'on'
   action:
     - service: notify.pushover

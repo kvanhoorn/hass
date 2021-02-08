@@ -77,33 +77,9 @@ devices:
     device_class: motion
     off_delay:
       seconds: 10
-  0b11000500fbc7ce0a010f50:
-    # Voordeur
-    device_class: door
-  0b11000d00eb4d860a010f50:
-    # Deur keuken
-    device_class: door
-  0b11001801071a760a010f50:
-    # Raam Emma
-    device_class: window
-  0b11001d01002a360a010f40:
-    # Raam slaapkamer
-    device_class: window
   0b11002400e19a520a010f40:
     # Deur slaapkamer
     device_class: door
-  0b1100290111eade0a010f50:
-    # Raam kantoor
-    device_class: window
-  0b11003100fc0aea0a010f50:
-    # Deur woonkamer
-    device_class: door
-  0b11003900eb56360a000040:
-    # Schuurdeur
-    device_class: door
-  0b11003a00eb573e0a000050:
-    # Garagedeur
-    device_class: garage_door
   09130010a499ee013940:
     # Deur Emma
     device_class: door
