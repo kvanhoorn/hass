@@ -38,6 +38,9 @@
       data:
         entity_id: climate.overloop
         temperature: 19.0
+    - service: climate.set_hvac_mode
+      data:
+        entity_id: climate.overloop
         hvac_mode: cool
     - service: climate.turn_on
       entity_id: climate.overloop
