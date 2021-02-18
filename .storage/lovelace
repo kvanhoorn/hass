@@ -1615,39 +1615,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.voordeur",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.deur_keuken",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.deur_woonkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.schuurdeur",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.raam_kantoor",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.raam_slaapkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.raam_emma",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
                                     "entity": "binary_sensor.deur_slaapkamer",
-                                    "secondary_info": "last-changed"
-                                },
-                                {
-                                    "entity": "binary_sensor.garagedeur",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -2091,22 +2059,23 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.voordeur"
+                                    "entity": "binary_sensor.shelly_door_frontdoor_door_window",
+                                    "name": "Voordeur"
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_keuken",
+                                    "entity": "binary_sensor.shelly_door_kitchen_door_window",
                                     "name": "Keuken"
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_woonkamer",
+                                    "entity": "binary_sensor.shelly_door_livingroom_door_window",
                                     "name": "Woonk."
                                 },
                                 {
-                                    "entity": "binary_sensor.schuurdeur",
+                                    "entity": "binary_sensor.shelly_door_shed_door_window",
                                     "name": "Schuur"
                                 },
                                 {
-                                    "entity": "binary_sensor.garagedeur",
+                                    "entity": "binary_sensor.shelly_door_garage_door_window",
                                     "name": "Garage"
                                 }
                             ],
@@ -2116,15 +2085,15 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.raam_emma",
-                                    "name": "Enma"
-                                },
-                                {
-                                    "entity": "binary_sensor.raam_kantoor",
+                                    "entity": "binary_sensor.shelly_window_office_door_window",
                                     "name": "Kantoor"
                                 },
                                 {
-                                    "entity": "binary_sensor.raam_slaapkamer",
+                                    "entity": "binary_sensor.shelly_window_emma_door_window",
+                                    "name": "Emma"
+                                },
+                                {
+                                    "entity": "binary_sensor.shelly_window_bedroom_door_window",
                                     "name": "Slaapkamer"
                                 }
                             ],
@@ -2135,15 +2104,15 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.deur_emma",
+                                    "entity": "binary_sensor.shelly_door_emma_door_window",
                                     "name": "Emma"
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_kantoor",
+                                    "entity": "binary_sensor.shelly_door_office_door_window",
                                     "name": "Kantoor"
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_slaapkamer",
+                                    "entity": "binary_sensor.shelly_door_bedroom_door_window",
                                     "name": "Slaapkamer"
                                 }
                             ],

@@ -23,7 +23,7 @@
               entity_id: sensor.temperatuur_kantoor
               above: 23.5
             - condition: state
-              entity_id: binary_sensor.deur_kantoor
+              entity_id: binary_sensor.shelly_door_office_door_window
               state: 'on'
         - condition: and
           conditions:
@@ -31,7 +31,7 @@
               entity_id: sensor.temperatuur_slaapkamer
               above: 23.5
             - condition: state
-              entity_id: binary_sensor.deur_slaapkamer
+              entity_id: binary_sensor.shelly_door_bedroom_door_window
               state: 'on'
   action:
     - service: climate.set_temperature

@@ -77,21 +77,6 @@ devices:
     device_class: motion
     off_delay:
       seconds: 10
-  0b11002400e19a520a010f40:
-    # Deur slaapkamer
-    device_class: door
-  09130010a499ee013940:
-    # Deur Emma
-    device_class: door
-    data_bits: 4
-    command_on: 0xe
-    command_off: 0x7
-  091300cde116ae013b60:
-    # Deur Kantoor
-    device_class: door
-    data_bits: 4
-    command_on: 0xe
-    command_off: 0x7
   0820032805f1000650:
     # Brandalarm woonkamer
     device_class: smoke

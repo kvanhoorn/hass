@@ -26,3 +26,12 @@ devices:
   - id: "483FDA8247E5"
     name: "Raam Emma"
     entity_id: window_emma
+  - id: "40F5202DF37B"
+    name: "Deur kantoor"
+    entity_id: door_office
+  - id: "40F5202E3E9E"
+    name: "Deur slaapkamer"
+    entity_id: door_bedroom
+  - id: "40F5202D9F55"
+    name: "Deur Emma"
+    entity_id: door_emma
