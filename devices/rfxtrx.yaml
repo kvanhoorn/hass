@@ -11,9 +11,6 @@ devices:
   0b11003400a6b99e01010f60:
     # Bureaulamp
     device_class: light
-  0b110035007d364704010f60:
-    # Carport
-    device_class: light
   0b110036007d364603010f60:
     # Zolder - bank
     device_class: light

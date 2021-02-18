@@ -17,8 +17,10 @@
     - service: light.turn_on
       entity_id:
         - light.hal_led_bak
-        - light.carport
         - light.kerstboom
+    - service: switch.turn_on
+      entity_id:
+        - switch.shelly_carport
 
 - alias: 'timer_evening_goodnight'
   trigger:
@@ -51,5 +53,5 @@
     event: sunrise
     offset: '01:00:00'
   action:
-    - service: light.turn_off
-      entity_id: light.carport
+    - service: switch.turn_off
+      entity_id: switch.shelly_carport

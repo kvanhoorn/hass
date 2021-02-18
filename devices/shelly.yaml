@@ -35,3 +35,6 @@ devices:
   - id: "40F5202D9F55"
     name: "Deur Emma"
     entity_id: door_emma
+  - id: "B4B613"
+    name: "Carport"
+    entity_id: carport
