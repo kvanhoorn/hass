@@ -368,6 +368,20 @@ short_battery_devices:
     - sensor.temperatuur_garage_temperature
     - sensor.temperatuur_kantoor_temperature
     - sensor.temperatuur_slaapkamer_temperature
+short_wifi_devices:
+  name: Wifi apparaten onlangs niet gezien
+  entities:
+    - binary_sensor.shelly_door_frontdoor_door_window
+    - binary_sensor.shelly_door_livingroom_door_window
+    - binary_sensor.shelly_door_kitchen_door_window
+    - binary_sensor.shelly_door_shed_door_window
+    - binary_sensor.shelly_door_garage_door_window
+    - binary_sensor.shelly_window_office_door_window
+    - binary_sensor.shelly_window_bedroom_door_window
+    - binary_sensor.shelly_window_emma_door_window
+    - binary_sensor.shelly_door_office_door_window
+    - binary_sensor.shelly_door_bedroom_door_window
+    - binary_sensor.shelly_door_emma_door_window
 bus4_collection:
   name: Bus 4 vertrektijden
   entities:

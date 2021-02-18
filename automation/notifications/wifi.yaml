@@ -1,0 +1,36 @@
+---
+- alias: wifi device became unavailable
+  trigger:
+    - platform: event
+      event_type: state_changed
+  condition:
+    - condition: template
+      value_template: >
+        {{ trigger.event.data.entity_id in
+             state_attr('group.short_wifi_devices', 'entity_id') }}
+    - condition: template
+      value_template: >
+        {{ trigger.event.data.new_state.state == 'unavailable' }}
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Sensor wifi (kort)"
+        message: "{{ trigger.event.data.old_state.attributes.friendly_name }} is offline."
+
+- alias: wifi device back online
+  trigger:
+    - platform: event
+      event_type: state_changed
+  condition:
+    - condition: template
+      value_template: >
+        {{ trigger.event.data.entity_id in
+             state_attr('group.short_wifi_devices', 'entity_id') }}
+    - condition: template
+      value_template: >
+        {{ trigger.event.data.old_state.state == 'unavailable' }}
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Sensor wifi (kort)"
+        message: "{{ trigger.event.data.old_state.attributes.friendly_name }} is terug online"
