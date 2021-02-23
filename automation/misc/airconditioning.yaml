@@ -15,6 +15,9 @@
       - condition: state
         entity_id: climate.overloop
         state: 'off'
+      - condition: numeric_state
+        entity_id: sensor.hm_backyard_temperature
+        above: 23.0
       - condition: or
         conditions:
         - condition: and
