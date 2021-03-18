@@ -38,3 +38,6 @@ devices:
   - id: "B4B613"
     name: "Carport"
     entity_id: carport
+  - id: "20E155"
+    name: "Vergistingskast"
+    entity_id: fermentation_chamber

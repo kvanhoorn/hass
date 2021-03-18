@@ -99,6 +99,7 @@ lights:
     - light.zolder_bank
     - light.zolder_scherm
     - switch.shelly_carport
+    - switch.shelly_fermentation_chamber
 outdoor_lights:
   name: Buitenlichten
   entities:
@@ -347,9 +348,6 @@ feedparser_collection:
 long_battery_devices:
   name: Batterij apparaten lang niet gezien
   entities:
-    - binary_sensor.door_emma
-    - binary_sensor.door_office
-    - binary_sensor.deur_slaapkamer
     - binary_sensor.pir_hal
     - binary_sensor.pir_woonkamer
     - binary_sensor.pir_keuken

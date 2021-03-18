@@ -1846,6 +1846,9 @@
                                 },
                                 {
                                     "entity": "sensor.sonarr_upcoming"
+                                },
+                                {
+                                    "entity": "input_number.doorbell_volume"
                                 }
                             ],
                             "type": "entities"
@@ -1965,6 +1968,12 @@
                                 },
                                 {
                                     "entity": "sensor.power_consumption_phase_l1"
+                                },
+                                {
+                                    "entity": "sensor.shelly_fermentation_chamber_current_consumption"
+                                },
+                                {
+                                    "entity": "sensor.shelly_carport_current_consumption"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -2091,25 +2100,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.shelly_window_office_door_window",
-                                    "name": "Kantoor"
-                                },
-                                {
-                                    "entity": "binary_sensor.shelly_window_emma_door_window",
-                                    "name": "Emma"
-                                },
-                                {
-                                    "entity": "binary_sensor.shelly_window_bedroom_door_window",
-                                    "name": "Slaapkamer"
-                                }
-                            ],
-                            "show_name": true,
-                            "show_state": false,
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "binary_sensor.shelly_door_emma_door_window",
                                     "name": "Emma"
                                 },
@@ -2120,6 +2110,28 @@
                                 {
                                     "entity": "binary_sensor.shelly_door_bedroom_door_window",
                                     "name": "Slaapkamer"
+                                }
+                            ],
+                            "show_name": true,
+                            "show_state": false,
+                            "type": "glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.shelly_window_emma_door_window",
+                                    "name": "Emma",
+                                    "icon": "mdi:window-closed"
+                                },
+                                {
+                                    "entity": "binary_sensor.shelly_window_office_door_window",
+                                    "name": "Kantoor",
+                                    "icon": "mdi:window-closed"
+                                },
+                                {
+                                    "entity": "binary_sensor.shelly_window_bedroom_door_window",
+                                    "name": "Slaapkamer",
+                                    "icon": "mdi:window-closed"
                                 }
                             ],
                             "show_name": true,

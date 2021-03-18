@@ -6,24 +6,6 @@
   name: Hal - LED bak
   entity_id: switch.ac_0f70e12_2
 - platform: switch
-  name: Bureaulamp
-  entity_id: switch.ac_07d3647_4
-- platform: switch
-  name: Zolder - bank
-  entity_id: switch.ac_07d3646_3
-- platform: switch
-  name: Zolder - scherm
-  entity_id: switch.ac_07d3646_2
-- platform: switch
-  name: Kerstboom
-  entity_id: switch.ac_61bc0cfe_8
-- platform: switch
-  name: Tafelverlichting (rfx)
-  entity_id: switch.ac_0b5468a_12
-- platform: switch
-  name: Woonkamerverlichting (rfx)
-  entity_id: switch.ac_0b5468a_11
-- platform: switch
   name: Woonkamer
   entity_id: switch.livingroom_lighting
 - platform: switch
