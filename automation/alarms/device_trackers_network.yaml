@@ -3,14 +3,18 @@
   trigger:
     - platform: state
       entity_id:
-        - device_tracker.nleidap03_garage
-        - device_tracker.nleidap02_study
         - device_tracker.nleidap01_hall
+        - device_tracker.nleidap02_study
+        - device_tracker.nleidap03_garage
+        - device_tracker.nleidap04_attic
+        - device_tracker.nleidap05_spare
         - device_tracker.nleidsw01_hall
         - device_tracker.nleidsw02_living_room
+        - device_tracker.nleidsw03_spare
         - device_tracker.nleidgw01
         - device_tracker.unifi_cloudkey
-        - device_tracker.philips_hue
+        - device_tracker.philipshuebridge
+        - device_tracker.philipshuesyncbox
         - device_tracker.pihole
         - device_tracker.synologynas
       from: 'home'
