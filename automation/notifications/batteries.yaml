@@ -52,3 +52,14 @@
       data:
         title: "Sensor batterijen (kort)"
         message: "{{ states.sensor.short_time_not_seen_devices.state }}"
+
+- alias: ring_battery_below_treshold
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.front_door_battery
+    below: 21
+  action:
+    - service: notify.pushover
+      data:
+        title: "Ring batterij leeg"
+        message: "Batterij van de deurbel bijna leeg (20%), graag vervangen."
