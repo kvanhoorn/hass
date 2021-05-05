@@ -2,13 +2,18 @@
 # turn on airco, hot upstairs
 - alias: turn on airco
   trigger:
-    platform: numeric_state
-    entity_id:
-      - sensor.temperatuur_slaapkamer
-      - sensor.temperatuur_kantoor
-    above: 23.5
-    for:
-      minutes: 10
+    - platform: numeric_state
+      entity_id:
+        - sensor.temperatuur_slaapkamer
+        - sensor.temperatuur_kantoor
+      above: 23.5
+      for:
+        minutes: 10
+    - platform: numeric_state
+      entity_id: sensor.hm_backyard_temperature
+      above: 23.0
+      for:
+        minutes: 15
   condition:
     condition: and
     conditions:
