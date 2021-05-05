@@ -23,4 +23,4 @@
     - service: notify.pushover
       data_template:
         title: "Postcodeloterij uitslag"
-        message: "Deze maand heb je {{ states.sensor.postcodeloterij_prijs.state }}x prijs!"
+        message: "Deze maand heb je {{ states.sensor.postcodeloterij_prijs.state }}x prijs! {{ states.sensor.postcodeloterij_prijs.attributes.prizes }}"
