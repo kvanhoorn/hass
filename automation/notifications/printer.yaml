@@ -1,0 +1,11 @@
+---
+- alias: printer_toner_low
+  trigger:
+    platform: numeric_state
+    entity_id: sensor.mfc_l2710dw_black_toner_remaining
+    below: 15
+  action:
+    - service: notify.pushover
+      data:
+        title: "Toner printer bijna leeg"
+        message: "Toner A4 printer <15%, toner bestellen."
