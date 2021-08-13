@@ -32,7 +32,7 @@ logger:
 
 apple_tv:
 
-#cloud:
+cloud:
 config:
 conversation:
 
