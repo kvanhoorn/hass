@@ -11,7 +11,7 @@
         minutes: 10
     - platform: numeric_state
       entity_id: sensor.hm_backyard_temperature
-      above: 23.0
+      above: 22.0
       for:
         minutes: 15
   condition:
@@ -20,9 +20,14 @@
       - condition: state
         entity_id: climate.overloop
         state: 'off'
-      - condition: numeric_state
-        entity_id: sensor.hm_backyard_temperature
-        above: 23.0
+      - condition: or
+        conditions:
+        - condition: numeric_state
+          entity_id: sensor.hm_backyard_temperature
+          above: 22.0
+        - condition: numeric_state
+          entity_id: sensor.dark_sky_daytime_high_temperature_0d
+          above: 22.0
       - condition: or
         conditions:
         - condition: and
@@ -45,7 +50,7 @@
     - service: climate.set_temperature
       data:
         entity_id: climate.overloop
-        temperature: 19.0
+        temperature: 18.0
     - service: climate.set_hvac_mode
       data:
         entity_id: climate.overloop
@@ -66,7 +71,7 @@
       - sensor.temperatuur_kantoor
     below: 23.0
     for:
-      minutes: 10
+      minutes: 20
   condition:
     condition: and
     conditions:
