@@ -501,31 +501,6 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.netherlands_coronavirus_confirmed",
-                                    "name": "Bevestigd"
-                                },
-                                {
-                                    "entity": "sensor.netherlands_coronavirus_current",
-                                    "name": "Huidig"
-                                },
-                                {
-                                    "entity": "sensor.netherlands_coronavirus_recovered",
-                                    "name": "Hersteld"
-                                },
-                                {
-                                    "entity": "sensor.netherlands_coronavirus_deaths",
-                                    "name": "Doden"
-                                }
-                            ],
-                            "show_icon": true,
-                            "show_name": true,
-                            "show_state": true,
-                            "title": "Corona (Nederland)",
-                            "type": "glance"
-                        },
-                        {
-                            "entities": [
-                                {
                                     "entity": "sensor.verjaardag_kevin"
                                 },
                                 {
@@ -560,6 +535,9 @@
                                 },
                                 {
                                     "entity": "sensor.verjaardag_vera"
+                                },
+                                {
+                                    "entity": "sensor.verjaardag_jens"
                                 },
                                 {
                                     "entity": "sensor.jubileum_trouwdag_kevin_en_willemijn"
@@ -697,6 +675,38 @@
                             "show_header_toggle": false,
                             "title": "Buttons",
                             "type": "entities"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.shellyplug_s_b4b613_overheating"
+                                },
+                                {
+                                    "entity": "binary_sensor.shellyplug_s_b4b613_overpowering"
+                                },
+                                {
+                                    "entity": "sensor.shellyplug_s_b4b613_energy"
+                                },
+                                {
+                                    "entity": "sensor.shellyplug_s_b4b613_power"
+                                },
+                                {
+                                    "entity": "switch.shellyplug_s_b4b613"
+                                },
+                                {
+                                    "entity": "binary_sensor.shellydw2_483fda824810_door"
+                                },
+                                {
+                                    "entity": "sensor.shellydw2_483fda824810_battery"
+                                },
+                                {
+                                    "entity": "sensor.shellydw2_483fda824810_luminosity"
+                                },
+                                {
+                                    "entity": "sensor.shellydw2_483fda824810_temperature"
+                                }
+                            ]
                         }
                     ],
                     "icon": "mdi:toggle-switch",
@@ -1149,7 +1159,7 @@
                             "type": "conditional"
                         },
                         {
-                            "entity": "media_player.atv_living_room",
+                            "entity": "media_player.atv_living_room_4k",
                             "type": "media-control"
                         },
                         {
@@ -1293,6 +1303,13 @@
                                 }
                             ],
                             "type": "glance"
+                        },
+                        {
+                            "type": "sensor",
+                            "entity": "sensor.temperatuur_slaapkamer",
+                            "graph": "line",
+                            "detail": 1,
+                            "name": "Slaapkamer"
                         }
                     ],
                     "icon": "mdi:thermometer",
@@ -1400,7 +1417,7 @@
                             "camera_image": "camera.front_door",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.voordeur"
+                                    "entity": "binary_sensor.shelly_door_frontdoor_door_window"
                                 },
                                 {
                                     "entity": "binary_sensor.front_door_motion"
@@ -1411,7 +1428,7 @@
                             "camera_image": "camera.frontdoor",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.voordeur"
+                                    "entity": "binary_sensor.shelly_door_frontdoor_door_window"
                                 },
                                 {
                                     "entity": "binary_sensor.pir_hal"
@@ -1633,15 +1650,15 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.deur_slaapkamer",
+                                    "entity": "binary_sensor.shelly_door_bedroom_door_window",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_emma",
+                                    "entity": "binary_sensor.shelly_door_emma_door_window",
                                     "secondary_info": "last-changed"
                                 },
                                 {
-                                    "entity": "binary_sensor.deur_kantoor",
+                                    "entity": "binary_sensor.shelly_door_office_door_window",
                                     "secondary_info": "last-changed"
                                 },
                                 {
@@ -1671,6 +1688,9 @@
                                 {
                                     "entity": "binary_sensor.hm_attic_motion",
                                     "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.front_door_battery"
                                 }
                             ],
                             "show_header_toggle": false,
@@ -1938,16 +1958,22 @@
                                     "entity": "device_tracker.nleidap01_hall"
                                 },
                                 {
-                                    "entity": "device_tracker.nleidap02_study"
+                                    "entity": "device_tracker.nleidap02_emma"
                                 },
                                 {
                                     "entity": "device_tracker.nleidap03_garage"
+                                },
+                                {
+                                    "entity": "device_tracker.nleidap04_attic"
                                 },
                                 {
                                     "entity": "device_tracker.nleidsw01_hall"
                                 },
                                 {
                                     "entity": "device_tracker.nleidsw02_living_room"
+                                },
+                                {
+                                    "entity": "device_tracker.nleidsw03_attic"
                                 },
                                 {
                                     "entity": "device_tracker.nleidgw01"
@@ -1980,6 +2006,12 @@
                                 },
                                 {
                                     "entity": "sensor.power_consumption_phase_l1"
+                                },
+                                {
+                                    "entity": "sensor.power_consumption_phase_l2"
+                                },
+                                {
+                                    "entity": "sensor.power_consumption_phase_l3"
                                 },
                                 {
                                     "entity": "sensor.shelly_fermentation_chamber_current_consumption"
@@ -2021,6 +2053,30 @@
                             "refresh_interval": 0,
                             "title": "boiler",
                             "hours_to_show": 2
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.brother_mfc_l2710dw_series"
+                                },
+                                {
+                                    "entity": "sensor.mfc_l2710dw_black_toner_remaining"
+                                },
+                                {
+                                    "entity": "sensor.mfc_l2710dw_drum_remaining_life"
+                                },
+                                {
+                                    "entity": "sensor.mfc_l2710dw_duplex_unit_pages_counter"
+                                },
+                                {
+                                    "entity": "sensor.mfc_l2710dw_page_counter"
+                                },
+                                {
+                                    "entity": "sensor.mfc_l2710dw_status"
+                                }
+                            ],
+                            "title": "Printer A4"
                         }
                     ],
                     "icon": "mdi:finance",
