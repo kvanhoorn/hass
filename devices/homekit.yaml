@@ -17,6 +17,8 @@ filter:
     - camera.frontdoor
     - camera.front_door
     - camera.street
+    - camera.emma
+    - camera.outdoor
     - binary_sensor.front_door_ding
     - vacuum.xiaomi_vacuum_cleaner
     - cover.office_curtain

@@ -1479,6 +1479,18 @@
                                 "action": "toggle"
                             },
                             "type": "entity-button"
+                        },
+                        {
+                            "camera_image": "camera.emma",
+                            "entity": "sensor.hm_room_emma_temperature",
+                            "show_name": false,
+                            "type": "picture-entity"
+                        },
+                        {
+                            "camera_image": "camera.outdoor",
+                            "entity": "sensor.temperatuur_garage",
+                            "show_name": false,
+                            "type": "picture-entity"
                         }
                     ],
                     "icon": "mdi:camera",
