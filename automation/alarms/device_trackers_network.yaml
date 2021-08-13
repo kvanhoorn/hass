@@ -22,11 +22,10 @@
   action:
     - service: notify.pushover
       data_template:
-        title: "AP offline"
+        title: "Critical netwerk device offline"
         message: "{{trigger.to_state.attributes.friendly_name}} offline"
         data:
           sound: "siren"
           priority: 2
           expire: 3600
           retry: 60
-
