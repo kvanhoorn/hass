@@ -12,6 +12,10 @@
         scene_name: "DOM_evening"
     - service: hue.hue_activate_scene
       data:
+        group_name: "Eettafel"
+        scene_name: "DOM_default"
+    - service: hue.hue_activate_scene
+      data:
         group_name: "Achtertuin"
         scene_name: "DOM_outdoor_evening"
     - service: light.turn_on
@@ -43,6 +47,8 @@
         - light.h_outdoor_3
         - light.h_outdoor_4
         - light.h_outdoor_5
+        - light.h_outdoor_6
+        - light.h_outdoor_7
         - light.h_tafel_kamer
         - light.h_tafel_raam
         - light.kerstboom

@@ -77,6 +77,8 @@ lights:
     - light.h_outdoor_3
     - light.h_outdoor_4
     - light.h_outdoor_5
+    - light.h_outdoor_6
+    - light.h_outdoor_7
     - light.h_schemerlamp
     - light.h_staande_lamp
     - light.h_tv_lamp
@@ -108,6 +110,8 @@ outdoor_lights:
     - light.h_outdoor_3
     - light.h_outdoor_4
     - light.h_outdoor_5
+    - light.h_outdoor_6
+    - light.h_outdoor_7
 doors:
   name: Deuren/ramen
   entities:
