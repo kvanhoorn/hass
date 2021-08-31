@@ -94,14 +94,10 @@ lights:
     - light.h_zolder_hoog_muur
     - light.h_zolder_laag_deur
     - light.h_zolder_laag_muur
-    - light.kerstboom
     - light.plafondlamp
-    - light.bureaulamp
     - light.hal_led_bak
     - light.zolder_bank
     - light.zolder_scherm
-    - switch.shelly_carport
-    - switch.shelly_fermentation_chamber
 outdoor_lights:
   name: Buitenlichten
   entities:
