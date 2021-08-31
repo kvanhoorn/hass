@@ -14,6 +14,11 @@
       above: 22.0
       for:
         minutes: 15
+    - platform: state
+      entity_id:
+        - binary_sensor.shelly_door_bedroom_door_window
+        - binary_sensor.shelly_door_office_door_window
+      to: 'on'
   condition:
     condition: and
     conditions:
@@ -24,10 +29,10 @@
         conditions:
         - condition: numeric_state
           entity_id: sensor.hm_backyard_temperature
-          above: 22.0
+          above: 16.0
         - condition: numeric_state
           entity_id: sensor.dark_sky_daytime_high_temperature_0d
-          above: 22.0
+          above: 16.0
       - condition: or
         conditions:
         - condition: and
