@@ -1,0 +1,58 @@
+{
+    "version": 1,
+    "key": "lovelace_resources",
+    "data": {
+        "items": [
+            {
+                "id": "ed3d4a1ae59f413393f557b7a99f779c",
+                "type": "module",
+                "url": "/local/js/group-card.js"
+            },
+            {
+                "id": "9f77ead176a54d85ad1b393227058952",
+                "type": "module",
+                "url": "/local/js/button-card.js"
+            },
+            {
+                "id": "a8c2f6f21e734a26aaa5c3e8c90b0db6",
+                "type": "module",
+                "url": "/local/js/bignumber-card.js"
+            },
+            {
+                "id": "3b9f19a9cbd2414fa43de6dad40c4420",
+                "type": "module",
+                "url": "/local/js/entity-attributes-card.js"
+            },
+            {
+                "id": "90fe3f13ca504487acc8b1ca4b0543b6",
+                "type": "module",
+                "url": "/local/js/mini-media-player-bundle.js"
+            },
+            {
+                "id": "75f4b5dc64d04851b4b52bac6d270785",
+                "type": "module",
+                "url": "/local/js/mini-graph-card-bundle.js"
+            },
+            {
+                "id": "1945b34e8dd8496597da720ec63a4005",
+                "type": "module",
+                "url": "/local/js/tracker-card.js?track=true"
+            },
+            {
+                "id": "9d58bf1b61ef4c23ad41f461b27b9362",
+                "type": "module",
+                "url": "/local/js/simple-thermostat.js?v=1"
+            },
+            {
+                "url": "/local/js/vacuum-card.js",
+                "type": "module",
+                "id": "7e9248678c4e422b80b055e3c69939fc"
+            },
+            {
+                "url": "/local/js/time-picker-card.js",
+                "type": "module",
+                "id": "6bc1058413e04066ab3ee06ff6eb9f7f"
+            }
+        ]
+    }
+}

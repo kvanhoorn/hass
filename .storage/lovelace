@@ -680,31 +680,13 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "binary_sensor.shellyplug_s_b4b613_overheating"
+                                    "entity": "switch.shelly_carport"
                                 },
                                 {
-                                    "entity": "binary_sensor.shellyplug_s_b4b613_overpowering"
+                                    "entity": "switch.shelly_fermentation_chamber"
                                 },
                                 {
-                                    "entity": "sensor.shellyplug_s_b4b613_energy"
-                                },
-                                {
-                                    "entity": "sensor.shellyplug_s_b4b613_power"
-                                },
-                                {
-                                    "entity": "switch.shellyplug_s_b4b613"
-                                },
-                                {
-                                    "entity": "binary_sensor.shellydw2_483fda824810_door"
-                                },
-                                {
-                                    "entity": "sensor.shellydw2_483fda824810_battery"
-                                },
-                                {
-                                    "entity": "sensor.shellydw2_483fda824810_luminosity"
-                                },
-                                {
-                                    "entity": "sensor.shellydw2_483fda824810_temperature"
+                                    "entity": "switch.shelly_warmwater_tank"
                                 }
                             ]
                         }
@@ -1921,21 +1903,6 @@
                             "type": "history-graph"
                         },
                         {
-                            "filter": {
-                                "include": [
-                                    "sensor.untappd_last_check_in_kvanhoorn.brewery",
-                                    "sensor.untappd_last_check_in_kvanhoorn.beer",
-                                    "sensor.untappd_last_check_in_kvanhoorn.abv",
-                                    "sensor.untappd_last_check_in_kvanhoorn.total_beers",
-                                    "sensor.untappd_last_check_in_kvanhoorn.score"
-                                ]
-                            },
-                            "heading_name": "key",
-                            "heading_state": "value",
-                            "title": "Untappd",
-                            "type": "custom:entity-attributes-card"
-                        },
-                        {
                             "title": null,
                             "trackers": [
                                 "sensor.custom_card_tracker",
@@ -2218,6 +2185,76 @@
                     "theme": "",
                     "badges": [],
                     "cards": [
+                        {
+                            "type": "custom:time-picker-card",
+                            "entity": "input_datetime.warmwater_time",
+                            "hour_mode": 24,
+                            "hour_step": 1,
+                            "minute_step": 5,
+                            "second_step": 5,
+                            "name": "",
+                            "layout": {
+                                "embedded": true,
+                                "name": "inside"
+                            },
+                            "hide": {
+                                "name": false
+                            }
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.shelly_warmwater_tank",
+                                    "name": "Status",
+                                    "secondary_info": "last-changed"
+                                },
+                                {
+                                    "entity": "sensor.shelly_warmwater_tank_current_consumption",
+                                    "name": "Huidig verbruik"
+                                },
+                                {
+                                    "entity": "sensor.shelly_warmwater_tank_total_consumption",
+                                    "name": "Totaal verbruikt"
+                                }
+                            ],
+                            "title": "Warmwater tank"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.shelly_fermentation_chamber",
+                                    "name": "Status",
+                                    "secondary_info": "last-updated"
+                                },
+                                {
+                                    "entity": "sensor.shelly_fermentation_chamber_current_consumption",
+                                    "name": "Huidig verbruik"
+                                },
+                                {
+                                    "entity": "sensor.shelly_fermentation_chamber_total_consumption",
+                                    "name": "Totaal verbruikt"
+                                }
+                            ],
+                            "title": "Vergistingskamer"
+                        },
+                        {
+                            "filter": {
+                                "include": [
+                                    "sensor.untappd_last_check_in_kvanhoorn.brewery",
+                                    "sensor.untappd_last_check_in_kvanhoorn.beer",
+                                    "sensor.untappd_last_check_in_kvanhoorn.abv",
+                                    "sensor.untappd_last_check_in_kvanhoorn.total_beers",
+                                    "sensor.untappd_last_check_in_kvanhoorn.score"
+                                ]
+                            },
+                            "heading_name": "key",
+                            "heading_state": "value",
+                            "title": "Untappd",
+                            "type": "custom:entity-attributes-card",
+                            "entity": "vacuum.xiaomi_vacuum_cleaner"
+                        },
                         {
                             "type": "entities",
                             "entities": [

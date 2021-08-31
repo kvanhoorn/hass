@@ -5,39 +5,56 @@ devices:
   - id: "483FDA824810"
     name: "Voordeur"
     entity_id: door_frontdoor
+    # host_ip: 192.168.0.189 # ShellyDoor1
   - id: "483FDA824772"
     name: "Woonkamerdeur"
     entity_id: door_livingroom
+    # host_ip: 192.168.0.197 # ShellyDoor6
   - id: "483FDA81F912"
     name: "Keukendeur"
     entity_id: door_kitchen
+    # host_ip: 192.168.0.200 # ShellyDoor8
   - id: "483FDA82476F"
     name: "Schuurdeur"
     entity_id: door_shed
+    # host_ip: 192.168.0.195 # ShellyDoor4
   - id: "483FDA81FAEF"
     name: "Garagedeur"
     entity_id: door_garage
+    # host_ip: 192.168.0.196 # ShellyDoor5
   - id: "483FDA8207B6"
     name: "Raam kantoor"
     entity_id: window_office
+    # host_ip: 192.168.0.190 # ShellyDoor2
   - id: "483FDA824776"
     name: "Raam slaapkamer"
     entity_id: window_bedroom
+    # host_ip: 192.168.0.193 # ShellyDoor3
   - id: "483FDA8247E5"
     name: "Raam Emma"
     entity_id: window_emma
+    # host_ip: 192.168.0.199 # ShellyDoor7
   - id: "40F5202DF37B"
     name: "Deur kantoor"
     entity_id: door_office
+    # host_ip: 192.168.0.209 # ShellyDoor9
   - id: "40F5202E3E9E"
     name: "Deur slaapkamer"
     entity_id: door_bedroom
+    # host_ip: 192.168.0.211 # ShellyDoor10
   - id: "40F5202D9F55"
     name: "Deur Emma"
     entity_id: door_emma
+    # host_ip: 192.168.0.213 # ShellyDoor11
   - id: "B4B613"
     name: "Carport"
     entity_id: carport
+    # host_ip: 192.168.0.180 # ShellyPlugS1
   - id: "20E155"
     name: "Vergistingskast"
     entity_id: fermentation_chamber
+    # host_ip: 192.168.0.188 # ShellyPlugS4
+  - id: "b578e1"
+    name: "Warmwaterketel"
+    entity_id: warmwater_tank
+    # host_ip: 192.168.0.187 # ShellyPlugS3

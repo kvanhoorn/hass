@@ -1,0 +1,14 @@
+---
+# turn on warmwater
+- alias: turn on warmwatertank
+  trigger:
+    - platform: template
+      value_template: "{{ states('sensor.time') == states('input_datetime.warmwater_time')[0:5] }}"
+  condition:
+    - condition: state
+      entity_id: switch.shelly_warmwater_tank
+      state: 'off'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.shelly_warmwater_tank
+
