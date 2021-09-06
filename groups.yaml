@@ -477,6 +477,7 @@ birthday_collection:
     - sensor.verjaardag_kim
     - sensor.verjaardag_emma
     - sensor.verjaardag_vera
+    - sensor.verjaardag_jens
     - sensor.jubileum_trouwdag_kevin_en_willemijn
     - sensor.jubileum_trouwdag_wouter_en_bertie
     - sensor.jubileum_trouwdag_adri_en_anniek
