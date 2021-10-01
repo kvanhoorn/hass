@@ -1,6 +1,6 @@
 {
-  "domain": "ovapi",
-  "name": "OV API",
+  "domain": "feedparser",
+  "name": "Feedparser",
   "documentation": "https://github.com/kvanhoorn/hass",
   "dependencies": [],
   "codeowners": [],

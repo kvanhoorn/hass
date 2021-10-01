@@ -1,6 +1,6 @@
 {
-  "domain": "ovapi",
-  "name": "OV API",
+  "domain": "postcodeloterij",
+  "name": "Postcodeloterij",
   "documentation": "https://github.com/kvanhoorn/hass",
   "dependencies": [],
   "codeowners": [],

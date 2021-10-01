@@ -415,15 +415,15 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.trash_gft",
+                                    "entity": "sensor.afvalwijzer_gft",
                                     "name": "GFT afval"
                                 },
                                 {
-                                    "entity": "sensor.trash_restafval",
+                                    "entity": "sensor.afvalwijzer_restafval",
                                     "name": "Restafval"
                                 },
                                 {
-                                    "entity": "sensor.trash_papier",
+                                    "entity": "sensor.afvalwijzer_papier",
                                     "name": "Papier/karton"
                                 }
                             ],
@@ -561,7 +561,7 @@
                         },
                         {
                             "type": "custom:vacuum-card",
-                            "entity": "vacuum.xiaomi_vacuum_cleaner",
+                            "entity": "vacuum.roborock_s5_max",
                             "stats": {
                                 "default": [
                                     {
@@ -1164,36 +1164,12 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "media_player.plex_plex_for_ios_kevin_ipad_air",
-                                    "name": "Kevin iPad"
+                                    "entity": "media_player.plex_plex_for_apple_tv_atv_living_room_4k",
+                                    "name": "Apple TV Living Room"
                                 },
                                 {
-                                    "entity": "media_player.plex_plex_for_ios_kevin_iphone_xr",
+                                    "entity": "media_player.plex_plex_for_ios_kevin_iphone_12_pro_max",
                                     "name": "Kevin iPhone"
-                                },
-                                {
-                                    "entity": "media_player.plex_plex_media_player_macbook_pro",
-                                    "name": "Kevin MacBook"
-                                },
-                                {
-                                    "entity": "media_player.plex_plex_for_ios_ipad_van_willemijn",
-                                    "name": "Willemijn iPad"
-                                },
-                                {
-                                    "entity": "media_player.plex_plex_for_ios_iphone_van_willemijn_vink",
-                                    "name": "Willemijn iPhone"
-                                },
-                                {
-                                    "entity": "media_player.plex_plex_media_player_willemijn_macbook_air",
-                                    "name": "Willemijn MacBook"
-                                },
-                                {
-                                    "entity": "media_player.plex_plex_for_apple_tv_atv_living_room",
-                                    "name": "Apple TV Woonkamer"
-                                },
-                                {
-                                    "entity": "media_player.plex_plex_for_apple_tv_atv_bedroom",
-                                    "name": "Apple TV Slaapkamer"
                                 }
                             ],
                             "title": "Plex Media Players",
@@ -1760,7 +1736,7 @@
                                     "entity": "sensor.kevin_iphone_4s_battery_state"
                                 },
                                 {
-                                    "entity": "sensor.kevin_iphone_xr_battery_state"
+                                    "entity": "sensor.kevin_iphone_12_pro_max_battery_state"
                                 },
                                 {
                                     "entity": "sensor.iphone_van_willemijn_vink_battery_state"

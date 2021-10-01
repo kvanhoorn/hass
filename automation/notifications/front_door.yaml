@@ -53,7 +53,7 @@
       event_type: nest_event
       event_data:
         device_id: !secret nest_cam_outdoor_id
-        type: camera_motion
+        type: person_detected
   action:
     - service: notify.pushover
       data_template:

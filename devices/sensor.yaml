@@ -1,11 +1,5 @@
 ---
-- platform: huesensor
 - platform: moon
-# - platform: fitbit
-#   monitored_resources:
-#     - activities/distance
-#     - activities/heart
-#     - activities/steps
 - platform: time_date
   display_options:
     - 'time'
@@ -29,14 +23,14 @@
     - type: memory_free
     - type: load_5m
     - type: network_in
-      arg: eth0
+      arg: enxb827eb3598e4
     - type: network_out
-      arg: eth0
+      arg: enxb827eb3598e4
     - type: processor_use
     - type: last_boot
 - platform: command_line
   name: Internal IP LAN
-  command: "ip addr show eth0 | grep -Po 'inet \\K[\\d.]+'"
+  command: "ip addr show enxb827eb3598e4 | grep -Po 'inet \\K[\\d.]+'"
 - platform: command_line
   name: External IP
   command: "/usr/bin/curl kvanhoorn.nl/myip/"
@@ -84,10 +78,10 @@
       friendly_name: 'Kantoor'
       unit_of_measurement: '°C'
       icon_template: 'mdi:thermometer'
-      value_template: "{{ states.sensor.tfa_ts34c_cresta_39_0e_temperature.state }}"
+      value_template: "{{ states.sensor.tfa_ts34c_cresta_3e_0e_temperature.state }}"
       attribute_templates:
-        humidity: "{{ states.sensor.tfa_ts34c_cresta_39_0e_humidity.state }}"
-        battery: "{{ states.sensor.tfa_ts34c_cresta_39_0e_battery_numeric.state }}"
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_3e_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_3e_0e_battery_numeric.state }}"
     temperatuur_slaapkamer:
       friendly_name: 'Slaapkamer'
       unit_of_measurement: '°C'
@@ -285,6 +279,12 @@
 - platform: postcodeloterij
   postcode: !secret postcode
 - platform: afvalwijzer
-  zipcode: !secret postcode
-  housenumber: !secret housenumber
-  count_today: true
+  provider: mijnafvalwijzer
+  postal_code: !secret postcode
+  street_number: !secret housenumber
+  include_date_today: true
+- platform: p2000
+  scan_interval: 10
+  name: P2000 Eindhoven
+  regios: 22
+  radius: 2000

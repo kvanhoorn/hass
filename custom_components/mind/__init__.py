@@ -1,4 +1,3 @@
-
 """
 Support for Mind Mobility connected cars.
 
@@ -15,11 +14,6 @@ from homeassistant.const import (
 from homeassistant.helpers import discovery
 
 _LOGGER = logging.getLogger(__name__)
-
-REQUIREMENTS = [
-    'https://github.com/bramkragten/python-mind'
-    '/archive/master.zip'
-    '#python-mind==0.0.5']
 
 CONF_CLIENT_ID = 'client_id'
 CONF_CLIENT_SECRET = 'client_secret'

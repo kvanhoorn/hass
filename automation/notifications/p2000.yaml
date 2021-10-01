@@ -1,13 +1,13 @@
 ---
 - alias: P2000 Notify
   trigger:
-    platform: event
-    event_type: p2000
+    platform: state
+    entity_id: sensor.p2000_eindhoven
   action:
     - service_template: notify.pushover
       data_template:
-        title: "P2000"
-        message: "{{ trigger.event.data.text }}"
-        target: "kevin-iphone"
+        title: "P2000 bericht"
+        message: "{{ states.sensor.p2000.state + states.sensor.p2000.attributes.capcodes }}"
         data:
           priority: 0
+          url: "https://www.google.com/maps/search/?api=1&query={{ states.sensor.p2000.attributes.latitude }},{{ states.sensor.p2000.attribues.longitude }}"

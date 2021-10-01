@@ -13,3 +13,4 @@ set_sensor_value_manually:
   headers:
     content-type: application/json
   payload: '{"state": "{{state_to_set}}", "{{extra_key}}": "{{extra_value}}"}'
+

@@ -1,14 +1,27 @@
 ---
-- alias: Afval notificatie
+- alias: Afval notificatie morgen
   trigger:
     - platform: time
       at: '20:00:00'
   condition:
     - condition: template
-      value_template: "{{ not is_state('sensor.trash_tomorrow', 'None') }}"
+      value_template: "{{ not is_state('sensor.afvalwijzer_tomorrow', 'Geen') }}"
   action:
     - service: notify.pushover
       data_template:
         title: "Afval"
         message: "Morgen: {{ states.sensor.trash_tomorrow.state }}"
+
+- alias: Afval notificatie vandaag
+  trigger:
+    - platform: time
+      at: '08:00:00'
+  condition:
+    - condition: template
+      value_template: "{{ not is_state('sensor.afvalwijzer_today', 'Geen') }}"
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Afval"
+        message: "Vandaag: {{ states.sensor.trash_today.state }}"
 

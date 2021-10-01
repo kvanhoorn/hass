@@ -15,6 +15,7 @@ from homeassistant.util import Throttle
 from homeassistant.helpers.entity import Entity
 import homeassistant.helpers.config_validation as cv
 from homeassistant.components.switch import (PLATFORM_SCHEMA)
+from homeassistant.components.sensor import SensorEntity
 
 __version__ = '0.1.0'
 _LOGGER = logging.getLogger(__name__)
@@ -25,6 +26,7 @@ CONF_NAME = 'name'
 CONF_TITLE_ATTR = 'title_attritube'
 CONF_URL = 'url'
 CONF_ATTRIBUTES = 'attributes'
+DOMAIN = 'feedparser'
 
 MIN_TIME_BETWEEN_UPDATES = timedelta(minutes=30)
 ICON = 'mdi:rss'
