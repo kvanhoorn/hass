@@ -10,7 +10,7 @@
     - service: notify.pushover
       data_template:
         title: "Afval"
-        message: "Morgen: {{ states.sensor.trash_tomorrow.state }}"
+        message: "Morgen: {{ states.sensor.afvalwijzer_tomorrow.state }}"
 
 - alias: Afval notificatie vandaag
   trigger:
@@ -23,5 +23,5 @@
     - service: notify.pushover
       data_template:
         title: "Afval"
-        message: "Vandaag: {{ states.sensor.trash_today.state }}"
+        message: "Vandaag: {{ states.sensor.afvalwijzer_today.state }}"
 
