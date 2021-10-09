@@ -18,13 +18,14 @@
       data:
         group_name: "Achtertuin"
         scene_name: "DOM_outdoor_evening"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Voortuin"
+        scene_name: "DOM_evening"
     - service: light.turn_on
       entity_id:
         - light.hal_led_bak
         - light.kerstboom
-    - service: switch.turn_on
-      entity_id:
-        - switch.shelly_carport
 
 - alias: 'timer_evening_goodnight'
   trigger:
@@ -59,5 +60,36 @@
     event: sunrise
     offset: '01:00:00'
   action:
-    - service: switch.turn_off
-      entity_id: switch.shelly_carport
+    - service: light.turn_off
+      entity_id: light.h_carport
+
+- alias: 'night_mode_carport_soft'
+  trigger:
+    platform: state
+    entity_id: input_boolean.is_it_night
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: light.h_carport
+      state: 'on'
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Voortuin"
+        scene_name: "DOM_night"
+
+- alias: 'day_mode_carport_hard'
+  trigger:
+    platform: state
+    entity_id: input_boolean.is_it_night
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: light.h_carport
+      state: 'on'
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Voortuin"
+        scene_name: "DOM_evening"
+

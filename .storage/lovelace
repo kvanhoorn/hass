@@ -680,9 +680,6 @@
                             "type": "entities",
                             "entities": [
                                 {
-                                    "entity": "switch.shelly_carport"
-                                },
-                                {
                                     "entity": "switch.shelly_fermentation_chamber"
                                 },
                                 {

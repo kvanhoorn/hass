@@ -47,6 +47,31 @@
     - service: input_boolean.turn_off
       entity_id: input_boolean.tts_test
 
+- alias: Front door motion carport light
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.front_door_motion
+      to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: input_boolean.is_it_night
+        state: 'on'
+      - condition: state
+        entity_id: light.h_carport
+        state: 'on'
+  action:
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Voortuin"
+        scene_name: "DOM_evening"
+    - delay: "00:01"
+    - service: hue.hue_activate_scene
+      data:
+        group_name: "Voortuin"
+        scene_name: "DOM_night"
+
 - alias: Garage motion
   trigger:
     - platform: event

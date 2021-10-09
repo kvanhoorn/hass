@@ -79,6 +79,7 @@ lights:
     - light.h_outdoor_5
     - light.h_outdoor_6
     - light.h_outdoor_7
+    - light.h_carport
     - light.h_schemerlamp
     - light.h_staande_lamp
     - light.h_tv_lamp
