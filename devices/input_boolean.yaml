@@ -3,6 +3,8 @@ tts_test:
   name: Test TTS
 send_ring_video:
   name: Send Ring video
+fake_doorbell:
+  name: Fake Doorbell
 control_covers:
   name: Gordijnen bedienen
 curtain_office_close:

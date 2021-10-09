@@ -669,6 +669,9 @@
                                     "entity": "input_boolean.tts_test"
                                 },
                                 {
+                                    "entity": "input_boolean.fake_doorbell"
+                                },
+                                {
                                     "entity": "input_boolean.send_ring_video"
                                 }
                             ],

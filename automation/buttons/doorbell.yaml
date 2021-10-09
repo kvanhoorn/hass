@@ -4,6 +4,9 @@
     - platform: state
       entity_id: binary_sensor.front_door_ding
       to: 'on'
+    - platform: state
+      entity_id: input_boolean.fake_doorbell
+      to: 'on'
   action:
     - service: notify.pushover
       data:
@@ -39,6 +42,8 @@
       data_template:
         sonos_entity: media_player.sonos_badkamer
         volume: "{{ states('input_number.doorbell_volume') }}"
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.fake_doorbell
     - delay: 120
     - service: notify.telegram
       data:
