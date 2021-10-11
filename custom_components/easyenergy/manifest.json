@@ -1,0 +1,10 @@
+{
+  "domain": "easyenergy",
+  "name": "Easy Energy",
+  "documentation": "https://github.com/kvanhoorn/hass",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": [],
+  "iot_class": "cloud_polling",
+  "version": "0.1.0"
+}
