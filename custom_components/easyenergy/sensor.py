@@ -1,5 +1,11 @@
 """
 Support for fetch easyenergy tarrifs
+
+Usage:
+
+sensor:
+  - platform: easyenergy
+
 """
 import os
 from logging import getLogger
