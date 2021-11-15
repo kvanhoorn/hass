@@ -1,0 +1,44 @@
+---
+- alias: Synology security update
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.vinkhoornnas01_security_status
+      to: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Security advies Synology"
+        message: "Er is security advies beschikbaar voor de Vinkhoornnas01."
+
+- alias: Synology security update complete
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.vinkhoornnas01_security_status
+      to: 'off'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Security advies Synology"
+        message: "Alle security adviezen zijn opgevolgd."
+
+- alias: Synology DSM update
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.vinkhoornnas01_update_available
+      to: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "DSM update Synology"
+        message: "Er is een DSM update voor Vinkhoornnas01: {{ states.binary_sensor.vinkhoornnas01_update_available.attributes.latest_available_version }}."
+
+- alias: Synology DSM update complete
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.vinkhoornnas01_update_available
+      to: 'off'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "DSM update Synology"
+        message: "DSM up to date, huidige versie: {{ states.binary_sensor.vinkhoornnas01_update_available.attributes.installed_version }}."
