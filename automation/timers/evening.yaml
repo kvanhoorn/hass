@@ -52,6 +52,8 @@
         - light.h_outdoor_7
         - light.h_tafel_kamer
         - light.h_tafel_raam
+        - light.h_tv_play_left
+        - light.h_tv_play_right
         - light.kerstboom
 
 - alias: 'timer_evening_carport'

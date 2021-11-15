@@ -50,6 +50,9 @@
 - alias: Front door motion carport light
   trigger:
     - platform: state
+      entity_id: binary_sensor.shelly_door_frontdoor_door_window
+      to: 'on'
+    - platform: state
       entity_id: binary_sensor.front_door_motion
       to: 'on'
   condition:

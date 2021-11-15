@@ -77,12 +77,17 @@
                                 {
                                     "type": "entity",
                                     "entity": "sensor.dark_sky_overnight_low_temperature_0d",
-                                    "name": "min vandaag"
+                                    "name": "min"
+                                },
+                                {
+                                    "type": "entity",
+                                    "entity": "sensor.dark_sky_temperature",
+                                    "name": "nu"
                                 },
                                 {
                                     "type": "entity",
                                     "entity": "sensor.dark_sky_daytime_high_temperature_0d",
-                                    "name": "max vandaag"
+                                    "name": "max"
                                 }
                             ]
                         },
@@ -1170,6 +1175,10 @@
                                 {
                                     "entity": "media_player.plex_plex_for_ios_kevin_iphone_12_pro_max",
                                     "name": "Kevin iPhone"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_media_player_macbook_pro",
+                                    "name": "Kevin MacBook Pro"
                                 }
                             ],
                             "title": "Plex Media Players",
@@ -1961,6 +1970,9 @@
                                 },
                                 {
                                     "entity": "sensor.shelly_carport_current_consumption"
+                                },
+                                {
+                                    "entity": "sensor.shelly_warmwater_tank_current_consumption"
                                 }
                             ],
                             "show_header_toggle": false,
