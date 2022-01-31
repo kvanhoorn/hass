@@ -58,3 +58,6 @@ devices:
     name: "Warmwaterketel"
     entity_id: warmwater_tank
     # host_ip: 192.168.0.187 # ShellyPlugS3
+  - id: "20e7b0"
+    name: "Autolader"
+    entity_id: carcharger
