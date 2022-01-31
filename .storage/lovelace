@@ -693,6 +693,10 @@
                                 },
                                 {
                                     "entity": "switch.shelly_warmwater_tank"
+                                },
+                                {
+                                    "entity": "switch.shelly_carport",
+                                    "name": "Buiten kerst"
                                 }
                             ]
                         }
@@ -2008,6 +2012,15 @@
                                 },
                                 {
                                     "entity": "input_number.doorbell_volume"
+                                },
+                                {
+                                    "entity": "binary_sensor.vinkhoornnas01_update_available"
+                                },
+                                {
+                                    "entity": "binary_sensor.vinkhoornnas01_security_status"
+                                },
+                                {
+                                    "entity": "sensor.front_door_battery"
                                 }
                             ],
                             "type": "entities"
