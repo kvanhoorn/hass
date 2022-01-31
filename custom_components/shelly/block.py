@@ -16,6 +16,7 @@ class ShellyBlock(RestoreEntity):
     """Base class for Shelly entities"""
 
     def __init__(self, block, instance, prefix=""):
+        instance.entities.append(self)
         conf = instance.conf
         id_prefix = conf.get(CONF_OBJECT_ID_PREFIX)
         self._unique_id = slugify(id_prefix + "_" + block.type + "_" +
@@ -37,7 +38,11 @@ class ShellyBlock(RestoreEntity):
         self._is_removed = False
         self.async_on_remove(self._remove_handler)
         self._master_unit = False
-        self._settings = instance.get_settings(block.id)
+        #self._settings = instance.get_settings(block.id)
+        self.config_updated()
+
+    def config_updated(self):
+        self._settings = self.instance.get_settings(self._block.id)
 
     def _remove_handler(self):
         self._is_removed = True
@@ -68,7 +73,7 @@ class ShellyBlock(RestoreEntity):
             self._update_ha_state()
 
     @property
-    def device_state_attributes(self):
+    def extra_state_attributes(self):
         """Show state attributes in HASS"""
         attrs = {'shelly_type': self._block.type_name(),
                  'shelly_id': self._block.id,
@@ -98,7 +103,8 @@ class ShellyBlock(RestoreEntity):
             'name': self._block.friendly_name(),
             'manufacturer': 'Allterco',
             'model': self._block.type_name(),
-            'sw_version': self._block.fw_version()
+            'sw_version': self._block.fw_version(),
+            'configuration_url': f'http://{self._block.ip_addr}'
         }
 
     @property
