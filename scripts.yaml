@@ -70,28 +70,28 @@ clean_living_room:
   sequence:
     - service: xiaomi_miio.vacuum_clean_segment
       data:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
+        entity_id: vacuum.roborock_s5_max
         segments: 17
 clean_hallway:
   alias: "Hal schoonmaken"
   sequence:
     - service: xiaomi_miio.vacuum_clean_segment
       data:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
+        entity_id: vacuum.roborock_s5_max
         segments: 16
 clean_kitchen:
   alias: "Keuken schoonmaken"
   sequence:
     - service: xiaomi_miio.vacuum_clean_segment
       data:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
+        entity_id: vacuum.roborock_s5_max
         segments: 18
 clean_emma_chair:
   alias: "Stoel Emma schoonmaken"
   sequence:
     - service: xiaomi_miio.vacuum_clean_zone
       data:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
+        entity_id: vacuum.roborock_s5_max
         zone:
           - [25800,26500,27800,28500]
         repeats: 1
@@ -100,7 +100,7 @@ clean_upstairs:
   sequence:
     - service: xiaomi_miio.vacuum_goto
       data:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
+        entity_id: vacuum.roborock_s5_max
         x_coord: 27500
         y_coord: 23600
 empty_vacuum:
@@ -108,7 +108,7 @@ empty_vacuum:
   sequence:
     - service: xiaomi_miio.vacuum_goto
       data:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
+        entity_id: vacuum.roborock_s5_max
         x_coord: 31000
         y_coord: 24000
 gohome_vacuum:
@@ -116,7 +116,7 @@ gohome_vacuum:
   sequence:
     - service: vacuum.return_to_base
       data:
-        entity_id: vacuum.xiaomi_vacuum_cleaner
+        entity_id: vacuum.roborock_s5_max
 sonos_play_playlist:
   alias: Sonos Play playlist from favorites
   sequence:

@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace",
     "data": {
         "config": {
@@ -570,24 +571,24 @@
                             "stats": {
                                 "default": [
                                     {
-                                        "attribute": "filter_left",
+                                        "entity_id": "sensor.roborock_s5_max_filter_left_hours",
                                         "unit": "hours",
                                         "subtitle": "Filter"
                                     },
                                     {
-                                        "attribute": "side_brush_left",
+                                        "entity_id": "sensor.roborock_s5_max_main_brush_left_hours",
                                         "unit": "hours",
-                                        "subtitle": "Side brush"
+                                        "subtitle": "Hoofdborstel"
                                     },
                                     {
-                                        "attribute": "main_brush_left",
+                                        "entity_id": "sensor.roborock_s5_max_side_brush_left_hours",
                                         "unit": "hours",
-                                        "subtitle": "Main brush"
+                                        "subtitle": "Zijborstel"
                                     },
                                     {
-                                        "attribute": "sensor_dirty_left",
+                                        "entity_id": "sensor.roborock_s5_max_sensor_dirty_left_hours",
                                         "unit": "hours",
-                                        "subtitle": "Sensors"
+                                        "subtitle": "Sensoren"
                                     }
                                 ],
                                 "cleaning": [
@@ -603,7 +604,7 @@
                                     }
                                 ]
                             },
-                            "actions": [
+                            "shortcuts": [
                                 {
                                     "name": "Clean living room",
                                     "service": "script.clean_living_room",
