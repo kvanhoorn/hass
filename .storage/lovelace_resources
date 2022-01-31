@@ -1,5 +1,6 @@
 {
     "version": 1,
+    "minor_version": 1,
     "key": "lovelace_resources",
     "data": {
         "items": [
@@ -52,6 +53,11 @@
                 "url": "/local/js/time-picker-card.js",
                 "type": "module",
                 "id": "6bc1058413e04066ab3ee06ff6eb9f7f"
+            },
+            {
+                "url": "/local/js/bar-card.js",
+                "type": "module",
+                "id": "5919266116f54545ad2055c7a19f57e0"
             }
         ]
     }
