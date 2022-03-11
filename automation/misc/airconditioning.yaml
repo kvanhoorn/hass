@@ -11,7 +11,7 @@
         minutes: 10
     - platform: numeric_state
       entity_id: sensor.hm_backyard_temperature
-      above: 22.0
+      above: 21.0
       for:
         minutes: 15
     - platform: state
@@ -29,10 +29,10 @@
         conditions:
         - condition: numeric_state
           entity_id: sensor.hm_backyard_temperature
-          above: 16.0
+          above: 20.0
         - condition: numeric_state
           entity_id: sensor.dark_sky_daytime_high_temperature_0d
-          above: 16.0
+          above: 20.0
       - condition: or
         conditions:
         - condition: and
