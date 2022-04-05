@@ -12,7 +12,7 @@
   action:
     - service: climate.set_preset_mode
       data:
-        entity_id: climate.woonkamer
+        entity_id: climate.anna
         preset_mode: 'home'
 
 # morning has broken and it is weekend and we are home etc.
@@ -30,7 +30,7 @@
   action:
     - service: climate.set_preset_mode
       data:
-        entity_id: climate.woonkamer
+        entity_id: climate.anna
         preset_mode: 'home'
 
 # night is coming, turn off
@@ -42,7 +42,7 @@
   action:
     - service: climate.set_preset_mode
       data:
-        entity_id: climate.woonkamer
+        entity_id: climate.anna
         preset_mode: 'asleep'
 
 # last one is leaving, turn off
@@ -54,6 +54,6 @@
   action:
     - service: climate.set_preset_mode
       data:
-        entity_id: climate.woonkamer
+        entity_id: climate.anna
         preset_mode: 'away'
 

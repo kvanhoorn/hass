@@ -143,7 +143,7 @@
                                     "vacation": false
                                 }
                             },
-                            "entity": "climate.woonkamer",
+                            "entity": "climate.anna",
                             "name": "Woonkamer",
                             "sensors": [
                                 {
@@ -421,12 +421,20 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.afvalwijzer_gft",
-                                    "name": "GFT afval"
-                                },
-                                {
                                     "entity": "sensor.afvalwijzer_restafval",
                                     "name": "Restafval"
+                                },
+                                {
+                                    "entity": "sensor.cleanprofs_date_1",
+                                    "name": "Reiniging Restafval"
+                                },
+                                {
+                                    "entity": "sensor.cleanprofs_date_2",
+                                    "name": "Volgende reiniging"
+                                },
+                                {
+                                    "entity": "sensor.afvalwijzer_gft",
+                                    "name": "GFT afval"
                                 },
                                 {
                                     "entity": "sensor.afvalwijzer_papier",
@@ -636,7 +644,7 @@
                                     "icon": "mdi:trash-can"
                                 }
                             ],
-                            "show_name": false,
+                            "show_name": true,
                             "show_status": true,
                             "show_toolbar": true
                         }
@@ -1331,35 +1339,17 @@
                             "type": "custom:group-card"
                         },
                         {
-                            "type": "entities",
-                            "entities": [
-                                {
-                                    "entity": "switch.shelly_carcharger"
-                                },
-                                {
-                                    "entity": "sensor.shelly_carcharger_current_consumption"
-                                },
-                                {
-                                    "entity": "sensor.shelly_carcharger_device_temp"
-                                },
-                                {
-                                    "entity": "sensor.shelly_carcharger_total_consumption"
-                                }
-                            ],
-                            "title": "(tijdelijke) Autolader"
-                        },
-                        {
                             "type": "vertical-stack",
                             "cards": [
                                 {
                                     "type": "glance",
                                     "entities": [
                                         {
-                                            "entity": "sensor.apk_expiration_2",
+                                            "entity": "sensor.apk_expiration",
                                             "name": "APK Tesla Model 3"
                                         },
                                         {
-                                            "entity": "sensor.apk_expiration_3",
+                                            "entity": "sensor.apk_expiration_2",
                                             "name": "APK Kia Picanto"
                                         }
                                     ]
@@ -1368,11 +1358,11 @@
                                     "type": "glance",
                                     "entities": [
                                         {
-                                            "entity": "binary_sensor.pending_recall_2",
+                                            "entity": "binary_sensor.pending_recall",
                                             "name": "Tesla recall"
                                         },
                                         {
-                                            "entity": "binary_sensor.pending_recall_3",
+                                            "entity": "binary_sensor.pending_recall_2",
                                             "name": "Kia recall"
                                         }
                                     ]
@@ -1915,7 +1905,7 @@
                                     "entity": "sensor.iphone_van_willemijn_vink_battery_state"
                                 },
                                 {
-                                    "entity": "sensor.kevin_apple_watch_4_battery_state"
+                                    "entity": "sensor.kevin_apple_watch_7_titan_battery_state"
                                 },
                                 {
                                     "entity": "sensor.apple_watch_van_willemijn_battery_state"
@@ -1993,13 +1983,10 @@
                                     "entity": "sensor.database_size"
                                 },
                                 {
-                                    "entity": "sensor.network_in_eth0"
+                                    "entity": "sensor.network_in_enxb827eb3598e4"
                                 },
                                 {
-                                    "entity": "sensor.network_out_eth0"
-                                },
-                                {
-                                    "entity": "sensor.speedtest_ping"
+                                    "entity": "sensor.network_out_enxb827eb3598e4"
                                 },
                                 {
                                     "entity": "sensor.current_version"
@@ -2038,8 +2025,9 @@
                                 "sensor.power_consumption_phase_l2",
                                 "sensor.power_consumption_phase_l3"
                             ],
-                            "hours_to_show": 8,
-                            "type": "history-graph"
+                            "type": "history-graph",
+                            "refresh_interval": 0,
+                            "hours_to_show": 8
                         },
                         {
                             "entities": [

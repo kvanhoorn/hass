@@ -133,7 +133,7 @@
       icon_template: 'mdi:water'
       value_template: "{{ states.sensor.imagintronix_00_02_humidity.state }}"
     livingroom_temperature:
-      value_template: "{{states.climate.woonkamer.attributes.current_temperature}}"
+      value_template: "{{states.climate.anna.attributes.current_temperature}}"
       friendly_name: 'Woonkamer'
       unit_of_measurement: '°C'
     car_address:
@@ -172,7 +172,7 @@
       icon_template: 'mdi:temperature-celsius'
       unit_of_measurement: '°C'
       value_template: >
-        {{ (states.climate.woonkamer.attributes.current_temperature | float -
+        {{ (states.climate.anna.attributes.current_temperature | float -
         states.sensor.temperatuur_buiten.state | float) |
         float | round(2) }}
     untappd_full_checkin:

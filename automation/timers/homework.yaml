@@ -46,7 +46,7 @@
   action:
     - service: climate.set_preset_mode
       data:
-        entity_id: climate.woonkamer
+        entity_id: climate.anna
         preset_mode: 'home'
 
 - alias: Work from home reset
