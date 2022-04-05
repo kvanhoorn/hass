@@ -308,3 +308,9 @@
   name: P2000 Eindhoven
   regios: 22
   radius: 2000
+- platform: easyenergy
+- platform: easyenergy
+  timedelta: 1
+- platform: cleanprofs
+  postalcode: !secret postcode
+  housenumber: !secret housenumber

@@ -1,0 +1,10 @@
+{
+  "domain": "cleanprofs",
+  "name": "Cleanprofs",
+  "documentation": "TBD",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": ["requests", "lxml"],
+  "iot_class": "remote_polling",
+  "version": "0.1.0"
+}
