@@ -1,0 +1,3 @@
+secrets.yaml
+custom_components.disabled
+.storage/core.*
