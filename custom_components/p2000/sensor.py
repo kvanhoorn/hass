@@ -29,7 +29,7 @@ _LOGGER = logging.getLogger(__name__)
 
 BASE_URL = "http://p2000.brandweer-berkel-enschot.nl/homeassistant/rss.asp"
 
-DEFAULT_INTERVAL = datetime.timedelta(seconds=10)
+DEFAULT_INTERVAL = datetime.timedelta(seconds=120)
 DATA_UPDATED = "p2000_data_updated"
 
 CONF_REGIOS = "regios"
