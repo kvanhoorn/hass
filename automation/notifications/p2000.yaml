@@ -7,7 +7,6 @@
     - service_template: notify.pushover
       data_template:
         title: "P2000 bericht"
-        message: "{{ states.sensor.p2000.state + states.sensor.p2000.attributes.capcodes }}"
+        message: "{{ states.sensor.p2000.state + states.sensor.p2000.attributes.capcode }}"
         data:
           priority: 0
-          url: "https://www.google.com/maps/search/?api=1&query={{ states.sensor.p2000.attributes.latitude }},{{ states.sensor.p2000.attribues.longitude }}"
