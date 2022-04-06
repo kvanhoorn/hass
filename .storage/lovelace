@@ -1366,6 +1366,19 @@
                                             "name": "Kia recall"
                                         }
                                     ]
+                                },
+                                {
+                                    "type": "glance",
+                                    "entities": [
+                                        {
+                                            "entity": "binary_sensor.liability_insured",
+                                            "name": "Tesla verzekering"
+                                        },
+                                        {
+                                            "entity": "binary_sensor.liability_insured_2",
+                                            "name": "Kia verzekering"
+                                        }
+                                    ]
                                 }
                             ]
                         },
