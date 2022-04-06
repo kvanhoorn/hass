@@ -25,3 +25,28 @@
         title: "Afval"
         message: "Vandaag: {{ states.sensor.afvalwijzer_today.state }}"
 
+- alias: Schoonmaak container restafval morgen
+  trigger:
+    - platform: time
+      at: '20:00:00'
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.cleanprofs_date_1') == (now() + timedelta(days=1)).strftime('%d-%m-%Y') }}"
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Container schoonmaak"
+        message: "Morgen wordt de restafval container schoongemaakt, buiten laten staan tot 19:00."
+
+- alias: Schoonmaak container restafval vandaag
+  trigger:
+    - platform: time
+      at: '08:00:00'
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.cleanprofs_date_1') == now().strftime('%d-%m-%Y') }}"
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Container schoonmaak"
+        message: "Vandaag wordt de restafval container schoongemaakt, buiten laten staan tot 19:00."
