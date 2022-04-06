@@ -14,3 +14,20 @@ sensor:
     postalcode: 1234AB
     housenumber: 12
 ```
+
+You could use the following in automations:
+
+```yaml
+- alias: Clean container tomorrow
+  trigger:
+    - platform: time
+      at: '20:00:00'
+  condition:
+    - condition: template
+      value_template: "{{ states('sensor.cleanprofs_date_1') == (now() + timedelta(days=1)).strftime('%d-%m-%Y') }}"
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Container cleaning"
+        message: "Tomorrow the container will be cleaned, leave outside until 19:00."
+```
