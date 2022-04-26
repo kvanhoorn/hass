@@ -1,0 +1,15 @@
+---
+- alias: turntable hue light
+  trigger:
+    - platform: state
+      entity_id: media_player.sonos_woonkamer
+  condition:
+    - condition: template
+      value_template: "{{ states.media_player.sonos_woonkamer.attributes.source == 'Line-in' }}"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: light.h_tv_play_right
+      data:
+        brightness: 255
+        color_temp: 471
