@@ -5,7 +5,7 @@
       entity_id:
         - binary_sensor.liability_insured
         - binary_sensor.liability_insured_2
-      to: 'on'
+      to: 'off'
   action:
     - service: notify.pushover
       data_template:
@@ -15,12 +15,12 @@
 - alias: APK upcoming Tesla
   trigger:
     - platform: time
-      at: 20:00
-  conditions:
+      at: '20:00:00'
+  condition:
     - condition: numeric_state
       entity_id: sensor.apk_expiration
       below: 1
-      value_template: "{{ (as_timestamp(states.sensor.apk_expiration.state) - (as_timestamp(now() + timedelta(days=532)))) / (3600 * 24) }}"
+      value_template: "{{ (as_timestamp(states.sensor.apk_expiration.state) - (as_timestamp(now() + timedelta(days=30)))) / (3600 * 24) }}"
   action:
     - service: notify.pushover
       data_template:
@@ -30,8 +30,8 @@
 - alias: APK upcoming Kia
   trigger:
     - platform: time
-      at: 20:00
-  conditions:
+      at: '20:00:00'
+  condition:
     - condition: numeric_state
       entity_id: sensor.apk_expiration_2
       below: 1
