@@ -154,7 +154,7 @@
       unit_of_measurement: '°C'
       value_template: >
         {{ (states.sensor.temperatuur_slaapkamer.state | float -
-        states.sensor.temperatuur_buiten.state | float) |
+        states.sensor.hm_backyard_temperature.state | float) |
         float | round(2) }}
     living_vs_outside_temperature:
       friendly_name: 'Woonkamer vs buiten temperatuur'
@@ -162,7 +162,7 @@
       unit_of_measurement: '°C'
       value_template: >
         {{ (states.climate.anna.attributes.current_temperature | float -
-        states.sensor.temperatuur_buiten.state | float) |
+        states.sensor.hm_backyard_temperature.state | float) |
         float | round(2) }}
     untappd_full_checkin:
       friendly_name: Untappd last checkin full
