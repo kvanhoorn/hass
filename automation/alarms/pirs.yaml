@@ -88,10 +88,9 @@
     entity_id: input_boolean.is_it_night
     state: 'on'
   action:
-    service: hue.hue_activate_scene
-    data:
-      group_name: "Achtertuin"
-      scene_name: "DOM_overday"
+    service: hue.activate_scene
+    target:
+      entity_id: scene.achtertuin_dom_overday
 
 # use PIR to turn on outside
 - alias: PIR turn backyard on during dark
@@ -106,10 +105,9 @@
       entity_id: input_boolean.is_it_night
       state: 'off'
   action:
-    service: hue.hue_activate_scene
-    data:
-      group_name: "Achtertuin"
-      scene_name: "DOM_outdoor_evening"
+    service: hue.activate_scene
+    target:
+      entity_id: scene.achtertuin_dom_outdoor_evening
 
 # use PIR to turn off outside
 - alias: PIR turn backyard off during nightalarm

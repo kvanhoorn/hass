@@ -16,10 +16,9 @@
         - thu
         - fri
   action:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Woonkamer"
-        scene_name: "DOM_morning"
+    - service: hue.activate_scene
+      target:
+        entity_id: scene.woonkamer_dom_morning
     - service: light.turn_on
       entity_id: light.hal_led_bak
 

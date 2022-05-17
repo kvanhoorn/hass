@@ -11,10 +11,9 @@
     entity_id: binary_sensor.ac_0b5468a_11
     state: 'on'
   action:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Zitkamer"
-        scene_name: "DOM_evening"
+    - service: hue.activate_scene
+      target:
+        entity_id: scene.zitkamer_dom_evening
     - service: light.turn_on
       data:
         entity_id: light.kerstboom
@@ -55,10 +54,9 @@
     entity_id: binary_sensor.ac_0b5468a_12
     state: 'on'
   action:
-    service: hue.hue_activate_scene
-    data:
-      group_name: "Eettafel"
-      scene_name: "DOM_default"
+    service: hue.activate_scene
+    target:
+      entity_id: scene.eettafel_dom_default
 
 # Tafelverlichting off
 - alias: Tafelverlichting uit

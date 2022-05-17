@@ -71,15 +71,13 @@
         entity_id: light.h_carport
         state: 'on'
   action:
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Voortuin"
-        scene_name: "DOM_evening"
+    - service: hue.activate_scene
+      target:
+        entity_id: scene.voortuin_dom_evening
     - delay: "00:01"
-    - service: hue.hue_activate_scene
-      data:
-        group_name: "Voortuin"
-        scene_name: "DOM_night"
+    - service: hue.activate_scene
+      target:
+        entity_id: scene.voortuin_dom_night
 
 - alias: Garage motion
   trigger:
