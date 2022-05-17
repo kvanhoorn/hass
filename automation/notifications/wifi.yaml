@@ -34,3 +34,15 @@
       data_template:
         title: "Sensor wifi (kort)"
         message: "{{ trigger.event.data.old_state.attributes.friendly_name }} is terug online"
+
+- alias: visitor tracker
+  trigger:
+    - platform: state
+      entity_id:
+        - device_tracker.iphonevanbertie
+      to: 'home'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Bezoeker gedetecteerd"
+        message: "{{ state_attr(trigger.event.data.entity_id, 'friendly_name') }} gedetecteerd."
