@@ -459,7 +459,7 @@
                                     "animate": true,
                                     "entities": [
                                         {
-                                            "entity": "sensor.temperatuur_buiten",
+                                            "entity": "sensor.hm_backyard_temperature",
                                             "index": 0
                                         }
                                     ],

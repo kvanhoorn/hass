@@ -27,7 +27,7 @@
   command: "ip addr show eth0 | grep -Po 'inet \\K[\\d.]+'"
 - platform: command_line
   name: External IP
-  command: "/usr/bin/curl kvanhoorn.nl/myip/"
+  command: "/usr/bin/curl -s kvanhoorn.nl/myip/"
 - platform: command_line
   name: Database size
   command: 'ls -hl /config/home-assistant_v2.db | cut -d " " -f5'
