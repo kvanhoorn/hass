@@ -1934,7 +1934,7 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "sensor.macbook_pro_battery_state"
+                                    "entity": "sensor.kevin_macbook_pro_battery_state"
                                 },
                                 {
                                     "entity": "sensor.willemijn_macbook_air_battery_state"
@@ -1944,9 +1944,6 @@
                                 },
                                 {
                                     "entity": "sensor.ipad_van_willemijn_battery_state"
-                                },
-                                {
-                                    "entity": "sensor.kevin_iphone_4s_battery_state"
                                 },
                                 {
                                     "entity": "sensor.kevin_iphone_12_pro_max_battery_state"
@@ -2033,10 +2030,10 @@
                                     "entity": "sensor.database_size"
                                 },
                                 {
-                                    "entity": "sensor.network_in_wlan0"
+                                    "entity": "sensor.network_in_eth0"
                                 },
                                 {
-                                    "entity": "sensor.network_out_wlan0"
+                                    "entity": "sensor.network_out_eth0"
                                 },
                                 {
                                     "entity": "sensor.current_version"

@@ -97,8 +97,6 @@ lights:
     - light.h_zolder_laag_muur
     - light.plafondlamp
     - light.hal_led_bak
-    - light.zolder_bank
-    - light.zolder_scherm
 outdoor_lights:
   name: Buitenlichten
   entities:
