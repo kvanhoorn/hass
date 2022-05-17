@@ -8,25 +8,28 @@
       entity_id: input_boolean.fake_doorbell
       to: 'on'
   action:
+    - service: camera.snapshot
+      entity_id: camera.street
+      data:
+        filename: "/tmp/eventdoorbell1.jpg"
+    - service: camera.snapshot
+      entity_id: camera.frontdoor
+      data:
+        filename: "/tmp/eventdoorbell2.jpg"
     - service: notify.pushover
       data:
         title: "Deurbel"
         message: "De deurbel gaat"
         data:
           priority: -2
-          file:
-            url: !secret camera1_still
-            auth: basic
-            username: !secret camera1_username
-            password: !secret camera1_password
+          attachment: "/tmp/eventdoorbell1.jpg"
     - service: notify.pushover
       data:
         title: "Deurbel"
         message: "De deurbel gaat"
         data:
           priority: 0
-          file:
-            url: !secret camera2_still
+          attachment: "/tmp/eventdoorbell2.jpg"
     - service: notify.telegram
       data:
         message: ''

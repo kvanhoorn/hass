@@ -4,39 +4,33 @@
   display_options:
     - 'time'
     - 'date'
-- platform: dsmr
-  port: !secret dsmr_device
-  dsmr_version: 4
 - platform: command_line
   name: CPU Temperatuur
   command: "cat /sys/class/thermal/thermal_zone0/temp"
   unit_of_measurement: "C"
   value_template: '{{ value | multiply(0.001) | round(1) }}'
 - platform: uptime
-- platform: version
 - platform: systemmonitor
   resources:
     - type: disk_use_percent
-      arg: /home
-    - type: disk_use_percent
-      arg: /data
+      arg: /config
     - type: memory_free
     - type: load_5m
     - type: network_in
-      arg: enxb827eb3598e4
+      arg: eth0
     - type: network_out
-      arg: enxb827eb3598e4
+      arg: eth0
     - type: processor_use
     - type: last_boot
 - platform: command_line
   name: Internal IP LAN
-  command: "ip addr show enxb827eb3598e4 | grep -Po 'inet \\K[\\d.]+'"
+  command: "ip addr show eth0 | grep -Po 'inet \\K[\\d.]+'"
 - platform: command_line
   name: External IP
   command: "/usr/bin/curl kvanhoorn.nl/myip/"
 - platform: command_line
   name: Database size
-  command: 'ls -hl /data/home-assistant_v2.db | cut -d " " -f5'
+  command: 'ls -hl /config/home-assistant_v2.db | cut -d " " -f5'
 - platform: darksky
   api_key: 2cbc3be161a2e13481e8c56cf491c525
   forecast:
@@ -136,11 +130,6 @@
       value_template: "{{states.climate.anna.attributes.current_temperature}}"
       friendly_name: 'Woonkamer'
       unit_of_measurement: '°C'
-    car_address:
-      value_template: "{{states.device_tracker.nr767t.attributes.street}},
-        {{states.device_tracker.nr767t.attributes.city}},
-        {{states.device_tracker.nr767t.attributes.country}}"
-      friendly_name: 'Adres'
     long_time_not_seen_devices:
       friendly_name: 'Meer dan 3 dagen niet gezien'
       icon_template: 'mdi:battery'

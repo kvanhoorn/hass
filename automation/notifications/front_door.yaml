@@ -5,14 +5,17 @@
       entity_id: binary_sensor.shelly_door_frontdoor_door_window
       to: 'on'
   action:
+    - service: camera.snapshot
+      entity_id: camera.frontdoor
+      data:
+        filename: "/tmp/frontdooropens.jpg"
     - service: notify.pushover
       data:
         title: "Voordeur geopend"
         message: "De voordeur is geopend"
         data:
           priority: -2
-          file:
-            url: !secret camera2_still
+          attachment: "/tmp/frontdooropens.jpg"
     - service: notify.telegram
       data:
         message: ''
@@ -30,13 +33,16 @@
       entity_id: input_boolean.tts_test
       to: 'on'
   action:
+    - service: camera.snapshot
+      entity_id: camera.frontdoor
+      data:
+        filename: "/tmp/frontdoormotion.jpg"
     - service: notify.pushover
       data:
         title: "Persoon bij de voordeur"
         message: "Er is een persoon bij de voordeur gedetecteerd"
         data:
-          file:
-            url: !secret camera2_still
+          attachment: "/tmp/frontdoormotion.jpg"
     - service: notify.telegram
       data:
         message: ''

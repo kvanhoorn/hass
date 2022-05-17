@@ -1,9 +1,0 @@
-{ 
-  "domain": "pushover",
-  "name": "pushover",
-  "documentation": "https://home-assistant.io/components/notify.pushover/",
-  "dependencies": [],
-  "codeowners": [],
-  "requirements": ["python-pushover==0.4"],
-  "version": "0.1.0"
- }

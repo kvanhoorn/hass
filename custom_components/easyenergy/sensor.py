@@ -98,7 +98,7 @@ class EasyEnergyGasSensor(Entity):
         return self._unit
 
     @property
-    def device_state_attributes(self):
+    def extra_state_attributes(self):
        """Return the state attributes."""
        return self._attributes    
 
@@ -120,17 +120,22 @@ class EasyEnergyGasSensor(Entity):
             averageAmount = 0
             self._attributes['date'] = moment2.strftime('%Y-%m-%d')
 
-            for tariff in self.data:
-                _LOGGER.debug("Handle tariff")
-                _LOGGER.debug(tariff)
-                tariffTime = datetime.strptime(tariff['Timestamp'], "%Y-%m-%dT%H:%M:%S%z").astimezone(local_tz).strftime('%H')
-                tariffTitle = "hour%s" % str(tariffTime)
-                tariffAmount = round(tariff['TariffUsage'], self._decimals)
-                self._attributes[tariffTitle] = tariffAmount
-                averageAmount += tariff['TariffUsage']
+            if "Message" in self.data:
+                _LOGGER.warning('Received error from easyenergy API "%s"', str(self.data['Message']))
 
-            averageAmount = averageAmount / len(self.data)
-            self._state = round(averageAmount, self._decimals)
+            else:
+
+                for tariff in self.data:
+                    _LOGGER.debug("Handle tariff")
+                    _LOGGER.debug(tariff)
+                    tariffTime = datetime.strptime(tariff['Timestamp'], "%Y-%m-%dT%H:%M:%S%z").astimezone(local_tz).strftime('%H')
+                    tariffTitle = "hour%s" % str(tariffTime)
+                    tariffAmount = round(tariff['TariffUsage'], self._decimals)
+                    self._attributes[tariffTitle] = tariffAmount
+                    averageAmount += tariff['TariffUsage']
+
+                averageAmount = averageAmount / len(self.data)
+                self._state = round(averageAmount, self._decimals)
             
         except requests.exceptions.RequestException as ex:
             _LOGGER.error("Error fetching data from %s" % self._url, ex)
@@ -169,7 +174,7 @@ class EasyEnergyPowerSensor(Entity):
         return self._unit
 
     @property
-    def device_state_attributes(self):
+    def extra_state_attributes(self):
        """Return the state attributes."""
        return self._attributes    
 
@@ -191,17 +196,22 @@ class EasyEnergyPowerSensor(Entity):
             averageAmount = 0
             self._attributes['date'] = moment2.strftime('%Y-%m-%d')
 
-            for tariff in self.data:
-                _LOGGER.debug("Handle tariff")
-                _LOGGER.debug(tariff)
-                tariffTime = datetime.strptime(tariff['Timestamp'], "%Y-%m-%dT%H:%M:%S%z").astimezone(local_tz).strftime('%H')
-                tariffTitle = "hour%s" % str(tariffTime)
-                tariffAmount = round(tariff['TariffUsage'], self._decimals)
-                self._attributes[tariffTitle] = tariffAmount
-                averageAmount += tariff['TariffUsage']
+            if "Message" in self.data:
+                _LOGGER.warning('Received error from easyenergy API "%s"', str(self.data['Message']))
 
-            averageAmount = averageAmount / len(self.data)
-            self._state = round(averageAmount, self._decimals)
+            else:
+
+                for tariff in self.data:
+                    _LOGGER.debug("Handle tariff")
+                    _LOGGER.debug(tariff)
+                    tariffTime = datetime.strptime(tariff['Timestamp'], "%Y-%m-%dT%H:%M:%S%z").astimezone(local_tz).strftime('%H')
+                    tariffTitle = "hour%s" % str(tariffTime)
+                    tariffAmount = round(tariff['TariffUsage'], self._decimals)
+                    self._attributes[tariffTitle] = tariffAmount
+                    averageAmount += tariff['TariffUsage']
+
+                averageAmount = averageAmount / len(self.data)
+                self._state = round(averageAmount, self._decimals)
             
         except requests.exceptions.RequestException as ex:
             _LOGGER.error("Error fetching data from %s" % self._url, ex)

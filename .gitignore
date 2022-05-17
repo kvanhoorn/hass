@@ -1,3 +1,8 @@
 secrets.yaml
 custom_components.disabled
+home-assistant.log*
+home-assistant_v2.db*
 .storage/core.*
+.storage/homekit.*
+__pycache__/
+*.pyc

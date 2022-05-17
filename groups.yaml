@@ -202,18 +202,6 @@ smartmeter_collection:
     - sensor.voltage_swells_phase_l1
     - sensor.voltage_swells_phase_l2
     - sensor.voltage_swells_phase_l3
-car_collection:
-  name: Car
-  entities:
-    - binary_sensor.nr767t_ignition
-    - binary_sensor.nr767t_locked
-    - binary_sensor.nr767t_parking_brake
-    - device_tracker.nr767t
-    - sensor.nr767t_battery
-    - sensor.nr767t_fuel_left
-    - sensor.nr767t_mileage
-    - sensor.nr767t_mileage_left
-    - sensor.car_address
 nerd_statistics:
   name: Nerd
   entities:
@@ -300,14 +288,6 @@ sab_collection:
     - sensor.sabnzbd_monthly_total
     - sensor.sabnzbd_status
     - sensor.sabnzbd_total
-fitbit_collection:
-  name: Fitbit
-  entities:
-    - sensor.charge_2_battery
-    - sensor.distance
-    - sensor.resting_heart_rate
-    - sensor.steps
-    - sensor.tracker_steps
 yahoo_collection:
   name: Yahoo weer
   entities:

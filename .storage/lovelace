@@ -1182,16 +1182,18 @@
                         {
                             "entities": [
                                 {
-                                    "entity": "media_player.plex_plex_for_apple_tv_atv_living_room_4k",
-                                    "name": "Apple TV Living Room"
-                                },
-                                {
                                     "entity": "media_player.plex_plex_for_ios_kevin_iphone_12_pro_max",
                                     "name": "Kevin iPhone"
                                 },
                                 {
-                                    "entity": "media_player.plex_plex_media_player_macbook_pro",
+                                    "entity": "media_player.plex_plex_media_player_kevin_macbook_pro",
                                     "name": "Kevin MacBook Pro"
+                                },
+                                {
+                                    "entity": "media_player.plex_plex_for_ios_kevin_ipad_pro"
+                                },
+                                {
+                                    "entity": "button.scan_clients_vinkhoornnas01"
                                 }
                             ],
                             "title": "Plex Media Players",
@@ -1394,12 +1396,18 @@
                                             "name": "Battery"
                                         },
                                         {
+                                            "entity": "sensor.tesla_kevin_range_sensor"
+                                        },
+                                        {
                                             "entity": "binary_sensor.tesla_kevin_charger_sensor",
                                             "name": "Charger"
                                         },
                                         {
                                             "entity": "sensor.tesla_kevin_charging_rate_sensor",
                                             "name": "Charging Rate"
+                                        },
+                                        {
+                                            "entity": "sensor.tesla_kevin_energy_added_sensor"
                                         }
                                     ]
                                 },
@@ -1536,6 +1544,35 @@
                             ],
                             "aspect_ratio": "16:9",
                             "default_zoom": 15
+                        },
+                        {
+                            "show_name": true,
+                            "show_icon": true,
+                            "show_state": true,
+                            "type": "glance",
+                            "entities": [
+                                {
+                                    "entity": "select.tesla_kevin_heated_seat_left",
+                                    "name": "Bestuurder"
+                                },
+                                {
+                                    "entity": "select.tesla_kevin_heated_seat_right",
+                                    "name": "Bijrijder"
+                                },
+                                {
+                                    "entity": "select.tesla_kevin_heated_seat_rear_left",
+                                    "name": "L. achter"
+                                },
+                                {
+                                    "entity": "select.tesla_kevin_heated_seat_rear_center",
+                                    "name": "M. achter"
+                                },
+                                {
+                                    "entity": "select.tesla_kevin_heated_seat_rear_right",
+                                    "name": "R. achter"
+                                }
+                            ],
+                            "columns": 5
                         }
                     ],
                     "icon": "mdi:car",
@@ -1652,7 +1689,7 @@
                     "badges": [],
                     "cards": [
                         {
-                            "entity": "sensor.temperatuur_buiten_temperature",
+                            "entity": "sensor.hm_backyard_temperature",
                             "title": "buiten",
                             "type": "custom:bignumber-card"
                         },
@@ -1949,7 +1986,7 @@
                             "unit_of_measurement": "C"
                         },
                         {
-                            "entity": "sensor.disk_use_percent_home",
+                            "entity": "sensor.disk_use_percent_config",
                             "severity": {
                                 "green": 75,
                                 "red": 95,
@@ -1971,11 +2008,11 @@
                         },
                         {
                             "entity": "sensor.memory_free",
-                            "max": 1000,
+                            "max": 2000,
                             "severity": {
-                                "green": 500,
-                                "red": 900,
-                                "yellow": 750
+                                "green": 1200,
+                                "red": 1800,
+                                "yellow": 1500
                             },
                             "title": "Geheugen",
                             "type": "gauge",
@@ -1996,10 +2033,10 @@
                                     "entity": "sensor.database_size"
                                 },
                                 {
-                                    "entity": "sensor.network_in_enxb827eb3598e4"
+                                    "entity": "sensor.network_in_wlan0"
                                 },
                                 {
-                                    "entity": "sensor.network_out_enxb827eb3598e4"
+                                    "entity": "sensor.network_out_wlan0"
                                 },
                                 {
                                     "entity": "sensor.current_version"
@@ -2060,14 +2097,6 @@
                                 "sensor.speedtest_ping"
                             ],
                             "type": "history-graph"
-                        },
-                        {
-                            "title": null,
-                            "trackers": [
-                                "sensor.custom_card_tracker",
-                                "sensor.custom_component_tracker"
-                            ],
-                            "type": "custom:tracker-card"
                         },
                         {
                             "entities": [
