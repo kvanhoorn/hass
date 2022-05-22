@@ -58,6 +58,9 @@
           - name: Jens
             type: verjaardag
             date: 02-12-2020
+          - name: Dean
+            type: verjaardag
+            date: 22-05-2022
           - name: Trouwdag Niek en Eveliene
             type: jubileum
             date: 18-10-2017
