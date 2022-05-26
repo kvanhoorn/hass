@@ -17,3 +17,6 @@ monthly_power_peak:
 monthly_gas:
   source: sensor.gas_consumption
   cycle: monthly
+hourly_gas:
+  source: sensor.gas_consumption
+  cycle: hourly
