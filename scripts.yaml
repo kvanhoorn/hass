@@ -37,7 +37,7 @@ sonos_dingdong:
     - service: media_player.play_media
       data:
         entity_id: "{{ sonos_entity }}"
-        media_content_id: "http://192.168.0.71:8123/local/doorbell.mp3"
+        media_content_id: "http://192.168.0.73:8123/local/doorbell.mp3"
         media_content_type: "music"
     - delay: "00:00:03"
     - service: sonos.restore
