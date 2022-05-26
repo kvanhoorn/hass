@@ -13,7 +13,6 @@ homeassistant:
   auth_providers:
     - type: trusted_networks
       trusted_networks:
-        - 192.168.0.71
         - 192.168.0.73
         - 192.168.0.127
     - type: homeassistant
@@ -48,9 +47,6 @@ history:
 logbook:
 map:
 mobile_app:
-
-mqtt:
-  password: !secret mqtt_password
 
 python_script:
 
