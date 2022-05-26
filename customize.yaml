@@ -187,12 +187,8 @@ sensor.bus_4_future_2:
   friendly_name: Bus 4
 
 # overwrite ip device_trackers
-device_tracker.harmonybridge:
-  friendly_name: Harmony Bridge
 device_tracker.huebridge:
   friendly_name: HUE Bridge
-device_tracker.macpro:
-  friendly_name: Mac Pro
 
 # overwrite gas usage icons
 sensor.daily_gas:
