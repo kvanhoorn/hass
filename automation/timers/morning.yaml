@@ -8,13 +8,9 @@
     - condition: state
       entity_id: input_boolean.is_it_holiday
       state: 'off'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+    - condition: state
+      entity_id: input_boolean.is_it_weekend
+      state: 'off'
   action:
     - service: hue.activate_scene
       target:
@@ -30,13 +26,9 @@
     - condition: state
       entity_id: input_boolean.is_it_holiday
       state: 'off'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+    - condition: state
+      entity_id: input_boolean.is_it_weekend
+      state: 'off'
   action:
     - service: media_player.volume_set
       entity_id:
@@ -105,13 +97,9 @@
     - condition: state
       entity_id: input_boolean.is_it_holiday
       state: 'off'
-    - condition: time
-      weekday:
-        - mon
-        - tue
-        - wed
-        - thu
-        - fri
+    - condition: state
+      entity_id: input_boolean.is_it_weekend
+      state: 'off'
   action:
     - service: light.turn_off
       entity_id:
