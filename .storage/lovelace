@@ -1408,6 +1408,9 @@
                                         },
                                         {
                                             "entity": "sensor.tesla_kevin_energy_added_sensor"
+                                        },
+                                        {
+                                            "entity": "sensor.tesla_kevin_mileage_sensor"
                                         }
                                     ]
                                 },
@@ -1961,6 +1964,28 @@
                             "show_header_toggle": false,
                             "title": "Devices",
                             "type": "entities"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "switch.sonos_woonkamer_status_light"
+                                },
+                                {
+                                    "entity": "switch.sonos_port_status_light"
+                                },
+                                {
+                                    "entity": "switch.sonos_keuken_status_light"
+                                },
+                                {
+                                    "entity": "switch.sonos_badkamer_status_light"
+                                },
+                                {
+                                    "entity": "switch.sonos_babykamer_status_light"
+                                }
+                            ],
+                            "title": "Sonos lampjes",
+                            "show_header_toggle": false
                         }
                     ],
                     "icon": "mdi:battery",
@@ -1976,7 +2001,7 @@
                             "severity": {
                                 "green": 0,
                                 "red": 75,
-                                "yellow": 60
+                                "yellow": 68
                             },
                             "title": "CPU temperatuur",
                             "type": "gauge",
@@ -2042,6 +2067,18 @@
                                     "entity": "sensor.pi_hole_ads_blocked_today"
                                 },
                                 {
+                                    "entity": "sensor.pi_hole_dns_queries_today"
+                                },
+                                {
+                                    "entity": "binary_sensor.pi_hole_web_update_available"
+                                },
+                                {
+                                    "entity": "binary_sensor.pi_hole_ftl_update_available"
+                                },
+                                {
+                                    "entity": "binary_sensor.pi_hole_core_update_available"
+                                },
+                                {
                                     "entity": "sensor.sonarr_upcoming"
                                 },
                                 {
@@ -2061,7 +2098,9 @@
                         },
                         {
                             "entities": [
-                                "sensor.hourly_gas_consumption"
+                                {
+                                    "entity": "sensor.daily_gas"
+                                }
                             ],
                             "hours_to_show": 168,
                             "type": "history-graph"
@@ -2091,20 +2130,11 @@
                         },
                         {
                             "entities": [
-                                "sensor.speedtest_ping"
-                            ],
-                            "type": "history-graph"
-                        },
-                        {
-                            "entities": [
                                 {
                                     "entity": "device_tracker.synology"
                                 },
                                 {
                                     "entity": "device_tracker.huebridge"
-                                },
-                                {
-                                    "entity": "device_tracker.harmonybridge"
                                 },
                                 {
                                     "entity": "device_tracker.nleidap01_hall"
@@ -2232,6 +2262,34 @@
                                 }
                             ],
                             "title": "Printer A4"
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "sensor.easyenergy_gas"
+                                },
+                                {
+                                    "entity": "sensor.easyenergy_power"
+                                }
+                            ],
+                            "title": "Tarieven",
+                            "show_header_toggle": false
+                        },
+                        {
+                            "type": "entities",
+                            "entities": [
+                                {
+                                    "entity": "binary_sensor.brandalarm_woonkamer"
+                                },
+                                {
+                                    "entity": "binary_sensor.brandalarm_keuken"
+                                },
+                                {
+                                    "entity": "binary_sensor.brandalarm_zolder"
+                                }
+                            ],
+                            "title": "Rookmelders"
                         }
                     ],
                     "icon": "mdi:finance",
