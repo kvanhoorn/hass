@@ -73,32 +73,16 @@
     - service: input_boolean.turn_off
       entity_id: input_boolean.send_ring_video
 
-- alias: Plex pause doorbell
+- alias: TV Woonkamer pause doorbell
   trigger:
     - platform: state
       entity_id: binary_sensor.front_door_ding
       to: 'on'
   condition:
     - condition: state
-      entity_id: media_player.atv_living_room
+      entity_id: media_player.atv_living_room_4k
       state: 'playing'
   action:
     - service: media_player.media_pause
-      entity_id: media_player.atv_living_room
-
-- alias: TV mute doorbell
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.front_door_ding
-      to: 'on'
-  condition:
-    - condition: template
-      value_template:
-        '{{states.remote.living_room.attributes.current_activity == "TV" }}'
-  action:
-    - service: remote.send_command
-      data:
-        entity_id: remote.living_room
-        device: 42809894 # Entone
-        command:
-          - Pause
+      target:
+        entity_id: media_player.atv_living_room_4k
