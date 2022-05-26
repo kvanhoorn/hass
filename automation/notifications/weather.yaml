@@ -10,5 +10,5 @@
         message: "Het wordt vandaag
           min. {{ states.sensor.dark_sky_overnight_low_temperature_0d.state | round(0) }} en
           max. {{ states.sensor.dark_sky_daytime_high_temperature_0d.state | round(0) }} graden.
-          Het is nu {{ states.sensor.temperatuur_buiten.state | round(0) }}
+          Het is nu {{ states.sensor.dark_sky_temperature.state | round(0) }}
           graden."
