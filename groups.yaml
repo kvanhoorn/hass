@@ -86,6 +86,8 @@ lights:
     - light.h_piano
     - light.h_tafel_kamer
     - light.h_tafel_raam
+    - light.h_tv_play_left
+    - light.h_tv_play_right
     - light.h_garage
     - light.h_gangkast
     - light.h_badkamer_links
