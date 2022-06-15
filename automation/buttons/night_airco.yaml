@@ -1,0 +1,22 @@
+---
+- alias: Night airco on
+  trigger:
+    - platform: state
+      entity_id: input_boolean.night_airco_on
+      to: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Nacht Airco modus aan"
+        message: "Nacht Airco modus is aan - airco zal zacht koelen 's nachts."
+
+- alias: Night airco  off
+  trigger:
+    - platform: state
+      entity_id: input_boolean.night_airco_on
+      to: 'off'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Nacht Airco modus uit"
+        message: "Nacht Airco modus is uit - airco volgt normale schema op."

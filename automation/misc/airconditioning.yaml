@@ -1,4 +1,5 @@
 ---
+
 # turn on airco, hot upstairs
 - alias: turn on airco
   trigger:
@@ -20,37 +21,32 @@
         - binary_sensor.shelly_door_office_door_window
       to: 'on'
   condition:
-    condition: and
-    conditions:
+    and:
       - condition: state
         entity_id: climate.overloop
         state: 'off'
-      - condition: or
-        conditions:
+      - or:
         - condition: numeric_state
           entity_id: sensor.hm_backyard_temperature
           above: 20.0
         - condition: numeric_state
           entity_id: sensor.dark_sky_daytime_high_temperature_0d
           above: 20.0
-      - condition: or
-        conditions:
-        - condition: and
-          conditions:
-            - condition: numeric_state
-              entity_id: sensor.temperatuur_kantoor
-              above: 23.5
-            - condition: state
-              entity_id: binary_sensor.shelly_door_office_door_window
-              state: 'on'
-        - condition: and
-          conditions:
-            - condition: numeric_state
-              entity_id: sensor.temperatuur_slaapkamer
-              above: 23.5
-            - condition: state
-              entity_id: binary_sensor.shelly_door_bedroom_door_window
-              state: 'on'
+      - or:
+        - and:
+          - condition: numeric_state
+            entity_id: sensor.temperatuur_kantoor
+            above: 23.5
+          - condition: state
+            entity_id: binary_sensor.shelly_door_office_door_window
+            state: 'on'
+        - and:
+          - condition: numeric_state
+            entity_id: sensor.temperatuur_slaapkamer
+            above: 23.5
+          - condition: state
+            entity_id: binary_sensor.shelly_door_bedroom_door_window
+            state: 'on'
   action:
     - service: climate.set_temperature
       data:
@@ -78,8 +74,7 @@
     for:
       minutes: 20
   condition:
-    condition: and
-    conditions:
+    and:
       - condition: state
         entity_id: climate.overloop
         state: 'cool'
@@ -89,6 +84,17 @@
       - condition: numeric_state
         entity_id: sensor.temperatuur_kantoor
         below: 23.0
+      - or:
+        - condition: state
+          entity_id: input_boolean.night_airco_on
+          state: 'off'
+        - and:
+            - condition: state
+              entity_id: input_boolean.night_airco_on
+              state: 'on'
+            - condition: state
+              entity_id: input_boolean.is_it_night
+              state: 'off'
   action:
     - service: climate.turn_off
       entity_id: climate.overloop
@@ -122,3 +128,45 @@
           priority: 1
 
 # TODO: shut down airco if doors closed upstairs
+
+- alias: Nachtairco modus aan
+  trigger:
+    platform: state
+    entity_id: input_boolean.is_it_night
+    to: 'on'
+  condition:
+    alias: "Modus is configured and bedroom below 22.0"
+    and:
+      - condition: state
+        entity_id: input_boolean.night_airco_on
+        state: 'on'
+      - condition: numeric_state
+        entity_id:
+          - sensor.temperatuur_slaapkamer
+        above: 22.0
+  action:
+    - service: climate.set_temperature
+      data:
+        entity_id: climate.overloop
+        temperature: 20.0
+    - service: climate.set_hvac_mode
+      data:
+        entity_id: climate.overloop
+        hvac_mode: cool
+    - service: climate.turn_on
+      entity_id: climate.overloop
+
+- alias: Nachtairco modus uit
+  trigger:
+    platform: state
+    entity_id: input_boolean.is_it_night
+    to: 'off'
+  condition:
+    alias: "Modus is configured"
+    condition: state
+    entity_id: input_boolean.night_airco_on
+    state: 'on'
+  action:
+    - service: climate.turn_on
+      entity_id: climate.overloop
+

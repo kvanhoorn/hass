@@ -25,12 +25,15 @@ is_it_holiday:
 is_it_party:
   name: Party
   icon: mdi:cake
+night_airco_on:
+  name: Nachtairco
+  icon: mdi:air-conditioner
 homeworking_day:
   name: Morgen thuiswerken
-  icon: mdi:laptop-mac
+  icon: mdi:desk
 longhomeworking:
   name: Lang thuiswerken
-  icon: mdi:laptop-mac
+  icon: mdi:desk
 someone_home:
   name: Iemand thuis
   icon: mdi:home

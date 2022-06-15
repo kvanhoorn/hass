@@ -334,6 +334,9 @@
                                     "entity": "input_boolean.is_it_holiday"
                                 },
                                 {
+                                    "entity": "input_boolean.night_airco_on"
+                                },
+                                {
                                     "entity": "input_boolean.homeworking_day"
                                 },
                                 {
