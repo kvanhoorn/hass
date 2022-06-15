@@ -7,6 +7,6 @@
     - service_template: notify.pushover
       data_template:
         title: "P2000 bericht"
-        message: "{{ states.sensor.p2000.state + states.sensor.p2000.attributes.capcode }}"
+        message: "{{ states.sensor.p2000_eindhoven.state + states.sensor.p2000_eindhoven.attributes.capcode }}"
         data:
           priority: 0
