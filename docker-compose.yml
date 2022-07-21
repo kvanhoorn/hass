@@ -9,6 +9,7 @@ services:
     volumes:
       - /data/hass:/config
       - /etc/localtime:/etc/localtime:ro
+      - /var/run/dbus:/var/run/dbus
     restart: unless-stopped
     privileged: true
     network_mode: host
