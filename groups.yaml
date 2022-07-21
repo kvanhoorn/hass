@@ -90,6 +90,7 @@ lights:
     - light.h_tv_play_right
     - light.h_garage
     - light.h_gangkast
+    - light.h_play_office
     - light.h_badkamer_links
     - light.h_badkamer_midden
     - light.h_badkamer_rechts

@@ -14,14 +14,11 @@ filter:
     - light.hal_led_bak
     - light.kerstboom
     - light.plafondlamp
-    - camera.frontdoor
-    - camera.emma
-    - camera.outdoor
     - binary_sensor.front_door_ding
     - vacuum.xiaomi_vacuum_cleaner
     - cover.office_curtain
     - switch.shelly_carport
     - switch.shelly_fermentation_chamber
-      #entity_config:
-      #  camera.voortuin2:
-      #    linked_doorbell_sensor: binary_sensor.front_door_ding
+    - camera.frontdoor
+    - camera.emma
+    - camera.outdoor

@@ -36,7 +36,7 @@
         - media_player.sonos_woonkamer
         - media_player.sonos_keuken
       data:
-        volume_level: .1
+        volume_level: .06
     - service: media_player.select_source
       entity_id: media_player.sonos_badkamer
       data:

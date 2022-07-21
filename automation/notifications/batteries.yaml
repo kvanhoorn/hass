@@ -2,7 +2,7 @@
 - alias: update_battery_template_sensors
   trigger:
     platform: time_pattern
-    minutes: '/1'
+    minutes: '/10'
     seconds: 0
   action:
     - service: homeassistant.update_entity

@@ -120,6 +120,11 @@ gohome_vacuum:
 sonos_play_playlist:
   alias: Sonos Play playlist from favorites
   sequence:
+    - service: media_player.volume_set
+      entity_id:
+        - media_player.sonos_woonkamer
+      data:
+        volume_level: .2
     - service: media_player.select_source
       entity_id: media_player.sonos_woonkamer
       data_template:

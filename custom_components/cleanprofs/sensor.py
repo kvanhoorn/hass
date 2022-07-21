@@ -107,7 +107,7 @@ class CleanprofsSensor(SensorEntity):
 
       type = re.search("[A-Z]{3}", str(activity.xpath(".//span[@class='tb-lead']")[0].text_content()))[0]
       day = activity.xpath(".//span[@class='tb-lead ccap']")[0].text.replace("\n", "").strip()
-      date = activity.xpath(".//span[@class='tb-lead']")[1].text.replace("\n", "").strip()
+      date = activity.xpath(".//div[@class='nk-tb-col']")[2].text_content().replace("\n", "").strip()
       now = datetime.now()
 
       parsed_date = datetime.strptime(date, '%d %b').date()
