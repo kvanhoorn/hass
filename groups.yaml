@@ -91,13 +91,13 @@ lights:
     - light.h_garage
     - light.h_gangkast
     - light.h_play_office
+    - light.h_zolder_voor_deur
+    - light.h_zolder_voor_muur
+    - light.h_zolder_achter_deur
+    - light.h_zolder_achter_muur
     - light.h_badkamer_links
     - light.h_badkamer_midden
     - light.h_badkamer_rechts
-    - light.h_zolder_hoog_deur
-    - light.h_zolder_hoog_muur
-    - light.h_zolder_laag_deur
-    - light.h_zolder_laag_muur
     - light.plafondlamp
     - light.hal_led_bak
 outdoor_lights:

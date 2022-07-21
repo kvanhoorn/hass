@@ -17,3 +17,9 @@
 - platform: switch
   name: Badkamer
   entity_id: switch.bathroom_lighting
+- platform: switch
+  name: Zolder voorkant
+  entity_id: switch.atticfront_lighting
+- platform: switch
+  name: Zolder achterkant
+  entity_id: switch.atticback_lighting
