@@ -81,11 +81,13 @@ class ShellyOptionsFlowHandler(config_entries.OptionsFlow):
 
     async def async_step_init(self, user_input=None):
         """Manage the options."""
+        return self.async_external_step(step_id="init", url="/shelly/config")
+        
         return await self.async_step_user(user_input)
 
     async def async_step_user(self, user_input=None):
         """Handle a flow initialized by the user."""
-        self.instance = self.hass.data[DOMAIN][self.config_entry.entry_id]
+        self.instance = self.hass.data[DOMAIN].instances[self.config_entry.entry_id]
 
         if self.instance.config_entry.source == "import" \
             and not self.instance.config_entry.options:

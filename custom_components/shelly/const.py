@@ -174,6 +174,8 @@ DEFAULT_SETTINGS = \
     'battery': {CONF_UNIT:'%'},
     'ppm': {CONF_UNIT:'PPM'},
     'total_work_time': DEFAULT_TIME,
+    'position': {CONF_UNIT:'%'},
+    'target_temperature': {CONF_UNIT:'°C', CONF_DECIMALS:1}
 }
 
 SHELLY_DEVICE_ID = 'device_id'
@@ -202,6 +204,7 @@ ATTRIBUTE_TOTAL_CONSUMPTION = 'total_consumption'
 ATTRIBUTE_TOTAL_RETURNED = 'total_returned'
 ATTRIBUTE_CURRENT_CONSUMPTION = 'current_consumption'
 ATTRIBUTE_OVER_POWER = 'over_power'
+ATTRIBUTE_OVER_VOLTAGE = 'over_voltage'
 ATTRIBUTE_DEV_TEMP = 'device_temp'
 ATTRIBUTE_OVER_TEMP = 'over_temp'
 ATTRIBUTE_BATTERY = 'battery'
@@ -219,6 +222,7 @@ ATTRIBUTE_ILLUMINANCE = 'illuminance'
 ATTRIBUTE_PPM = 'ppm'
 ATTRIBUTE_SENSOR = 'sensor'
 ATTRIBUTE_TOTAL_WORK_TIME = 'total_work_time'
+ATTRIBUTE_POSITION = 'position'
 
 ALL_ATTRIBUTES = {
     ATTRIBUTE_IP_ADDRESS,
@@ -240,6 +244,7 @@ ALL_ATTRIBUTES = {
     ATTRIBUTE_CURRENT_CONSUMPTION,
     ATTRIBUTE_VOLTAGE,
     ATTRIBUTE_OVER_POWER,
+    ATTRIBUTE_OVER_VOLTAGE,
     ATTRIBUTE_DEV_TEMP,
     ATTRIBUTE_OVER_TEMP,
     ATTRIBUTE_BATTERY,
@@ -254,7 +259,8 @@ ALL_ATTRIBUTES = {
     ATTRIBUTE_ILLUMINANCE,
     ATTRIBUTE_PPM,
     ATTRIBUTE_SENSOR,
-    ATTRIBUTE_TOTAL_WORK_TIME
+    ATTRIBUTE_TOTAL_WORK_TIME,
+    ATTRIBUTE_POSITION
 }
 
 EXTRA_ATTRIBUTES = {
@@ -275,6 +281,7 @@ DEFAULT_ATTRIBUTES = {
     ATTRIBUTE_CLOUD_STATUS,
     ATTRIBUTE_SWITCH,
     ATTRIBUTE_OVER_POWER,
+    ATTRIBUTE_OVER_VOLTAGE,
     ATTRIBUTE_OVER_TEMP,
     ATTRIBUTE_TOTAL_CONSUMPTION,
     #ATTRIBUTE_VOLTAGE,
@@ -287,7 +294,8 @@ DEFAULT_ATTRIBUTES = {
     ATTRIBUTE_ILLUMINANCE,
     ATTRIBUTE_PPM,
     ATTRIBUTE_SENSOR,
-    ATTRIBUTE_TOTAL_WORK_TIME
+    ATTRIBUTE_TOTAL_WORK_TIME,
+    ATTRIBUTE_POSITION
 }
 
 SENSOR_ALL = 'all'
@@ -304,6 +312,7 @@ SENSOR_POWER_FACTOR = 'power_factor'
 SENSOR_CURRENT = 'current'
 SENSOR_UPTIME = 'uptime'
 SENSOR_OVER_POWER = 'over_power'
+SENSOR_OVER_VOLTAGE = 'over_voltage'
 SENSOR_DEV_TEMP = 'device_temp'
 SENSOR_OVER_TEMP = 'over_temp'
 SENSOR_CLOUD = 'cloud'
@@ -320,12 +329,15 @@ SENSOR_HUMIDITY = 'humidity'
 SENSOR_ILLUMINANCE = 'illuminance'
 SENSOR_PPM = 'ppm'
 SENSOR_TOTAL_WORK_TIME = 'total_work_time'
+SENSOR_POSITION = 'position'
+SENSOR_TARGET_TEMP = 'target_temperature'
 
 ALL_SENSORS = {
     SENSOR_RSSI: {'attr':'rssi'},
     SENSOR_RSSI_LEVEL: {'attr':'rssi_level'},
     SENSOR_UPTIME: {'attr':'uptime'},
     SENSOR_OVER_POWER: {'attr':'over_power'},
+    SENSOR_OVER_VOLTAGE: {'attr':'over_voltage'},
     SENSOR_CURRENT_CONSUMPTION: {},
     SENSOR_TOTAL_CONSUMPTION: {'attr':'total_consumption'},
     SENSOR_TOTAL_RETURNED: {'attr':'total_returned'},
@@ -345,7 +357,9 @@ ALL_SENSORS = {
     SENSOR_HUMIDITY : {'attr':'humidity'},
     SENSOR_ILLUMINANCE : {'attr':'illuminance'},
     SENSOR_PPM : {'attr':'ppm'},
-    SENSOR_TOTAL_WORK_TIME : {'attr':'total_work_time'}
+    SENSOR_TOTAL_WORK_TIME : {'attr':'total_work_time'},
+    SENSOR_POSITION : {'attr':'position'},
+    SENSOR_TARGET_TEMP: {'attr':'target_temperature'},
 }
 
 EXTRA_SENSORS = {
@@ -360,7 +374,8 @@ EXTRA_SENSORS = {
 DEFAULT_SENSORS = [
     SENSOR_CURRENT_CONSUMPTION,
     SENSOR_TOTAL_CONSUMPTION,
-    SENSOR_SWITCH
+    SENSOR_SWITCH,
+    SENSOR_POSITION
 ]
 
 SENSOR_TYPE_TEMPERATURE = 'temperature'
@@ -371,6 +386,7 @@ SENSOR_TYPE_RSSI_LEVEL = 'rssi_level'
 SENSOR_TYPE_UPTIME = 'uptime'
 SENSOR_TYPE_BATTERY = 'battery'
 SENSOR_TYPE_OVER_POWER = 'over_power'
+SENSOR_TYPE_OVER_VOLTAGE = 'over_voltage'
 SENSOR_TYPE_DEVICE_TEMP = 'device_temp'
 SENSOR_TYPE_OVER_TEMP = 'over_temp'
 SENSOR_TYPE_CLOUD_STATUS = 'cloud_status'
@@ -392,6 +408,8 @@ SENSOR_TYPE_PPM = 'ppm'
 SENSOR_TYPE_TOTAL_WORK_TIME = 'total_work_time'
 SENSOR_TYPE_EXT_SWITCH = 'external_switch'
 SENSOR_TYPE_MOTION = 'motion'
+SENSOR_TYPE_POSITION = 'position'
+SENSOR_TYPE_TARGET_TEMP = 'target_temperature'
 
 SENSOR_TYPES_CFG = {
     SENSOR_TYPE_DEFAULT:
@@ -412,6 +430,8 @@ SENSOR_TYPES_CFG = {
         ['Battery', '%', None, DEVICE_CLASS_BATTERY, None],
     SENSOR_TYPE_OVER_POWER:
         ['Over power', '', 'mdi:flash-alert', None, 'bool'],
+    SENSOR_TYPE_OVER_VOLTAGE:
+        ['Over voltage', '', 'mdi:flash-alert', None, 'bool'],
     SENSOR_TYPE_DEVICE_TEMP:
         ['Device temperature', TEMP_CELSIUS, "mdi:oil-temperature", None, None],
     SENSOR_TYPE_OVER_TEMP:
@@ -429,10 +449,10 @@ SENSOR_TYPES_CFG = {
         ['Illuminance', 'lux', None, DEVICE_CLASS_ILLUMINANCE, None],
     SENSOR_TYPE_TOTAL_CONSUMPTION:
         ['Total consumption', ENERGY_WATT_HOUR,
-         'mdi:flash-circle', DEVICE_CLASS_ENERGY, None],
+         'mdi:lightning-bolt-circle', DEVICE_CLASS_ENERGY, None],
     SENSOR_TYPE_TOTAL_RETURNED:
         ['Total returned', ENERGY_WATT_HOUR,
-         'mdi:flash-circle', DEVICE_CLASS_ENERGY, None],
+         'mdi:lightning-bolt-circle', DEVICE_CLASS_ENERGY, None],
     SENSOR_TYPE_VOLTAGE:
         ['Voltage', 'V', 'mdi:alpha-v-circle-outline', None, None],
     SENSOR_TYPE_POWER_FACTOR:
@@ -453,5 +473,10 @@ SENSOR_TYPES_CFG = {
         ['External switch', '', 'mdi:electric-switch', None, 'bool'],
     SENSOR_TYPE_MOTION:
         ['Motion', '', 'mdi:motion-sensor', DEVICE_CLASS_MOTION, 'bool'],
+    SENSOR_TYPE_POSITION:
+        ['Position', '', 'mdi:percent', None, None],
+    SENSOR_TYPE_TARGET_TEMP:
+        ['Target temperature', TEMP_CELSIUS, "mdi:target-variant", None, None],
+
 }
 
