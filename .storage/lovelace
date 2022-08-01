@@ -976,21 +976,32 @@
                       "name": "Battery"
                     },
                     {
-                      "entity": "sensor.tesla_kevin_range_sensor"
+                      "entity": "sensor.tesla_kevin_range_sensor",
+                      "name": "Range"
                     },
                     {
                       "entity": "binary_sensor.tesla_kevin_charger_sensor",
                       "name": "Charger"
                     },
                     {
+                      "entity": "binary_sensor.tesla_kevin_parking_brake_sensor",
+                      "name": "Parking brake"
+                    },
+                    {
+                      "entity": "binary_sensor.tesla_kevin_update_available_sensor",
+                      "name": "Software update"
+                    },
+                    {
                       "entity": "sensor.tesla_kevin_charging_rate_sensor",
                       "name": "Charging Rate"
                     },
                     {
-                      "entity": "sensor.tesla_kevin_energy_added_sensor"
+                      "entity": "sensor.tesla_kevin_energy_added_sensor",
+                      "name": "Last session added"
                     },
                     {
-                      "entity": "sensor.tesla_kevin_mileage_sensor"
+                      "entity": "sensor.tesla_kevin_mileage_sensor",
+                      "name": "Mileage"
                     }
                   ]
                 },
