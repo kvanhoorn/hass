@@ -518,6 +518,12 @@
               "type": "horizontal-stack"
             },
             {
+              "type": "entities",
+              "entities": [
+                "cover.rfy_08a54b_1"
+              ]
+            },
+            {
               "entities": [
                 {
                   "entity": "sensor.omroep_brabant_zuid_oost"

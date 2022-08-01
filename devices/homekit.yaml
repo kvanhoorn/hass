@@ -17,6 +17,7 @@ filter:
     - binary_sensor.front_door_ding
     - vacuum.xiaomi_vacuum_cleaner
     - cover.office_curtain
+    - cover.rfy_08a54b_1
     - switch.shelly_carport
     - switch.shelly_fermentation_chamber
     - camera.frontdoor
