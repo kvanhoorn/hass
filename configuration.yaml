@@ -80,7 +80,6 @@ input_select: !include devices/input_select.yaml
 input_boolean: !include devices/input_boolean.yaml
 input_number: !include devices/input_number.yaml
 input_datetime: !include devices/input_datetime.yaml
-# input_text: !include devices/input_text.yaml
 light: !include devices/light.yaml
 nest: !include devices/nest.yaml
 notify: !include devices/notify.yaml

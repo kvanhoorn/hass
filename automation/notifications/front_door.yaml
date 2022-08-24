@@ -102,25 +102,3 @@
             - url: "{{ 'http://' + states.sensor.internal_ip_lan.state + ':8123' + states.camera.outdoor.attributes.entity_picture }}"
               caption: "Beweging gedetecteerd achtertuin/garage"
 
-- alias: Emma sound
-  trigger:
-    - platform: event
-      event_type: nest_event
-      event_data:
-        device_id: !secret nest_cam_emma_id
-        type: camera_sound
-  action:
-    - service: notify.pushover
-      data_template:
-        title: "Geluid op kamer Emma"
-        message: "Er is geluid op de kamer van Emma"
-        data:
-          file:
-            url: "{{ 'http://' + states.sensor.internal_ip_lan.state + ':8123' + states.camera.emma.attributes.entity_picture }}"
-    - service: notify.telegram
-      data_template:
-        message: ''
-        data:
-          photo:
-            - url: "{{ 'http://' + states.sensor.internal_ip_lan.state + ':8123' + states.camera.emma.attributes.entity_picture }}"
-              caption: "Geluid op kamer Emma"

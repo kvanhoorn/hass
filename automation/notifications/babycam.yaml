@@ -1,0 +1,14 @@
+---
+
+- alias: Emma sound
+  trigger:
+    - platform: event
+      event_type: nest_event
+      event_data:
+        device_id: !secret nest_cam_emma_id
+        type: camera_person
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Geluid op kamer Emma"
+        message: "Er is geluid op de kamer van Emma"
