@@ -1,0 +1,48 @@
+---
+
+# Notify about mediocre air qualtiy
+- alias: mediocre air quality
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.vindriktning_d86b58_pm_2_5
+      above: 32.5
+      for:
+        minutes: 10
+  action:
+    - service: notify.pushover
+      data_template:
+        title: Luchtkwaliteit
+        message: "Luchtkwaliteit is onjuist bij {{ state_attr(trigger.entity_id, 'friendly_name') }}, waarde is {{ trigger.value }}"
+
+# Notify about bad air qualtiy
+- alias: bad air quality
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.vindriktning_d86b58_pm_2_5
+      above: 85.0
+      for:
+        minutes: 10
+  action:
+    - service: notify.pushover
+      data_template:
+        title: Luchtkwaliteit
+        message: "Luchtkwaliteit is slecht bij {{ state_attr(trigger.entity_id, 'friendly_name') }}, waarde is {{ trigger.value }}"
+        data:
+          priority: 1
+
+# Notify about good air qualtiy
+- alias: good air quality
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.vindriktning_d86b58_pm_2_5
+      below: 32.5
+      for:
+        minutes: 10
+  action:
+    - service: notify.pushover
+      data_template:
+        title: Luchtkwaliteit
+        message: "Luchtkwaliteit is weer juist bij {{ state_attr(trigger.entity_id, 'friendly_name') }}, waarde is {{ trigger.value }}"

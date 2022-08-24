@@ -878,6 +878,20 @@
               "graph": "line",
               "detail": 1,
               "name": "Slaapkamer"
+            },
+            {
+              "type": "gauge",
+              "entity": "sensor.vindriktning_d86b58_pm_2_5",
+              "name": "Luchtkwaliteit kantoor",
+              "unit": "ppb",
+              "needle": true,
+              "severity": {
+                "green": 1,
+                "yellow": 32,
+                "red": 85
+              },
+              "min": 1,
+              "max": 150
             }
           ],
           "icon": "mdi:thermometer",
