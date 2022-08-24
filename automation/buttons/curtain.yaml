@@ -49,3 +49,15 @@
     data_template:
       entity_id: cover.office_curtain
       position: "{{ 100 - (states('input_number.curtain_office_position') | int) }}"
+- alias: Gordijn kantoor positie - reverse
+  trigger:
+    - platform: numeric_state
+      entity_id: cover.office_curtain
+      attribute: current_position
+      above: 0
+  action:
+    service: input_number.set_value
+    target:
+      entity_id: input_number.curtain_office_position
+    data:
+      value: "{{ 100 - states.cover.office_curtain.attributes.current_position }}"
