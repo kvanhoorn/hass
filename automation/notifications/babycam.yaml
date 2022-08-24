@@ -6,7 +6,7 @@
       event_type: nest_event
       event_data:
         device_id: !secret nest_cam_emma_id
-        type: camera_person
+        type: camera_sound
   action:
     - service: notify.pushover
       data_template:
