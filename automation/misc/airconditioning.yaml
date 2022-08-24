@@ -7,14 +7,9 @@
       entity_id:
         - sensor.temperatuur_slaapkamer
         - sensor.temperatuur_kantoor
-      above: 23.5
+      above: 23.0
       for:
         minutes: 10
-    - platform: numeric_state
-      entity_id: sensor.hm_backyard_temperature
-      above: 21.0
-      for:
-        minutes: 15
     - platform: state
       entity_id:
         - binary_sensor.shelly_door_bedroom_door_window
@@ -36,14 +31,14 @@
         - and:
           - condition: numeric_state
             entity_id: sensor.temperatuur_kantoor
-            above: 23.5
+            above: 23.0
           - condition: state
             entity_id: binary_sensor.shelly_door_office_door_window
             state: 'on'
         - and:
           - condition: numeric_state
             entity_id: sensor.temperatuur_slaapkamer
-            above: 23.5
+            above: 23.0
           - condition: state
             entity_id: binary_sensor.shelly_door_bedroom_door_window
             state: 'on'
@@ -61,7 +56,9 @@
     - service: notify.pushover
       data_template:
         title: "Airco"
-        message: "Airco gaat aan omdat er een kamer > 23.5 graden is."
+        message: "Airco gaat aan omdat er een kamer > 23.0 graden is."
+        data:
+          priority: -2
 
 # turn off airco, cooled down upstairs
 - alias: turn off airco
@@ -80,10 +77,10 @@
         state: 'cool'
       - condition: numeric_state
         entity_id: sensor.temperatuur_slaapkamer
-        below: 23.0
+        below: 22.7
       - condition: numeric_state
         entity_id: sensor.temperatuur_kantoor
-        below: 23.0
+        below: 22.7
       - or:
         - condition: state
           entity_id: input_boolean.night_airco_on
@@ -101,7 +98,9 @@
     - service: notify.pushover
       data_template:
         title: "Airco"
-        message: "Airco gaat uit omdat alle kamers < 23.0 graden zijn."
+        message: "Airco gaat uit omdat alle kamers < 22.7 graden zijn."
+        data:
+          priority: -2
 
 - alias: Left window/door open airco
   trigger:
