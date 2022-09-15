@@ -1,48 +1,85 @@
 ---
 
-# Notify about mediocre air qualtiy
-- alias: mediocre air quality
+- alias: mediocre air quality office
   trigger:
     - platform: numeric_state
       entity_id:
         - sensor.vindriktning_d86b58_pm_2_5
       above: 32.5
       for:
-        minutes: 10
+        minutes: 5
   action:
-    - service: notify.pushover
-      data_template:
-        title: Luchtkwaliteit
-        message: "Luchtkwaliteit is onjuist bij {{ state_attr(trigger.entity_id, 'friendly_name') }}, waarde is {{ trigger.value }}"
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.airquality_office
+      data:
+        value: 1
 
-# Notify about bad air qualtiy
-- alias: bad air quality
+- alias: bad air quality office
   trigger:
     - platform: numeric_state
       entity_id:
         - sensor.vindriktning_d86b58_pm_2_5
       above: 85.0
       for:
-        minutes: 10
+        minutes: 5
   action:
-    - service: notify.pushover
-      data_template:
-        title: Luchtkwaliteit
-        message: "Luchtkwaliteit is slecht bij {{ state_attr(trigger.entity_id, 'friendly_name') }}, waarde is {{ trigger.value }}"
-        data:
-          priority: 1
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.airquality_office
+      data:
+        value: 2
 
-# Notify about good air qualtiy
-- alias: good air quality
+- alias: good air quality office
   trigger:
     - platform: numeric_state
       entity_id:
         - sensor.vindriktning_d86b58_pm_2_5
       below: 32.5
       for:
-        minutes: 10
+        minutes: 5
+  action:
+    - service: input_number.set_value
+      target:
+        entity_id: input_number.airquality_office
+      data:
+        value: 0
+
+- alias: mediocre air notification
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - input_number.airquality_office
+      above: 0.0
+      below: 2.0
   action:
     - service: notify.pushover
       data_template:
         title: Luchtkwaliteit
-        message: "Luchtkwaliteit is weer juist bij {{ state_attr(trigger.entity_id, 'friendly_name') }}, waarde is {{ trigger.value }}"
+        message: "{{ state_attr(trigger.entity_id, 'friendly_name') }} onjuist."
+
+- alias: bad air notification
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - input_number.airquality_office
+      above: 1.0
+  action:
+    - service: notify.pushover
+      data_template:
+        title: Luchtkwaliteit
+        message: "{{ state_attr(trigger.entity_id, 'friendly_name') }} slecht."
+        data:
+          priority: 1
+
+- alias: good air notification
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - input_number.airquality_office
+      below: 1.0
+  action:
+    - service: notify.pushover
+      data_template:
+        title: Luchtkwaliteit
+        message: "{{ state_attr(trigger.entity_id, 'friendly_name') }} OK."

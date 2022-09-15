@@ -17,3 +17,9 @@ curtain_office_position:
   min: 0
   max: 100
   step: 5
+airquality_office:
+  name: Luchtkwaliteit kantoor
+  icon: mdi:air-filter
+  min: 0
+  max: 2
+  step: 1

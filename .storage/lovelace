@@ -880,18 +880,53 @@
               "name": "Slaapkamer"
             },
             {
-              "type": "gauge",
-              "entity": "sensor.vindriktning_d86b58_pm_2_5",
-              "name": "Luchtkwaliteit kantoor",
-              "unit": "ppb",
-              "needle": true,
-              "severity": {
-                "green": 1,
-                "yellow": 32,
-                "red": 85
-              },
-              "min": 1,
-              "max": 150
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "gauge",
+                  "entity": "sensor.vindriktning_d86b58_pm_2_5",
+                  "name": "Kantoor",
+                  "needle": true,
+                  "severity": {
+                    "green": 1,
+                    "yellow": 32,
+                    "red": 85
+                  },
+                  "min": 1,
+                  "max": 150
+                },
+                {
+                  "type": "history-graph",
+                  "entities": [
+                    {
+                      "entity": "sensor.vindriktning_d86b58_pm_2_5",
+                      "name": "Kantoor"
+                    }
+                  ],
+                  "hours_to_show": 2
+                }
+              ]
+            },
+            {
+              "type": "history-graph",
+              "entities": [
+                {
+                  "entity": "sensor.temperatuur_kantoor",
+                  "name": "Kantoor"
+                },
+                {
+                  "entity": "sensor.temperatuur_slaapkamer",
+                  "name": "Slaapk."
+                },
+                {
+                  "entity": "sensor.hm_room_emma_temperature",
+                  "name": "Emma"
+                },
+                {
+                  "entity": "sensor.anna_temperature",
+                  "name": "Woonk."
+                }
+              ]
             }
           ],
           "icon": "mdi:thermometer",
