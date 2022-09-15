@@ -92,6 +92,14 @@
       attribute_templates:
         humidity: "{{ states.sensor.tfa_ts34c_cresta_53_0e_humidity.state }}"
         battery: "{{ states.sensor.tfa_ts34c_cresta_53_0e_battery_numeric.state }}"
+    temperatuur_zolder_voor:
+      friendly_name: 'Zolder Voor'
+      unit_of_measurement: '°C'
+      icon_template: 'mdi:thermometer'
+      value_template: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_temperature.state }}"
+      attribute_templates:
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_battery_numeric.state }}"
     temperatuur_buiten:
       friendly_name: 'Buiten'
       unit_of_measurement: '°C'

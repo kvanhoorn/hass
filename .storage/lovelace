@@ -801,7 +801,7 @@
               "entities": [
                 {
                   "entity": "sensor.livingroom_temperature",
-                  "name": "Woonkamer"
+                  "name": "Woonk."
                 },
                 {
                   "entity": "sensor.hm_hallcloset_temperature",
@@ -812,12 +812,12 @@
                   "name": "Garage"
                 },
                 {
-                  "entity": "sensor.temperatuur_buiten",
-                  "name": "Buiten"
+                  "entity": "sensor.temperatuur_zolder_voor",
+                  "name": "Zolder v."
                 },
                 {
-                  "entity": "sensor.hm_backyard_temperature",
-                  "name": "Overkapping"
+                  "entity": "sensor.hm_attic_back_temperature",
+                  "name": "Zolder a."
                 }
               ],
               "type": "glance"
@@ -850,8 +850,8 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.hm_attic_temperature",
-                  "name": "Zolder"
+                  "entity": "sensor.hm_backyard_temperature",
+                  "name": "Overkap."
                 },
                 {
                   "entity": "sensor.dark_sky_daytime_high_temperature_0d",
