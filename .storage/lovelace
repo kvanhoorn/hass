@@ -525,6 +525,9 @@
                   "entity": "sensor.verjaardag_jens"
                 },
                 {
+                  "entity": "sensor.verjaardag_dean"
+                },
+                {
                   "entity": "sensor.jubileum_trouwdag_kevin_en_willemijn"
                 },
                 {
@@ -697,13 +700,13 @@
             },
             {
               "entity": "sensor.plex_vinkhoornnas01",
-              "max": 5,
+              "max": 3,
               "min": 0,
               "name": "Plex Media Server",
               "severity": {
                 "green": 0,
-                "red": 5,
-                "yellow": 3
+                "yellow": 3,
+                "red": 5
               },
               "type": "gauge",
               "unit": "Viewer"
@@ -715,7 +718,7 @@
                   "name": "Kevin iPhone"
                 },
                 {
-                  "entity": "media_player.plex_plex_for_ios_kevin_ipad_pro",
+                  "entity": "media_player.plex_plex_for_ios_kevin_ipad_pro_2",
                   "name": "Kevin iPad"
                 },
                 {
