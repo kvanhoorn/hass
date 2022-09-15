@@ -989,6 +989,33 @@
               "cards": [
                 {
                   "type": "entities",
+                  "entities": [
+                    "input_boolean.stop_tesla_charger"
+                  ]
+                },
+                {
+                  "type": "custom:time-picker-card",
+                  "entity": "input_datetime.stop_tesla_charger",
+                  "hour_mode": 24,
+                  "hour_step": 1,
+                  "minute_step": 5,
+                  "second_step": 5,
+                  "name": "",
+                  "layout": {
+                    "embedded": true,
+                    "name": "inside"
+                  },
+                  "hide": {
+                    "name": false
+                  }
+                }
+              ]
+            },
+            {
+              "type": "vertical-stack",
+              "cards": [
+                {
+                  "type": "entities",
                   "title": "Battery & Range",
                   "entities": [
                     {
@@ -998,6 +1025,14 @@
                     {
                       "entity": "sensor.tesla_kevin_range_sensor",
                       "name": "Range"
+                    },
+                    {
+                      "entity": "button.tesla_kevin_horn",
+                      "name": "Horn"
+                    },
+                    {
+                      "entity": "button.tesla_kevin_flash_lights",
+                      "name": "Flash lights"
                     },
                     {
                       "entity": "binary_sensor.tesla_kevin_charger_sensor",

@@ -43,6 +43,9 @@ kevin_present:
 wmijn_present:
   name: Willemijn
   icon: mdi:account
+stop_tesla_charger:
+  name: Laden stoppen
+  icon: mdi:car
 camera1_left:
   name: Camera straat links
   icon: mdi:arrow-left-bold-circle-outline
@@ -58,7 +61,3 @@ camera1_down:
 camera1_irmode:
   name: Camera straat IR
   icon: mdi:weather-night
-  #deurbel:
-  #  name: Deurbel
-  #  icon: mdi:door
-

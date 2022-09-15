@@ -3,3 +3,7 @@ warmwater_time:
   name: "Warm water timer"
   has_date: false
   has_time: true
+stop_tesla_charger:
+  name: "Stop Tesla opladen"
+  has_date: false
+  has_time: true
