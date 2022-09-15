@@ -11,5 +11,5 @@
     - service: notify.pushover
       data_template:
         title: "PiHole update beschikbaar"
-        message: "{{ trigger.entity_id }}"
+        message: "{{ trigger.to_state.attributes.friendly_name }}"
 
