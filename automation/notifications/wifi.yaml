@@ -45,4 +45,4 @@
     - service: notify.pushover
       data_template:
         title: "Bezoeker gedetecteerd"
-        message: "{{ state_attr(trigger.event.data.entity_id, 'friendly_name') }} gedetecteerd."
+        message: "{{ trigger.to_state.attributes.friendly_name }} gedetecteerd."
