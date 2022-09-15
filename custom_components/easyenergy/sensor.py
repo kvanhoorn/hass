@@ -76,7 +76,7 @@ class EasyEnergyGasSensor(Entity):
         self._attributes = {}
         self._timedelta = timedelta
         self._decimals = decimals
-        self._icon = 'mdi:euro'
+        self._icon = 'mdi:currency-euro'
         self._unit = '€/m³'
         self._tarrif = None
         self.update()
@@ -152,7 +152,7 @@ class EasyEnergyPowerSensor(Entity):
         self._attributes = {}
         self._timedelta = timedelta
         self._decimals = decimals
-        self._icon = 'mdi:euro'
+        self._icon = 'mdi:currency-euro'
         self._unit = '€/kWh'
         self._tarrif = None
         self.update()
