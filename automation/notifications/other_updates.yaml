@@ -1,0 +1,24 @@
+---
+- alias: Send update notification generic
+  trigger:
+    platform: state
+    entity_id:
+      - update.nleidgw01
+      - update.nleidsw01_hall
+      - update.nleidsw02_living_room
+      - update.nleidsw03_attic
+      - update.nleidap01_hall
+      - update.nleidap02_emma
+      - update.nleidap03_garage
+      - update.nleidap04_attic
+      - update.pi_hole_core_update_available
+      - update.pi_hole_ftl_update_available
+      - update.pi_hole_web_update_available
+      - update.vinkhoornnas01_dsm_update
+    to: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Update beschikbaar"
+        message: "{{ trigger.to_state.attributes.friendly_name }}, version {{ trigger.to_state.attributes.latest_version }}."
+
