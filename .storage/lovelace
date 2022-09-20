@@ -1997,8 +1997,8 @@
                   "name": "badkamer"
                 },
                 {
-                  "entity": "binary_sensor.hm_attic_motion",
-                  "name": "zolder"
+                  "entity": "binary_sensor.hm_attic_back_motion",
+                  "name": "zolder a."
                 }
               ],
               "show_state": false,

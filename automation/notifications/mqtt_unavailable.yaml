@@ -1,0 +1,13 @@
+---
+- alias: mqtt device became unavailable
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.vindriktning_d86b58_pm_2_5
+      to: unavailable
+      for: '00:05:00'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "MQTT device unavailable"
+        message: "{{ trigger.to_state.attributes.friendly_name }} al 5 minuten onbeschikbaar."
