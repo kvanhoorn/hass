@@ -759,7 +759,7 @@
                   "name": "Garage"
                 },
                 {
-                  "entity": "sensor.temperatuur_zolder_voor",
+                  "entity": "sensor.hm_attic_front_temperature",
                   "name": "Zolder v."
                 },
                 {
@@ -801,12 +801,7 @@
                   "name": "Overkap."
                 },
                 {
-                  "entity": "sensor.dark_sky_daytime_high_temperature_0d",
-                  "name": "Max Ehv"
-                },
-                {
-                  "entity": "sensor.dark_sky_overnight_low_temperature_0d",
-                  "name": "Min Ehv"
+                  "entity": "sensor.temperatuur_wc"
                 },
                 {
                   "entity": "sensor.plant1_humidity",
@@ -814,7 +809,7 @@
                 },
                 {
                   "entity": "sensor.plant2_humidity",
-                  "name": "Palmboom"
+                  "name": "Yucca"
                 }
               ],
               "type": "glance"
@@ -1001,11 +996,11 @@
                   "title": "Battery & Range",
                   "entities": [
                     {
-                      "entity": "sensor.tesla_kevin_battery_sensor",
+                      "entity": "sensor.tesla_kevin_battery",
                       "name": "Battery"
                     },
                     {
-                      "entity": "sensor.tesla_kevin_range_sensor",
+                      "entity": "sensor.tesla_kevin_range",
                       "name": "Range"
                     },
                     {
@@ -1017,28 +1012,26 @@
                       "name": "Flash lights"
                     },
                     {
-                      "entity": "binary_sensor.tesla_kevin_charger_sensor",
-                      "name": "Charger"
-                    },
-                    {
-                      "entity": "binary_sensor.tesla_kevin_parking_brake_sensor",
+                      "entity": "binary_sensor.tesla_kevin_parking_brake",
                       "name": "Parking brake"
                     },
                     {
-                      "entity": "binary_sensor.tesla_kevin_update_available_sensor",
-                      "name": "Software update"
+                      "entity": "sensor.tesla_kevin_charger_power",
+                      "name": "Charger"
                     },
                     {
-                      "entity": "sensor.tesla_kevin_charging_rate_sensor",
+                      "entity": "number.tesla_kevin_charging_amps",
                       "name": "Charging Rate"
                     },
                     {
-                      "entity": "sensor.tesla_kevin_energy_added_sensor",
-                      "name": "Last session added"
+                      "entity": "number.tesla_kevin_charge_limit",
+                      "name": "Mileage"
                     },
                     {
-                      "entity": "sensor.tesla_kevin_mileage_sensor",
-                      "name": "Mileage"
+                      "entity": "sensor.tesla_kevin_energy_added"
+                    },
+                    {
+                      "entity": "sensor.tesla_kevin_odometer"
                     }
                   ]
                 },
@@ -1048,11 +1041,11 @@
                   "entities": [
                     {
                       "name": "Battery",
-                      "entity": "sensor.tesla_kevin_battery_sensor"
+                      "entity": "sensor.tesla_kevin_battery"
                     },
                     {
                       "name": "Range",
-                      "entity": "sensor.tesla_kevin_range_sensor",
+                      "entity": "sensor.tesla_kevin_range",
                       "max": 450
                     }
                   ],
@@ -1127,20 +1120,16 @@
               "title": "Locks",
               "entities": [
                 {
-                  "entity": "lock.tesla_kevin_door_lock",
-                  "name": "Deuren"
+                  "entity": "lock.tesla_kevin_doors"
                 },
                 {
-                  "entity": "lock.tesla_kevin_charger_door_lock",
-                  "name": "Oplaaddeur"
+                  "entity": "cover.tesla_kevin_charger_door"
                 },
                 {
-                  "entity": "lock.tesla_kevin_frunk_lock",
-                  "name": "Voorkoffer"
+                  "entity": "cover.tesla_kevin_frunk"
                 },
                 {
-                  "entity": "lock.tesla_kevin_trunk_lock",
-                  "name": "Achterkoffer"
+                  "entity": "cover.tesla_kevin_trunk"
                 }
               ]
             },
@@ -1149,19 +1138,19 @@
               "title": "Switches",
               "entities": [
                 {
-                  "entity": "switch.tesla_kevin_charger_switch",
+                  "entity": "switch.tesla_kevin_charger",
                   "name": "Charger"
                 },
                 {
-                  "entity": "switch.tesla_kevin_maxrange_switch",
+                  "entity": "sensor.tesla_kevin_range",
                   "name": "Max Range"
                 },
                 {
-                  "entity": "switch.tesla_kevin_sentry_mode_switch",
+                  "entity": "switch.tesla_kevin_sentry_mode",
                   "name": "Sentry Mode"
                 },
                 {
-                  "entity": "binary_sensor.tesla_kevin_update_available_sensor",
+                  "entity": "update.tesla_kevin_software_update",
                   "name": "Data Polling"
                 }
               ]
@@ -1452,91 +1441,163 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.shelly_door_bedroom_door_window",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.shelly_door_office_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Kantoor - Deur"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_emma_door_window",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.shelly_window_office_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Kantoor - Raam"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_office_door_window",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.sonos_buiten_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Kantoor - Sonos (buiten)"
                 },
                 {
-                  "entity": "binary_sensor.pir_hal",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.hs_office_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Kantoor - Hue Dimmer"
                 },
                 {
-                  "entity": "binary_sensor.pir_kantoor",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.office_curtain_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Kantoor - Gordijnen"
                 },
                 {
-                  "entity": "binary_sensor.hm_backyard_motion",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.shelly_door_emma_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Emma - Deur"
                 },
                 {
-                  "entity": "binary_sensor.hm_hallcloset_motion",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.shelly_window_emma_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Emma - Raam"
                 },
                 {
-                  "entity": "binary_sensor.hm_room_emma_motion",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.hs_room_emma_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Emma - Hue Dimmer"
                 },
                 {
-                  "entity": "binary_sensor.hm_bathroom_motion",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.hm_room_emma_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Emma - Hue Motion"
                 },
                 {
-                  "entity": "binary_sensor.hm_attic_motion",
-                  "secondary_info": "last-changed"
+                  "entity": "sensor.shelly_door_bedroom_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Slaapkamer - Deur"
                 },
                 {
-                  "entity": "sensor.front_door_battery"
+                  "entity": "sensor.shelly_window_bedroom_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Slaapkamer - Raam"
+                },
+                {
+                  "entity": "sensor.hs_bedroom_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Slaapkamer - Hue Dimmer"
+                },
+                {
+                  "entity": "sensor.hs_bathroom_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Badkamer - Hue Dimmer"
+                },
+                {
+                  "entity": "sensor.hm_bathroom_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Badkamer - Hue Motion"
+                },
+                {
+                  "entity": "sensor.shelly_door_frontdoor_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Hal - Voordeur"
+                },
+                {
+                  "entity": "sensor.hm_hallcloset_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Trapkast - Hue Motion"
+                },
+                {
+                  "entity": "sensor.front_door_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Hal - Deurbel"
+                },
+                {
+                  "entity": "sensor.shelly_door_kitchen_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Keuken - Deur"
+                },
+                {
+                  "entity": "sensor.sonos_keuken_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Keuken - Sonos"
+                },
+                {
+                  "entity": "sensor.shelly_door_livingroom_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Woonkamer - Deur"
+                },
+                {
+                  "entity": "sensor.hs_living_room_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Woonkamer - Hue Dimmer"
+                },
+                {
+                  "entity": "sensor.hsb_living_room_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Woonkamer - Hue Button"
+                },
+                {
+                  "entity": "sensor.shelly_door_shed_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Garage - deur"
+                },
+                {
+                  "entity": "sensor.shelly_door_garage_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Garage roldeur"
+                },
+                {
+                  "entity": "sensor.hue_dimmer_switch_1_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Zolder Voor - Hue Dimmer"
+                },
+                {
+                  "entity": "sensor.hm_attic_front_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Zolder Voor - Hue Motion"
+                },
+                {
+                  "entity": "sensor.hs_attic_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Zolder Achter - Hue Dimmer"
+                },
+                {
+                  "entity": "sensor.hm_attic_back_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Zolder Achter - Hue Motion"
+                },
+                {
+                  "entity": "sensor.hs_outdoor_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Achtertuin - Hue Dimmer"
+                },
+                {
+                  "entity": "sensor.hm_backyard_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Achtertuin - Hue Motion"
+                },
+                {
+                  "entity": "sensor.tesla_kevin_battery_sensor",
+                  "secondary_info": "last-changed",
+                  "name": "Voortuin - Tesla"
                 }
               ],
               "show_header_toggle": false,
               "title": "Long sensors",
-              "type": "entities"
-            },
-            {
-              "entities": [
-                {
-                  "entity": "sensor.livingroom_temperature",
-                  "name": "Woonkamer",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "sensor.temperatuur_slaapkamer",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "sensor.temperatuur_kantoor",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "sensor.temperatuur_garage",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "sensor.hm_backyard_temperature",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "sensor.hm_hallcloset_temperature",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "sensor.hm_bathroom_temperature",
-                  "secondary_info": "last-changed"
-                },
-                {
-                  "entity": "sensor.hm_room_emma_temperature",
-                  "secondary_info": "last-changed"
-                }
-              ],
-              "show_header_toggle": false,
-              "title": "Temperatuur",
               "type": "entities"
             },
             {
@@ -1618,6 +1679,9 @@
                 },
                 {
                   "entity": "switch.sonos_babykamer_status_light"
+                },
+                {
+                  "entity": "switch.sonos_buiten_status_light"
                 }
               ],
               "title": "Sonos lampjes",
@@ -1719,9 +1783,6 @@
                 },
                 {
                   "entity": "input_number.doorbell_volume"
-                },
-                {
-                  "entity": "binary_sensor.vinkhoornnas01_update_available"
                 },
                 {
                   "entity": "binary_sensor.vinkhoornnas01_security_status"
@@ -1895,6 +1956,9 @@
                 },
                 {
                   "entity": "sensor.mfc_l2710dw_status"
+                },
+                {
+                  "entity": "sensor.brother_mfc_l2710dw_series_uptime"
                 }
               ],
               "title": "Printer A4"
@@ -1981,10 +2045,6 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.pir_slaapkamer",
-                  "name": "slaapk."
-                },
-                {
                   "entity": "binary_sensor.hm_room_emma_motion",
                   "name": "Emma"
                 },
@@ -1999,6 +2059,10 @@
                 {
                   "entity": "binary_sensor.hm_attic_back_motion",
                   "name": "zolder a."
+                },
+                {
+                  "entity": "binary_sensor.hm_attic_front_motion",
+                  "name": "zolder v."
                 }
               ],
               "show_state": false,
@@ -2114,6 +2178,9 @@
                 {
                   "entity": "sensor.shelly_warmwater_tank_total_consumption",
                   "name": "Totaal verbruikt"
+                },
+                {
+                  "entity": "switch.shelly_shplg_s_b578e1"
                 }
               ],
               "title": "Warmwater tank"
