@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "minor_version": 1,
+  "key": "energy",
+  "data": {
+    "energy_sources": [
+      {
+        "type": "grid",
+        "flow_from": [
+          {
+            "stat_energy_from": "sensor.energy_consumption_tarif_1",
+            "stat_cost": null,
+            "entity_energy_price": null,
+            "number_energy_price": null
+          },
+          {
+            "stat_energy_from": "sensor.energy_consumption_tarif_2",
+            "stat_cost": null,
+            "entity_energy_price": null,
+            "number_energy_price": null
+          }
+        ],
+        "flow_to": [],
+        "cost_adjustment_day": 0.0
+      },
+      {
+        "type": "gas",
+        "stat_energy_from": "sensor.gas_consumption",
+        "stat_cost": null,
+        "entity_energy_price": null,
+        "number_energy_price": null
+      }
+    ],
+    "device_consumption": []
+  }
+}

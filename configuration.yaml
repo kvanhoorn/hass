@@ -37,6 +37,8 @@ cloud:
 config:
 conversation:
 
+energy:
+
 frontend:
   themes:
     solarized_dark: !include themes/solarized_dark.yaml

@@ -2185,6 +2185,22 @@
               "show_header_toggle": false
             }
           ]
+        },
+        {
+          "theme": "Backend-selected",
+          "title": "Energy",
+          "path": "energy",
+          "icon": "mdi:home-lightning-bolt",
+          "badges": [],
+          "cards": [
+            {
+              "type": "energy-distribution",
+              "link_dashboard": true
+            },
+            {
+              "type": "energy-sources-table"
+            }
+          ]
         }
       ]
     }
