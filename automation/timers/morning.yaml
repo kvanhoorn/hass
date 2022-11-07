@@ -49,12 +49,13 @@
       entity_id: media_player.sonos_badkamer
     - service: media_player.media_play
       entity_id: media_player.sonos_badkamer
-    - service: sonos.join
-      entity_id:
-        - media_player.sonos_keuken
-        - media_player.sonos_woonkamer
+    - service: media_player.join
+      target:
+        entity_id: media_player.sonos_badkamer
       data:
-        master: media_player.sonos_badkamer
+        group_members:
+          - media_player.sonos_keuken
+          - media_player.sonos_woonkamer
 
 - alias: 'timer_morning_everythingoff'
   trigger:
@@ -87,9 +88,10 @@
         - light.h_tafel_raam
         - light.h_tv_play_left
         - light.h_tv_play_right
-    - service: sonos.unjoin
-      entity_id: 
-        - media_player.sonos_keuken
-        - media_player.sonos_woonkamer
+    - service: media_player.unjoin
+      target:
+        entity_id:
+          - media_player.sonos_keuken
+          - media_player.sonos_woonkamer
     - service: media_player.media_pause
       entity_id: media_player.sonos_badkamer

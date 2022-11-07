@@ -1,9 +1,4 @@
 ---
-- name: pushover
-  platform: pushover
-  api_key: !secret pushover_api_key
-  user_key: !secret pushover_user_secret
-
 - name: telegram
   platform: telegram
   chat_id: !secret telegram_chat_id

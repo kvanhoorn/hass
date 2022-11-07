@@ -5,8 +5,8 @@ sonos_say:
    - service: sonos.snapshot
      data:
        entity_id: "{{ sonos_entity }}"
-   - service: sonos.unjoin
-     data:
+   - service: media_player.unjoin
+     target:
        entity_id: "{{ sonos_entity }}"
    - service: media_player.volume_set
      data:
@@ -27,8 +27,8 @@ sonos_dingdong:
     - service: sonos.snapshot
       data:
         entity_id: "{{ sonos_entity }}"
-    - service: sonos.unjoin
-      data:
+    - service: media_player.unjoin
+      target:
         entity_id: "{{ sonos_entity }}"
     - service: media_player.volume_set
       data:
@@ -49,8 +49,8 @@ sonos_motion:
     - service: sonos.snapshot
       data:
         entity_id: "{{ sonos_entity }}"
-    - service: sonos.unjoin
-      data:
+    - service: media_player.unjoin
+      target:
         entity_id: "{{ sonos_entity }}"
     - service: media_player.volume_set
       data:
