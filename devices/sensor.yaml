@@ -304,6 +304,8 @@
   regios: 22
   radius: 2000
 - platform: easyenergy
+  gas_decimals: 5
+  power_decimals: 5
 - platform: easyenergy
   timedelta: 1
 - platform: cleanprofs

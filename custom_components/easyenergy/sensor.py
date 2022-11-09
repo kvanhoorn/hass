@@ -14,7 +14,7 @@ from datetime import datetime
 from datetime import timedelta
 from dateutil import tz
 import dateutil.relativedelta
-import requests
+import requests, time
 
 import voluptuous as vol
 import homeassistant.util as util
@@ -23,13 +23,14 @@ from homeassistant.helpers.entity import Entity
 from homeassistant.components.sensor import PLATFORM_SCHEMA
 
 _LOGGER = getLogger(__name__)
-_RESOURCE_POWER = 'https://mijn.easyenergy.com/nl/api/tariff/getapxtariffs?startTimestamp=%sT22:00:00.000Z&endTimestamp=%sT22:00:00.000Z&grouping=' # % (2021-02-02, 2021-02-03)
-_RESOURCE_GAS   = 'https://mijn.easyenergy.com/nl/api/tariff/getlebatariffs?startTimestamp=%sT22:00:00.000Z&endTimestamp=%sT22:00:00.000Z&grouping=' # % (2021-02-02, 2021-02-03)
+_RESOURCE_POWER = 'https://mijn.easyenergy.com/nl/api/tariff/getapxtariffs?startTimestamp=%sT%d:00:00.000Z&endTimestamp=%sT%d:00:00.000Z&grouping=' # % (2021-02-02, 22, 2021-02-03, 22)
+_RESOURCE_GAS   = 'https://mijn.easyenergy.com/nl/api/tariff/getlebatariffs?startTimestamp=%sT%d:00:00.000Z&endTimestamp=%sT%d:00:00.000Z&grouping=' # % (2021-02-02, 22, 2021-02-03, 22)
 
 SCAN_INTERVAL = timedelta(seconds=3600)
 DOMAIN = 'easyenergy'
 LOCAL_ZONE = 'Europe/Amsterdam'
 local_tz = tz.gettz(LOCAL_ZONE)
+timezone_offset = 1 + time.localtime().tm_isdst
 
 CONF_TIMEDELTA = 'timedelta'
 CONF_GASDECIMALS = 'gas_decimals'
@@ -108,8 +109,9 @@ class EasyEnergyGasSensor(Entity):
 
         moment1 = datetime.now() + timedelta(days=self._timedelta)
         moment2 = moment1 + timedelta(days=1)
+        starttime = 24 - timezone_offset
     
-        self._url = _RESOURCE_GAS % (moment1.strftime('%Y-%m-%d'), moment2.strftime('%Y-%m-%d'))
+        self._url = _RESOURCE_GAS % (moment1.strftime('%Y-%m-%d'), starttime, moment2.strftime('%Y-%m-%d'), starttime)
         
         try:
             req = requests.get(
@@ -117,7 +119,6 @@ class EasyEnergyGasSensor(Entity):
             self.data = req.json()
             _LOGGER.debug(self.data)
 
-            averageAmount = 0
             self._attributes['date'] = moment2.strftime('%Y-%m-%d')
 
             if "Message" in self.data:
@@ -132,10 +133,9 @@ class EasyEnergyGasSensor(Entity):
                     tariffTitle = "hour%s" % str(tariffTime)
                     tariffAmount = round(tariff['TariffUsage'], self._decimals)
                     self._attributes[tariffTitle] = tariffAmount
-                    averageAmount += tariff['TariffUsage']
 
-                averageAmount = averageAmount / len(self.data)
-                self._state = round(averageAmount, self._decimals)
+                    if tariffTime == datetime.now().strftime('%H'):
+                        self._state = tariffAmount
             
         except requests.exceptions.RequestException as ex:
             _LOGGER.error("Error fetching data from %s" % self._url, ex)
@@ -184,8 +184,9 @@ class EasyEnergyPowerSensor(Entity):
 
         moment1 = datetime.now() + timedelta(days=self._timedelta)
         moment2 = moment1 + timedelta(days=1)
+        starttime = 24 - timezone_offset
     
-        self._url = _RESOURCE_POWER % (moment1.strftime('%Y-%m-%d'), moment2.strftime('%Y-%m-%d'))
+        self._url = _RESOURCE_POWER % (moment1.strftime('%Y-%m-%d'), starttime, moment2.strftime('%Y-%m-%d'), starttime)
         
         try:
             req = requests.get(
@@ -193,7 +194,6 @@ class EasyEnergyPowerSensor(Entity):
             self.data = req.json()
             _LOGGER.debug(self.data)
 
-            averageAmount = 0
             self._attributes['date'] = moment2.strftime('%Y-%m-%d')
 
             if "Message" in self.data:
@@ -208,10 +208,9 @@ class EasyEnergyPowerSensor(Entity):
                     tariffTitle = "hour%s" % str(tariffTime)
                     tariffAmount = round(tariff['TariffUsage'], self._decimals)
                     self._attributes[tariffTitle] = tariffAmount
-                    averageAmount += tariff['TariffUsage']
 
-                averageAmount = averageAmount / len(self.data)
-                self._state = round(averageAmount, self._decimals)
+                    if tariffTime == datetime.now().strftime('%H'):
+                        self._state = tariffAmount
             
         except requests.exceptions.RequestException as ex:
             _LOGGER.error("Error fetching data from %s" % self._url, ex)
