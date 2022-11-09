@@ -8,6 +8,12 @@ daily_power_peak:
 daily_gas:
   source: sensor.gas_consumption
   cycle: daily
+daily_water:
+  source: sensor.watermeter_3c39e72f95de_total_water_usage
+  cycle: daily
+daily_airconditioning:
+  source: sensor.overloop_energy
+  cycle: daily
 monthly_power_offpeak:
   source: sensor.energy_consumption_tarif_1
   cycle: monthly
@@ -17,6 +23,15 @@ monthly_power_peak:
 monthly_gas:
   source: sensor.gas_consumption
   cycle: monthly
+monthly_water:
+  source: sensor.watermeter_3c39e72f95de_total_water_usage
+  cycle: monthly
+monthly_airconditioning:
+  source: sensor.overloop_energy
+  cycle: monthly
 hourly_gas:
   source: sensor.gas_consumption
+  cycle: hourly
+hourly_water:
+  source: sensor.watermeter_3c39e72f95de_total_water_usage
   cycle: hourly

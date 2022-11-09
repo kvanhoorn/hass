@@ -1881,7 +1881,20 @@
                   "name": "Gas per maand"
                 },
                 {
-                  "entity": "sensor.overloop_energy"
+                  "entity": "sensor.daily_water",
+                  "name": "Water per dag"
+                },
+                {
+                  "entity": "sensor.monthly_water",
+                  "name": "Water per maand"
+                },
+                {
+                  "entity": "sensor.daily_airconditioning",
+                  "name": "Airco per dag"
+                },
+                {
+                  "entity": "sensor.monthly_airconditioning",
+                  "name": "Airco per maand"
                 },
                 {
                   "entity": "sensor.power_consumption_phase_l1"
@@ -1935,6 +1948,16 @@
               "refresh_interval": 0,
               "title": "boiler",
               "hours_to_show": 2
+            },
+            {
+              "entities": [
+                {
+                  "entity": "sensor.daily_water",
+                  "name": "Dagelijks water"
+                }
+              ],
+              "hours_to_show": 168,
+              "type": "history-graph"
             },
             {
               "type": "entities",

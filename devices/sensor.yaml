@@ -189,14 +189,28 @@
         {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%H:%M') }}
     daily_power:
       friendly_name: Daily Power
-      icon_template: 'mdi:counter'
+      device_class: energy
       unit_of_measurement: kWh
-      value_template: "{{ states('sensor.daily_power_offpeak')|float + states('sensor.daily_power_peak')|float }}"
+      value_template: >
+        {% if is_number(states('sensor.daily_power_offpeak')) and
+           is_number(states('sensor.daily_power_peak')) %}
+           {{ states('sensor.daily_power_offpeak') | float +
+              states('sensor.daily_power_peak') | float }}
+        {% else %}
+           None
+        {% endif %}
     monthly_power:
       friendly_name: Monthly Power
-      icon_template: 'mdi:counter'
+      device_class: energy
       unit_of_measurement: kWh
-      value_template: "{{ states('sensor.monthly_power_offpeak')|float + states('sensor.monthly_power_peak')|float }}"
+      value_template: >
+        {% if is_number(states('sensor.monthly_power_offpeak')) and
+           is_number(states('sensor.monthly_power_peak')) %}
+           {{ states('sensor.monthly_power_offpeak') | float +
+              states('sensor.monthly_power_peak') | float }}
+        {% else %}
+           None
+        {% endif %}
     roborock_s5_max_filter_left_hours:
       friendly_name: Roborock S5 Max Filter Left Hours
       icon_template: 'mdi:air-filter'
