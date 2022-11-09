@@ -61,34 +61,47 @@
               ]
             },
             {
-              "entities": [
-                {
-                  "entity": "sensor.next_setting"
-                },
-                {
-                  "entity": "sensor.next_rising"
-                }
-              ],
-              "show_name": false,
-              "type": "glance"
-            },
-            {
-              "type": "horizontal-stack",
+              "type": "vertical-stack",
               "cards": [
                 {
-                  "type": "entity",
-                  "entity": "sensor.dark_sky_overnight_low_temperature_0d",
-                  "name": "min"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "entity",
+                      "entity": "sensor.dark_sky_overnight_low_temperature_0d",
+                      "name": "min"
+                    },
+                    {
+                      "type": "entity",
+                      "entity": "sensor.dark_sky_temperature",
+                      "name": "nu"
+                    },
+                    {
+                      "type": "entity",
+                      "entity": "sensor.dark_sky_daytime_high_temperature_0d",
+                      "name": "max"
+                    }
+                  ]
                 },
                 {
-                  "type": "entity",
-                  "entity": "sensor.dark_sky_temperature",
-                  "name": "nu"
-                },
-                {
-                  "type": "entity",
-                  "entity": "sensor.dark_sky_daytime_high_temperature_0d",
-                  "name": "max"
+                  "type": "horizontal-stack",
+                  "cards": [
+                    {
+                      "type": "entity",
+                      "entity": "sensor.daily_cost_power_round",
+                      "name": "Stroom"
+                    },
+                    {
+                      "type": "entity",
+                      "entity": "sensor.daily_cost_gas_round",
+                      "name": "Gas"
+                    },
+                    {
+                      "type": "entity",
+                      "entity": "sensor.daily_cost_water_round",
+                      "name": "Water"
+                    }
+                  ]
                 }
               ]
             },
@@ -133,26 +146,6 @@
             },
             {
               "control": {
-                "hvac": {
-                  "cool": true,
-                  "dry": false,
-                  "fan_only": false,
-                  "heat": true,
-                  "heat_cool": false,
-                  "off": true
-                }
-              },
-              "entity": "climate.overloop",
-              "sensors": [
-                {
-                  "entity": "sensor.temperatuur_buiten_temperature"
-                }
-              ],
-              "step_size": 0.5,
-              "type": "custom:simple-thermostat"
-            },
-            {
-              "control": {
                 "preset": {
                   "asleep": true,
                   "away": true,
@@ -169,7 +162,45 @@
                 }
               ],
               "step_size": 0.5,
-              "type": "custom:simple-thermostat"
+              "type": "custom:simple-thermostat",
+              "layout": {
+                "step": "row"
+              }
+            },
+            {
+              "control": {
+                "hvac": {
+                  "cool": true,
+                  "dry": false,
+                  "fan_only": false,
+                  "heat": true,
+                  "heat_cool": false,
+                  "off": true
+                }
+              },
+              "entity": "climate.overloop",
+              "sensors": [
+                {
+                  "entity": "sensor.temperatuur_buiten_temperature"
+                }
+              ],
+              "step_size": 0.5,
+              "type": "custom:simple-thermostat",
+              "layout": {
+                "step": "row"
+              }
+            },
+            {
+              "entities": [
+                {
+                  "entity": "sensor.next_setting"
+                },
+                {
+                  "entity": "sensor.next_rising"
+                }
+              ],
+              "show_name": false,
+              "type": "glance"
             },
             {
               "entities": [

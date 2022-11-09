@@ -231,46 +231,21 @@
       icon_template: 'mdi:eye-outline'
       unit_of_measurement: hours
       value_template: "{{ (states('sensor.roborock_s5_max_sensor_dirty_left') | int / (60 * 60)) | int }}"
-- platform: mqtt
-  name: Sous vide
-  state_topic: anova/timer
-  value_template: "{{ (((value_json.timer | int) * 60) - 3600) | timestamp_custom('%H:%M') }}"
-  icon: 'mdi:timer'
-- platform: mqtt
-  state_topic: igrill/bbq/probe1
-  name: "Probe 1"
-  qos: 0
-  unit_of_measurement: "°C"
-- platform: mqtt
-  state_topic: igrill/bbq/probe2
-  name: "Probe 2"
-  qos: 0
-  unit_of_measurement: "°C"
-- platform: mqtt
-  state_topic: igrill/bbq/probe3
-  name: "Probe 3"
-  qos: 0
-  unit_of_measurement: "°C"
-- platform: mqtt
-  state_topic: igrill/bbq/probe4
-  name: "Probe 4"
-  qos: 0
-  unit_of_measurement: "°C"
-- platform: mqtt
-  state_topic: igrill/bbq/battery
-  name: "igrill battery"
-  qos: 0
-  unit_of_measurement: "%"
-- platform: mqtt
-  state_topic: igrill/bbq_mini/probe1
-  name: "Mini Probe 1"
-  qos: 0
-  unit_of_measurement: "°C"
-- platform: mqtt
-  state_topic: igrill/bbq_mini/battery
-  name: "igrill mini battery"
-  qos: 0
-  unit_of_measurement: "%"
+    daily_cost_power_round:
+      friendly_name: Daily Cost of power usage rounded at 2 decimals
+      icon_template: 'mdi:euro'
+      unit_of_measurement: '€'
+      value_template: "{{ (states('sensor.energy_consumption_tarif_1_cost') | float + states('sensor.energy_consumption_tarif_2_cost') | float) | round(2) }}"
+    daily_cost_gas_round:
+      friendly_name: Daily Cost of gas usage rounded at 2 decimals
+      icon_template: 'mdi:euro'
+      unit_of_measurement: '€'
+      value_template: "{{ states('sensor.gas_consumption_cost') | round(2) }}"
+    daily_cost_water_round:
+      friendly_name: Daily Cost of water usage rounded at 2 decimals
+      icon_template: 'mdi:euro'
+      unit_of_measurement: '€'
+      value_template: "{{ states('sensor.watermeter_3c39e72f95de_total_water_usage_cost') | round(2) }}"
 - platform: scrape
   name: Euro95
   resource: !secret fuel_prices_nationwide
@@ -283,20 +258,6 @@
   select: ".table .table-row:nth-of-type(3) div:nth-of-type(3)"
   value_template: "{{ value.split(' ')[1].replace(',', '.') | float }}"
   scan_interval: 3600
-# - platform: scrape
-#   name: Euro95 (Tinq)
-#   resource: !secret fuel_prices_local
-#   select: "#station-prijzen tr:nth-of-type(4) td:nth-of-type(2)"
-#   value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
-#   scan_interval: 3600
-#   verify_ssl: false
-# - platform: scrape
-#   name: Diesel (Tinq)
-#   resource: !secret fuel_prices_local
-#   select: "#station-prijzen tr:nth-of-type(3) td:nth-of-type(2)"
-#   value_template: "{{ value.split(\"\xa0\")[1].replace(',', '.') | float }}"
-#   scan_interval: 3600
-#   verify_ssl: false
 - platform: ovapi
   name: Bus 4
   timing_point_code: !secret busstop_code
