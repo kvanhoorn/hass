@@ -26,7 +26,7 @@ _LOGGER = getLogger(__name__)
 _RESOURCE_POWER = 'https://mijn.easyenergy.com/nl/api/tariff/getapxtariffs?startTimestamp=%sT%d:00:00.000Z&endTimestamp=%sT%d:00:00.000Z&grouping=' # % (2021-02-02, 22, 2021-02-03, 22)
 _RESOURCE_GAS   = 'https://mijn.easyenergy.com/nl/api/tariff/getlebatariffs?startTimestamp=%sT%d:00:00.000Z&endTimestamp=%sT%d:00:00.000Z&grouping=' # % (2021-02-02, 22, 2021-02-03, 22)
 
-SCAN_INTERVAL = timedelta(seconds=3600)
+SCAN_INTERVAL = timedelta(seconds=60)
 DOMAIN = 'easyenergy'
 LOCAL_ZONE = 'Europe/Amsterdam'
 local_tz = tz.gettz(LOCAL_ZONE)
