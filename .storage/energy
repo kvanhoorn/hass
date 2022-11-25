@@ -38,6 +38,16 @@
         "number_energy_price": 0.91
       }
     ],
-    "device_consumption": []
+    "device_consumption": [
+      {
+        "stat_consumption": "sensor.overloop_energy"
+      },
+      {
+        "stat_consumption": "sensor.shelly_warmwater_tank_total_consumption"
+      },
+      {
+        "stat_consumption": "sensor.shelly_fermentation_chamber_total_consumption"
+      }
+    ]
   }
 }

@@ -61,6 +61,38 @@
               ]
             },
             {
+              "entities": [
+                {
+                  "entity": "sensor.next_setting"
+                },
+                {
+                  "entity": "sensor.next_rising"
+                }
+              ],
+              "show_name": false,
+              "type": "glance"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "entity",
+                  "entity": "sensor.dark_sky_overnight_low_temperature_0d",
+                  "name": "min"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.dark_sky_temperature",
+                  "name": "nu"
+                },
+                {
+                  "type": "entity",
+                  "entity": "sensor.dark_sky_daytime_high_temperature_0d",
+                  "name": "max"
+                }
+              ]
+            },
+            {
               "type": "vertical-stack",
               "cards": [
                 {
@@ -68,37 +100,17 @@
                   "cards": [
                     {
                       "type": "entity",
-                      "entity": "sensor.dark_sky_overnight_low_temperature_0d",
-                      "name": "min"
-                    },
-                    {
-                      "type": "entity",
-                      "entity": "sensor.dark_sky_temperature",
-                      "name": "nu"
-                    },
-                    {
-                      "type": "entity",
-                      "entity": "sensor.dark_sky_daytime_high_temperature_0d",
-                      "name": "max"
-                    }
-                  ]
-                },
-                {
-                  "type": "horizontal-stack",
-                  "cards": [
-                    {
-                      "type": "entity",
-                      "entity": "sensor.daily_cost_power_round",
+                      "entity": "sensor.daily_power_rond",
                       "name": "Stroom"
                     },
                     {
                       "type": "entity",
-                      "entity": "sensor.daily_cost_gas_round",
+                      "entity": "sensor.daily_gas_round",
                       "name": "Gas"
                     },
                     {
                       "type": "entity",
-                      "entity": "sensor.daily_cost_water_round",
+                      "entity": "sensor.daily_water_round",
                       "name": "Water"
                     }
                   ]
@@ -165,6 +177,9 @@
               "type": "custom:simple-thermostat",
               "layout": {
                 "step": "row"
+              },
+              "header": {
+                "name": "Woonkamer"
               }
             },
             {
@@ -189,18 +204,6 @@
               "layout": {
                 "step": "row"
               }
-            },
-            {
-              "entities": [
-                {
-                  "entity": "sensor.next_setting"
-                },
-                {
-                  "entity": "sensor.next_rising"
-                }
-              ],
-              "show_name": false,
-              "type": "glance"
             },
             {
               "entities": [
@@ -291,12 +294,16 @@
                         "name": "Woonkamer"
                       },
                       {
-                        "entity_id": "media_player.sonos_badkamer",
-                        "name": "Badkamer"
+                        "entity_id": "media_player.sonos_eetkamer",
+                        "name": "Eetkamer"
                       },
                       {
                         "entity_id": "media_player.sonos_keuken",
                         "name": "Keuken"
+                      },
+                      {
+                        "entity_id": "media_player.sonos_badkamer",
+                        "name": "Badkamer"
                       }
                     ],
                     "platform": "sonos",
@@ -320,59 +327,87 @@
                     "show_group_count": false
                   },
                   "type": "custom:mini-media-player"
+                },
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "entity": "media_player.sonos_eetkamer",
+                      "state": "playing"
+                    }
+                  ],
+                  "row": {
+                    "entity": "media_player.sonos_eetkamer",
+                    "type": "custom:mini-media-player",
+                    "hide": {
+                      "controls": true,
+                      "icon": true,
+                      "info": true,
+                      "power": true,
+                      "progress": true,
+                      "source": true
+                    },
+                    "group": true,
+                    "name": "Eetkamer",
+                    "speaker_group": {
+                      "show_group_count": false
+                    }
+                  }
+                },
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "entity": "media_player.sonos_keuken",
+                      "state": "playing"
+                    }
+                  ],
+                  "row": {
+                    "entity": "media_player.sonos_keuken",
+                    "type": "custom:mini-media-player",
+                    "hide": {
+                      "controls": true,
+                      "icon": true,
+                      "info": true,
+                      "power": true,
+                      "progress": true,
+                      "source": true
+                    },
+                    "group": true,
+                    "name": "Keuken",
+                    "speaker_group": {
+                      "show_group_count": false
+                    }
+                  }
+                },
+                {
+                  "type": "conditional",
+                  "conditions": [
+                    {
+                      "entity": "media_player.sonos_badkamer",
+                      "state": "playing"
+                    }
+                  ],
+                  "row": {
+                    "entity": "media_player.sonos_badkamer",
+                    "type": "custom:mini-media-player",
+                    "hide": {
+                      "controls": true,
+                      "icon": true,
+                      "info": true,
+                      "power": true,
+                      "progress": true,
+                      "source": true
+                    },
+                    "group": true,
+                    "name": "Badkamer",
+                    "speaker_group": {
+                      "show_group_count": false
+                    }
+                  }
                 }
               ],
               "type": "entities"
-            },
-            {
-              "card": {
-                "entity": "media_player.sonos_badkamer",
-                "hide": {
-                  "controls": true,
-                  "icon": true,
-                  "info": true,
-                  "power": true,
-                  "progress": true,
-                  "source": true
-                },
-                "name": "Badkamer",
-                "speaker_group": {
-                  "show_group_count": false
-                },
-                "type": "custom:mini-media-player"
-              },
-              "conditions": [
-                {
-                  "entity": "media_player.sonos_badkamer",
-                  "state": "playing"
-                }
-              ],
-              "type": "conditional"
-            },
-            {
-              "card": {
-                "entity": "media_player.sonos_keuken",
-                "hide": {
-                  "controls": true,
-                  "icon": true,
-                  "info": true,
-                  "power": true,
-                  "progress": true,
-                  "source": true
-                },
-                "name": "Keuken",
-                "speaker_group": {
-                  "show_group_count": false
-                },
-                "type": "custom:mini-media-player"
-              },
-              "conditions": [
-                {
-                  "entity": "media_player.sonos_keuken",
-                  "state": "playing"
-                }
-              ],
-              "type": "conditional"
             },
             {
               "entities": [
@@ -515,70 +550,6 @@
               "type": "entities"
             },
             {
-              "entities": [
-                {
-                  "entity": "sensor.verjaardag_kevin"
-                },
-                {
-                  "entity": "sensor.verjaardag_willemijn"
-                },
-                {
-                  "entity": "sensor.verjaardag_wouter"
-                },
-                {
-                  "entity": "sensor.verjaardag_bertie"
-                },
-                {
-                  "entity": "sensor.verjaardag_adri"
-                },
-                {
-                  "entity": "sensor.verjaardag_anniek"
-                },
-                {
-                  "entity": "sensor.verjaardag_kim"
-                },
-                {
-                  "entity": "sensor.verjaardag_yorrick"
-                },
-                {
-                  "entity": "sensor.verjaardag_eveliene"
-                },
-                {
-                  "entity": "sensor.verjaardag_niek"
-                },
-                {
-                  "entity": "sensor.verjaardag_emma"
-                },
-                {
-                  "entity": "sensor.verjaardag_vera"
-                },
-                {
-                  "entity": "sensor.verjaardag_jens"
-                },
-                {
-                  "entity": "sensor.verjaardag_dean"
-                },
-                {
-                  "entity": "sensor.jubileum_trouwdag_kevin_en_willemijn"
-                },
-                {
-                  "entity": "sensor.jubileum_trouwdag_wouter_en_bertie"
-                },
-                {
-                  "entity": "sensor.jubileum_trouwdag_adri_en_anniek"
-                },
-                {
-                  "entity": "sensor.jubileum_trouwdag_yorrick_en_kim"
-                },
-                {
-                  "entity": "sensor.jubileum_trouwdag_niek_en_eveliene"
-                }
-              ],
-              "show_header_toggle": false,
-              "title": "Verjaardagen & jubilea",
-              "type": "entities"
-            },
-            {
               "type": "custom:vacuum-card",
               "entity": "vacuum.roborock_s5_max",
               "stats": {
@@ -652,6 +623,70 @@
               "show_name": true,
               "show_status": true,
               "show_toolbar": true
+            },
+            {
+              "entities": [
+                {
+                  "entity": "sensor.verjaardag_kevin"
+                },
+                {
+                  "entity": "sensor.verjaardag_willemijn"
+                },
+                {
+                  "entity": "sensor.verjaardag_wouter"
+                },
+                {
+                  "entity": "sensor.verjaardag_bertie"
+                },
+                {
+                  "entity": "sensor.verjaardag_adri"
+                },
+                {
+                  "entity": "sensor.verjaardag_anniek"
+                },
+                {
+                  "entity": "sensor.verjaardag_kim"
+                },
+                {
+                  "entity": "sensor.verjaardag_yorrick"
+                },
+                {
+                  "entity": "sensor.verjaardag_eveliene"
+                },
+                {
+                  "entity": "sensor.verjaardag_niek"
+                },
+                {
+                  "entity": "sensor.verjaardag_emma"
+                },
+                {
+                  "entity": "sensor.verjaardag_vera"
+                },
+                {
+                  "entity": "sensor.verjaardag_jens"
+                },
+                {
+                  "entity": "sensor.verjaardag_dean"
+                },
+                {
+                  "entity": "sensor.jubileum_trouwdag_kevin_en_willemijn"
+                },
+                {
+                  "entity": "sensor.jubileum_trouwdag_wouter_en_bertie"
+                },
+                {
+                  "entity": "sensor.jubileum_trouwdag_adri_en_anniek"
+                },
+                {
+                  "entity": "sensor.jubileum_trouwdag_yorrick_en_kim"
+                },
+                {
+                  "entity": "sensor.jubileum_trouwdag_niek_en_eveliene"
+                }
+              ],
+              "show_header_toggle": false,
+              "title": "Verjaardagen & jubilea",
+              "type": "entities"
             }
           ],
           "icon": "mdi:home-account",
@@ -898,6 +933,14 @@
                 {
                   "entity": "sensor.anna_temperature",
                   "name": "Woonk."
+                },
+                {
+                  "entity": "sensor.hm_attic_back_temperature",
+                  "name": "Zolder a."
+                },
+                {
+                  "entity": "sensor.hm_attic_front_temperature",
+                  "name": "Zolder v."
                 }
               ]
             }
@@ -1320,9 +1363,11 @@
               "type": "entity-button"
             },
             {
+              "show_state": true,
+              "show_name": false,
+              "camera_view": "auto",
               "camera_image": "camera.emma",
               "entity": "sensor.hm_room_emma_temperature",
-              "show_name": false,
               "type": "picture-entity"
             },
             {
@@ -2060,6 +2105,16 @@
               ],
               "title": "Actueel verbruik",
               "show_header_toggle": false
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "device_tracker.iphonevanbertie"
+                }
+              ],
+              "title": "Visitors",
+              "show_header_toggle": false
             }
           ],
           "icon": "mdi:finance",
@@ -2188,6 +2243,50 @@
               "show_name": true,
               "show_state": false,
               "type": "glance"
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.doorbell_audio_recording"
+                },
+                {
+                  "entity": "switch.doorbell_auto_night_vision"
+                },
+                {
+                  "entity": "sensor.doorbell_battery"
+                },
+                {
+                  "entity": "select.doorbell_charging_status"
+                },
+                {
+                  "entity": "select.doorbell_chime_volume"
+                },
+                {
+                  "entity": "switch.doorbell_enabled"
+                },
+                {
+                  "entity": "sensor.doorbell_detected_person_name"
+                },
+                {
+                  "entity": "binary_sensor.doorbell_global_motion_sensor"
+                },
+                {
+                  "entity": "switch.doorbell_indoor_chime"
+                },
+                {
+                  "entity": "binary_sensor.doorbell_ringing_sensor"
+                },
+                {
+                  "entity": "select.doorbell_video_streaming_quality"
+                },
+                {
+                  "entity": "automation.higher_volume_doorbell"
+                },
+                {
+                  "entity": "select.doorbell_power_working_mode"
+                }
+              ]
             }
           ],
           "icon": "mdi:run",
