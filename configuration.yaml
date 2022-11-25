@@ -85,6 +85,7 @@ input_datetime: !include devices/input_datetime.yaml
 light: !include devices/light.yaml
 notify: !include devices/notify.yaml
 rest_command: !include devices/rest_command.yaml
+schedule: !include devices/schedule.yaml
 sensor: !include devices/sensor.yaml
 shell_command: !include devices/shell_command.yaml
 shelly: !include devices/shelly.yaml

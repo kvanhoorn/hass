@@ -1,0 +1,24 @@
+---
+- alias: "Actual lamp for wakeup Emma"
+  trigger:
+    - platform: state
+      entity_id: schedule.emma_wakeup_schedule
+      to: 'on'
+  action:
+    - service: light.turn_on
+      data:
+        transition: 10
+        color_name: red
+        brightness: 25
+      target:
+        entity_id: light.h_emma
+
+- alias: "Actual lamp for wakeup Emma - turn off"
+  trigger:
+    - platform: state
+      entity_id: schedule.emma_wakeup_schedule
+      to: 'off'
+  action:
+    - service: light.turn_off
+      target:
+        entity_id: light.h_emma
