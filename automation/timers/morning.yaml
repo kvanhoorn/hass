@@ -34,6 +34,7 @@
       entity_id:
         - media_player.sonos_badkamer
         - media_player.sonos_woonkamer
+        - media_player.sonos_eetkamer
         - media_player.sonos_keuken
       data:
         volume_level: .06
@@ -56,6 +57,7 @@
         group_members:
           - media_player.sonos_keuken
           - media_player.sonos_woonkamer
+          - media_player.sonos_eetkamer
 
 - alias: 'timer_morning_everythingoff'
   trigger:
@@ -93,5 +95,6 @@
         entity_id:
           - media_player.sonos_keuken
           - media_player.sonos_woonkamer
+          - media_player.sonos_eetkamer
     - service: media_player.media_pause
       entity_id: media_player.sonos_badkamer
