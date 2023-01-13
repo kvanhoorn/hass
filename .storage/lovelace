@@ -745,6 +745,9 @@
                 {
                   "entity": "switch.shelly_carport",
                   "name": "Buiten kerst"
+                },
+                {
+                  "entity": "switch.shelly_christmas_outdoor"
                 }
               ]
             }
@@ -763,6 +766,10 @@
             {
               "entity": "media_player.atv_bedroom",
               "type": "media-control"
+            },
+            {
+              "type": "media-control",
+              "entity": "media_player.atv_attic"
             },
             {
               "entity": "sensor.plex_vinkhoornnas01",
@@ -1862,9 +1869,6 @@
                 },
                 {
                   "entity": "binary_sensor.vinkhoornnas01_security_status"
-                },
-                {
-                  "entity": "sensor.front_door_battery"
                 }
               ],
               "type": "entities"
