@@ -20,7 +20,20 @@
             "number_energy_price": null
           }
         ],
-        "flow_to": [],
+        "flow_to": [
+          {
+            "stat_energy_to": "sensor.energy_production_tarif_1",
+            "stat_compensation": null,
+            "entity_energy_price": "sensor.easyenergy_power",
+            "number_energy_price": null
+          },
+          {
+            "stat_energy_to": "sensor.energy_production_tarif_2",
+            "stat_compensation": null,
+            "entity_energy_price": "sensor.easyenergy_power",
+            "number_energy_price": null
+          }
+        ],
         "cost_adjustment_day": 0.0
       },
       {
@@ -36,6 +49,13 @@
         "stat_cost": null,
         "entity_energy_price": null,
         "number_energy_price": 0.91
+      },
+      {
+        "type": "solar",
+        "stat_energy_from": "sensor.solaredge_eindhoven_production_energy",
+        "config_entry_solar_forecast": [
+          "ac1e4a9eaac1f04dee20d110de112739"
+        ]
       }
     ],
     "device_consumption": [
