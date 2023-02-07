@@ -7,7 +7,6 @@ filter:
     - input_boolean.is_it_night
     - climate.anna
     - climate.overloop
-    - climate.tesla_kevin_hvac_climate_system
     - light.woonkamer
     - light.tafel
     - light.badkamer
@@ -24,4 +23,3 @@ filter:
     - camera.frontdoor
     - camera.emma
     - camera.outdoor
-    - lock.tesla_kevin_door_lock
