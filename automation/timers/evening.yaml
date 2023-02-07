@@ -17,6 +17,10 @@
       entity_id:
         - light.hal_led_bak
         - light.kerstboom
+    - service: switch.turn_on
+      target:
+        entity_id:
+          - switch.shelly_christmas_outdoor
 
 - alias: 'timer_evening_goodnight'
   trigger:
@@ -46,6 +50,10 @@
         - light.h_tv_play_left
         - light.h_tv_play_right
         - light.kerstboom
+    - service: switch.turn_off
+      target:
+        entity_id:
+          - switch.shelly_christmas_outdoor
 
 - alias: 'timer_evening_carport'
   trigger:

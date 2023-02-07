@@ -45,5 +45,5 @@ devices:
     name: "Warmwaterketel"
     entity_id: warmwater_tank
   - id: "20e7b0"
-    name: "Autolader"
-    entity_id: carcharger
+    name: "Kerst buiten"
+    entity_id: christmas_outdoor
