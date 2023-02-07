@@ -53,13 +53,45 @@
         title: "Sensor batterijen (kort)"
         message: "{{ states.sensor.short_time_not_seen_devices.state }}"
 
-- alias: ring_battery_below_treshold
+- alias: send notification about almost empty batteries
   trigger:
-    platform: numeric_state
-    entity_id: sensor.front_door_battery
-    below: 21
+    platform: time
+    at: '20:00:00'
+  condition:
+    - condition: template
+      value_template: >
+        {% if (states.sensor.battery_monitor_lowperc.state != '') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'on'
   action:
     - service: notify.pushover
       data:
-        title: "Ring batterij leeg"
-        message: "Batterij van de deurbel bijna leeg (20%), graag vervangen."
+        title: "Apparaten met batterij < 15%"
+        message: "{{ states.sensor.battery_monitor_lowperc.state }}"
+
+- alias: send notification about offline devices
+  trigger:
+    platform: time
+    at: '20:00:00'
+  condition:
+    - condition: template
+      value_template: >
+        {% if (states.sensor.battery_monitor_offline.state != '') %}
+          true
+        {% else %}
+          false
+        {% endif %}
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Apparaten offline"
+        message: "{{ states.sensor.battery_monitor_offline.state }}"
+

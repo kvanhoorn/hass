@@ -348,6 +348,39 @@ short_battery_devices:
     - sensor.temperatuur_garage_temperature
     - sensor.temperatuur_kantoor_temperature
     - sensor.temperatuur_slaapkamer_temperature
+battery_devices:
+  name: Apparaten die een batterij percentage sturen
+  entities:
+    - sensor.hm_room_emma_battery
+    - sensor.hm_bathroom_battery
+    - sensor.hm_hallcloset_battery
+    - sensor.hm_attic_front_battery
+    - sensor.hm_attic_back_battery
+    - sensor.hm_backyard_battery
+    - sensor.hs_attic_front_battery
+    - sensor.hs_attic_back_battery
+    - sensor.hs_living_room_battery
+    - sensor.hs_room_emma_battery
+    - sensor.hs_bedroom_battery
+    - sensor.hs_bathroom_battery
+    - sensor.hs_outdoor_battery
+    - sensor.hs_office_battery
+    - sensor.hsb_living_room_battery
+    - sensor.shelly_door_office_battery
+    - sensor.shelly_window_office_battery
+    - sensor.shelly_door_emma_battery
+    - sensor.shelly_window_emma_battery
+    - sensor.shelly_door_bedroom_battery
+    - sensor.shelly_window_bedroom_battery
+    - sensor.shelly_door_frontdoor_battery
+    - sensor.shelly_door_kitchen_battery
+    - sensor.shelly_door_livingroom_battery
+    - sensor.shelly_door_shed_battery
+    - sensor.shelly_door_garage_battery
+    - sensor.sonos_keuken_battery
+    - sensor.sonos_buiten_battery
+    - sensor.office_curtain_battery
+    - sensor.doorbell_battery
 short_wifi_devices:
   name: Wifi apparaten onlangs niet gezien
   entities:

@@ -1640,6 +1640,12 @@
                 },
                 {
                   "entity": "sensor.long_time_not_seen_devices"
+                },
+                {
+                  "entity": "sensor.battery_monitor_lowperc"
+                },
+                {
+                  "entity": "sensor.battery_monitor_offline"
                 }
               ],
               "show_header_toggle": false,

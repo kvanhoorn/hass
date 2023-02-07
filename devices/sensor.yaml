@@ -154,6 +154,31 @@
             {{ entity.name }},
           {%- endif -%}
         {% endfor %}
+    battery_monitor_offline:
+      friendly_name: 'Battery devices offline'
+      icon_template: 'mdi:battery'
+      value_template: >
+        {% set dv = namespace(u=[], l=[]) %}
+        {% set gr = expand('group.battery_devices') %}
+        {% for en in gr %}
+          {%- if en.state == 'unavailable' %}
+            {%- set dv.u = dv.u + [en] %}
+          {%- endif %}
+        {%- endfor %}
+        {{ dv.u | map(attribute='attributes.friendly_name') | join(', ') }}
+    battery_monitor_lowperc:
+      friendly_name: 'Battery devices lowperc'
+      icon_template: 'mdi:battery'
+      value_template: >
+        {% set dv = namespace(u=[], l=[]) %}
+        {% set gr = expand('group.battery_devices') %}
+        {% for en in gr %}
+          {%- if en.state == 'unavailable' %}
+          {%- elif float(en.state) < 15.0 %}
+            {%- set dv.l = dv.l + [en] %}
+          {%- endif %}
+        {%- endfor %}
+        {{ dv.l | map(attribute='attributes.friendly_name') | join(', ') }}
     bedroom_vs_outside_temperature:
       friendly_name: 'Slaapkamer vs buiten temperatuur'
       icon_template: 'mdi:temperature-celsius'
