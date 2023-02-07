@@ -93,8 +93,10 @@ lights:
     - light.h_play_office
     - light.h_zolder_voor_deur
     - light.h_zolder_voor_muur
+    - light.h_zolder_voor_plafond
     - light.h_zolder_achter_deur
     - light.h_zolder_achter_muur
+    - light.h_zolder_achter_plafond
     - light.h_badkamer_links
     - light.h_badkamer_midden
     - light.h_badkamer_rechts
