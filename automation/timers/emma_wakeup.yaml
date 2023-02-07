@@ -4,6 +4,27 @@
     - platform: state
       entity_id: schedule.emma_wakeup_schedule
       to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+  action:
+    - service: light.turn_on
+      data:
+        transition: 10
+        color_name: red
+        brightness: 25
+      target:
+        entity_id: light.h_emma
+
+- alias: "Actual lamp for wakeup Emma - holiday"
+  trigger:
+    - platform: time
+      at: "07:30:00"
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'on'
   action:
     - service: light.turn_on
       data:
