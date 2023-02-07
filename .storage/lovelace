@@ -1349,7 +1349,7 @@
                   "name": "Trapkast - Hue Motion"
                 },
                 {
-                  "entity": "sensor.front_door_battery",
+                  "entity": "sensor.doorbell_battery",
                   "secondary_info": "last-changed",
                   "name": "Hal - Deurbel"
                 },
@@ -1389,7 +1389,7 @@
                   "name": "Garage roldeur"
                 },
                 {
-                  "entity": "sensor.hue_dimmer_switch_1_battery",
+                  "entity": "sensor.hm_attic_back_battery",
                   "secondary_info": "last-changed",
                   "name": "Zolder Voor - Hue Dimmer"
                 },
@@ -1399,7 +1399,7 @@
                   "name": "Zolder Voor - Hue Motion"
                 },
                 {
-                  "entity": "sensor.hs_attic_battery",
+                  "entity": "sensor.hs_attic_front_battery",
                   "secondary_info": "last-changed",
                   "name": "Zolder Achter - Hue Dimmer"
                 },

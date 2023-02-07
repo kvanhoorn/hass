@@ -5,6 +5,8 @@ homeassistant:
   longitude: 5.503628
   elevation: 0
   unit_system: metric
+  currency: EUR
+  country: NL
   time_zone: Europe/Amsterdam
   customize: !include customize.yaml
   customize_domain: !include customize_domain.yaml
