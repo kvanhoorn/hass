@@ -333,15 +333,10 @@ long_battery_devices:
   name: Batterij apparaten lang niet gezien
   entities:
     - binary_sensor.pir_hal
-    - binary_sensor.pir_woonkamer
+#    - binary_sensor.pir_woonkamer
     - binary_sensor.pir_keuken
     - binary_sensor.pir_kantoor
-    - binary_sensor.pir_slaapkamer
-    - binary_sensor.hm_motion_backyard
-    - binary_sensor.hm_motion_hallcloset
-    - binary_sensor.hm_motion_bathroom
-    - binary_sensor.hm_motion_room_emma
-    - binary_sensor.hm_motion_attic
+#    - binary_sensor.pir_slaapkamer
 short_battery_devices:
   name: Batterij apparaten onlangs niet gezien
   entities:
