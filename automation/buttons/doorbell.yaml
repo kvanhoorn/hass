@@ -2,7 +2,8 @@
 - alias: Event doorbell
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_ding
+      entity_id:
+        - binary_sensor.doorbell_ringing_sensor # Eufy
       to: 'on'
     - platform: state
       entity_id: input_boolean.fake_doorbell

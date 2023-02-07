@@ -24,10 +24,38 @@
             - url: !secret camera2_still
               caption: "De voordeur is geopend"
 
+- alias: Front door person
+  trigger:
+    - platform: state
+      entity_id:
+        - sensor.doorbell_detected_person_name
+  condition:
+    - condition: not
+      conditions:
+        - condition: state
+          entity_id:
+            - sensor.doorbell_detected_person_name
+          state: "unavailable"
+        - condition: state
+          entity_id:
+            - sensor.doorbell_detected_person_name
+          state: ""
+        - condition: state
+          entity_id:
+            - sensor.doorbell_detected_person_name
+          state: "Unknown"
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "{{ trigger.to_state.state }} gedetecteerd"
+        message: "{{ trigger.to_state.state }} is gedecteerd bij de voordeur"
+    # - service: notify.telegram
+
 - alias: Front door motion
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_motion
+      entity_id:
+        - binary_sensor.doorbell_global_motion_sensor
       to: 'on'
     - platform: state
       entity_id: input_boolean.tts_test
@@ -59,7 +87,8 @@
       entity_id: binary_sensor.shelly_door_frontdoor_door_window
       to: 'on'
     - platform: state
-      entity_id: binary_sensor.front_door_motion
+      entity_id:
+        - binary_sensor.doorbell_global_motion_sensor
       to: 'on'
   condition:
     condition: and
