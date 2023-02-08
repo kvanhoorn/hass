@@ -14,9 +14,8 @@ filter:
     - light.hal_led_bak
     - light.kerstboom
     - light.plafondlamp
-    - binary_sensor.front_door_ding
     - vacuum.xiaomi_vacuum_cleaner
-    - cover.office_curtain
+    - binary_sensor.doorbell_ringing_sensor
     - cover.rfy_08a54b_1
     - cover.curtain_2a59
     - cover.curtain_fde8
@@ -25,3 +24,8 @@ filter:
     - camera.frontdoor
     - camera.emma
     - camera.outdoor
+entity_config:
+  camera.street_2:
+    name: Deurbel
+    support_audio: false
+    linked_doorbell_sensor: binary_sensor.doorbell_ringing_sensor
