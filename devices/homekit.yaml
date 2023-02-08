@@ -18,6 +18,8 @@ filter:
     - vacuum.xiaomi_vacuum_cleaner
     - cover.office_curtain
     - cover.rfy_08a54b_1
+    - cover.curtain_2a59
+    - cover.curtain_fde8
     - switch.shelly_carport
     - switch.shelly_fermentation_chamber
     - camera.frontdoor

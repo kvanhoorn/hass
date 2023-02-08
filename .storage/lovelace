@@ -532,10 +532,16 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "cover.rfy_08a54b_1"
+                  "entity": "cover.rfy_08a54b_1",
+                  "name": "Rolluik Zolder Voor"
                 },
                 {
-                  "entity": "cover.office_curtain"
+                  "entity": "cover.curtain_2a59",
+                  "name": "Gordijn Zolder Voor"
+                },
+                {
+                  "entity": "cover.curtain_fde8",
+                  "name": "Gordijn Zolder Achter"
                 }
               ]
             },
@@ -1345,9 +1351,14 @@
                   "name": "Kantoor - Hue Dimmer"
                 },
                 {
-                  "entity": "sensor.office_curtain_battery",
+                  "entity": "sensor.curtain_2a59_battery",
                   "secondary_info": "last-changed",
-                  "name": "Kantoor - Gordijnen"
+                  "name": "Kantoor - Gordijn voor"
+                },
+                {
+                  "entity": "sensor.curtain_fde8_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Kantoor - Gordijn achter"
                 },
                 {
                   "entity": "sensor.shelly_door_emma_battery",
