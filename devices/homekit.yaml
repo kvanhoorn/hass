@@ -17,6 +17,7 @@ filter:
     - vacuum.xiaomi_vacuum_cleaner
     - binary_sensor.doorbell_ringing_sensor
     - cover.rfy_08a54b_1
+    - cover.rfy_08a54a_1
     - cover.curtain_2a59
     - cover.curtain_fde8
     - switch.shelly_carport

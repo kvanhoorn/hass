@@ -536,6 +536,9 @@
                   "name": "Rolluik Zolder Voor"
                 },
                 {
+                  "entity": "cover.rfy_08a54a_1"
+                },
+                {
                   "entity": "cover.curtain_2a59",
                   "name": "Gordijn Zolder Voor"
                 },

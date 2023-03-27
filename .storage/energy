@@ -10,13 +10,13 @@
           {
             "stat_energy_from": "sensor.energy_consumption_tarif_1",
             "stat_cost": null,
-            "entity_energy_price": "sensor.easyenergy_power",
+            "entity_energy_price": "sensor.easyenergy_today_energy_usage_current_hour_price",
             "number_energy_price": null
           },
           {
             "stat_energy_from": "sensor.energy_consumption_tarif_2",
             "stat_cost": null,
-            "entity_energy_price": "sensor.easyenergy_power",
+            "entity_energy_price": "sensor.easyenergy_today_energy_usage_current_hour_price",
             "number_energy_price": null
           }
         ],
@@ -24,13 +24,13 @@
           {
             "stat_energy_to": "sensor.energy_production_tarif_1",
             "stat_compensation": null,
-            "entity_energy_price": "sensor.easyenergy_power",
+            "entity_energy_price": "sensor.easyenergy_today_energy_return_current_hour_price",
             "number_energy_price": null
           },
           {
             "stat_energy_to": "sensor.energy_production_tarif_2",
             "stat_compensation": null,
-            "entity_energy_price": "sensor.easyenergy_power",
+            "entity_energy_price": "sensor.easyenergy_today_energy_return_current_hour_price",
             "number_energy_price": null
           }
         ],
@@ -40,7 +40,7 @@
         "type": "gas",
         "stat_energy_from": "sensor.gas_consumption",
         "stat_cost": null,
-        "entity_energy_price": "sensor.easyenergy_gas",
+        "entity_energy_price": "sensor.easyenergy_today_gas_current_hour_price",
         "number_energy_price": null
       },
       {
