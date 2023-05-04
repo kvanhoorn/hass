@@ -6,14 +6,14 @@
     - platform: numeric_state
       entity_id:
         - sensor.temperatuur_slaapkamer
-        - sensor.temperatuur_kantoor
+        - sensor.hm_emma_temperature
       above: 23.0
       for:
         minutes: 10
     - platform: state
       entity_id:
         - binary_sensor.shelly_door_bedroom_door_window
-        - binary_sensor.shelly_door_office_door_window
+        - binary_sensor.shelly_door_emma_door_window
       to: 'on'
   condition:
     and:
@@ -24,16 +24,16 @@
         - condition: numeric_state
           entity_id: sensor.hm_backyard_temperature
           above: 20.0
-        - condition: numeric_state
-          entity_id: sensor.dark_sky_daytime_high_temperature_0d
-          above: 20.0
+#        - condition: numeric_state
+#          entity_id: sensor.dark_sky_daytime_high_temperature_0d
+#          above: 20.0
       - or:
         - and:
           - condition: numeric_state
-            entity_id: sensor.temperatuur_kantoor
+            entity_id: sensor.hm_emma_temperature
             above: 23.0
           - condition: state
-            entity_id: binary_sensor.shelly_door_office_door_window
+            entity_id: binary_sensor.shelly_door_emma_door_window
             state: 'on'
         - and:
           - condition: numeric_state
@@ -66,7 +66,7 @@
     platform: numeric_state
     entity_id:
       - sensor.temperatuur_slaapkamer
-      - sensor.temperatuur_kantoor
+      - sensor.hm_emma_temperature
     below: 23.0
     for:
       minutes: 20
@@ -79,7 +79,7 @@
         entity_id: sensor.temperatuur_slaapkamer
         below: 22.7
       - condition: numeric_state
-        entity_id: sensor.temperatuur_kantoor
+        entity_id: sensor.hm_emma_temperature
         below: 22.7
       - or:
         - condition: state

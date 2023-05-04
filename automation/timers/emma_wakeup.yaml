@@ -9,13 +9,10 @@
       entity_id: input_boolean.is_it_holiday
       state: 'off'
   action:
-    - service: light.turn_on
-      data:
-        transition: 10
-        color_name: red
-        brightness: 25
+    - service: hue.activate_scene
       target:
-        entity_id: light.h_emma
+        entity_id:
+          - scene.emma_wakeup
 
 - alias: "Actual lamp for wakeup Emma - holiday"
   trigger:
@@ -26,13 +23,10 @@
       entity_id: input_boolean.is_it_holiday
       state: 'on'
   action:
-    - service: light.turn_on
-      data:
-        transition: 10
-        color_name: red
-        brightness: 25
+    - service: hue.activate_scene
       target:
-        entity_id: light.h_emma
+        entity_id:
+          - scene.emma_wakeup
 
 - alias: "Actual lamp for wakeup Emma - turn off"
   trigger:

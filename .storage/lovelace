@@ -13,7 +13,11 @@
               "type": "entity-filter",
               "entities": [
                 {
-                  "entity": "sensor.hm_motion_room_emma",
+                  "entity": "binary_sensor.hm_baby_motion",
+                  "show_last_changed": true
+                },
+                {
+                  "entity": "binary_sensor.hm_emma_motion",
                   "show_last_changed": true
                 },
                 {
@@ -21,7 +25,11 @@
                   "show_last_changed": true
                 },
                 {
-                  "entity": "binary_sensor.hm_attic_motion",
+                  "entity": "binary_sensor.hm_attic_back_motion",
+                  "show_last_changed": true
+                },
+                {
+                  "entity": "binary_sensor.hm_attic_front_motion",
                   "show_last_changed": true
                 },
                 {
@@ -38,10 +46,6 @@
                 },
                 {
                   "entity": "binary_sensor.pir_slaapkamer",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.pir_kantoor",
                   "show_last_changed": true
                 },
                 {
@@ -77,18 +81,22 @@
               "cards": [
                 {
                   "type": "entity",
-                  "entity": "sensor.dark_sky_overnight_low_temperature_0d",
-                  "name": "min"
+                  "entity": "sensor.today_templow",
+                  "name": "min",
+                  "unit": "°C"
                 },
                 {
                   "type": "entity",
-                  "entity": "sensor.dark_sky_temperature",
-                  "name": "nu"
+                  "entity": "weather.pirateweather",
+                  "name": "nu",
+                  "attribute": "temperature",
+                  "unit": "°C"
                 },
                 {
                   "type": "entity",
-                  "entity": "sensor.dark_sky_daytime_high_temperature_0d",
-                  "name": "max"
+                  "entity": "sensor.today_temphigh",
+                  "name": "max",
+                  "unit": "°C"
                 }
               ]
             },
@@ -864,11 +872,136 @@
                   "name": "Kevin MacBook Pro"
                 },
                 {
+                  "entity": "media_player.plex_plex_for_apple_tv_atv_living_room_4k",
+                  "name": "ATV Living Room 4k"
+                },
+                {
+                  "entity": "media_player.plex_plex_for_apple_tv_atv_bedroom",
+                  "name": "ATV Bedroom"
+                },
+                {
                   "entity": "button.scan_clients_vinkhoornnas01"
                 }
               ],
               "title": "Plex Media Players",
               "type": "entities"
+            },
+            {
+              "type": "horizontal-stack",
+              "cards": [
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "media_player.select_source",
+                    "target": {
+                      "entity_id": "media_player.atv_living_room_4k"
+                    },
+                    "data": {
+                      "source": "Disney+"
+                    }
+                  },
+                  "entity": "media_player.atv_living_room_4k",
+                  "icon": "mdi:video-box",
+                  "name": "Disney"
+                },
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "media_player.select_source",
+                    "target": {
+                      "entity_id": "media_player.atv_living_room_4k"
+                    },
+                    "data": {
+                      "source": "Netflix"
+                    }
+                  },
+                  "entity": "media_player.atv_living_room_4k",
+                  "icon": "mdi:video-box",
+                  "name": "Netflix"
+                },
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "media_player.select_source",
+                    "target": {
+                      "entity_id": "media_player.atv_living_room_4k"
+                    },
+                    "data": {
+                      "source": "Prime Video"
+                    }
+                  },
+                  "entity": "media_player.atv_living_room_4k",
+                  "icon": "mdi:video-box",
+                  "name": "Prime"
+                },
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "media_player.select_source",
+                    "target": {
+                      "entity_id": "media_player.atv_living_room_4k"
+                    },
+                    "data": {
+                      "source": "Plex"
+                    }
+                  },
+                  "entity": "media_player.atv_living_room_4k",
+                  "icon": "mdi:video-box",
+                  "name": "Plex"
+                },
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "media_player.select_source",
+                    "target": {
+                      "entity_id": "media_player.atv_living_room_4k"
+                    },
+                    "data": {
+                      "source": "T-Mobile TV"
+                    }
+                  },
+                  "entity": "media_player.atv_living_room_4k",
+                  "icon": "mdi:video-box",
+                  "name": "TV"
+                },
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "media_player.select_source",
+                    "target": {
+                      "entity_id": "media_player.atv_living_room_4k"
+                    },
+                    "data": {
+                      "source": "HBO Max"
+                    }
+                  },
+                  "entity": "media_player.atv_living_room_4k",
+                  "icon": "mdi:video-box",
+                  "name": "HBO"
+                },
+                {
+                  "type": "button",
+                  "tap_action": {
+                    "action": "call-service",
+                    "service": "media_player.select_source",
+                    "target": {
+                      "entity_id": "media_player.atv_living_room_4k"
+                    },
+                    "data": {
+                      "source": "YouTube"
+                    }
+                  },
+                  "entity": "media_player.atv_living_room_4k",
+                  "icon": "mdi:video-box",
+                  "name": "YT"
+                }
+              ]
             }
           ],
           "icon": "mdi:remote",
@@ -914,11 +1047,11 @@
                   "name": "Slaapk."
                 },
                 {
-                  "entity": "sensor.temperatuur_kantoor",
-                  "name": "Kantoor"
+                  "entity": "sensor.hm_baby_temperature",
+                  "name": "Baby"
                 },
                 {
-                  "entity": "sensor.hm_room_emma_temperature",
+                  "entity": "sensor.hm_emma_temperature",
                   "name": "Emma"
                 },
                 {
@@ -1334,34 +1467,29 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.shelly_door_office_battery",
-                  "secondary_info": "last-changed",
-                  "name": "Kantoor - Deur"
-                },
-                {
-                  "entity": "sensor.shelly_window_office_battery",
-                  "secondary_info": "last-changed",
-                  "name": "Kantoor - Raam"
-                },
-                {
                   "entity": "sensor.sonos_buiten_battery",
                   "secondary_info": "last-changed",
                   "name": "Kantoor - Sonos (buiten)"
                 },
                 {
-                  "entity": "sensor.hs_office_battery",
+                  "entity": "sensor.shelly_door_baby_battery",
                   "secondary_info": "last-changed",
-                  "name": "Kantoor - Hue Dimmer"
+                  "name": "Baby - Deur"
                 },
                 {
-                  "entity": "sensor.curtain_2a59_battery",
+                  "entity": "sensor.shelly_window_baby_battery",
                   "secondary_info": "last-changed",
-                  "name": "Kantoor - Gordijn voor"
+                  "name": "Baby - Raam"
                 },
                 {
-                  "entity": "sensor.curtain_fde8_battery",
+                  "entity": "sensor.hs_baby_battery",
                   "secondary_info": "last-changed",
-                  "name": "Kantoor - Gordijn achter"
+                  "name": "Baby - Hue Dimmer"
+                },
+                {
+                  "entity": "sensor.hm_baby_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Baby - Hue Motion"
                 },
                 {
                   "entity": "sensor.shelly_door_emma_battery",
@@ -1374,12 +1502,12 @@
                   "name": "Emma - Raam"
                 },
                 {
-                  "entity": "sensor.hs_room_emma_battery",
+                  "entity": "sensor.hs_emma_battery",
                   "secondary_info": "last-changed",
                   "name": "Emma - Hue Dimmer"
                 },
                 {
-                  "entity": "sensor.hm_room_emma_battery",
+                  "entity": "sensor.hm_emma_battery",
                   "secondary_info": "last-changed",
                   "name": "Emma - Hue Motion"
                 },
@@ -1459,6 +1587,11 @@
                   "name": "Garage roldeur"
                 },
                 {
+                  "entity": "sensor.curtain_2a59_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Zolder Voor - Gordijn"
+                },
+                {
                   "entity": "sensor.hm_attic_back_battery",
                   "secondary_info": "last-changed",
                   "name": "Zolder Voor - Hue Dimmer"
@@ -1467,6 +1600,11 @@
                   "entity": "sensor.hm_attic_front_battery",
                   "secondary_info": "last-changed",
                   "name": "Zolder Voor - Hue Motion"
+                },
+                {
+                  "entity": "sensor.curtain_fde8_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Zolder Achter - Gordijn"
                 },
                 {
                   "entity": "sensor.hs_attic_front_battery",
@@ -1661,15 +1799,6 @@
                 },
                 {
                   "entity": "sensor.pi_hole_dns_queries_today"
-                },
-                {
-                  "entity": "binary_sensor.pi_hole_web_update_available"
-                },
-                {
-                  "entity": "binary_sensor.pi_hole_ftl_update_available"
-                },
-                {
-                  "entity": "binary_sensor.pi_hole_core_update_available"
                 },
                 {
                   "entity": "sensor.sonarr_upcoming"
@@ -1886,10 +2015,16 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "sensor.easyenergy_gas"
+                  "entity": "sensor.easyenergy_today_gas_current_hour_price",
+                  "name": "Gas - huidig"
                 },
                 {
-                  "entity": "sensor.easyenergy_power"
+                  "entity": "sensor.easyenergy_today_energy_usage_current_hour_price",
+                  "name": "Stroom levering - huidig"
+                },
+                {
+                  "entity": "sensor.easyenergy_today_energy_return_current_hour_price",
+                  "name": "Stroom teruglevering - huidig"
                 }
               ],
               "title": "Tarieven",
@@ -1931,10 +2066,66 @@
               "entities": [
                 {
                   "entity": "device_tracker.iphonevanbertie"
+                },
+                {
+                  "entity": "sensor.last_time_detected_wouter"
+                },
+                {
+                  "entity": "sensor.last_time_detected_bertie"
+                },
+                {
+                  "entity": "sensor.last_time_detected_adri"
+                },
+                {
+                  "entity": "sensor.last_time_detected_anniek"
                 }
               ],
               "title": "Visitors",
               "show_header_toggle": false
+            },
+            {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "update.nleidgw01"
+                },
+                {
+                  "entity": "update.nleidsw01_hall"
+                },
+                {
+                  "entity": "update.nleidsw02_living_room"
+                },
+                {
+                  "entity": "update.nleidsw03_attic"
+                },
+                {
+                  "entity": "update.nleidap01_hall"
+                },
+                {
+                  "entity": "update.nleidap02_emma"
+                },
+                {
+                  "entity": "update.nleidap03_garage"
+                },
+                {
+                  "entity": "update.nleidap04_attic"
+                },
+                {
+                  "entity": "update.pi_hole_core_update_available"
+                },
+                {
+                  "entity": "update.pi_hole_ftl_update_available"
+                },
+                {
+                  "entity": "update.pi_hole_web_update_available"
+                },
+                {
+                  "entity": "update.vinkhoornnas01_dsm_update"
+                }
+              ],
+              "title": "Updates",
+              "show_header_toggle": false,
+              "state_color": true
             }
           ],
           "icon": "mdi:finance",
@@ -1974,12 +2165,12 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.hm_room_emma_motion",
-                  "name": "Emma"
+                  "entity": "binary_sensor.hm_baby_motion",
+                  "name": "Baby"
                 },
                 {
-                  "entity": "binary_sensor.pir_kantoor",
-                  "name": "kantoor"
+                  "entity": "binary_sensor.hm_emma_motion",
+                  "name": "Emma"
                 },
                 {
                   "entity": "binary_sensor.hm_bathroom_motion",
@@ -2026,12 +2217,12 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.shelly_door_emma_door_window",
-                  "name": "Emma"
+                  "entity": "binary_sensor.shelly_door_baby_door_window",
+                  "name": "Baby"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_office_door_window",
-                  "name": "Kantoor"
+                  "entity": "binary_sensor.shelly_door_emma_door_window",
+                  "name": "Emma"
                 },
                 {
                   "entity": "binary_sensor.shelly_door_bedroom_door_window",
@@ -2045,13 +2236,13 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.shelly_window_emma_door_window",
-                  "name": "Emma",
+                  "entity": "binary_sensor.shelly_window_baby_door_window",
+                  "name": "Baby",
                   "icon": "mdi:window-closed"
                 },
                 {
-                  "entity": "binary_sensor.shelly_window_office_door_window",
-                  "name": "Kantoor",
+                  "entity": "binary_sensor.shelly_window_emma_door_window",
+                  "name": "Emma",
                   "icon": "mdi:window-closed"
                 },
                 {
