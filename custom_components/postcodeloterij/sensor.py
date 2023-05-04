@@ -84,7 +84,8 @@ class PostcodeloterijSensor(Entity):
         
         try:
             req = requests.get(
-              self._url)
+              self._url, headers={
+                  "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Safari/537.36"})
             self.data = req.json()
             _LOGGER.debug(self.data)
             self._state = self.data['prizeCount']
