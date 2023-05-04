@@ -110,7 +110,11 @@ class CleanprofsSensor(SensorEntity):
       date = activity.xpath(".//div[@class='nk-tb-col']")[2].text_content().replace("\n", "").strip()
       now = datetime.now()
 
-      parsed_date = datetime.strptime(date, '%d %b').date()
+      try:
+        parsed_date = datetime.strptime(date, '%d %b').date()
+      except:
+        continue
+
       if parsed_date.month < now.month:
         parsed_date = parsed_date.replace(year=(now.year + 1))
       else:
