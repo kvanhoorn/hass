@@ -1,0 +1,76 @@
+- name: Last time detected Wouter
+  query: >
+    SELECT
+      DATETIME ((
+        SELECT
+          last_updated_ts
+        FROM
+          states
+        WHERE
+          entity_id = 'sensor.doorbell_detected_person_name'
+        AND
+          state='Wouter'
+        ORDER BY
+          state_id DESC
+        LIMIT 1
+      ),
+      'unixepoch',
+      'localtime') AS timestamp;
+  column: 'timestamp'
+- name: Last time detected Bertie
+  query: >
+    SELECT
+      DATETIME ((
+        SELECT
+          last_updated_ts
+        FROM
+          states
+        WHERE
+          entity_id = 'sensor.doorbell_detected_person_name'
+        AND
+          state='Bertie'
+        ORDER BY
+          state_id DESC
+        LIMIT 1
+      ),
+      'unixepoch',
+      'localtime') AS timestamp;
+  column: 'timestamp'
+- name: Last time detected Adri
+  query: >
+    SELECT
+      DATETIME ((
+        SELECT
+          last_updated_ts
+        FROM
+          states
+        WHERE
+          entity_id = 'sensor.doorbell_detected_person_name'
+        AND
+          state='Adri'
+        ORDER BY
+          state_id DESC
+        LIMIT 1
+      ),
+      'unixepoch',
+      'localtime') AS timestamp;
+  column: 'timestamp'
+- name: Last time detected Anniek
+  query: >
+    SELECT
+      DATETIME ((
+        SELECT
+          last_updated_ts
+        FROM
+          states
+        WHERE
+          entity_id = 'sensor.doorbell_detected_person_name'
+        AND
+          state='Anniek'
+        ORDER BY
+          state_id DESC
+        LIMIT 1
+      ),
+      'unixepoch',
+      'localtime') AS timestamp;
+  column: 'timestamp'
