@@ -7,7 +7,14 @@
         FROM
           states
         WHERE
-          entity_id = 'sensor.doorbell_detected_person_name'
+          metadata_id=(
+            SELECT
+              metadata_id
+            FROM
+              states_meta
+            WHERE
+              entity_id = 'sensor.doorbell_detected_person_name'
+          )
         AND
           state='Wouter'
         ORDER BY
@@ -26,7 +33,14 @@
         FROM
           states
         WHERE
-          entity_id = 'sensor.doorbell_detected_person_name'
+          metadata_id=(
+            SELECT
+              metadata_id
+            FROM
+              states_meta
+            WHERE
+              entity_id = 'sensor.doorbell_detected_person_name'
+          )
         AND
           state='Bertie'
         ORDER BY
@@ -45,7 +59,14 @@
         FROM
           states
         WHERE
-          entity_id = 'sensor.doorbell_detected_person_name'
+          metadata_id=(
+            SELECT
+              metadata_id
+            FROM
+              states_meta
+            WHERE
+              entity_id = 'sensor.doorbell_detected_person_name'
+          )
         AND
           state='Adri'
         ORDER BY
@@ -64,7 +85,14 @@
         FROM
           states
         WHERE
-          entity_id = 'sensor.doorbell_detected_person_name'
+          metadata_id=(
+            SELECT
+              metadata_id
+            FROM
+              states_meta
+            WHERE
+              entity_id = 'sensor.doorbell_detected_person_name'
+          )
         AND
           state='Anniek'
         ORDER BY

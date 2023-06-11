@@ -17,7 +17,7 @@
     pir_keuken:
       device_class: motion
       value_template: "{{ is_state('binary_sensor.pt2262_2891e9', 'on') }}"
-    pir_slaapkamer:
+    pir_cvruimte:
       device_class: motion
       value_template: "{{ is_state('binary_sensor.pt2262_e94fe9', 'on') }}"
     pir_woonkamer:
@@ -25,7 +25,7 @@
       value_template: "{{ is_state('binary_sensor.pt2262_8cefa9', 'on') }}"
     brandalarm_woonkamer:
       device_class: smoke
-      value_template: "{{ is_state('binary_sensor.kd101_smoke_detector_05f100_32', 'on') }}"
+      value_template: "{{ is_state('binary_sensor.kd101_smoke_detector_791400_32', 'on') }}"
     brandalarm_keuken:
       device_class: smoke
       value_template: "{{ is_state('binary_sensor.kd101_smoke_detector_4c4000_32', 'on') }}"

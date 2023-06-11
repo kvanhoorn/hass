@@ -271,6 +271,16 @@
       icon_template: 'mdi:water'
       unit_of_measurement: 'l'
       value_template: "{{ states('sensor.daily_water') | float * 1000 | round }}"
+    today_templow:
+      friendly_name: Today minimum temperature
+      icon_template: 'mdi:temperature-celsius'
+      unit_of_measurement: '°'
+      value_template: "{{ state_attr('weather.pirateweather', 'forecast')[0].templow }}"
+    today_temphigh:
+      friendly_name: Today maximum temperature
+      icon_template: 'mdi:temperature-celsius'
+      unit_of_measurement: '°'
+      value_template: "{{ state_attr('weather.pirateweather', 'forecast')[0].temphigh }}"
 - platform: ovapi
   name: Bus 4
   timing_point_code: !secret busstop_code
@@ -291,11 +301,3 @@
   name: P2000 Eindhoven
   regios: 22
   radius: 2000
-- platform: easyenergy
-  gas_decimals: 5
-  power_decimals: 5
-- platform: easyenergy
-  timedelta: 1
-- platform: cleanprofs
-  postalcode: !secret postcode
-  housenumber: !secret housenumber

@@ -25,15 +25,12 @@ logger:
   #  homeassistant.components.config: debug
   #  homeassistant.components.config.automation: debug
   #  homeassistant.components.sensor.rest: debug
-  #  custom_components.easyenergy: debug
   #  homeassistant.components.rfxtrx: debug
   #  homeassistant.components.mqtt: debug
 
 #
 # END MAIN CONFIG - START OTHER CONFIG #
 #
-
-apple_tv:
 
 cloud:
 config:

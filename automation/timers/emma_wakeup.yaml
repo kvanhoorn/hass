@@ -36,4 +36,6 @@
   action:
     - service: light.turn_off
       target:
-        entity_id: light.h_emma
+        entity_id:
+          - light.h_emma
+          - light.h_play_emma

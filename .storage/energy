@@ -10,38 +10,31 @@
           {
             "stat_energy_from": "sensor.energy_consumption_tarif_1",
             "stat_cost": null,
-            "entity_energy_price": "sensor.easyenergy_today_energy_usage_current_hour_price",
-            "number_energy_price": null
+            "entity_energy_price": null,
+            "number_energy_price": 0.36306
           },
           {
             "stat_energy_from": "sensor.energy_consumption_tarif_2",
             "stat_cost": null,
-            "entity_energy_price": "sensor.easyenergy_today_energy_usage_current_hour_price",
-            "number_energy_price": null
+            "entity_energy_price": null,
+            "number_energy_price": 0.42652
           }
         ],
         "flow_to": [
           {
             "stat_energy_to": "sensor.energy_production_tarif_1",
             "stat_compensation": null,
-            "entity_energy_price": "sensor.easyenergy_today_energy_return_current_hour_price",
-            "number_energy_price": null
+            "entity_energy_price": null,
+            "number_energy_price": 0.09
           },
           {
             "stat_energy_to": "sensor.energy_production_tarif_2",
             "stat_compensation": null,
-            "entity_energy_price": "sensor.easyenergy_today_energy_return_current_hour_price",
-            "number_energy_price": null
+            "entity_energy_price": null,
+            "number_energy_price": 0.09
           }
         ],
         "cost_adjustment_day": 0.0
-      },
-      {
-        "type": "gas",
-        "stat_energy_from": "sensor.gas_consumption",
-        "stat_cost": null,
-        "entity_energy_price": "sensor.easyenergy_today_gas_current_hour_price",
-        "number_energy_price": null
       },
       {
         "type": "water",
@@ -56,6 +49,13 @@
         "config_entry_solar_forecast": [
           "ac1e4a9eaac1f04dee20d110de112739"
         ]
+      },
+      {
+        "type": "gas",
+        "stat_energy_from": "sensor.gas_consumption",
+        "stat_cost": null,
+        "entity_energy_price": null,
+        "number_energy_price": 1.4907
       }
     ],
     "device_consumption": [
