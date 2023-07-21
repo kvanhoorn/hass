@@ -3,8 +3,8 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.liability_insured
-        - binary_sensor.liability_insured_2
+        - binary_sensor.kia_h427kz_liability_insured
+        - binary_sensor.volkswagen_r429fg_liability_insured
       to: 'off'
   action:
     - service: notify.pushover
@@ -12,20 +12,20 @@
         title: "Verzekering"
         message: "Verzekering van een auto verlopen."
 
-- alias: APK upcoming Tesla
+- alias: APK upcoming VW
   trigger:
     - platform: time
       at: '20:00:00'
   condition:
     - condition: numeric_state
-      entity_id: sensor.apk_expiration
+      entity_id: sensor.volkswagen_r429fg_apk_expiration
       below: 1
       value_template: "{{ (as_timestamp(states.sensor.apk_expiration.state) - (as_timestamp(now() + timedelta(days=30)))) / (3600 * 24) }}"
   action:
     - service: notify.pushover
       data_template:
         title: "APK"
-        message: "APK van Tesla Model 3 verloopt binnen 30 dagen."
+        message: "APK van VW Passat verloopt binnen 30 dagen."
 
 - alias: APK upcoming Kia
   trigger:
@@ -33,7 +33,7 @@
       at: '20:00:00'
   condition:
     - condition: numeric_state
-      entity_id: sensor.apk_expiration_2
+      entity_id: sensor.kia_h427kz_apk_expiration
       below: 1
       value_template: "{{ (as_timestamp(states.sensor.apk_expiration.state) - (as_timestamp(now() + timedelta(days=30)))) / (3600 * 24) }}"
   action:
