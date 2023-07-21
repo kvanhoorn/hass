@@ -20,13 +20,9 @@
       - condition: state
         entity_id: climate.overloop
         state: 'off'
-      - or:
-        - condition: numeric_state
-          entity_id: sensor.hm_backyard_temperature
-          above: 20.0
-#        - condition: numeric_state
-#          entity_id: sensor.dark_sky_daytime_high_temperature_0d
-#          above: 20.0
+      - condition: numeric_state
+        entity_id: sensor.hm_backyard_temperature
+        above: 20.0
       - or:
         - and:
           - condition: numeric_state
@@ -67,7 +63,7 @@
     entity_id:
       - sensor.temperatuur_slaapkamer
       - sensor.hm_emma_temperature
-    below: 23.0
+    below: 22.7
     for:
       minutes: 20
   condition:

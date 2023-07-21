@@ -1116,16 +1116,8 @@
               "type": "history-graph",
               "entities": [
                 {
-                  "entity": "sensor.temperatuur_kantoor",
-                  "name": "Kantoor"
-                },
-                {
-                  "entity": "sensor.temperatuur_slaapkamer",
-                  "name": "Slaapk."
-                },
-                {
-                  "entity": "sensor.hm_room_emma_temperature",
-                  "name": "Emma"
+                  "entity": "sensor.hm_bathroom_temperature",
+                  "name": "Badk."
                 },
                 {
                   "entity": "sensor.anna_temperature",
@@ -1138,8 +1130,17 @@
                 {
                   "entity": "sensor.hm_attic_front_temperature",
                   "name": "Zolder v."
+                },
+                {
+                  "entity": "sensor.hm_emma_temperature",
+                  "name": "Emma"
+                },
+                {
+                  "entity": "sensor.hm_baby_temperature",
+                  "name": "Baby"
                 }
-              ]
+              ],
+              "hours_to_show": 8
             }
           ],
           "icon": "mdi:thermometer",
