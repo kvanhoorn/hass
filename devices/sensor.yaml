@@ -22,7 +22,7 @@
     - type: last_boot
 - platform: command_line
   name: Internal IP LAN
-  command: "ip addr show eth0 | grep -Po 'inet \\K[\\d.]+'"
+  command: "ip addr show eth0 | grep -Po 'inet \\K[0-9.]+'"
 - platform: command_line
   name: External IP
   command: "/usr/bin/curl -s kvanhoorn.nl/myip/"
