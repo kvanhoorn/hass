@@ -28,7 +28,7 @@ To use this component in you installation, add the following to your 'configurat
 ```yaml
 # Example configuration.yaml entry
 
-sensors:
+sensor:
   - platform: cure_waste
     location: Eindhoven
     postalcode: 1234AB
@@ -100,7 +100,7 @@ To use this component in you installation, add the following to your 'configurat
 ```yaml
 # Example configuration.yaml entry
 
-sensors:
+sensor:
   - platform: feedparser
     name: NOS Algemeen
     url: http://feeds.nos.nl/nosnieuwsalgemeen
@@ -136,7 +136,7 @@ To use this component in you installation, add the following to your 'configurat
 ```yaml
 # Example configuration.yaml entry
 
-sensors:
+sensor:
   - platform: postcodeloterij
     postcode: 1234AB
 ```
@@ -148,3 +148,38 @@ Configuration variables:
 ### Screenshot
 
 <img src="https://raw.githubusercontent.com/kvanhoorn/hass/master/screenshots/postcodeloterij_dashboard.png" alt="Screenshot Postcodeloterij component" width="300">
+
+#### Automation example
+
+This automation will send the prizes as soon as the sensor updates:
+
+```yaml
+# can be pasted into automation.yaml, if you do that, remove the first line with automation:
+
+automation:
+- id: 1acc5110-8b4b-44b8-a5b5-43a445c41a0d
+  alias: "00 - Prize Postcodeloterij"
+  trigger:
+    - platform: state
+      entity_id: sensor.postcodeloterij_prijs
+      not_to:
+        - "0"
+        - unavailable
+        - unknown
+  action:
+    - alias: "Send notification"
+      service: notify.mobile_app_<your_phone_here>
+      data:
+        title: "🏆 Winnen doe je bij..."
+        message: >
+          {% set p = trigger.to_state.state | int %}
+          {% set m = 'prijs' if p == 1 else p ~ ' prijzen' %}
+          {% set prizes = trigger.to_state.attriubutes.prizes %}
+          "We hebben {{ m }}: {{ prizes }}"
+        data:
+          channel: LotteryPrize
+          ttl: 0
+          priority: high
+          notification_icon: mdi:trophy
+          tag: LotteryPrize
+```
