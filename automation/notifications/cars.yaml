@@ -3,7 +3,6 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.kia_h427kz_liability_insured
         - binary_sensor.volkswagen_r429fg_liability_insured
       to: 'off'
   action:
@@ -26,18 +25,3 @@
       data_template:
         title: "APK"
         message: "APK van VW Passat verloopt binnen 30 dagen."
-
-- alias: APK upcoming Kia
-  trigger:
-    - platform: time
-      at: '20:00:00'
-  condition:
-    - condition: numeric_state
-      entity_id: sensor.kia_h427kz_apk_expiration
-      below: 1
-      value_template: "{{ (as_timestamp(states.sensor.apk_expiration.state) - (as_timestamp(now() + timedelta(days=30)))) / (3600 * 24) }}"
-  action:
-    - service: notify.pushover
-      data_template:
-        title: "APK"
-        message: "APK van Kia Picanto verloopt binnen 30 dagen."

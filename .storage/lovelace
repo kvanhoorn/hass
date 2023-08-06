@@ -1196,23 +1196,6 @@
                   "type": "glance",
                   "entities": [
                     {
-                      "entity": "sensor.kia_h427kz_apk_expiration",
-                      "name": "APK Kia Picanto"
-                    },
-                    {
-                      "entity": "binary_sensor.kia_h427kz_pending_recall",
-                      "name": "Kia recall"
-                    },
-                    {
-                      "entity": "binary_sensor.kia_h427kz_liability_insured",
-                      "name": "Kia verzekering"
-                    }
-                  ]
-                },
-                {
-                  "type": "glance",
-                  "entities": [
-                    {
                       "entity": "sensor.volkswagen_r429fg_apk_expiration",
                       "name": "APK VW Passat"
                     },
