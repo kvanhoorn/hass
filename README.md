@@ -125,9 +125,10 @@ This component checks your lottery winnings
 
 ### Installation
 
-- Copy file 'custom_components/sensor/postcodeloterij.py' to your '[ha_config_dir]/custom_components/sensor' directory;
+- Copy the files in 'custom_components/postcodeloterij/' to your '[ha_config_dir]/custom_components/postcodeloterij/' directory (create this folder first);
+- Restart Home-Assistant so the component is loaded.
 - Configure with configuration below.
-- Restart Home-Assistant
+- Restart Home-Assistant again
 
 ### Usage
 
