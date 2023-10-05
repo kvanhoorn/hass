@@ -491,24 +491,11 @@
                   "animate": true,
                   "entities": [
                     {
-                      "entity": "sensor.hm_backyard_temperature",
-                      "index": 0
-                    }
-                  ],
-                  "hours_to_show": 4,
-                  "name": "Overkapping",
-                  "type": "custom:mini-graph-card"
-                },
-                {
-                  "animate": true,
-                  "entities": [
-                    {
                       "entity": "sensor.temperatuur_slaapkamer",
                       "index": 0
                     }
                   ],
-                  "hours_to_show": 4,
-                  "line_color": "red",
+                  "hours_to_show": 12,
                   "name": "Slaapkamer",
                   "type": "custom:mini-graph-card"
                 },
@@ -516,13 +503,26 @@
                   "animate": true,
                   "entities": [
                     {
-                      "entity": "sensor.temperatuur_kantoor",
+                      "entity": "sensor.hm_emma_temperature",
                       "index": 0
                     }
                   ],
-                  "hours_to_show": 4,
+                  "hours_to_show": 12,
+                  "line_color": "red",
+                  "name": "Emma",
+                  "type": "custom:mini-graph-card"
+                },
+                {
+                  "animate": true,
+                  "entities": [
+                    {
+                      "entity": "sensor.hm_baby_temperature",
+                      "index": 0
+                    }
+                  ],
+                  "hours_to_show": 12,
                   "line_color": "blue",
-                  "name": "Kantoor",
+                  "name": "Alex",
                   "type": "custom:mini-graph-card"
                 }
               ],
@@ -1040,7 +1040,7 @@
                 },
                 {
                   "entity": "sensor.hm_baby_temperature",
-                  "name": "Baby"
+                  "name": "Alex"
                 },
                 {
                   "entity": "sensor.hm_emma_temperature",
@@ -1801,6 +1801,9 @@
                 },
                 {
                   "entity": "binary_sensor.vinkhoornnas01_security_status"
+                },
+                {
+                  "entity": "sensor.vinkhoornnas01_last_boot"
                 }
               ],
               "type": "entities"
@@ -1931,6 +1934,9 @@
                 },
                 {
                   "entity": "sensor.shelly_warmwater_tank_current_consumption"
+                },
+                {
+                  "entity": "sensor.shelly_carcharger_current_consumption"
                 }
               ],
               "show_header_toggle": false,
@@ -2140,7 +2146,7 @@
               "entities": [
                 {
                   "entity": "binary_sensor.hm_baby_motion",
-                  "name": "Baby"
+                  "name": "Alex"
                 },
                 {
                   "entity": "binary_sensor.hm_emma_motion",
@@ -2192,7 +2198,7 @@
               "entities": [
                 {
                   "entity": "binary_sensor.shelly_door_baby_door_window",
-                  "name": "Baby"
+                  "name": "Alex"
                 },
                 {
                   "entity": "binary_sensor.shelly_door_emma_door_window",
@@ -2211,7 +2217,7 @@
               "entities": [
                 {
                   "entity": "binary_sensor.shelly_window_baby_door_window",
-                  "name": "Baby",
+                  "name": "Alex",
                   "icon": "mdi:window-closed"
                 },
                 {
