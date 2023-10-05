@@ -2,19 +2,19 @@
 emma_wakeup_schedule:
   name: "Emma wakeup schedule"
   monday:
-    - from: "06:45:00"
+    - from: "07:00:00"
       to: "08:00:00"
   tuesday:
-    - from: "06:45:00"
+    - from: "07:00:00"
       to: "08:00:00"
   wednesday:
-    - from: "06:45:00"
+    - from: "07:00:00"
       to: "08:00:00"
   thursday:
-    - from: "07:15:00"
+    - from: "07:00:00"
       to: "08:30:00"
   friday:
-    - from: "07:15:00"
+    - from: "07:00:00"
       to: "08:30:00"
   saturday:
     - from: "07:30:00"
