@@ -67,6 +67,12 @@
       },
       {
         "stat_consumption": "sensor.shelly_fermentation_chamber_total_consumption"
+      },
+      {
+        "stat_consumption": "sensor.shelly_carport_total_consumption"
+      },
+      {
+        "stat_consumption": "sensor.shelly_christmas_outdoor_total_consumption"
       }
     ]
   }
