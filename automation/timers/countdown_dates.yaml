@@ -52,6 +52,9 @@
           - name: Emma
             type: verjaardag
             date: 12-02-2020
+          - name: Alex
+            type: verjaardag
+            date: 28-08-2023
           - name: Vera
             type: verjaardag
             date: 26-11-2017

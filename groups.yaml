@@ -309,6 +309,8 @@ birthday_collection:
     - sensor.verjaardag_yorrick
     - sensor.verjaardag_kim
     - sensor.verjaardag_emma
+    - sensor.verjaardag_alex
+    - sensor.verjaardag_dean
     - sensor.verjaardag_vera
     - sensor.verjaardag_jens
     - sensor.jubileum_trouwdag_kevin_en_willemijn
