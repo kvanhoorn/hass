@@ -10,7 +10,6 @@
         - device_tracker.nleidsw01_hall
         - device_tracker.nleidsw02_living_room
         - device_tracker.nleidsw03_attic
-        - device_tracker.nleidgw01
         - device_tracker.unifi_cloudkey
         - device_tracker.philipshuebridge
         - device_tracker.philipshuesyncbox
@@ -41,7 +40,6 @@
         - device_tracker.nleidsw01_hall
         - device_tracker.nleidsw02_living_room
         - device_tracker.nleidsw03_attic
-        - device_tracker.nleidgw01
         - device_tracker.unifi_cloudkey
         - device_tracker.philipshuebridge
         - device_tracker.philipshuesyncbox
