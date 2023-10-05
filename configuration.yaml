@@ -74,7 +74,6 @@ tts:
 
 binary_sensor: !include devices/binary_sensor.yaml
 device_tracker: !include devices/device_tracker.yaml
-camera: !include devices/camera.yaml
 climate: !include devices/climate.yaml
 homekit: !include devices/homekit.yaml
 input_select: !include devices/input_select.yaml

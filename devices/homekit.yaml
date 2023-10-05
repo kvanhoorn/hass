@@ -22,11 +22,11 @@ filter:
     - cover.curtain_fde8
     - switch.shelly_carport
     - switch.shelly_fermentation_chamber
-    - camera.frontdoor
+    - camera.192.168.0.59
+    - camera.192.168.0.60
     - camera.emma
-    - camera.outdoor
 entity_config:
-  camera.street_2:
+  camera.192.168.0.60
     name: Deurbel
     support_audio: false
     linked_doorbell_sensor: binary_sensor.doorbell_ringing_sensor

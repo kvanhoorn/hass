@@ -1,9 +1,0 @@
----
-- platform: generic
-  name: Street
-  still_image_url: !secret camera1_still
-  username: !secret camera1_username
-  password: !secret camera1_password
-- platform: generic
-  name: Frontdoor
-  still_image_url: !secret camera2_still

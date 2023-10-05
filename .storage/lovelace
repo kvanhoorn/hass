@@ -1221,14 +1221,15 @@
           "badges": [],
           "cards": [
             {
+              "camera_view": "auto",
               "type": "picture-glance",
-              "camera_image": "camera.front_door",
+              "camera_image": "camera.192_168_0_59",
               "entities": [
                 {
                   "entity": "binary_sensor.shelly_door_frontdoor_door_window"
                 },
                 {
-                  "entity": "binary_sensor.front_door_motion"
+                  "entity": "binary_sensor.doorbell_motion_sensor"
                 }
               ]
             },
@@ -1289,12 +1290,6 @@
               "type": "horizontal-stack"
             },
             {
-              "camera_image": "camera.street",
-              "entity": "sensor.temperatuur_buiten",
-              "show_name": false,
-              "type": "picture-entity"
-            },
-            {
               "entity": "input_boolean.camera1_irmode",
               "hold_action": {
                 "action": "none"
@@ -1310,13 +1305,15 @@
               "show_name": false,
               "camera_view": "auto",
               "camera_image": "camera.emma",
-              "entity": "sensor.hm_room_emma_temperature",
+              "entity": "sensor.hm_emma_temperature",
               "type": "picture-entity"
             },
             {
-              "camera_image": "camera.outdoor",
-              "entity": "sensor.temperatuur_garage",
+              "show_state": true,
               "show_name": false,
+              "camera_view": "auto",
+              "camera_image": "camera.emma",
+              "entity": "sensor.hm_baby_temperature",
               "type": "picture-entity"
             }
           ],
