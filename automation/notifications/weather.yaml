@@ -8,7 +8,19 @@
       data_template:
         title: "Weerbericht"
         message: "Het wordt vandaag
-          min. {{ states.sensor.dark_sky_overnight_low_temperature_0d.state | round(0) }} en
-          max. {{ states.sensor.dark_sky_daytime_high_temperature_0d.state | round(0) }} graden.
-          Het is nu {{ states.sensor.dark_sky_temperature.state | round(0) }}
+          min. {{ states.sensor.today_templow.state | round(0) }} en
+          max. {{ states.sensor.today_temphigh.state | round(0) }} graden.
+          Het is nu {{ states.sensor.pirateweather_temperature.state | round(0) }}
           graden."
+
+- alias: Weather evening notification
+  trigger:
+    platform: time
+    at: '21:00:00'
+  action:
+    - service_template: notify.pushover
+      data_template:
+        title: "Weerbericht"
+        message: "Het wordt morgen
+          min. {{ states.sensor.tomorrow_templow.state | round(0) }} en
+          max. {{ states.sensor.tomorrow_temphigh.state | round(0) }} graden."

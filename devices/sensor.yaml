@@ -29,24 +29,6 @@
 - platform: command_line
   name: Database size
   command: 'ls -hl /config/home-assistant_v2.db | tr -s " " | /usr/bin/cut -d " " -f5'
-- platform: darksky
-  api_key: 2cbc3be161a2e13481e8c56cf491c525
-  forecast:
-    - 0
-    - 1
-  monitored_conditions:
-    - summary
-    - icon
-    - precip_type
-    - precip_probability
-    - temperature
-    - apparent_temperature
-    - wind_speed
-    - humidity
-    - visibility
-    - temperature_high
-    - temperature_low
-    - uv_index
 - platform: feedparser
   name: Omroep Brabant Zuid-Oost
   url: !secret omroepbrabant_rss_url
@@ -280,7 +262,17 @@
       friendly_name: Today maximum temperature
       icon_template: 'mdi:temperature-celsius'
       unit_of_measurement: '°'
-      value_template: "{{ state_attr('weather.pirateweather', 'forecast')[0].temphigh }}"
+      value_template: "{{ state_attr('weather.pirateweather', 'forecast')[0].temperature }}"
+    tomorrow_templow:
+      friendly_name: Tomorrow minimum temperature
+      icon_template: 'mdi:temperature-celsius'
+      unit_of_measurement: '°'
+      value_template: "{{ state_attr('weather.pirateweather', 'forecast')[1].templow }}"
+    tomorrow_temphigh:
+      friendly_name: Tomorrow maximum temperature
+      icon_template: 'mdi:temperature-celsius'
+      unit_of_measurement: '°'
+      value_template: "{{ state_attr('weather.pirateweather', 'forecast')[1].temperature }}"
 - platform: ovapi
   name: Bus 4
   timing_point_code: !secret busstop_code
