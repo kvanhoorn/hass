@@ -1,11 +1,4 @@
 ---
-- platform: workday
-  name: Werkdag vandaag
-  country: NL
-- platform: workday
-  name: Werkdag morgen
-  country: NL
-  days_offset: 1
 - platform: template
   sensors:
     pir_hal:
