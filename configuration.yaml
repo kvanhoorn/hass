@@ -86,7 +86,6 @@ rest_command: !include devices/rest_command.yaml
 schedule: !include devices/schedule.yaml
 sensor: !include devices/sensor.yaml
 shell_command: !include devices/shell_command.yaml
-shelly: !include devices/shelly.yaml
 sql: !include devices/sql.yaml
 switch: !include devices/switch.yaml
 utility_meter: !include devices/utility_meter.yaml

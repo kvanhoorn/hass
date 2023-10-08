@@ -57,20 +57,20 @@ outdoor_lights:
 doors:
   name: Deuren/ramen
   entities:
-    - binary_sensor.shelly_door_frontdoor_door_window
-    - binary_sensor.shelly_door_livingroom_door_window
-    - binary_sensor.shelly_door_kitchen_door_window
-    - binary_sensor.shelly_door_shed_door_window
-    - binary_sensor.shelly_door_garage_door_window
-    - binary_sensor.shelly_window_baby_door_window
-    - binary_sensor.shelly_window_bedroom_door_window
-    - binary_sensor.shelly_window_emma_door_window
+    - binary_sensor.voordeur_door
+    - binary_sensor.deur_woonkamer_door
+    - binary_sensor.deur_keuken_door
+    - binary_sensor.schuurdeur_door
+    - binary_sensor.garagedeur_door
+    - binary_sensor.raam_alex_door
+    - binary_sensor.raam_emma_door
+    - binary_sensor.raam_slaapkamer_door
 airco_windows:
   name: Deuren/ramen airco
   entities:
-    - binary_sensor.shelly_window_baby_door_window
-    - binary_sensor.shelly_window_bedroom_door_window
-    - binary_sensor.shelly_window_emma_door_window
+    - binary_sensor.raam_emma_door
+    - binary_sensor.raam_slaapkamer_door
+    - binary_sensor.raam_alex_door
 plants:
   name: Planten
   entities:
@@ -195,17 +195,17 @@ battery_devices:
     - sensor.hs_bathroom_battery
     - sensor.hs_outdoor_battery
     - sensor.hsb_living_room_battery
-    - sensor.shelly_door_office_battery
-    - sensor.shelly_window_office_battery
-    - sensor.shelly_door_emma_battery
-    - sensor.shelly_window_emma_battery
-    - sensor.shelly_door_bedroom_battery
-    - sensor.shelly_window_bedroom_battery
-    - sensor.shelly_door_frontdoor_battery
-    - sensor.shelly_door_kitchen_battery
-    - sensor.shelly_door_livingroom_battery
-    - sensor.shelly_door_shed_battery
-    - sensor.shelly_door_garage_battery
+    - binary_sensor.voordeur_door
+    - binary_sensor.deur_woonkamer_door
+    - binary_sensor.deur_keuken_door
+    - binary_sensor.schuurdeur_door
+    - binary_sensor.garagedeur_door
+    - binary_sensor.raam_alex_door
+    - binary_sensor.raam_emma_door
+    - binary_sensor.raam_slaapkamer_door
+    - binary_sensor.deur_emma_door
+    - binary_sensor.deur_alex_door
+    - binary_sensor.deur_slaapkamer_door
     - sensor.sonos_keuken_battery
     - sensor.sonos_buiten_battery
     - sensor.curtain_2a59_battery
@@ -214,17 +214,17 @@ battery_devices:
 short_wifi_devices:
   name: Wifi apparaten onlangs niet gezien
   entities:
-    - binary_sensor.shelly_door_frontdoor_door_window
-    - binary_sensor.shelly_door_livingroom_door_window
-    - binary_sensor.shelly_door_kitchen_door_window
-    - binary_sensor.shelly_door_shed_door_window
-    - binary_sensor.shelly_door_garage_door_window
-    - binary_sensor.shelly_window_baby_door_window
-    - binary_sensor.shelly_window_bedroom_door_window
-    - binary_sensor.shelly_window_emma_door_window
-    - binary_sensor.shelly_door_baby_door_window
-    - binary_sensor.shelly_door_bedroom_door_window
-    - binary_sensor.shelly_door_emma_door_window
+    - binary_sensor.voordeur_door
+    - binary_sensor.deur_woonkamer_door
+    - binary_sensor.deur_keuken_door
+    - binary_sensor.schuurdeur_door
+    - binary_sensor.garagedeur_door
+    - binary_sensor.raam_alex_door
+    - binary_sensor.raam_emma_door
+    - binary_sensor.raam_slaapkamer_door
+    - binary_sensor.deur_emma_door
+    - binary_sensor.deur_alex_door
+    - binary_sensor.deur_slaapkamer_door
 bus4_collection:
   name: Bus 4 vertrektijden
   entities:

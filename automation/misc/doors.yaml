@@ -2,7 +2,7 @@
 - alias: Higher volume doorbell
   trigger:
     - platform: state
-      entity_id: binary_sensor.shelly_door_emma_door_window
+      entity_id: binary_sensor.deur_emma_door
       to: 'on'
   action:
     - service: input_number.set_value
@@ -13,7 +13,7 @@
 - alias: Lower volume doorbelld
   trigger:
     - platform: state
-      entity_id: binary_sensor.shelly_door_emma_door_window
+      entity_id: binary_sensor.deur_emma_door
       to: 'off'
   action:
     - service: input_number.set_value

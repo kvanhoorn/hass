@@ -3,14 +3,14 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.shelly_door_frontdoor_door_window
-      - binary_sensor.shelly_door_livingroom_door_window
-      - binary_sensor.shelly_door_kitchen_door_window
-      - binary_sensor.shelly_door_shed_door_window
-      - binary_sensor.shelly_door_garage_door_window
-      - binary_sensor.shelly_window_office_door_window
-      - binary_sensor.shelly_window_bedroom_door_window
-      - binary_sensor.shelly_window_emma_door_window
+      - binary_sensor.voordeur_door
+      - binary_sensor.deur_woonkamer_door
+      - binary_sensor.deur_keuken_door
+      - binary_sensor.schuurdeur_door
+      - binary_sensor.garagedeur_door
+      - binary_sensor.raam_alex_door
+      - binary_sensor.raam_emma_door
+      - binary_sensor.raam_slaapkamer_door
     to: 'on'
   condition:
     - condition: state
@@ -32,14 +32,14 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.shelly_door_frontdoor_door_window
-      - binary_sensor.shelly_door_livingroom_door_window
-      - binary_sensor.shelly_door_kitchen_door_window
-      - binary_sensor.shelly_door_shed_door_window
-      - binary_sensor.shelly_door_garage_door_window
-      - binary_sensor.shelly_window_office_door_window
-      - binary_sensor.shelly_window_bedroom_door_window
-      - binary_sensor.shelly_window_emma_door_window
+      - binary_sensor.voordeur_door
+      - binary_sensor.deur_woonkamer_door
+      - binary_sensor.deur_keuken_door
+      - binary_sensor.schuurdeur_door
+      - binary_sensor.garagedeur_door
+      - binary_sensor.raam_alex_door
+      - binary_sensor.raam_emma_door
+      - binary_sensor.raam_slaapkamer_door
     to: 'on'
   condition:
     - condition: state
@@ -113,15 +113,15 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.shelly_door_shed_door_window
-      - binary_sensor.shelly_door_garage_door_window
+      - binary_sensor.garagedeur_door
+      - binary_sensor.schuurdeur_door
     to: 'off'
   condition:
     - condition: state
-      entity_id: binary_sensor.shelly_door_shed_door_window
+      entity_id: binary_sensor.garagedeur_door
       state: 'off'
     - condition: state
-      entity_id: binary_sensor.shelly_door_garage_door_window
+      entity_id: binary_sensor.schuurdeur_door
       state: 'off'
   action:
     service: light.turn_off

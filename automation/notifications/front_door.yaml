@@ -28,21 +28,21 @@
   trigger:
     - platform: state
       entity_id:
-        - sensor.doorbell_detected_person_name
+        - sensor.doorbell_person_name
   condition:
     - condition: not
       conditions:
         - condition: state
           entity_id:
-            - sensor.doorbell_detected_person_name
+            - sensor.doorbell_person_name
           state: "unavailable"
         - condition: state
           entity_id:
-            - sensor.doorbell_detected_person_name
+            - sensor.doorbell_person_name
           state: ""
         - condition: state
           entity_id:
-            - sensor.doorbell_detected_person_name
+            - sensor.doorbell_person_name
           state: "Unknown"
   action:
     - service: notify.pushover
@@ -55,7 +55,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.doorbell_global_motion_sensor
+        - binary_sensor.doorbell_person_detected
       to: 'on'
     - platform: state
       entity_id: input_boolean.tts_test
@@ -84,7 +84,7 @@
 - alias: Front door motion carport light
   trigger:
     - platform: state
-      entity_id: binary_sensor.shelly_door_frontdoor_door_window
+      entity_id: binary_sensor.doorbell_person_detected
       to: 'on'
     - platform: state
       entity_id:

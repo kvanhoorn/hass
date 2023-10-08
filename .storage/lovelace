@@ -675,19 +675,19 @@
                   "entity": "sensor.verjaardag_emma"
                 },
                 {
+                  "entity": "sensor.verjaardag_alex"
+                },
+                {
+                  "entity": "sensor.verjaardag_dean"
+                },
+                {
                   "entity": "sensor.verjaardag_vera"
                 },
                 {
                   "entity": "sensor.verjaardag_jens"
                 },
                 {
-                  "entity": "sensor.verjaardag_dean"
-                },
-                {
                   "entity": "sensor.jubileum_trouwdag_kevin_en_willemijn"
-                },
-                {
-                  "entity": "sensor.jubileum_trouwdag_wouter_en_bertie"
                 },
                 {
                   "entity": "sensor.jubileum_trouwdag_adri_en_anniek"
@@ -1462,32 +1462,32 @@
                   "name": "Kantoor - Sonos (buiten)"
                 },
                 {
-                  "entity": "sensor.shelly_door_baby_battery",
+                  "entity": "sensor.deur_alex_battery",
                   "secondary_info": "last-changed",
-                  "name": "Baby - Deur"
+                  "name": "Alex - Deur"
                 },
                 {
-                  "entity": "sensor.shelly_window_baby_battery",
+                  "entity": "sensor.raam_alex_battery",
                   "secondary_info": "last-changed",
-                  "name": "Baby - Raam"
+                  "name": "Alex - Raam"
                 },
                 {
                   "entity": "sensor.hs_baby_battery",
                   "secondary_info": "last-changed",
-                  "name": "Baby - Hue Dimmer"
+                  "name": "Alex - Hue Dimmer"
                 },
                 {
                   "entity": "sensor.hm_baby_battery",
                   "secondary_info": "last-changed",
-                  "name": "Baby - Hue Motion"
+                  "name": "Alex - Hue Motion"
                 },
                 {
-                  "entity": "sensor.shelly_door_emma_battery",
+                  "entity": "sensor.deur_emma_battery",
                   "secondary_info": "last-changed",
                   "name": "Emma - Deur"
                 },
                 {
-                  "entity": "sensor.shelly_window_emma_battery",
+                  "entity": "sensor.raam_emma_battery",
                   "secondary_info": "last-changed",
                   "name": "Emma - Raam"
                 },
@@ -1502,12 +1502,12 @@
                   "name": "Emma - Hue Motion"
                 },
                 {
-                  "entity": "sensor.shelly_door_bedroom_battery",
+                  "entity": "sensor.deur_slaapkamer_battery",
                   "secondary_info": "last-changed",
                   "name": "Slaapkamer - Deur"
                 },
                 {
-                  "entity": "sensor.shelly_window_bedroom_battery",
+                  "entity": "sensor.raam_slaapkamer_battery",
                   "secondary_info": "last-changed",
                   "name": "Slaapkamer - Raam"
                 },
@@ -1527,7 +1527,7 @@
                   "name": "Badkamer - Hue Motion"
                 },
                 {
-                  "entity": "sensor.shelly_door_frontdoor_battery",
+                  "entity": "sensor.voordeur_battery",
                   "secondary_info": "last-changed",
                   "name": "Hal - Voordeur"
                 },
@@ -1542,7 +1542,7 @@
                   "name": "Hal - Deurbel"
                 },
                 {
-                  "entity": "sensor.shelly_door_kitchen_battery",
+                  "entity": "sensor.deur_keuken_battery",
                   "secondary_info": "last-changed",
                   "name": "Keuken - Deur"
                 },
@@ -1552,7 +1552,7 @@
                   "name": "Keuken - Sonos"
                 },
                 {
-                  "entity": "sensor.shelly_door_livingroom_battery",
+                  "entity": "sensor.deur_woonkamer_battery",
                   "secondary_info": "last-changed",
                   "name": "Woonkamer - Deur"
                 },
@@ -1567,12 +1567,12 @@
                   "name": "Woonkamer - Hue Button"
                 },
                 {
-                  "entity": "sensor.shelly_door_shed_battery",
+                  "entity": "sensor.schuurdeur_battery",
                   "secondary_info": "last-changed",
                   "name": "Garage - deur"
                 },
                 {
-                  "entity": "sensor.shelly_door_garage_battery",
+                  "entity": "sensor.garagedeur_battery",
                   "secondary_info": "last-changed",
                   "name": "Garage roldeur"
                 },
@@ -1647,7 +1647,7 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.kevin_macbook_pro_2020_battery_state",
+                  "entity": "sensor.kevin_macbook_air_2022_battery",
                   "name": "Kevin MacBook Pro"
                 },
                 {
@@ -1655,27 +1655,27 @@
                   "name": "Kevin iPad Pro"
                 },
                 {
-                  "entity": "sensor.kevin_iphone_12_pro_max_battery_state",
+                  "entity": "sensor.kevin_iphone_12_pro_max_battery",
                   "name": "Kevin iPhone 12 Pro Max"
                 },
                 {
-                  "entity": "sensor.kevin_apple_watch_7_titan_battery_state",
+                  "entity": "sensor.kevin_iphone_15_pro_max_battery",
+                  "name": "Kevin iPhone 15 Pro Max"
+                },
+                {
+                  "entity": "sensor.kevin_apple_watch_7_titan_battery",
                   "name": "Kevin Apple Watch 7"
                 },
                 {
-                  "entity": "sensor.willemijn_macbook_air_battery_state",
-                  "name": "Willemijn MacBook Air"
-                },
-                {
-                  "entity": "sensor.ipad_van_willemijn_battery_state",
+                  "entity": "sensor.ipad_van_willemijn_battery",
                   "name": "Willemijn iPad Mini"
                 },
                 {
-                  "entity": "sensor.iphone_van_willemijn_vink_battery_state",
+                  "entity": "sensor.iphone_van_willemijn_vink_battery",
                   "name": "Willemijn iPhone SE 2"
                 },
                 {
-                  "entity": "sensor.apple_watch_van_willemijn_battery_state",
+                  "entity": "sensor.apple_watch_van_willemijn_battery",
                   "name": "Willemijn Apple Watch SE"
                 }
               ],
@@ -2021,6 +2021,9 @@
                 },
                 {
                   "entity": "binary_sensor.brandalarm_zolder"
+                },
+                {
+                  "entity": "binary_sensor.rookmelder_keuken_smoke"
                 }
               ],
               "title": "Rookmelders"
@@ -2171,24 +2174,29 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.shelly_door_frontdoor_door_window",
-                  "name": "Voordeur"
+                  "entity": "binary_sensor.voordeur_door",
+                  "name": "Voordeur",
+                  "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_kitchen_door_window",
-                  "name": "Keuken"
+                  "entity": "binary_sensor.deur_woonkamer_door",
+                  "name": "Woonk.",
+                  "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_livingroom_door_window",
-                  "name": "Woonk."
+                  "entity": "binary_sensor.deur_keuken_door",
+                  "name": "Keuken",
+                  "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_shed_door_window",
-                  "name": "Schuur"
+                  "entity": "binary_sensor.schuurdeur_door",
+                  "name": "Schuur",
+                  "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_garage_door_window",
-                  "name": "Garage"
+                  "entity": "binary_sensor.garagedeur_door",
+                  "name": "Garage",
+                  "icon": "mdi:garage-open"
                 }
               ],
               "show_state": false,
@@ -2197,16 +2205,19 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.shelly_door_baby_door_window",
-                  "name": "Alex"
+                  "entity": "binary_sensor.deur_alex_door",
+                  "name": "Alex",
+                  "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_emma_door_window",
-                  "name": "Emma"
+                  "entity": "binary_sensor.deur_emma_door",
+                  "name": "Emma",
+                  "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.shelly_door_bedroom_door_window",
-                  "name": "Slaapkamer"
+                  "entity": "binary_sensor.deur_slaapkamer_door",
+                  "name": "Slaapkamer",
+                  "icon": "mdi:door"
                 }
               ],
               "show_name": true,
@@ -2216,17 +2227,17 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.shelly_window_baby_door_window",
+                  "entity": "binary_sensor.raam_alex_door",
                   "name": "Alex",
                   "icon": "mdi:window-closed"
                 },
                 {
-                  "entity": "binary_sensor.shelly_window_emma_door_window",
+                  "entity": "binary_sensor.raam_emma_door",
                   "name": "Emma",
                   "icon": "mdi:window-closed"
                 },
                 {
-                  "entity": "binary_sensor.shelly_window_bedroom_door_window",
+                  "entity": "binary_sensor.raam_slaapkamer_door",
                   "name": "Slaapkamer",
                   "icon": "mdi:window-closed"
                 }

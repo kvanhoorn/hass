@@ -12,8 +12,8 @@
         minutes: 10
     - platform: state
       entity_id:
-        - binary_sensor.shelly_door_bedroom_door_window
-        - binary_sensor.shelly_door_emma_door_window
+        - binary_sensor.deur_slaapkamer_door
+        - binary_sensor.deur_emma_door
       to: 'on'
   condition:
     and:
@@ -29,14 +29,14 @@
             entity_id: sensor.hm_emma_temperature
             above: 23.0
           - condition: state
-            entity_id: binary_sensor.shelly_door_emma_door_window
+            entity_id: binary_sensor.deur_emma_door
             state: 'on'
         - and:
           - condition: numeric_state
             entity_id: sensor.temperatuur_slaapkamer
             above: 23.0
           - condition: state
-            entity_id: binary_sensor.shelly_door_bedroom_door_window
+            entity_id: binary_sensor.deur_slaapkamer_door
             state: 'on'
   action:
     - service: climate.set_temperature
