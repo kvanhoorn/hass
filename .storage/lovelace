@@ -1226,24 +1226,21 @@
               "camera_image": "camera.192_168_0_59",
               "entities": [
                 {
-                  "entity": "binary_sensor.shelly_door_frontdoor_door_window"
-                },
-                {
-                  "entity": "binary_sensor.doorbell_motion_sensor"
+                  "entity": "binary_sensor.voordeur_door",
+                  "icon": "mdi:door"
                 }
               ]
             },
             {
+              "camera_view": "auto",
               "camera_image": "camera.frontdoor",
               "entities": [
                 {
-                  "entity": "binary_sensor.shelly_door_frontdoor_door_window"
+                  "entity": "switch.doorbell_motion_detection_2",
+                  "icon": "mdi:motion-sensor"
                 },
                 {
-                  "entity": "binary_sensor.pir_hal"
-                },
-                {
-                  "entity": "switch.shelly_carport"
+                  "entity": "light.h_carport"
                 }
               ],
               "type": "picture-glance"
@@ -1302,19 +1299,30 @@
             },
             {
               "show_state": true,
-              "show_name": false,
+              "show_name": true,
               "camera_view": "auto",
               "camera_image": "camera.emma",
               "entity": "sensor.hm_emma_temperature",
-              "type": "picture-entity"
+              "type": "picture-entity",
+              "name": "Emma"
             },
             {
               "show_state": true,
-              "show_name": false,
+              "show_name": true,
               "camera_view": "auto",
-              "camera_image": "camera.emma",
+              "camera_image": "camera.backyard",
               "entity": "sensor.hm_baby_temperature",
-              "type": "picture-entity"
+              "type": "picture-entity",
+              "name": "Alex"
+            },
+            {
+              "show_state": true,
+              "show_name": true,
+              "camera_view": "auto",
+              "camera_image": "camera.doorbell",
+              "entity": "weather.pirateweather",
+              "type": "picture-entity",
+              "name": "Voordeur"
             }
           ],
           "icon": "mdi:camera",
@@ -1527,17 +1535,12 @@
                   "name": "Badkamer - Hue Motion"
                 },
                 {
-                  "entity": "sensor.voordeur_battery",
-                  "secondary_info": "last-changed",
-                  "name": "Hal - Voordeur"
-                },
-                {
                   "entity": "sensor.hm_hallcloset_battery",
                   "secondary_info": "last-changed",
                   "name": "Trapkast - Hue Motion"
                 },
                 {
-                  "entity": "sensor.doorbell_battery",
+                  "entity": "sensor.doorbell_battery_percentage",
                   "secondary_info": "last-changed",
                   "name": "Hal - Deurbel"
                 },
@@ -1651,7 +1654,7 @@
                   "name": "Kevin MacBook Pro"
                 },
                 {
-                  "entity": "sensor.kevin_ipad_pro_battery_state",
+                  "entity": "sensor.kevin_ipad_pro_battery",
                   "name": "Kevin iPad Pro"
                 },
                 {
@@ -2250,43 +2253,40 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "switch.doorbell_audio_recording"
+                  "entity": "switch.doorbell_audio_recording_2"
                 },
                 {
-                  "entity": "switch.doorbell_auto_night_vision"
+                  "entity": "switch.doorbell_auto_nightvision"
                 },
                 {
-                  "entity": "sensor.doorbell_battery"
+                  "entity": "sensor.doorbell_battery_percentage"
                 },
                 {
-                  "entity": "select.doorbell_charging_status"
+                  "entity": "sensor.doorbell_charging_status"
                 },
                 {
-                  "entity": "select.doorbell_chime_volume"
+                  "entity": "number.doorbell_homebase_chime_ringtone_volume"
                 },
                 {
-                  "entity": "switch.doorbell_enabled"
+                  "entity": "switch.doorbell_camera_enabled"
                 },
                 {
-                  "entity": "sensor.doorbell_detected_person_name"
+                  "entity": "sensor.doorbell_person_name"
                 },
                 {
-                  "entity": "binary_sensor.doorbell_global_motion_sensor"
+                  "entity": "switch.doorbell_motion_detection_2"
                 },
                 {
-                  "entity": "switch.doorbell_indoor_chime"
+                  "entity": "switch.doorbell_indoor_chime_enabled"
                 },
                 {
-                  "entity": "binary_sensor.doorbell_ringing_sensor"
+                  "entity": "binary_sensor.doorbell_ringing"
                 },
                 {
-                  "entity": "select.doorbell_video_streaming_quality"
+                  "entity": "select.doorbell_video_streaming_quality_2"
                 },
                 {
-                  "entity": "automation.higher_volume_doorbell"
-                },
-                {
-                  "entity": "select.doorbell_power_working_mode"
+                  "entity": "number.doorbell_speaker_volume"
                 }
               ]
             }

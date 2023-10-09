@@ -17,6 +17,8 @@
             - light.h_staande_lamp
             - light.h_tv_lamp
             - light.h_piano
+            - light.h_tv_play_left
+            - light.h_tv_play_right
     diningtable_lighting:
       value_template: "{{ states.light.h_tafel_kamer.state == 'on'
         and states.light.h_tafel_raam.state == 'on' }}"
