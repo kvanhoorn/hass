@@ -13,7 +13,7 @@
             FROM
               states_meta
             WHERE
-              entity_id = 'sensor.doorbell_detected_person_name'
+              entity_id = 'sensor.doorbell_person_name'
           )
         AND
           state='Wouter'
@@ -39,7 +39,7 @@
             FROM
               states_meta
             WHERE
-              entity_id = 'sensor.doorbell_detected_person_name'
+              entity_id = 'sensor.doorbell_person_name'
           )
         AND
           state='Bertie'
@@ -65,7 +65,7 @@
             FROM
               states_meta
             WHERE
-              entity_id = 'sensor.doorbell_detected_person_name'
+              entity_id = 'sensor.doorbell_person_name'
           )
         AND
           state='Adri'
@@ -91,7 +91,7 @@
             FROM
               states_meta
             WHERE
-              entity_id = 'sensor.doorbell_detected_person_name'
+              entity_id = 'sensor.doorbell_person_name'
           )
         AND
           state='Anniek'
