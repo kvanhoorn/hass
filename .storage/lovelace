@@ -1618,6 +1618,11 @@
                   "entity": "sensor.hm_backyard_battery",
                   "secondary_info": "last-changed",
                   "name": "Achtertuin - Hue Motion"
+                },
+                {
+                  "entity": "sensor.rookmelder_keuken_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Rookmelder - Keuken"
                 }
               ],
               "show_header_toggle": false,

@@ -211,6 +211,7 @@ battery_devices:
     - sensor.curtain_2a59_battery
     - sensor.curtain_fde8_battery
     - sensor.doorbell_battery_percentage
+    - sensor.rookmelder_keuken_battery
 short_wifi_devices:
   name: Wifi apparaten onlangs niet gezien
   entities:
