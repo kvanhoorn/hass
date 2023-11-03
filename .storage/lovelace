@@ -2020,13 +2020,11 @@
                   "entity": "binary_sensor.brandalarm_woonkamer"
                 },
                 {
-                  "entity": "binary_sensor.brandalarm_keuken"
-                },
-                {
                   "entity": "binary_sensor.brandalarm_zolder"
                 },
                 {
-                  "entity": "binary_sensor.rookmelder_keuken_smoke"
+                  "entity": "binary_sensor.rookmelder_keuken_smoke",
+                  "name": "Rookmelder keuken"
                 }
               ],
               "title": "Rookmelders"
