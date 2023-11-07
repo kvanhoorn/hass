@@ -2022,14 +2022,16 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "binary_sensor.brandalarm_woonkamer"
-                },
-                {
-                  "entity": "binary_sensor.brandalarm_zolder"
+                  "entity": "binary_sensor.rookmelder_woonkamer_smoke",
+                  "name": "Rookmelder woonkamer"
                 },
                 {
                   "entity": "binary_sensor.rookmelder_keuken_smoke",
                   "name": "Rookmelder keuken"
+                },
+                {
+                  "entity": "binary_sensor.rookmelder_zolder_smoke",
+                  "name": "Rookmelder zolder"
                 }
               ],
               "title": "Rookmelders"

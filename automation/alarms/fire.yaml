@@ -3,9 +3,9 @@
   trigger:
     platform: state
     entity_id:
-      - binary_sensor.brandalarm_woonkamer
-      - binary_sensor.brandalarm_zolder
+      - binary_sensor.rookmelder_woonkamer_smoke
       - binary_sensor.rookmelder_keuken_smoke
+      - binary_sensor.rookmelder_zolder_smoke
     to: 'on'
   action:
     - service: notify.pushover
