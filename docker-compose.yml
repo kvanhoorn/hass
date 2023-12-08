@@ -6,6 +6,7 @@ services:
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
       - /dev/ttyUSB1:/dev/ttyUSB1
+      - /dev/ttyUSB2:/dev/ttyUSB2
     volumes:
       - /data/hass:/config
       - /etc/localtime:/etc/localtime:ro
