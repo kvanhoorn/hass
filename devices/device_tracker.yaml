@@ -1,5 +1,0 @@
----
-- platform: ping
-  hosts:
-    huebridge: !secret hue_ip
-    synology: !secret synology_ip

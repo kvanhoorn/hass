@@ -1165,10 +1165,12 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.euro95"
+                  "entity": "sensor.euro95",
+                  "name": "Euro 95"
                 },
                 {
-                  "entity": "sensor.diesel"
+                  "entity": "sensor.diesel",
+                  "name": "Diesel"
                 }
               ],
               "show_header_toggle": false,
@@ -1310,7 +1312,7 @@
               "show_state": true,
               "show_name": true,
               "camera_view": "auto",
-              "camera_image": "camera.backyard",
+              "camera_image": "camera.alex_2",
               "entity": "sensor.hm_baby_temperature",
               "type": "picture-entity",
               "name": "Alex"
@@ -1710,7 +1712,10 @@
                   "entity": "switch.sonos_badkamer_status_light"
                 },
                 {
-                  "entity": "switch.sonos_baby_status_light"
+                  "entity": "switch.sonos_alex_status_light"
+                },
+                {
+                  "entity": "switch.sonos_emma_status_light"
                 },
                 {
                   "entity": "switch.sonos_kantoor_status_light"
@@ -2258,7 +2263,7 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "switch.doorbell_audio_recording_2"
+                  "entity": "switch.doorbell_audio_recording"
                 },
                 {
                   "entity": "switch.doorbell_auto_nightvision"
@@ -2279,7 +2284,7 @@
                   "entity": "sensor.doorbell_person_name"
                 },
                 {
-                  "entity": "switch.doorbell_motion_detection_2"
+                  "entity": "switch.doorbell_motion_detection"
                 },
                 {
                   "entity": "switch.doorbell_indoor_chime_enabled"
@@ -2288,7 +2293,7 @@
                   "entity": "binary_sensor.doorbell_ringing"
                 },
                 {
-                  "entity": "select.doorbell_video_streaming_quality_2"
+                  "entity": "select.doorbell_video_streaming_quality"
                 },
                 {
                   "entity": "number.doorbell_speaker_volume"
@@ -2338,9 +2343,6 @@
                 {
                   "entity": "sensor.shelly_warmwater_tank_total_consumption",
                   "name": "Totaal verbruikt"
-                },
-                {
-                  "entity": "switch.shelly_warmwater_tank"
                 }
               ],
               "title": "Warmwater tank"
@@ -2349,17 +2351,13 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "switch.shelly_fermentation_chamber",
-                  "name": "Status",
-                  "secondary_info": "last-updated"
+                  "entity": "switch.shellyplug_s_20e155"
                 },
                 {
-                  "entity": "sensor.shelly_fermentation_chamber_current_consumption",
-                  "name": "Huidig verbruik"
+                  "entity": "sensor.shellyplug_s_20e155_power"
                 },
                 {
-                  "entity": "sensor.shelly_fermentation_chamber_total_consumption",
-                  "name": "Totaal verbruikt"
+                  "entity": "sensor.shellyplug_s_20e155_energy"
                 }
               ],
               "title": "Vergistingskamer"

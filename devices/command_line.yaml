@@ -1,0 +1,33 @@
+---
+#- sensor:
+#    name: Anova Status
+#    command: /scripts/anova_control.py -m status -o h
+#    json_attributes:
+#      - current_temp
+#      - is_running
+#      - is_timer_running
+#      - speaker_mode
+#      - target_temp
+#      - temp_unit
+#      - timer_length
+#      - alarm_active
+#      - job_type
+#      - job_stage
+#      - duration
+#      - job_start_time
+#    value_template: '{{ value_json.current_temp }}'
+#    scan_interval: 15
+- sensor:
+    name: CPU Temperatuur
+    command: "cat /sys/class/thermal/thermal_zone0/temp"
+    unit_of_measurement: "C"
+    value_template: '{{ value | multiply(0.001) | round(1) }}'
+- sensor:
+    name: Internal IP LAN
+    command: "ip addr show eth0 | grep -Po 'inet \\K[0-9.]+'"
+- sensor:
+    name: External IP
+    command: "/usr/bin/curl -s kvanhoorn.nl/myip/"
+- sensor:
+    name: Database size
+    command: 'ls -hl /config/home-assistant_v2.db | tr -s " " | /usr/bin/cut -d " " -f5'

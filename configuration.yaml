@@ -73,8 +73,8 @@ tts:
 #
 
 binary_sensor: !include devices/binary_sensor.yaml
-device_tracker: !include devices/device_tracker.yaml
 climate: !include devices/climate.yaml
+command_line: !include devices/command_line.yaml
 homekit: !include devices/homekit.yaml
 input_select: !include devices/input_select.yaml
 input_boolean: !include devices/input_boolean.yaml
@@ -85,7 +85,7 @@ notify: !include devices/notify.yaml
 rest_command: !include devices/rest_command.yaml
 schedule: !include devices/schedule.yaml
 sensor: !include devices/sensor.yaml
-shell_command: !include devices/shell_command.yaml
+#shell_command: !include devices/shell_command.yaml
 sql: !include devices/sql.yaml
 switch: !include devices/switch.yaml
 utility_meter: !include devices/utility_meter.yaml

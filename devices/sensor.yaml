@@ -3,32 +3,6 @@
   display_options:
     - 'time'
     - 'date'
-- platform: command_line
-  name: CPU Temperatuur
-  command: "cat /sys/class/thermal/thermal_zone0/temp"
-  unit_of_measurement: "C"
-  value_template: '{{ value | multiply(0.001) | round(1) }}'
-- platform: systemmonitor
-  resources:
-    - type: disk_use_percent
-      arg: /config
-    - type: memory_free
-    - type: load_5m
-    - type: network_in
-      arg: eth0
-    - type: network_out
-      arg: eth0
-    - type: processor_use
-    - type: last_boot
-- platform: command_line
-  name: Internal IP LAN
-  command: "ip addr show eth0 | grep -Po 'inet \\K[0-9.]+'"
-- platform: command_line
-  name: External IP
-  command: "/usr/bin/curl -s kvanhoorn.nl/myip/"
-- platform: command_line
-  name: Database size
-  command: 'ls -hl /config/home-assistant_v2.db | tr -s " " | /usr/bin/cut -d " " -f5'
 - platform: feedparser
   name: Omroep Brabant Zuid-Oost
   url: !secret omroepbrabant_rss_url

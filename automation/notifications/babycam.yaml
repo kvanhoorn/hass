@@ -12,3 +12,16 @@
       data_template:
         title: "Geluid op kamer Emma"
         message: "Er is geluid op de kamer van Emma"
+
+- alias: Alex sound
+  trigger:
+    - platform: event
+      event_type: nest_event
+      event_data:
+        device_id: !secret nest_cam_alex_id
+        type: camera_sound
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Geluid op kamer Alex"
+        message: "Er is geluid op de kamer van Alex"

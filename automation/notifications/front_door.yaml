@@ -108,26 +108,3 @@
       target:
         entity_id: scene.voortuin_dom_night
 
-- alias: Garage motion
-  trigger:
-    - platform: event
-      event_type: nest_event
-      event_data:
-        device_id: !secret nest_cam_outdoor_id
-        type: person_detected
-  action:
-    - service: notify.pushover
-      data_template:
-        title: "Beweging in de garage"
-        message: "Er is beweging in de garage/achtertuin"
-        data:
-          file:
-            url: "{{ 'http://' + states.sensor.internal_ip_lan.state + ':8123' + states.camera.outdoor.attributes.entity_picture }}"
-    - service: notify.telegram
-      data_template:
-        message: ''
-        data:
-          photo:
-            - url: "{{ 'http://' + states.sensor.internal_ip_lan.state + ':8123' + states.camera.outdoor.attributes.entity_picture }}"
-              caption: "Beweging gedetecteerd achtertuin/garage"
-
