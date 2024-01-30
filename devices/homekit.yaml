@@ -7,6 +7,8 @@ filter:
     - input_boolean.is_it_night
     - climate.anna
     - climate.overloop
+    - climate.zolder_voorkant
+    - climate.zolder_achterkant
     - light.woonkamer
     - light.tafel
     - light.badkamer

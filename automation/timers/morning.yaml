@@ -2,8 +2,9 @@
 # morning routine
 - alias: 'timer_morning_startmorning'
   trigger:
-    platform: time
-    at: '06:30:00'
+    - platform: state
+      entity_id: schedule.morning_routine
+      to: 'on'
   condition:
     - condition: state
       entity_id: input_boolean.is_it_holiday
@@ -23,8 +24,9 @@
 
 - alias: 'timer_morning_startradio'
   trigger:
-    platform: time
-    at: '06:30:00'
+    - platform: state
+      entity_id: schedule.morning_routine
+      to: 'on'
   condition:
     - condition: state
       entity_id: input_boolean.is_it_holiday
@@ -40,18 +42,18 @@
         - media_player.sonos_eetkamer
         - media_player.sonos_keuken
       data:
-        volume_level: .06
-    - service: media_player.select_source
-      entity_id: media_player.sonos_badkamer
+        volume_level: .05
+    - service: media_player.play_media
+      target:
+        entity_id: media_player.sonos_badkamer
       data:
-        source: 'Badkamer'  # favorite playlist
+        media_content_type: "favorite_item_id"
+        media_content_id: "FV:2/17" # Badkamer2 favorite
     - service: media_player.shuffle_set
       entity_id: media_player.sonos_badkamer
       data:
         shuffle: true
     - service: media_player.media_next_track
-      entity_id: media_player.sonos_badkamer
-    - service: media_player.media_play
       entity_id: media_player.sonos_badkamer
     - service: media_player.join
       target:
@@ -64,8 +66,9 @@
 
 - alias: 'timer_morning_everythingoff'
   trigger:
-    platform: time
-    at: '07:40:00'
+    - platform: state
+      entity_id: schedule.morning_routine
+      to: 'off'
   condition:
     - condition: state
       entity_id: input_boolean.is_it_holiday

@@ -1,0 +1,196 @@
+---
+- binary_sensor:
+    - name: PIR hal
+      device_class: motion
+      state: "{{ is_state('binary_sensor.pt2262_554555', 'on') }}"
+    - name: PIR kantoor
+      device_class: motion
+      state: "{{ is_state('binary_sensor.pt2262_1ee0e9', 'on') }}"
+    - name: PIR keuken
+      device_class: motion
+      state: "{{ is_state('binary_sensor.pt2262_2891e9', 'on') }}"
+    - name: PIR CVruimte
+      device_class: motion
+      state: "{{ is_state('binary_sensor.pt2262_e94fe9', 'on') }}"
+    - name: PIR woonkamer
+      device_class: motion
+      state: "{{ is_state('binary_sensor.pt2262_8cefa9', 'on') }}"
+- sensor:
+    - name: Next action morning routine
+      icon: 'mdi:sun-clock-outline'
+      state: "{{ states.schedule.morning_routine.attributes.next_event.strftime('%a %H:%M') }}"
+    - name: Next action Emma light
+      icon: 'mdi:sun-clock-outline'
+      state: "{{ states.schedule.emma_wakeup_schedule.attributes.next_event.strftime('%a %H:%M') }}"
+    - name: Temperatuur kantoor
+      unit_of_measurement: '°C'
+      device_class: temperature
+      state: "{{ states.sensor.tfa_ts34c_cresta_3e_0e_temperature.state }}"
+      attributes:
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_3e_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_3e_0e_battery_numeric.state }}"
+    - name: Temperatuur slaapkamer
+      unit_of_measurement: '°C'
+      device_class: temperature
+      state: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_temperature.state }}"
+      attributes:
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_battery_numeric.state }}"
+    - name: Temperatuur garage
+      unit_of_measurement: '°C'
+      device_class: temperature
+      state: "{{ states.sensor.tfa_ts34c_cresta_53_0e_temperature.state }}"
+      attributes:
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_53_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_53_0e_battery_numeric.state }}"
+    - name: Temperatuur WC
+      unit_of_measurement: '°C'
+      device_class: temperature
+      state: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_temperature.state }}"
+      attributes:
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_battery_numeric.state }}"
+    - name: Plant1 (Peace Lily)
+      unit_of_measurement: '°C'
+      device_class: temperature
+      state: "{{ states.sensor.imagintronix_00_01_temperature.state }}"
+      attributes:
+        humidity: "{{ states.sensor.imagintronix_00_01_humidity.state }}"
+        battery: "{{ states.sensor.imagintronix_00_01_battery_numeric.state }}"
+    - name: Plant2 (Yucca)
+      unit_of_measurement: '°C'
+      device_class: temperature
+      state: "{{ states.sensor.imagintronix_00_02_temperature.state }}"
+      attributes:
+        humidity: "{{ states.sensor.imagintronix_00_02_humidity.state }}"
+        battery: "{{ states.sensor.imagintronix_00_02_battery_numeric.state }}"
+    - name: Long time not seen devices
+      icon: 'mdi:battery'
+      state: >
+        {% for entity in (states | selectattr('entity_id','in', state_attr('group.long_battery_devices','entity_id'))) %}
+          {%- if (as_timestamp(now()) - as_timestamp(entity.last_updated) > (60 * 60 * 24 * 3)) -%}
+            {{ entity.name }},
+          {%- endif -%}
+        {% endfor %}
+    - name: Short time not seen devices
+      icon: 'mdi:battery'
+      state: >
+        {% for entity in (states | selectattr('entity_id','in', state_attr('group.short_battery_devices','entity_id'))) %}
+          {%- if (as_timestamp(now()) - as_timestamp(entity.last_updated) > (60 * 60 * 6)) -%}
+            {{ entity.name }},
+          {%- endif -%}
+        {% endfor %}
+    - name: Battery monitor offline
+      icon: 'mdi:battery'
+      state: >
+        {% set dv = namespace(u=[], l=[]) %}
+        {% set gr = expand('group.battery_devices') %}
+        {% for en in gr %}
+          {%- if en.state == 'unavailable' %}
+            {%- set dv.u = dv.u + [en] %}
+          {%- endif %}
+        {%- endfor %}
+        {{ dv.u | map(attribute='attributes.friendly_name') | join(', ') }}
+    - name: Battery monitor lowperc
+      icon: 'mdi:battery'
+      state: >
+        {% set dv = namespace(u=[], l=[]) %}
+        {% set gr = expand('group.battery_devices') %}
+        {% for en in gr %}
+          {%- if en.state == 'unavailable' %}
+          {%- elif float(en.state) < 15.0 %}
+            {%- set dv.l = dv.l + [en] %}
+          {%- endif %}
+        {%- endfor %}
+        {{ dv.l | map(attribute='attributes.friendly_name') | join(', ') }}
+    - name: Bedroom vs outside temperature
+      device_class: temperature
+      icon: 'mdi:temperature-celsius'
+      unit_of_measurement: '°C'
+      state: >
+        {{ states.sensor.temperatuur_slaapkamer.state | float -
+           states.sensor.hm_backyard_temperature.state | float }}
+    - name: Living vs outside temperature
+      device_class: temperature
+      icon: 'mdi:temperature-celsius'
+      unit_of_measurement: '°C'
+      state: >
+        {{ states.climate.anna.attributes.current_temperature | float -
+           states.sensor.hm_backyard_temperature.state | float }}
+    - name: Untappd full checkin
+      state: >
+        {{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.brewery }} -
+        {{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.beer }}
+        ({{ states.sensor.untappd_last_check_in_kvanhoorn.attributes.abv }})
+    - name: Next setting
+      state: >
+        {{ as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom('%H:%M') }}
+    - name: Next rising
+      state: >
+        {{ as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom('%H:%M') }}
+    - name: Daily Power
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% if is_number(states('sensor.daily_power_offpeak')) and
+           is_number(states('sensor.daily_power_peak')) %}
+           {{ states('sensor.daily_power_offpeak') | float +
+              states('sensor.daily_power_peak') | float }}
+        {% else %}
+           None
+        {% endif %}
+    - name: Monthly Power
+      device_class: energy
+      unit_of_measurement: kWh
+      state: >
+        {% if is_number(states('sensor.monthly_power_offpeak')) and
+           is_number(states('sensor.monthly_power_peak')) %}
+           {{ states('sensor.monthly_power_offpeak') | float +
+              states('sensor.monthly_power_peak') | float }}
+        {% else %}
+           None
+        {% endif %}
+    - name: Roborock S5 Max Filter Left Hours
+      icon: 'mdi:air-filter'
+      unit_of_measurement: hours
+      state: "{{ (states('sensor.roborock_s5_max_filter_left') | int / (60 * 60)) | int }}"
+    - name: Roborock S5 Max Main Brush Left Hours
+      icon: 'mdi:brush'
+      unit_of_measurement: hours
+      state: "{{ (states('sensor.roborock_s5_max_main_brush_left') | int / (60 * 60)) | int }}"
+    - name: Roborock S5 Max Side Brush Left Hours
+      icon: 'mdi:brush'
+      unit_of_measurement: hours
+      state: "{{ (states('sensor.roborock_s5_max_main_brush_left') | int / (60 * 60)) | int }}"
+    - name: Roborock S5 Max Sensor Dirty Left Hours
+      icon: 'mdi:eye-outline'
+      unit_of_measurement: hours
+      state: "{{ (states('sensor.roborock_s5_max_sensor_dirty_left') | int / (60 * 60)) | int }}"
+    - name: Daily power round
+      icon: 'mdi:flash'
+      unit_of_measurement: 'kWh'
+      state: "{{ states('sensor.daily_power') | round }}"
+    - name: Daily gas round
+      icon: 'mdi:fire'
+      unit_of_measurement: 'm3'
+      state: "{{ states('sensor.daily_gas') | round(1) }}"
+    - name: Daily water round
+      icon: 'mdi:water'
+      unit_of_measurement: 'l'
+      state: "{{ states('sensor.daily_water') | float * 1000 | round }}"
+    - name: Today templow
+      device_class: temperature
+      unit_of_measurement: '°'
+      state: "{{ state_attr('weather.pirateweather', 'forecast')[0].templow }}"
+    - name: Today temphigh
+      device_class: temperature
+      unit_of_measurement: '°'
+      state: "{{ state_attr('weather.pirateweather', 'forecast')[0].temperature }}"
+    - name: Tomorrow templow
+      device_class: temperature
+      unit_of_measurement: '°'
+      state: "{{ state_attr('weather.pirateweather', 'forecast')[1].templow }}"
+    - name: Tomorrow temphigh
+      device_class: temperature
+      unit_of_measurement: '°'
+      state: "{{ state_attr('weather.pirateweather', 'forecast')[1].temperature }}"

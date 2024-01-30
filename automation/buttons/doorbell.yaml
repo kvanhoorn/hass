@@ -38,46 +38,24 @@
           photo:
             - url: !secret camera2_still
               caption: "Deurbel gaat"
-    - service: script.sonos_dingdong
-      data_template:
-        sonos_entity: media_player.sonos_keuken
-        volume: "{{ states('input_number.doorbell_volume') }}"
-    - service: script.sonos_dingdong
-      data_template:
-        sonos_entity: media_player.sonos_badkamer
-        volume: "{{ states('input_number.doorbell_volume') }}"
+    - service: media_player.play_media
+      target:
+        entity_id:
+          - media_player.sonos_keuken
+          - media_player.sonos_badkamer
+      data:
+        announce: true
+        media_content_id: "http://192.168.0.73:8123/local/doorbell.mp3"
+        media_content_type: "music"
+        extra:
+          volume: 30
     - service: input_boolean.turn_off
       entity_id: input_boolean.fake_doorbell
-    - delay: 120
-    - service: notify.telegram
-      data:
-        message: ''
-        data:
-          video:
-            - url: "{{ state_attr('camera.front_door', 'video_url') }}"
-              caption: "Video van laatste bezoek"
-
-
-- alias: Send ring video
-  trigger:
-    - platform: state
-      entity_id: input_boolean.send_ring_video
-      to: 'on'
-  action:
-    - service: notify.telegram
-      data:
-        message: ''
-        data:
-          video:
-            - url: "{{ state_attr('camera.front_door', 'video_url') }}"
-              caption: "Video van laatste bezoek"
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.send_ring_video
 
 - alias: TV Woonkamer pause doorbell
   trigger:
     - platform: state
-      entity_id: binary_sensor.front_door_ding
+      entity_id: binary_sensor.doorbell_ringing
       to: 'on'
   condition:
     - condition: state

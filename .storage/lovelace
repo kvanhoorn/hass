@@ -10,70 +10,20 @@
           "badges": [],
           "cards": [
             {
-              "type": "entity-filter",
               "entities": [
                 {
-                  "entity": "binary_sensor.hm_baby_motion",
-                  "show_last_changed": true
+                  "entity": "sensor.next_action_morning_routine",
+                  "name": "Ochtendroutine"
                 },
                 {
-                  "entity": "binary_sensor.hm_emma_motion",
-                  "show_last_changed": true
+                  "entity": "sensor.next_setting",
+                  "name": "Zon op"
                 },
                 {
-                  "entity": "binary_sensor.hm_hallcloset_motion",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.hm_attic_back_motion",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.hm_attic_front_motion",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.hm_bathroom_motion",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.hm_backyard_motion",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.pir_woonkamer",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.pir_slaapkamer",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.pir_hal",
-                  "show_last_changed": true
-                },
-                {
-                  "entity": "binary_sensor.pir_keuken",
-                  "show_last_changed": true
+                  "entity": "sensor.next_rising",
+                  "name": "Zon onder"
                 }
               ],
-              "name": "Beweging",
-              "show_empty": false,
-              "show_header_toggle": false,
-              "state_filter": [
-                "on"
-              ]
-            },
-            {
-              "entities": [
-                {
-                  "entity": "sensor.next_setting"
-                },
-                {
-                  "entity": "sensor.next_rising"
-                }
-              ],
-              "show_name": false,
               "type": "glance"
             },
             {
@@ -108,7 +58,7 @@
                   "cards": [
                     {
                       "type": "entity",
-                      "entity": "sensor.daily_power_rond",
+                      "entity": "sensor.daily_power_round",
                       "name": "Stroom"
                     },
                     {
@@ -1665,10 +1615,6 @@
                   "name": "Kevin iPad Pro"
                 },
                 {
-                  "entity": "sensor.kevin_iphone_12_pro_max_battery",
-                  "name": "Kevin iPhone 12 Pro Max"
-                },
-                {
                   "entity": "sensor.kevin_iphone_15_pro_max_battery",
                   "name": "Kevin iPhone 15 Pro Max"
                 },
@@ -2208,8 +2154,7 @@
                 },
                 {
                   "entity": "binary_sensor.garagedeur_door",
-                  "name": "Garage",
-                  "icon": "mdi:garage-open"
+                  "name": "Garage"
                 }
               ],
               "show_state": false,

@@ -63,13 +63,28 @@
         "stat_consumption": "sensor.overloop_energy"
       },
       {
-        "stat_consumption": "sensor.shelly_warmwater_tank_total_consumption"
+        "stat_consumption": "sensor.shelly_shplg_s_20e155_total_consumption"
       },
       {
         "stat_consumption": "sensor.shelly_fermentation_chamber_total_consumption"
       },
       {
+        "stat_consumption": "sensor.shelly_shplg_s_20e7b0_total_consumption"
+      },
+      {
+        "stat_consumption": "sensor.shelly_shplg_s_b4b613_total_consumption"
+      },
+      {
+        "stat_consumption": "sensor.shelly_shplg_s_b578e1_total_consumption"
+      },
+      {
         "stat_consumption": "sensor.shelly_carport_total_consumption"
+      },
+      {
+        "stat_consumption": "sensor.shelly_carcharger_total_consumption"
+      },
+      {
+        "stat_consumption": "sensor.shelly_warmwater_tank_total_consumption"
       },
       {
         "stat_consumption": "sensor.shelly_christmas_outdoor_total_consumption"
