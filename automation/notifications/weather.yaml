@@ -24,3 +24,29 @@
         message: "Het wordt morgen
           min. {{ states.sensor.tomorrow_templow.state | round(0) }} en
           max. {{ states.sensor.tomorrow_temphigh.state | round(0) }} graden."
+
+- alias: Open window notification
+  trigger:
+    - platform: numeric_state
+      entity_id:
+        - sensor.bedroom_vs_outdoor_temperature
+      below: 0.0
+      for:
+        minutes: 1
+  condition:
+    or:
+      - condition: state
+        entity_id: binary_sensor.raam_alex_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.raam_emma_door
+        state: 'on'
+      - condition: state
+        entity_id: binary_sensor.raam_slaapkamer_door
+        state: 'on'
+  action:
+    - service_template: notify.pushover
+      data_template:
+        title: "Buiten warmer dan binnen en raam open"
+        message: "Het is buiten {{ states.sensor.bedroom_vs_outside_temperature.state | float * -1 }}
+          graden warmer dan binnen, ramen boven sluiten"
