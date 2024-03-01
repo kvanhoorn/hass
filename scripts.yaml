@@ -21,50 +21,6 @@ sonos_say:
    - service: sonos.restore
      data:
        entity_id: "{{ sonos_entity }}"
-sonos_dingdong:
-  alias: "Sonos Ding Dong"
-  sequence:
-    - service: sonos.snapshot
-      data:
-        entity_id: "{{ sonos_entity }}"
-    - service: media_player.unjoin
-      target:
-        entity_id: "{{ sonos_entity }}"
-    - service: media_player.volume_set
-      data:
-        entity_id: "{{ sonos_entity }}"
-        volume_level: "{{ volume }}"
-    - service: media_player.play_media
-      data:
-        entity_id: "{{ sonos_entity }}"
-        media_content_id: "http://192.168.0.73:8123/local/doorbell.mp3"
-        media_content_type: "music"
-    - delay: "00:00:03"
-    - service: sonos.restore
-      data:
-        entity_id: "{{ sonos_entity }}"
-sonos_motion:
-  alias: "Sonos Motion"
-  sequence:
-    - service: sonos.snapshot
-      data:
-        entity_id: "{{ sonos_entity }}"
-    - service: media_player.unjoin
-      target:
-        entity_id: "{{ sonos_entity }}"
-    - service: media_player.volume_set
-      data:
-        entity_id: "{{ sonos_entity }}"
-        volume_level: "{{ volume }}"
-    - service: media_player.play_media
-      data:
-        entity_id: "{{ sonos_entity }}"
-        media_content_id: "http://192.168.0.71:8123/local/motion.wav"
-        media_content_type: "music"
-    - delay: "00:00:03"
-    - service: sonos.restore
-      data:
-        entity_id: "{{ sonos_entity }}"
 clean_living_room:
   alias: "Woonkamer schoonmaken"
   sequence:
@@ -117,15 +73,3 @@ gohome_vacuum:
     - service: vacuum.return_to_base
       data:
         entity_id: vacuum.roborock_s5_max
-sonos_play_playlist:
-  alias: Sonos Play playlist from favorites
-  sequence:
-    - service: media_player.volume_set
-      entity_id:
-        - media_player.sonos_woonkamer
-      data:
-        volume_level: .2
-    - service: media_player.select_source
-      entity_id: media_player.sonos_woonkamer
-      data_template:
-        source: '{{ name }}'

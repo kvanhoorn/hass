@@ -10,6 +10,14 @@
           "badges": [],
           "cards": [
             {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.shellyplug_s_20e7b0"
+                }
+              ]
+            },
+            {
               "entities": [
                 {
                   "entity": "sensor.next_action_morning_routine",
@@ -17,11 +25,11 @@
                 },
                 {
                   "entity": "sensor.next_setting",
-                  "name": "Zon op"
+                  "name": "Zon onder"
                 },
                 {
                   "entity": "sensor.next_rising",
-                  "name": "Zon onder"
+                  "name": "Zon op"
                 }
               ],
               "type": "glance"
@@ -389,6 +397,9 @@
                 },
                 {
                   "entity": "input_boolean.longhomeworking"
+                },
+                {
+                  "entity": "switch.office_music_sonos"
                 }
               ],
               "show_header_toggle": false,
@@ -960,7 +971,7 @@
             {
               "entities": [
                 {
-                  "entity": "sensor.livingroom_temperature",
+                  "entity": "sensor.anna_temperature",
                   "name": "Woonk."
                 },
                 {

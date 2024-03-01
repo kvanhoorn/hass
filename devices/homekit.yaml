@@ -24,6 +24,7 @@ filter:
     - cover.curtain_fde8
     - switch.shelly_carport
     - switch.shelly_fermentation_chamber
+    - switch.office_music_sonos
     - camera.192_168_0_59
     - camera.192_168_0_60
     - camera.emma

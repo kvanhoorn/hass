@@ -99,6 +99,32 @@
           entity_id:
             - light.h_zolder_achter_deur
             - light.h_zolder_achter_muur
+    office_music_sonos:
+      friendly_name: Kantoormuziek
+      value_template: "{{ states.media_player.sonos_kantoor.state == 'playing' }}"
+      turn_on:
+        - service: media_player.volume_set
+          entity_id:
+            - media_player.sonos_kantoor
+          data:
+            volume_level: .2
+        - service: media_player.play_media
+          target:
+            entity_id: media_player.sonos_kantoor
+          data:
+            media_content_type: "favorite_item_id"
+            media_content_id: "FV:2/18" # Kantoor favorite
+        - service: media_player.shuffle_set
+          entity_id: media_player.sonos_kantoor
+          data:
+            shuffle: true
+        - service: media_player.media_next_track
+          entity_id: media_player.sonos_kantoor
+      turn_off:
+        - service: media_player.media_pause
+          target:
+            entity_id: media_player.sonos_kantoor
+
 #- platform: mqtt
 #  name: Sous vide
 #  state_topic: anova/timer

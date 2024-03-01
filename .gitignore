@@ -2,7 +2,9 @@ secrets.yaml
 custom_components.disabled
 home-assistant.log*
 home-assistant_v2.db*
+zigbee.db*
 .storage/core.*
 .storage/homekit.*
+.storage/http*
 __pycache__/
 *.pyc
