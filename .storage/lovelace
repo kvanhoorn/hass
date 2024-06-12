@@ -10,14 +10,6 @@
           "badges": [],
           "cards": [
             {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "switch.shellyplug_s_20e7b0"
-                }
-              ]
-            },
-            {
               "entities": [
                 {
                   "entity": "sensor.next_action_morning_routine",
@@ -400,6 +392,10 @@
                 },
                 {
                   "entity": "switch.office_music_sonos"
+                },
+                {
+                  "entity": "switch.shellyplug_s_b4b613",
+                  "name": "Overkapping lampjes"
                 }
               ],
               "show_header_toggle": false,
@@ -658,6 +654,9 @@
                 },
                 {
                   "entity": "sensor.jubileum_trouwdag_niek_en_eveliene"
+                },
+                {
+                  "entity": "sensor.jubileum_trouwdag_wouter_en_bertie"
                 }
               ],
               "show_header_toggle": false,
@@ -1025,7 +1024,8 @@
                   "name": "Overkap."
                 },
                 {
-                  "entity": "sensor.temperatuur_wc"
+                  "entity": "sensor.temperatuur_wc",
+                  "name": "WC"
                 },
                 {
                   "entity": "sensor.plant1_humidity",
@@ -1639,7 +1639,7 @@
                 },
                 {
                   "entity": "sensor.iphone_van_willemijn_vink_battery",
-                  "name": "Willemijn iPhone SE 2"
+                  "name": "Willemijn iPhone 15"
                 },
                 {
                   "entity": "sensor.apple_watch_van_willemijn_battery",
@@ -1740,7 +1740,8 @@
                   "entity": "sensor.external_ip"
                 },
                 {
-                  "entity": "sensor.internal_ip_lan"
+                  "entity": "sensor.system_monitor_ipv4_address_eth0",
+                  "name": "Internal IP"
                 },
                 {
                   "entity": "sensor.last_boot"
@@ -1825,28 +1826,36 @@
                   "entity": "device_tracker.huebridge"
                 },
                 {
-                  "entity": "device_tracker.nleidap01_hall"
+                  "entity": "device_tracker.nleidap01_hall",
+                  "name": "NLEIDAP01 (hall)"
                 },
                 {
-                  "entity": "device_tracker.nleidap02_emma"
+                  "entity": "device_tracker.nleidap02_alex",
+                  "name": "NLEIDAP02 (alex)"
                 },
                 {
-                  "entity": "device_tracker.nleidap03_garage"
+                  "entity": "device_tracker.nleidap03_attic",
+                  "name": "NLEIDAP03 (attic)"
                 },
                 {
-                  "entity": "device_tracker.nleidap04_attic"
+                  "entity": "device_tracker.nleidap04_garage",
+                  "name": "NLEIDAP04 (garage)"
                 },
                 {
-                  "entity": "device_tracker.nleidsw01_hall"
+                  "entity": "device_tracker.nleidsw01_hall",
+                  "name": "NLEIDSW01 (hall)"
                 },
                 {
-                  "entity": "device_tracker.nleidsw02_living_room"
+                  "entity": "device_tracker.nleidsw02_living",
+                  "name": "NLEIDSW02 (living)"
                 },
                 {
-                  "entity": "device_tracker.nleidsw03_attic"
+                  "entity": "device_tracker.nleidsw03_attic",
+                  "name": "NLEIDSW03 (attic)"
                 },
                 {
-                  "entity": "device_tracker.nleidgw01"
+                  "entity": "device_tracker.nleidgw02",
+                  "name": "NLEIDGW02"
                 }
               ],
               "show_header_toggle": false,
@@ -1888,25 +1897,16 @@
                   "name": "Airco per maand"
                 },
                 {
-                  "entity": "sensor.power_consumption_phase_l1"
+                  "entity": "sensor.p1_meter_power_phase_1"
                 },
                 {
-                  "entity": "sensor.power_consumption_phase_l2"
+                  "entity": "sensor.p1_meter_power_phase_2"
                 },
                 {
-                  "entity": "sensor.power_consumption_phase_l3"
+                  "entity": "sensor.p1_meter_power_phase_3"
                 },
                 {
-                  "entity": "sensor.shelly_fermentation_chamber_current_consumption"
-                },
-                {
-                  "entity": "sensor.shelly_carport_current_consumption"
-                },
-                {
-                  "entity": "sensor.shelly_warmwater_tank_current_consumption"
-                },
-                {
-                  "entity": "sensor.shelly_carcharger_current_consumption"
+                  "entity": "sensor.shellyplug_s_20e155_energy"
                 }
               ],
               "show_header_toggle": false,
@@ -2002,13 +2002,13 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "sensor.current_phase_l1"
+                  "entity": "sensor.p1_meter_current_phase_1"
                 },
                 {
-                  "entity": "sensor.current_phase_l2"
+                  "entity": "sensor.p1_meter_current_phase_2"
                 },
                 {
-                  "entity": "sensor.current_phase_l3"
+                  "entity": "sensor.p1_meter_current_phase_3"
                 }
               ],
               "title": "Actueel verbruik",
@@ -2040,13 +2040,13 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "update.nleidgw01"
+                  "entity": "update.nleidgw02"
                 },
                 {
                   "entity": "update.nleidsw01_hall"
                 },
                 {
-                  "entity": "update.nleidsw02_living_room"
+                  "entity": "update.nleidsw02_living"
                 },
                 {
                   "entity": "update.nleidsw03_attic"
@@ -2055,13 +2055,13 @@
                   "entity": "update.nleidap01_hall"
                 },
                 {
-                  "entity": "update.nleidap02_emma"
+                  "entity": "update.nleidap02_alex"
                 },
                 {
-                  "entity": "update.nleidap03_garage"
+                  "entity": "update.nleidap03_attic"
                 },
                 {
-                  "entity": "update.nleidap04_attic"
+                  "entity": "update.nleidap04_garage"
                 },
                 {
                   "entity": "update.pi_hole_core_update_available"

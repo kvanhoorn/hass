@@ -39,17 +39,17 @@
     - name: Temperatuur garage
       unit_of_measurement: '°C'
       device_class: temperature
-      state: "{{ states.sensor.tfa_ts34c_cresta_53_0e_temperature.state }}"
+      state: "{{ states.sensor.tfa_ts34c_cresta_5b_0e_temperature.state }}"
       attributes:
-        humidity: "{{ states.sensor.tfa_ts34c_cresta_53_0e_humidity.state }}"
-        battery: "{{ states.sensor.tfa_ts34c_cresta_53_0e_battery_numeric.state }}"
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_5b_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_5b_0e_battery_numeric.state }}"
     - name: Temperatuur WC
       unit_of_measurement: '°C'
       device_class: temperature
-      state: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_temperature.state }}"
+      state: "{{ states.sensor.tfa_ts34c_cresta_74_0e_temperature.state }}"
       attributes:
-        humidity: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_humidity.state }}"
-        battery: "{{ states.sensor.tfa_ts34c_cresta_7c_0e_battery_numeric.state }}"
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_74_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_74_0e_battery_numeric.state }}"
     - name: Plant1 (Peace Lily)
       unit_of_measurement: '°C'
       device_class: temperature

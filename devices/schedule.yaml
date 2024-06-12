@@ -8,20 +8,20 @@ emma_wakeup_schedule:
     - from: "06:45:00"
       to: "07:30:00"
   wednesday:
-    - from: "07:15:00"
+    - from: "07:00:00"
       to: "08:00:00"
   thursday:
-    - from: "07:15:00"
+    - from: "07:00:00"
       to: "08:00:00"
   friday:
-    - from: "07:15:00"
+    - from: "07:00:00"
       to: "08:00:00"
   saturday:
-    - from: "07:30:00"
-      to: "08:30:00"
+    - from: "07:00:00"
+      to: "08:00:00"
   sunday:
-    - from: "07:30:00"
-      to: "08:30:00"
+    - from: "07:00:00"
+      to: "08:00:00"
 
 morning_routine:
   name: "Morning routine"
@@ -47,3 +47,20 @@ morning_routine:
     - from: "07:30:00"
       to: "08:30:00"
 
+school_end:
+  name: "School uit notificatie"
+  monday:
+    - from: "14:30:00"
+      to: "14:45:00"
+  tuesday:
+    - from: "14:30:00"
+      to: "14:45:00"
+  wednesday:
+    - from: "11:45:00"
+      to: "12:00:00"
+  thursday:
+    - from: "14:30:00"
+      to: "14:45:00"
+  friday:
+    - from: "14:30:00"
+      to: "14:45:00"

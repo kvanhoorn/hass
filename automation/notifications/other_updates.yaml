@@ -3,14 +3,14 @@
   trigger:
     platform: state
     entity_id:
-      - update.nleidgw01
+      - update.nleidgw02
       - update.nleidsw01_hall
-      - update.nleidsw02_living_room
+      - update.nleidsw02_living
       - update.nleidsw03_attic
       - update.nleidap01_hall
-      - update.nleidap02_emma
-      - update.nleidap03_garage
-      - update.nleidap04_attic
+      - update.nleidap02_alex
+      - update.nleidap03_attic
+      - update.nleidap04_garage
       - update.pi_hole_core_update_available
       - update.pi_hole_ftl_update_available
       - update.pi_hole_web_update_available
