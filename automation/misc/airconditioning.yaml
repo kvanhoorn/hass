@@ -49,6 +49,16 @@
         hvac_mode: cool
     - service: climate.turn_on
       entity_id: climate.overloop
+    - service: fan.turn_on
+      data:
+        percentage: 25
+      target:
+        entity_id: fan.fan
+    - service: fan.oscillate
+      target:
+        entity_id: fan.fan
+      data:
+        oscillating: true
     - service: notify.pushover
       data_template:
         title: "Airco"
@@ -91,6 +101,9 @@
   action:
     - service: climate.turn_off
       entity_id: climate.overloop
+    - service: fan.turn_off
+      target:
+        entity_id: fan.fan
     - service: notify.pushover
       data_template:
         title: "Airco"

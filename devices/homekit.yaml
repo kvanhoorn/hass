@@ -9,6 +9,7 @@ filter:
     - climate.overloop
     - climate.zolder_voorkant
     - climate.zolder_achterkant
+    - fan.fan
     - light.woonkamer
     - light.tafel
     - light.badkamer

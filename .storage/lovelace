@@ -396,6 +396,9 @@
                 {
                   "entity": "switch.shellyplug_s_b4b613",
                   "name": "Overkapping lampjes"
+                },
+                {
+                  "entity": "fan.fan"
                 }
               ],
               "show_header_toggle": false,
@@ -1098,7 +1101,7 @@
                 },
                 {
                   "entity": "sensor.hm_baby_temperature",
-                  "name": "Baby"
+                  "name": "Alex"
                 }
               ],
               "hours_to_show": 8
