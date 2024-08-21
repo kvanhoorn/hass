@@ -36,7 +36,7 @@
         message: ''
         data:
           photo:
-            - url: !secret camera2_still
+            - file: "/tmp/eventdoorbell2.jpg"
               caption: "Deurbel gaat"
     - service: media_player.play_media
       target:

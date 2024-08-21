@@ -21,7 +21,7 @@
         message: ''
         data:
           photo:
-            - url: !secret camera2_still
+            - file: '/tmp/frontdoormotion.jpg'
               caption: "De voordeur is geopend"
 
 - alias: Front door person
@@ -76,7 +76,7 @@
         message: ''
         data:
           photo:
-            - url: !secret camera2_still
+            - file: '/tmp/frontdoormotion.jpg'
               caption: "Persoon bij de voordeur"
     - service: input_boolean.turn_off
       entity_id: input_boolean.tts_test

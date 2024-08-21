@@ -1,0 +1,14 @@
+---
+
+- alias: update filename of last emma camera
+  trigger:
+    - platform: event
+      event_type: folder_watcher
+      event_data:
+        event_type: created
+  action:
+    - service: input_text.set_value
+      target:
+        entity_id: input_text.emma_snapshot
+      data:
+        value: "{{ trigger.event.data.path }}"
