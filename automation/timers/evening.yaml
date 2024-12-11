@@ -20,7 +20,7 @@
     - service: switch.turn_on
       target:
         entity_id:
-          - switch.shelly_christmas_outdoor
+          - switch.shellyplug_s_20e7b0 # christmas outdoor
 
 - alias: 'timer_evening_goodnight'
   trigger:
@@ -53,7 +53,7 @@
     - service: switch.turn_off
       target:
         entity_id:
-          - switch.shelly_christmas_outdoor
+          - switch.shellyplug_s_20e7b0 # christmas outdoor
 
 - alias: 'timer_evening_carport'
   trigger:

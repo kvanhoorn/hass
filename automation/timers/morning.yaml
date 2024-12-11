@@ -18,7 +18,7 @@
         entity_id: scene.woonkamer_dom_morning
     - service: switch.turn_on
       target:
-        entity_id: switch.shelly_christmas_outdoor
+        entity_id: switch.shellyplug_s_20e7b0 # christmas outdoor
     - service: light.turn_on
       entity_id: light.hal_led_bak
 
@@ -48,7 +48,7 @@
         entity_id: media_player.sonos_badkamer
       data:
         media_content_type: "favorite_item_id"
-        media_content_id: "FV:2/17" # Badkamer2 favorite
+        media_content_id: "FV:2/19" # Morning Wood favorite
     - service: media_player.shuffle_set
       entity_id: media_player.sonos_badkamer
       data:
@@ -99,7 +99,7 @@
     - service: switch.turn_off
       target:
         entity_id:
-          - switch.shelly_christmas_outdoor
+          - switch.shellyplug_s_20e7b0 # christmas outdoor
     - service: media_player.unjoin
       target:
         entity_id:
@@ -108,3 +108,38 @@
           - media_player.sonos_eetkamer
     - service: media_player.media_pause
       entity_id: media_player.sonos_badkamer
+
+- alias: 'timer_morning_heating_on_noholiday'
+  trigger:
+    - platform: state
+      entity_id: schedule.morning_heating
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'off'
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'on'
+  action:
+    - service: climate.set_preset_mode
+      data:
+        entity_id: climate.anna
+        preset_mode: 'home'
+
+- alias: 'timer_morning_heating_on_holiday'
+  trigger:
+    - platform: time
+      at: '06:30:00'
+  condition:
+    - condition: state
+      entity_id: input_boolean.is_it_holiday
+      state: 'on'
+    - condition: state
+      entity_id: input_boolean.someone_home
+      state: 'on'
+  action:
+    - service: climate.set_preset_mode
+      data:
+        entity_id: climate.anna
+        preset_mode: 'home'

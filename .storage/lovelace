@@ -385,9 +385,6 @@
                   "entity": "input_boolean.night_airco_on"
                 },
                 {
-                  "entity": "input_boolean.homeworking_day"
-                },
-                {
                   "entity": "input_boolean.longhomeworking"
                 },
                 {
@@ -398,7 +395,11 @@
                   "name": "Overkapping lampjes"
                 },
                 {
-                  "entity": "fan.fan"
+                  "entity": "fan.smartmi_standing_fan_3"
+                },
+                {
+                  "entity": "switch.shellyplug_s_20e7b0",
+                  "name": "Kerst buiten"
                 }
               ],
               "show_header_toggle": false,
