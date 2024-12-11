@@ -76,3 +76,20 @@
         - light.h_tafel_kamer
         - light.h_tafel_raam
 
+
+# Turn of outdoor christmas lights if livingroombutton off is pressed
+- alias: Turn of outdoor christmas with button
+  trigger:
+    platform: event
+    event_type: hue_event
+    event_data:
+      id: hs_living_room_button
+      type: short_release
+  condition:
+    condition: state
+    entity_id: switch.shellyplug_s_20e7b0
+    state: 'on'
+  action:
+    service: switch.turn_off
+    entity_id: switch.shellyplug_s_20e7b0
+ 
