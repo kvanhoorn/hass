@@ -53,10 +53,10 @@
       data:
         percentage: 25
       target:
-        entity_id: fan.fan
+        entity_id: fan.smartmi_standing_fan_3
     - service: fan.oscillate
       target:
-        entity_id: fan.fan
+        entity_id: fan.smartmi_standing_fan_3
       data:
         oscillating: true
     - service: notify.pushover
@@ -103,7 +103,7 @@
       entity_id: climate.overloop
     - service: fan.turn_off
       target:
-        entity_id: fan.fan
+        entity_id: fan.smartmi_standing_fan_3
     - service: notify.pushover
       data_template:
         title: "Airco"
