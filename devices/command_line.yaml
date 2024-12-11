@@ -22,12 +22,12 @@
     command: "cat /sys/class/thermal/thermal_zone0/temp"
     unit_of_measurement: "C"
     value_template: '{{ value | multiply(0.001) | round(1) }}'
-- sensor:
-    name: Internal IP LAN
-    command: "ip addr show eth0 | grep -Po 'inet \\K[0-9.]+'"
+#- sensor:
+#    name: Internal IP LAN
+#    command: "ip addr show eth0 | grep -Po 'inet \\K[0-9.]+'"
 - sensor:
     name: External IP
-    command: "/usr/bin/curl -s kvanhoorn.nl/myip/"
+    command: "/usr/bin/curl -s 'https://intranet.kvanhoorn.nl/myip/'"
 - sensor:
     name: Database size
     command: 'ls -hl /config/home-assistant_v2.db | tr -s " " | /usr/bin/cut -d " " -f5'
