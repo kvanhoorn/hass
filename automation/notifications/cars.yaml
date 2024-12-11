@@ -19,7 +19,7 @@
     - condition: numeric_state
       entity_id: sensor.volkswagen_r429fg_apk_expiration
       below: 1
-      value_template: "{{ (as_timestamp(states.sensor.apk_expiration.state) - (as_timestamp(now() + timedelta(days=30)))) / (3600 * 24) }}"
+      value_template: "{{ (as_timestamp(states.sensor.volkswagen_r429fg_apk_expiration.state) - (as_timestamp(now() + timedelta(days=30)))) / (3600 * 24) }}"
   action:
     - service: notify.pushover
       data_template:
