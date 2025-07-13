@@ -642,6 +642,9 @@
                   "entity": "sensor.verjaardag_dean"
                 },
                 {
+                  "entity": "sensor.verjaardag_jake"
+                },
+                {
                   "entity": "sensor.verjaardag_vera"
                 },
                 {

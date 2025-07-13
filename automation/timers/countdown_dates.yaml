@@ -64,6 +64,9 @@
           - name: Dean
             type: verjaardag
             date: 22-05-2022
+          - name: Jake
+            type: verjaardag
+            date: 12-07-2025
           - name: Trouwdag Niek en Eveliene
             type: jubileum
             date: 18-10-2017
