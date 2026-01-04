@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "minor_version": 1,
+  "minor_version": 2,
   "key": "energy",
   "data": {
     "energy_sources": [
@@ -10,28 +10,28 @@
           {
             "stat_energy_from": "sensor.p1_meter_energy_import_tariff_1",
             "stat_cost": null,
-            "entity_energy_price": null,
-            "number_energy_price": 0.28734
+            "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
+            "number_energy_price": null
           },
           {
             "stat_energy_from": "sensor.p1_meter_energy_import_tariff_2",
             "stat_cost": null,
-            "entity_energy_price": null,
-            "number_energy_price": 0.28734
+            "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
+            "number_energy_price": null
           }
         ],
         "flow_to": [
           {
             "stat_energy_to": "sensor.p1_meter_energy_export_tariff_1",
             "stat_compensation": null,
-            "entity_energy_price": null,
-            "number_energy_price": 0.05
+            "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
+            "number_energy_price": null
           },
           {
             "stat_energy_to": "sensor.p1_meter_energy_export_tariff_2",
             "stat_compensation": null,
-            "entity_energy_price": null,
-            "number_energy_price": 0.05
+            "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
+            "number_energy_price": null
           }
         ],
         "cost_adjustment_day": 0.0
@@ -52,10 +52,10 @@
       },
       {
         "type": "gas",
-        "stat_energy_from": "sensor.gas_meter_gas",
+        "stat_energy_from": "sensor.gas_meter_gas_2",
         "stat_cost": null,
-        "entity_energy_price": null,
-        "number_energy_price": 1.24942
+        "entity_energy_price": "sensor.energyzero_today_gas_current_hour_price",
+        "number_energy_price": null
       }
     ],
     "device_consumption": [
@@ -63,8 +63,13 @@
         "stat_consumption": "sensor.overloop_energy"
       },
       {
-        "stat_consumption": "sensor.shellyplug_s_20e155_energy"
+        "stat_consumption": "sensor.fermentation_chamber_energy"
+      },
+      {
+        "stat_consumption": "sensor.shellyplug_s_b578e1_energy",
+        "name": "Koelkast keuken"
       }
-    ]
+    ],
+    "device_consumption_water": []
   }
 }

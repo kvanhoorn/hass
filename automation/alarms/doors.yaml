@@ -5,7 +5,7 @@
     entity_id:
       - binary_sensor.voordeur_door
       - binary_sensor.deur_woonkamer_door
-      - binary_sensor.deur_keuken_door
+      - binary_sensor.keukendeur_door
       - binary_sensor.schuurdeur_door
       - binary_sensor.garagedeur_door
       - binary_sensor.raam_alex_door
@@ -34,7 +34,7 @@
     entity_id:
       - binary_sensor.voordeur_door
       - binary_sensor.deur_woonkamer_door
-      - binary_sensor.deur_keuken_door
+      - binary_sensor.keukendeur_door
       - binary_sensor.schuurdeur_door
       - binary_sensor.garagedeur_door
       - binary_sensor.raam_alex_door

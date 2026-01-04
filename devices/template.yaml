@@ -1,4 +1,12 @@
 ---
+- actions:
+    - alias: Collects the price information and stores this in a response variable
+      action: energyzero.get_energy_prices
+      data:
+        config_entry: 01JWDFC0XB2DQ5GSJRVNBJY36D # adjust to the config entry for your system
+        incl_vat: false # set to false as it won't apply rounding to the prices
+        start: "{{ now() }}"
+        end: "{{ today_at('00:00') + timedelta(days=2) }}" 
 - binary_sensor:
     - name: PIR hal
       device_class: motion
@@ -12,7 +20,7 @@
     - name: PIR CVruimte
       device_class: motion
       state: "{{ is_state('binary_sensor.pt2262_e94fe9', 'on') }}"
-    - name: PIR woonkamer
+    - name: PIR WC
       device_class: motion
       state: "{{ is_state('binary_sensor.pt2262_8cefa9', 'on') }}"
 - sensor:
@@ -32,17 +40,17 @@
     - name: Temperatuur slaapkamer
       unit_of_measurement: '°C'
       device_class: temperature
-      state: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_temperature.state }}"
+      state: "{{ states.sensor.tfa_ts34c_cresta_50_0e_temperature.state }}"
       attributes:
-        humidity: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_humidity.state }}"
-        battery: "{{ states.sensor.tfa_ts34c_cresta_5c_0e_battery_numeric.state }}"
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_50_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_50_0e_battery_numeric.state }}"
     - name: Temperatuur garage
       unit_of_measurement: '°C'
       device_class: temperature
-      state: "{{ states.sensor.tfa_ts34c_cresta_5b_0e_temperature.state }}"
+      state: "{{ states.sensor.tfa_ts34c_cresta_53_0e_temperature.state }}"
       attributes:
-        humidity: "{{ states.sensor.tfa_ts34c_cresta_5b_0e_humidity.state }}"
-        battery: "{{ states.sensor.tfa_ts34c_cresta_5b_0e_battery_numeric.state }}"
+        humidity: "{{ states.sensor.tfa_ts34c_cresta_53_0e_humidity.state }}"
+        battery: "{{ states.sensor.tfa_ts34c_cresta_53_0e_battery_numeric.state }}"
     - name: Temperatuur WC
       unit_of_measurement: '°C'
       device_class: temperature
@@ -178,19 +186,15 @@
       icon: 'mdi:water'
       unit_of_measurement: 'l'
       state: "{{ states('sensor.daily_water') | float * 1000 | round }}"
-    - name: Today templow
-      device_class: temperature
-      unit_of_measurement: '°'
-      state: "{{ state_attr('weather.pirateweather', 'forecast')[0].templow }}"
-    - name: Today temphigh
-      device_class: temperature
-      unit_of_measurement: '°'
-      state: "{{ state_attr('weather.pirateweather', 'forecast')[0].temperature }}"
-    - name: Tomorrow templow
-      device_class: temperature
-      unit_of_measurement: '°'
-      state: "{{ state_attr('weather.pirateweather', 'forecast')[1].templow }}"
-    - name: Tomorrow temphigh
-      device_class: temperature
-      unit_of_measurement: '°'
-      state: "{{ state_attr('weather.pirateweather', 'forecast')[1].temperature }}"
+    - name: Ispindel sg
+      icon: 'mdi:beer'
+      unit_of_measurement: 'sg'
+      state: >
+        {% set pl = states.sensor.ispindel0_gravity.state | float - 4.0 %}
+        {{ 1 + (pl / (258.6 - ((pl / 258.2) * 227.1))) | round(4) }}
+    - name: Cheapest hours today
+      unique_id: fe2bb3f0-659a-4f00-96e2-d8c560ac823a
+      state: >
+          {% from 'cheapest_energy_hours.jinja' import cheapest_energy_hours %}
+          {{ cheapest_energy_hours(price_data=prices['prices'], time_key='timestamp', value_key='price', hours=3.5, look_ahead=true, include_tomorrow=true) }}
+      device_class: timestamp

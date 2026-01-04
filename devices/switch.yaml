@@ -78,12 +78,14 @@
           entity_id:
             - light.h_zolder_voor_deur
             - light.h_zolder_voor_muur
+            - light.h_zolder_voor_plafond
       turn_off:
         service: light.turn_off
         data:
           entity_id:
             - light.h_zolder_voor_deur
             - light.h_zolder_voor_muur
+            - light.h_zolder_voor_plafond
     atticback_lighting:
       value_template: "{{ states.light.h_zolder_achter_deur == 'on'
         and states.light.h_zolder_achter_muur == 'on' }}"
@@ -93,12 +95,14 @@
           entity_id:
             - light.h_zolder_achter_deur
             - light.h_zolder_achter_muur
+            - light.h_zolder_achter_plafond
       turn_off:
         service: light.turn_off
         data:
           entity_id:
             - light.h_zolder_achter_deur
             - light.h_zolder_achter_muur
+            - light.h_zolder_achter_plafond
     office_music_sonos:
       friendly_name: Kantoormuziek
       value_template: "{{ states.media_player.sonos_kantoor.state == 'playing' }}"

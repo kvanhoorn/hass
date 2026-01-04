@@ -1,36 +1,36 @@
 ---
-emma_wakeup_schedule:
-  name: "Emma wakeup schedule"
+kids_wakeup_schedule:
+  name: "Kids wakeup schedule"
   monday:
-    - from: "06:45:00"
-      to: "07:30:00"
+    - from: "06:30:00"
+      to: "07:00:00"
   tuesday:
-    - from: "06:45:00"
-      to: "07:30:00"
+    - from: "06:30:00"
+      to: "07:00:00"
   wednesday:
+    - from: "06:30:00"
+      to: "07:00:00"
+  thursday:
+    - from: "06:30:00"
+      to: "07:30:00"
+  friday:
+    - from: "06:30:00"
+      to: "07:30:00"
+  saturday:
     - from: "06:45:00"
       to: "07:30:00"
-  thursday:
-    - from: "07:00:00"
-      to: "08:00:00"
-  friday:
-    - from: "07:00:00"
-      to: "08:00:00"
-  saturday:
-    - from: "07:00:00"
-      to: "08:00:00"
   sunday:
-    - from: "07:00:00"
-      to: "08:00:00"
+    - from: "06:45:00"
+      to: "07:30:00"
 
 morning_routine:
   name: "Morning routine"
   monday:
     - from: "06:30:00"
-      to: "07:30:00"
+      to: "07:35:00"
   tuesday:
     - from: "06:30:00"
-      to: "07:30:00"
+      to: "07:35:00"
   wednesday:
     - from: "06:30:00"
       to: "08:00:00"

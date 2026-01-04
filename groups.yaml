@@ -28,9 +28,10 @@ lights:
     - light.h_tafel_raam
     - light.h_tv_play_left
     - light.h_tv_play_right
-    - light.h_garage
+    - light.garage
+    - light.aanrecht
     - light.h_gangkast
-    - light.h_baby
+    - light.h_alex
     - light.h_emma
     - light.h_play_emma
     - light.h_zolder_voor_deur
@@ -59,7 +60,7 @@ doors:
   entities:
     - binary_sensor.voordeur_door
     - binary_sensor.deur_woonkamer_door
-    - binary_sensor.deur_keuken_door
+    - binary_sensor.keukendeur_door
     - binary_sensor.schuurdeur_door
     - binary_sensor.garagedeur_door
     - binary_sensor.raam_alex_door
@@ -127,7 +128,7 @@ pirs:
   name: PIRs
   entities:
     - binary_sensor.pir_hal
-    - binary_sensor.pir_woonkamer
+    - binary_sensor.pir_wc
     - binary_sensor.pir_keuken
     - binary_sensor.pir_slaapkamer
     - binary_sensor.hm_attic_back_motion
@@ -163,8 +164,7 @@ long_battery_devices:
   name: Batterij apparaten lang niet gezien
   entities:
     - binary_sensor.pir_hal
-#    - binary_sensor.pir_woonkamer
-    - binary_sensor.pir_keuken
+#    - binary_sensor.pir_keuken
 #    - binary_sensor.pir_kantoor
 #    - binary_sensor.pir_slaapkamer
 short_battery_devices:
@@ -197,7 +197,7 @@ battery_devices:
     - sensor.hsb_living_room_battery
     - sensor.voordeur_battery
     - sensor.deur_woonkamer_battery
-    - sensor.deur_keuken_battery
+    - sensor.keukendeur_battery
     - sensor.schuurdeur_battery
     - sensor.garagedeur_battery
     - sensor.raam_alex_battery
@@ -219,7 +219,7 @@ short_wifi_devices:
   entities:
     - binary_sensor.voordeur_door
     - binary_sensor.deur_woonkamer_door
-    - binary_sensor.deur_keuken_door
+    - binary_sensor.keukendeur_door
     - binary_sensor.schuurdeur_door
     - binary_sensor.garagedeur_door
     - binary_sensor.raam_alex_door

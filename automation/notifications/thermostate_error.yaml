@@ -1,0 +1,22 @@
+---
+- alias: Thermostaat error
+  trigger:
+    platform: state
+    entity_id: binary_sensor.anna_plugwise_notification
+    to: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Thermostaat error"
+        message: "Error: {{ states.binary_sensor.anna_plugwise_notification.attributes.other_msg[0] }}"
+
+- alias: Thermostaat error gone
+  trigger:
+    platform: state
+    entity_id: binary_sensor.anna_plugwise_notification
+    to: 'off'
+  action:
+    - service: notify.pushover
+      data:
+        title: "Thermostaat error opgelost"
+        message: "Alle errors zijn opgelost"

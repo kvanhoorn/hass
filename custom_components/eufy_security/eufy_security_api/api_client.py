@@ -122,6 +122,8 @@ class ApiClient:
                 else:
                     product = Device(self, serial_no, properties, metadata, commands)
             else:
+                properties[MessageField.CONNECTED.value] = await self._get_is_connected(product_type, serial_no)
+                metadata[MessageField.CONNECTED.value] = {'key': MessageField.CONNECTED.value,'name': MessageField.CONNECTED.value,'label': 'Connected','readable': True,'writeable': False,'type': 'boolean'}
                 product = Station(self, serial_no, properties, metadata, commands)
 
             response[serial_no] = product
@@ -130,14 +132,14 @@ class ApiClient:
     async def set_captcha_and_connect(self, captcha_id: str, captcha_input: str):
         """Set captcha set products"""
         await self._set_captcha(captcha_id, captcha_input)
-        await asyncio.sleep(10)
-        await self._set_products()
+        await asyncio.sleep(30)
+        # await self._set_products()
 
     async def set_mfa_and_connect(self, mfa_input: str):
         """Set mfa code set products"""
         await self._set_mfa_code(mfa_input)
-        await asyncio.sleep(10)
-        await self._set_products()
+        await asyncio.sleep(30)
+        # await self._set_products()
 
     # server level commands
     async def _start_listening(self):
@@ -201,6 +203,10 @@ class ApiClient:
         """Process start rtsp livestream call"""
         await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.start_rtsp_livestream, serial_no=serial_no))
 
+    async def calibrate(self, product_type: ProductType, serial_no: str) -> None:
+        """Process calibrate camera call"""
+        await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.calibrate, serial_no=serial_no))
+
     async def stop_rtsp_livestream(self, product_type: ProductType, serial_no: str) -> None:
         """Process stop rtsp livestream call"""
         await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.stop_rtsp_livestream, serial_no=serial_no))
@@ -208,6 +214,10 @@ class ApiClient:
     async def _get_is_rtsp_streaming(self, product_type: ProductType, serial_no: str) -> bool:
         result = await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.is_rtsp_livestreaming, serial_no=serial_no))
         return result[MessageField.LIVE_STREAMING.value]
+
+    async def _get_is_connected(self, product_type: ProductType, serial_no: str) -> bool:
+        result = await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.is_connected, serial_no=serial_no))
+        return result[MessageField.CONNECTED.value]
 
     async def start_livestream(self, product_type: ProductType, serial_no: str) -> None:
         """Process start p2p livestream call"""
@@ -252,9 +262,12 @@ class ApiClient:
         await self._send_message_get_response(OutgoingMessage(OutgoingMessageType.reboot, serial_no=serial_no))
 
     async def _on_message(self, message: dict) -> None:
-        message_str = str(message)[0:5000]
+        message_str = str(message)[0:15000]
         if "livestream video data" not in message_str and "livestream audio data" not in message_str:
             _LOGGER.debug(f"_on_message - {message_str}")
+        else:
+            # _LOGGER.debug(f"_on_message - livestream data received - {len(str(message))}")
+            pass
         if message[MessageField.TYPE.value] == IncomingMessageType.result.name:
             future = self._result_futures.get(message.get(MessageField.MESSAGE_ID.value, -1), None)
 
@@ -302,7 +315,8 @@ class ApiClient:
 
     def _on_close(self, future="") -> None:
         _LOGGER.debug(f"on_close - executed - {future} = {future.exception()}")
-        self._on_error_callback(future)
+        if self._on_error_callback is not None:
+            self._on_error_callback(future)
         if future.exception() is not None:
             _LOGGER.debug(f"on_close - executed - {future.exception()}")
             raise future.exception()
@@ -327,7 +341,15 @@ class ApiClient:
 
     async def disconnect(self):
         """Disconnect the web socket and destroy it"""
+        self._on_error_callback = None
         await self._client.disconnect()
+        self._client = None
+
+    @property
+    def available(self) -> bool:
+        return self._client.available
+
+
 
 
 class IncomingMessageType(Enum):

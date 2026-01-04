@@ -31,9 +31,10 @@
               "cards": [
                 {
                   "type": "entity",
-                  "entity": "sensor.today_templow",
+                  "entity": "sensor.pirateweather_overnight_low_apparent_temperature_0d",
                   "name": "min",
-                  "unit": "°C"
+                  "unit": "°C",
+                  "state_color": false
                 },
                 {
                   "type": "entity",
@@ -44,7 +45,7 @@
                 },
                 {
                   "type": "entity",
-                  "entity": "sensor.today_temphigh",
+                  "entity": "sensor.pirateweather_daytime_high_apparent_temperature_0d",
                   "name": "max",
                   "unit": "°C"
                 }
@@ -376,13 +377,13 @@
             {
               "entities": [
                 {
+                  "entity": "input_boolean.night_airco_on"
+                },
+                {
                   "entity": "input_boolean.is_it_night"
                 },
                 {
                   "entity": "input_boolean.is_it_holiday"
-                },
-                {
-                  "entity": "input_boolean.night_airco_on"
                 },
                 {
                   "entity": "input_boolean.longhomeworking"
@@ -391,15 +392,15 @@
                   "entity": "switch.office_music_sonos"
                 },
                 {
-                  "entity": "switch.shellyplug_s_b4b613",
+                  "entity": "switch.canopy_lights",
                   "name": "Overkapping lampjes"
                 },
                 {
-                  "entity": "fan.smartmi_standing_fan_3"
+                  "entity": "switch.christmas_outdoor",
+                  "name": "Buiten kerst"
                 },
                 {
-                  "entity": "switch.shellyplug_s_20e7b0",
-                  "name": "Kerst buiten"
+                  "entity": "fan.smartmi_standing_fan_3"
                 }
               ],
               "show_header_toggle": false,
@@ -759,6 +760,12 @@
                 },
                 {
                   "entity": "input_boolean.send_ring_video"
+                },
+                {
+                  "entity": "light.toilet_ventilator"
+                },
+                {
+                  "entity": "light.bathroom_fan"
                 }
               ],
               "show_header_toggle": false,
@@ -985,7 +992,7 @@
                   "name": "Gangkast"
                 },
                 {
-                  "entity": "sensor.temperatuur_garage",
+                  "entity": "sensor.hm_garage_temperature",
                   "name": "Garage"
                 },
                 {
@@ -1027,20 +1034,24 @@
             {
               "entities": [
                 {
+                  "entity": "sensor.anna_temperature",
+                  "name": "Woonk."
+                },
+                {
+                  "entity": "sensor.hm_attic_front_temperature",
+                  "name": "Zolder v."
+                },
+                {
+                  "entity": "sensor.hm_attic_back_temperature",
+                  "name": "Zolder a."
+                },
+                {
                   "entity": "sensor.hm_backyard_temperature",
                   "name": "Overkap."
                 },
                 {
                   "entity": "sensor.temperatuur_wc",
                   "name": "WC"
-                },
-                {
-                  "entity": "sensor.plant1_humidity",
-                  "name": "Peace Lily"
-                },
-                {
-                  "entity": "sensor.plant2_humidity",
-                  "name": "Yucca"
                 }
               ],
               "type": "glance"
@@ -1135,6 +1146,9 @@
                 {
                   "entity": "sensor.euro95",
                   "name": "Euro 95"
+                },
+                {
+                  "entity": "sensor.euro95_local"
                 },
                 {
                   "entity": "sensor.diesel",
@@ -1515,7 +1529,12 @@
                   "name": "Hal - Deurbel"
                 },
                 {
-                  "entity": "sensor.deur_keuken_battery",
+                  "entity": "sensor.voordeur_battery",
+                  "secondary_info": "last-changed",
+                  "name": "Voordeur deur"
+                },
+                {
+                  "entity": "sensor.keukendeur_battery",
                   "secondary_info": "last-changed",
                   "name": "Keuken - Deur"
                 },
@@ -1766,10 +1785,10 @@
                   "entity": "sensor.current_version"
                 },
                 {
-                  "entity": "sensor.pi_hole_ads_blocked_today"
+                  "entity": "sensor.pi_hole_ads_blocked"
                 },
                 {
-                  "entity": "sensor.pi_hole_dns_queries_today"
+                  "entity": "sensor.pi_hole_dns_queries"
                 },
                 {
                   "entity": "sensor.sonarr_upcoming"
@@ -1913,7 +1932,7 @@
                   "entity": "sensor.p1_meter_power_phase_3"
                 },
                 {
-                  "entity": "sensor.shellyplug_s_20e155_energy"
+                  "entity": "sensor.fermentation_chamber_power"
                 }
               ],
               "show_header_toggle": false,
@@ -2099,11 +2118,7 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.pir_woonkamer",
-                  "name": "woonk."
-                },
-                {
-                  "entity": "binary_sensor.pir_keuken",
+                  "entity": "binary_sensor.hm_kitchen_motion",
                   "name": "keuken"
                 },
                 {
@@ -2117,6 +2132,10 @@
                 {
                   "entity": "binary_sensor.hm_backyard_motion",
                   "name": "achtertuin"
+                },
+                {
+                  "entity": "binary_sensor.hm_garage_motion",
+                  "name": "garage"
                 }
               ],
               "show_state": false,
@@ -2161,7 +2180,7 @@
                   "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.deur_keuken_door",
+                  "entity": "binary_sensor.keukendeur_door",
                   "name": "Keuken",
                   "icon": "mdi:door"
                 },
@@ -2295,35 +2314,34 @@
               "type": "entities",
               "entities": [
                 {
-                  "entity": "switch.shelly_warmwater_tank",
-                  "name": "Status",
-                  "secondary_info": "last-changed"
+                  "entity": "switch.fermentation_chamber",
+                  "name": "Shelly"
                 },
                 {
-                  "entity": "sensor.shelly_warmwater_tank_current_consumption",
-                  "name": "Huidig verbruik"
+                  "entity": "sensor.fermentation_chamber_power",
+                  "name": "Shelly huidig verbruik"
                 },
                 {
-                  "entity": "sensor.shelly_warmwater_tank_total_consumption",
-                  "name": "Totaal verbruikt"
+                  "entity": "sensor.fermentation_chamber_energy",
+                  "name": "Shelly totaal verbruik"
+                },
+                {
+                  "entity": "climate.fermentation_chamber",
+                  "name": "Inkbird thermostaat"
+                },
+                {
+                  "entity": "sensor.ispindel0_temperature",
+                  "name": "Ispindel temperatuur"
+                },
+                {
+                  "entity": "sensor.ispindel0_gravity",
+                  "name": "Ispindel Plato"
+                },
+                {
+                  "entity": "sensor.ispindel_sg"
                 }
               ],
-              "title": "Warmwater tank"
-            },
-            {
-              "type": "entities",
-              "entities": [
-                {
-                  "entity": "switch.shellyplug_s_20e155"
-                },
-                {
-                  "entity": "sensor.shellyplug_s_20e155_power"
-                },
-                {
-                  "entity": "sensor.shellyplug_s_20e155_energy"
-                }
-              ],
-              "title": "Vergistingskamer"
+              "title": "Vergistingskast"
             },
             {
               "filter": {

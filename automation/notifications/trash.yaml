@@ -2,7 +2,7 @@
 - alias: Afval notificatie morgen
   trigger:
     - platform: time
-      at: '20:00:00'
+      at: '19:15:00'
   condition:
     - condition: template
       value_template: "{{ not is_state('sensor.afvalwijzer_tomorrow', 'Geen') }}"
@@ -15,7 +15,7 @@
 - alias: Afval notificatie vandaag
   trigger:
     - platform: time
-      at: '08:00:00'
+      at: '07:15:00'
   condition:
     - condition: template
       value_template: "{{ not is_state('sensor.afvalwijzer_today', 'Geen') }}"

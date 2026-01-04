@@ -16,13 +16,11 @@
         data:
           priority: -2
           attachment: "/tmp/frontdooropens.jpg"
-    - service: notify.telegram
+    - service: telegram_bot.send_photo
       data:
-        message: ''
-        data:
-          photo:
-            - file: '/tmp/frontdoormotion.jpg'
-              caption: "De voordeur is geopend"
+        config_entry_id: 01KDYTQR6HD8Y2WR75JHKSY2S2
+        file: '/tmp/frontdoormotion.jpg'
+        caption: "De voordeur is geopend"
 
 - alias: Front door person
   trigger:
@@ -43,13 +41,21 @@
         - condition: state
           entity_id:
             - sensor.doorbell_person_name
-          state: "Unknown"
+          state: "Unknown Person"
+        - condition: state
+          entity_id:
+            - sensor.doorbell_person_name
+          state: "No Person"
   action:
     - service: notify.pushover
       data_template:
         title: "{{ trigger.to_state.state }} gedetecteerd"
         message: "{{ trigger.to_state.state }} is gedecteerd bij de voordeur"
-    # - service: notify.telegram
+    - service: telegram_bot.send_message
+      data_template:
+        config_entry_id: 01KDYTQR6HD8Y2WR75JHKSY2S2
+        title: "{{ trigger.to_state.state }} gedetecteerd"
+        message: "{{ trigger.to_state.state }} is gedecteerd bij de voordeur"
 
 - alias: Front door motion
   trigger:
@@ -71,13 +77,11 @@
         message: "Er is een persoon bij de voordeur gedetecteerd"
         data:
           attachment: "/tmp/frontdoormotion.jpg"
-    - service: notify.telegram
+    - service: telegram_bot.send_photo
       data:
-        message: ''
-        data:
-          photo:
-            - file: '/tmp/frontdoormotion.jpg'
-              caption: "Persoon bij de voordeur"
+        config_entry_id: 01KDYTQR6HD8Y2WR75JHKSY2S2
+        file: '/tmp/frontdoormotion.jpg'
+        caption: "Persoon bij de voordeur"
     - service: input_boolean.turn_off
       entity_id: input_boolean.tts_test
 

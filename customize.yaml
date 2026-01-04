@@ -147,10 +147,10 @@ sensor.diesel:
 sensor.euro95:
   unit_of_measurement: "€/l"
   icon: mdi:gas-station
-sensor.diesel_tinq:
+sensor.diesel_local:
   unit_of_measurement: "€/l"
   icon: mdi:gas-station
-sensor.euro95_tinq:
+sensor.euro95_local:
   unit_of_measurement: "€/l"
   icon: mdi:gas-station
 

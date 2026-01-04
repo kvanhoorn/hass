@@ -1,0 +1,36 @@
+---
+- alias: bathroom DHW
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.opentherm_dhw_state
+      to: 'on'
+      for:
+        seconds: 70
+  conditions:
+    - alias: Motion currently or in the last 5 minutes
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: binary_sensor.hm_bathroom_motion
+          state: 'on'
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: binary_sensor.hm_bathroom_motion
+              state: 'off'
+            - condition: template
+              value_template: "{{ states.binary_sensor.hm_bathroom_motion.last_changed > (now() - timedelta(minutes=5)) }}"
+  action:
+    - service: light.turn_on
+      entity_id: light.bathroom_fan
+
+- alias: bathroom DHW off
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.opentherm_dhw_state
+      to: 'off'
+      for:
+        minutes: 10
+  action:
+    - service: light.turn_off
+      entity_id: light.bathroom_fan

@@ -6,9 +6,15 @@ from .command_description import CommandDescription
 
 _LOGGER: logging.Logger = logging.getLogger(__package__)
 
-SCHEMA_VERSION = 18
+SCHEMA_VERSION = 19
 
 UNSUPPORTED = "Unsupported"
+
+STREAM_TIMEOUT_SECONDS = 15
+STREAM_SLEEP_SECONDS = 0.25
+GO2RTC_RTSP_PORT = 8554
+GO2RTC_API_PORT = 1984
+GO2RTC_API_URL = "http://{0}:{1}/api/stream"
 
 
 class MessageField(Enum):
@@ -100,6 +106,9 @@ class EventNameToHandler(Enum):
     livestream_video_data_received = "livestream video data"
     livestream_audio_data_received = "livestream audio data"
     pin_verified = "pin verified"
+    connected = "connected"
+    disconnected = "disconnected"
+    connection_error = "connection error"
 
 
 class ProductType(Enum):
@@ -130,6 +139,7 @@ class ProductCommand(Enum):
     ptz_left = CommandDescription("PTZ Left", "pan_and_tilt")
     ptz_right = CommandDescription("PTZ Right", "pan_and_tilt")
     ptz_360 = CommandDescription("PTZ 360", "pan_and_tilt")
+    calibrate = CommandDescription("Calibrate", "calibrate")
     trigger_alarm = CommandDescription("Trigger Alarm")
     reset_alarm = CommandDescription("Reset Alarm")
     verify_pin = CommandDescription("Verify Pin", "verify_p_i_n")

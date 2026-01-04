@@ -13,6 +13,16 @@ from .eufy_security_api.metadata import Metadata
 from .eufy_security_api.util import get_child_value
 from .util import get_product_properties_by_filter
 
+PERSON_NAME = "personName"
+EMPTY = ""
+UNKNOWN = "Unknown"
+PERSON_NAME_STATE_EMPTY = "No Person"
+PERSON_NAME_STATE_UNKNOWN = "Unknown Person"
+PERSON_NAME_VALUE_TO_STATE = {
+    EMPTY: PERSON_NAME_STATE_EMPTY,
+    UNKNOWN: PERSON_NAME_STATE_UNKNOWN,
+}
+
 _LOGGER: logging.Logger = logging.getLogger(__package__)
 
 
@@ -22,8 +32,9 @@ class CameraSensor(Enum):
     stream_provider = "Stream Provider"
     stream_url = "Stream URL"
     stream_status = "Stream Status"
-    codec = "Video Codec"
     video_queue_size = "Video Queue Size"
+    audio_queue_size = "Audio Queue Size"
+
 
 
 async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry, async_add_entities: AddEntitiesCallback) -> None:
@@ -52,13 +63,19 @@ class EufySecuritySensor(SensorEntity, EufySecurityEntity):
     def native_value(self):
         """Return the value reported by the sensor."""
         if self.metadata.name in CameraSensor.__members__:
-            if self.metadata.name == "video_queue_size":
-                return self.product.video_queue.qsize()
-            if self.metadata.name == "stream_provider":
+            if self.metadata.name == CameraSensor.video_queue_size.name:
+                return len(self.product.video_queue)
+            if self.metadata.name == CameraSensor.audio_queue_size.name:
+                return len(self.product.audio_queue)
+            if self.metadata.name == CameraSensor.stream_provider.name:
                 return self.product.stream_provider.name
             return get_child_value(self.product.__dict__, self.metadata.name)
 
         value = get_child_value(self.product.properties, self.metadata.name)
+
+        if self.metadata.name == PERSON_NAME:
+            return PERSON_NAME_VALUE_TO_STATE.get(value, value)
+
         if self.metadata.states is not None:
             try:
                 return self.metadata.states[str(value)]

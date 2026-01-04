@@ -6,9 +6,10 @@ import logging
 from homeassistant.components.alarm_control_panel import (
     AlarmControlPanelEntity,
     AlarmControlPanelEntityFeature,
+    AlarmControlPanelState,
 )
 from homeassistant.config_entries import ConfigEntry
-from homeassistant.const import STATE_ALARM_ARMED_AWAY, STATE_ALARM_ARMED_HOME, STATE_ALARM_DISARMED, STATE_ALARM_TRIGGERED, STATE_OFF
+from homeassistant.const import STATE_OFF
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import entity_platform
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
@@ -43,14 +44,14 @@ class CurrentModeToStateValue(Enum):
     """Alarm Entity Mode to State Value"""
 
     NONE = "Unknown"
-    AWAY = STATE_ALARM_ARMED_AWAY
-    HOME = STATE_ALARM_ARMED_HOME
-    CUSTOM_BYPASS = auto()
-    NIGHT = auto()
-    VACATION = auto()
-    DISARMED = STATE_ALARM_DISARMED
+    AWAY = AlarmControlPanelState.ARMED_AWAY
+    HOME = AlarmControlPanelState.ARMED_HOME
+    CUSTOM_BYPASS = 3
+    NIGHT = 4
+    VACATION = 5
+    DISARMED = AlarmControlPanelState.DISARMED
     OFF = STATE_OFF
-    TRIGGERED = STATE_ALARM_TRIGGERED
+    TRIGGERED = AlarmControlPanelState.TRIGGERED
     ALARM_DELAYED = "Alarm delayed"
 
 
@@ -165,7 +166,7 @@ class EufySecurityAlarmControlPanel(AlarmControlPanelEntity, EufySecurityEntity)
         await self.product.reboot()
 
     @property
-    def state(self):
+    def alarm_state(self):
         alarm_delayed = get_child_value(self.product.properties, "alarmDelay", 0)
         if alarm_delayed > 0:
             return CurrentModeToStateValue.ALARM_DELAYED.value
@@ -175,8 +176,8 @@ class EufySecurityAlarmControlPanel(AlarmControlPanelEntity, EufySecurityEntity)
             return CurrentModeToStateValue.TRIGGERED.value
 
         current_mode = get_child_value(self.product.properties, self.metadata.name, False)
-        if current_mode is False:
-            _LOGGER.debug(f"{self.product.name} current mode is missing, fallback to guardmode {self.guard_mode}")
+        #if current_mode is False:
+            #_LOGGER.debug(f"{self.product.name} current mode is missing, fallback to guardmode {self.guard_mode}")
         current_mode = get_child_value(self.product.properties, self.metadata.name, CurrentModeToState(self.guard_mode))
 
         if current_mode in CUSTOM_CODES:
@@ -190,6 +191,6 @@ class EufySecurityAlarmControlPanel(AlarmControlPanelEntity, EufySecurityEntity)
         try:
             state = CurrentModeToStateValue[CurrentModeToState(current_mode).name].value
         except KeyError:
-            _LOGGER.debug(f"{self.product.name} current mode is missing, fallback to Unknown with guard mode {self.guard_mode}")
+            #_LOGGER.debug(f"{self.product.name} current mode is missing, fallback to Unknown with guard mode {self.guard_mode}")
             state = CurrentModeToStateValue.NONE.value
         return state

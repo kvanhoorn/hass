@@ -8,8 +8,8 @@
       data_template:
         title: "Weerbericht"
         message: "Het wordt vandaag
-          min. {{ states.sensor.today_templow.state | round(0) }} en
-          max. {{ states.sensor.today_temphigh.state | round(0) }} graden.
+          min. {{ states.sensor.pirateweather_overnight_low_temperature_0d.state | round(0) }} en
+          max. {{ states.sensor.pirateweather_daytime_high_temperature_0d.state | round(0) }} graden.
           Het is nu {{ states.sensor.pirateweather_temperature.state | round(0) }}
           graden."
 
@@ -22,8 +22,8 @@
       data_template:
         title: "Weerbericht"
         message: "Het wordt morgen
-          min. {{ states.sensor.tomorrow_templow.state | round(0) }} en
-          max. {{ states.sensor.tomorrow_temphigh.state | round(0) }} graden."
+          min. {{ states.sensor.pirateweather_overnight_low_temperature_1d.state | round(0) }} en
+          max. {{ states.sensor.pirateweather_daytime_high_temperature_1d.state | round(0) }} graden."
 
 - alias: Open window notification
   trigger:

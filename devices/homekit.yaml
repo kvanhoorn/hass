@@ -9,7 +9,7 @@ filter:
     - climate.overloop
     - climate.zolder_voorkant
     - climate.zolder_achterkant
-    - fan.fan
+    - fan.smartmi_standing_fan_3
     - light.woonkamer
     - light.tafel
     - light.badkamer
@@ -17,6 +17,7 @@ filter:
     - light.hal_led_bak
     - light.kerstboom
     - light.plafondlamp
+    - light.aanrecht
     - vacuum.xiaomi_vacuum_cleaner
     - binary_sensor.doorbell_ringing_sensor
     - cover.rfy_08a54b_1
@@ -25,6 +26,7 @@ filter:
     - cover.curtain_fde8
     - switch.shelly_carport
     - switch.shelly_fermentation_chamber
+    - switch.christmas_outdoor
     - switch.office_music_sonos
     - camera.192_168_0_59
     - camera.192_168_0_60

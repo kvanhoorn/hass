@@ -3,8 +3,10 @@ from __future__ import annotations
 import asyncio
 import contextlib
 import logging
+import traceback
 
 from haffmpeg.camera import CameraMjpeg
+from haffmpeg.tools import ImageFrame
 from base64 import b64decode
 from homeassistant.components import ffmpeg
 from homeassistant.components.camera import Camera, CameraEntityFeature
@@ -54,6 +56,7 @@ async def async_setup_entry(hass: HomeAssistant, config_entry: ConfigEntry, asyn
     platform.async_register_entity_service("ptz_left", {}, "_async_ptz_left")
     platform.async_register_entity_service("ptz_right", {}, "_async_ptz_right")
     platform.async_register_entity_service("ptz_360", {}, "_async_ptz_360")
+    platform.async_register_entity_service("calibrate", {}, "_async_calibrate")
 
     platform.async_register_entity_service("trigger_camera_alarm_with_duration", Schema.TRIGGER_ALARM_SERVICE_SCHEMA.value, "_async_alarm_trigger")
     platform.async_register_entity_service("reset_alarm", {}, "_async_reset_alarm")
@@ -78,7 +81,6 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
 
         # ffmpeg entities
         self.ffmpeg = self.coordinator.hass.data[DATA_FFMPEG]
-        self.product.set_ffmpeg(CameraMjpeg(self.ffmpeg.binary))
 
     async def stream_source(self) -> str:
         if self.is_streaming is False:
@@ -86,6 +88,7 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
         return self.product.stream_url
 
     async def handle_async_mjpeg_stream(self, request):
+        """this is probabaly triggered by user request, turn on"""
         stream_source = await self.stream_source()
         if stream_source is None:
             return await super().handle_async_mjpeg_stream(request)
@@ -100,10 +103,6 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
             )
         finally:
             await stream.close()
-
-    @property
-    def available(self) -> bool:
-        return True
 
     async def async_create_stream(self):
         if self.coordinator.config.no_stream_in_hass is True:
@@ -127,6 +126,14 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
     def is_streaming(self) -> bool:
         """Return true if the device is recording."""
         return self.product.stream_status == StreamStatus.STREAMING
+
+    @property
+    def available(self) -> bool:
+        return True
+
+    @property
+    def extra_state_attributes(self):
+        return {"stream_debug": self.product.stream_debug}
 
     async def _get_image_from_stream_url(self, width, height):
         while True:
@@ -155,11 +162,13 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
             await self._stop_livestream()
         else:
             await self._start_hass_streaming()
+        self.async_write_ha_state()
 
     async def _stop_livestream(self) -> None:
         """stop byte based livestream on camera"""
         await self._stop_hass_streaming()
         await self.product.stop_livestream()
+        self.async_write_ha_state()
 
     async def _start_rtsp_livestream(self) -> None:
         """start rtsp based livestream on camera"""
@@ -167,11 +176,13 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
             await self._stop_rtsp_livestream()
         else:
             await self._start_hass_streaming()
+        self.async_write_ha_state()
 
     async def _stop_rtsp_livestream(self) -> None:
         """stop rtsp based livestream on camera"""
         await self._stop_hass_streaming()
         await self.product.stop_rtsp_livestream()
+        self.async_write_ha_state()
 
     async def _async_alarm_trigger(self, duration: int = 10):
         """trigger alarm for a duration on camera"""
@@ -212,6 +223,9 @@ class EufySecurityCamera(Camera, EufySecurityEntity):
 
     async def _async_ptz_360(self) -> None:
         await self.product.ptz_360()
+
+    async def _async_calibrate(self) -> None:
+        await self.product.calibrate()
 
     async def _generate_image(self) -> None:
         await self.async_camera_image()

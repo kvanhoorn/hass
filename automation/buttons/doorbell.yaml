@@ -31,13 +31,11 @@
         data:
           priority: 0
           attachment: "/tmp/eventdoorbell2.jpg"
-    - service: notify.telegram
+    - service: telegram_bot.send_photo
       data:
-        message: ''
-        data:
-          photo:
-            - file: "/tmp/eventdoorbell2.jpg"
-              caption: "Deurbel gaat"
+        config_entry_id: 01KDYTQR6HD8Y2WR75JHKSY2S2
+        file: '/tmp/eventdoorbell2.jpg'
+        caption: "De deurbel gaat"
     - service: media_player.play_media
       target:
         entity_id:

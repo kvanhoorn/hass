@@ -5,7 +5,7 @@
     entity_id:
       - binary_sensor.pir_hal
       - binary_sensor.pir_kantoor
-      - binary_sensor.pir_keuken
+      - binary_sensor.hm_kitchen_motion
       # - binary_sensor.pir_zolder
       # - binary_sensor.hm_motion_backyard
     to: 'on'
@@ -54,28 +54,6 @@
   action:
     service: light.turn_off
     entity_id: light.hal_led_bak
-
-# use PIR to turn on attic lights
-- alias: PIR turn attic on
-  trigger:
-    platform: state
-    entity_id: binary_sensor.pir_zolder
-    to: 'on'
-  action:
-    service: light.turn_on
-    entity_id: group.attic_lights
-
-# use PIR to turn off attic lights
-- alias: PIR turn attic off
-  trigger:
-    platform: state
-    entity_id: binary_sensor.pir_zolder
-    to: 'off'
-    for:
-      minutes: 2
-  action:
-    service: light.turn_off
-    entity_id: group.attic_lights
 
 # use PIR to turn on outside
 - alias: PIR turn backyard on during nightalarm

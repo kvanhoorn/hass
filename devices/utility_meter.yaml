@@ -6,7 +6,7 @@ daily_power_peak:
   source: sensor.p1_meter_energy_import_tariff_2
   cycle: daily
 daily_gas:
-  source: sensor.gas_meter_gas
+  source: sensor.gas_meter_gas_2
   cycle: daily
 daily_water:
   source: sensor.watermeter_3c39e72f95de_total_water_usage
@@ -21,7 +21,7 @@ monthly_power_peak:
   source: sensor.p1_meter_energy_import_tariff_2
   cycle: monthly
 monthly_gas:
-  source: sensor.gas_meter_gas
+  source: sensor.gas_meter_gas_2
   cycle: monthly
 monthly_water:
   source: sensor.watermeter_3c39e72f95de_total_water_usage
@@ -30,7 +30,7 @@ monthly_airconditioning:
   source: sensor.overloop_energy
   cycle: monthly
 hourly_gas:
-  source: sensor.gas_meter_gas
+  source: sensor.gas_meter_gas_2
   cycle: hourly
 hourly_water:
   source: sensor.watermeter_3c39e72f95de_total_water_usage
