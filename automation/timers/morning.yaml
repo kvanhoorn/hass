@@ -96,16 +96,16 @@
         - light.h_outdoor_5
         - light.h_outdoor_6
         - light.h_outdoor_7
-        - light.h_christmas_tree
+#       - light.h_christmas_tree
         - light.h_tafel_kamer
         - light.h_tafel_raam
         - light.h_tv_play_left
         - light.h_tv_play_right
         - light.aanrecht
-    - service: switch.turn_off
-      target:
-        entity_id:
-          - switch.christmas_outdoor
+#    - service: switch.turn_off
+#      target:
+#        entity_id:
+#          - switch.christmas_outdoor
     - service: media_player.unjoin
       target:
         entity_id:

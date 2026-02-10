@@ -59,12 +59,6 @@ shopping_list:
 sun:
 system_health:
 
-telegram_bot:
-  - platform: polling
-    api_key: !secret telegram_api_key
-    allowed_chat_ids:
-      - !secret telegram_chat_id
-
 tts:
   - platform: google_translate
 
@@ -72,7 +66,6 @@ tts:
 # END OTHER CONFIG - START INCLUDES #
 #
 
-climate: !include devices/climate.yaml
 command_line: !include devices/command_line.yaml
 homekit: !include devices/homekit.yaml
 input_select: !include devices/input_select.yaml
@@ -83,9 +76,6 @@ light: !include devices/light.yaml
 rest_command: !include devices/rest_command.yaml
 schedule: !include devices/schedule.yaml
 sensor: !include devices/sensor.yaml
-#shell_command: !include devices/shell_command.yaml
-#sql: !include devices/sql.yaml
-switch: !include devices/switch.yaml
 template: !include devices/template.yaml
 utility_meter: !include devices/utility_meter.yaml
 

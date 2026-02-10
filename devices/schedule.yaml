@@ -18,10 +18,10 @@ kids_wakeup_schedule:
       to: "07:30:00"
   saturday:
     - from: "06:45:00"
-      to: "07:30:00"
+      to: "08:00:00"
   sunday:
-    - from: "06:45:00"
-      to: "07:30:00"
+    - from: "07:00:00"
+      to: "08:00:00"
 
 morning_routine:
   name: "Morning routine"
