@@ -1612,6 +1612,12 @@
                   "entity": "sensor.rookmelder_keuken_battery",
                   "secondary_info": "last-changed",
                   "name": "Rookmelder - Keuken"
+                },
+                {
+                  "entity": "sensor.keuken_overstroming_battery"
+                },
+                {
+                  "entity": "sensor.zolder_overstroming_battery"
                 }
               ],
               "show_header_toggle": false,
@@ -2020,9 +2026,17 @@
                 {
                   "entity": "binary_sensor.rookmelder_zolder_smoke",
                   "name": "Rookmelder zolder"
+                },
+                {
+                  "entity": "binary_sensor.keuken_overstroming_flood",
+                  "name": "Water keuken"
+                },
+                {
+                  "entity": "binary_sensor.zolder_overstroming_flood",
+                  "name": "Water CV-ruimte"
                 }
               ],
-              "title": "Rookmelders"
+              "title": "Rook- en overstromingsmelders"
             },
             {
               "type": "entities",

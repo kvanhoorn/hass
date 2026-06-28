@@ -1,0 +1,19 @@
+---
+- alias: Flood alarm
+  trigger:
+    platform: state
+    entity_id:
+      - binary_sensor.zolder_overstroming_flood
+      - binary_sensor.keuken_overstroming_flood
+    to: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        message: "Er is een overstroming gemeld door
+          {{trigger.to_state.attributes.friendly_name}}"
+        title: "Overstromingalarm"
+        data:
+          sound: "siren"
+          priority: 2
+          expire: 3600
+          retry: 60

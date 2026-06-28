@@ -214,6 +214,8 @@ battery_devices:
     - sensor.rookmelder_keuken_battery
     - sensor.rookmelder_woonkamer_battery
     - sensor.rookmelder_zolder_battery
+    - sensor.zolder_overstroming_battery
+    - sensor.keuken_overstroming_battery
 short_wifi_devices:
   name: Wifi apparaten onlangs niet gezien
   entities:
