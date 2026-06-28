@@ -3,7 +3,7 @@
   trigger:
     - platform: state
       entity_id:
-        - binary_sensor.volkswagen_r429fg_liability_insured
+        - binary_sensor.audi_jxg14j_liability_insured
       to: 'off'
   action:
     - service: notify.pushover
@@ -17,11 +17,11 @@
       at: '20:00:00'
   condition:
     - condition: numeric_state
-      entity_id: sensor.volkswagen_r429fg_apk_expiration
+      entity_id: sensor.audi_jxg14j_apk_expiration
       below: 1
       value_template: "{{ (as_timestamp(states.sensor.volkswagen_r429fg_apk_expiration.state) - (as_timestamp(now() + timedelta(days=30)))) / (3600 * 24) }}"
   action:
     - service: notify.pushover
       data_template:
         title: "APK"
-        message: "APK van VW Passat verloopt binnen 30 dagen."
+        message: "APK van Audi a6 verloopt binnen 30 dagen."

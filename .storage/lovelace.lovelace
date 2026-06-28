@@ -1189,20 +1189,361 @@
                   "type": "glance",
                   "entities": [
                     {
-                      "entity": "sensor.volkswagen_r429fg_apk_expiration",
-                      "name": "APK VW Passat"
+                      "entity": "sensor.audi_jxg14j_apk_expiration",
+                      "name": "Audi APK"
                     },
                     {
-                      "entity": "binary_sensor.volkswagen_r429fg_pending_recall",
-                      "name": "VW recall"
+                      "entity": "binary_sensor.audi_jxg14j_pending_recall",
+                      "name": "Audi recall"
                     },
                     {
-                      "entity": "binary_sensor.volkswagen_r429fg_liability_insured",
-                      "name": "VW verzekering"
+                      "entity": "binary_sensor.audi_jxg14j_liability_insured",
+                      "name": "Audi verzekering"
                     }
                   ]
                 }
               ]
+            },
+            {
+              "type": "custom:ultra-card",
+              "card_background": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+              "card_border_radius": 12,
+              "card_border_color": "var(--divider-color)",
+              "card_border_width": 1,
+              "card_padding": 16,
+              "layout": {
+                "rows": [
+                  {
+                    "id": "row-1773499856309",
+                    "columns": [
+                      {
+                        "id": "col-1773499858292-af3cd5db5",
+                        "modules": [
+                          {
+                            "id": "text-1773499871493-tl24xidkm",
+                            "type": "text",
+                            "text": "Audi A6 Avant e",
+                            "text_size": 33,
+                            "icon": "mdi:car"
+                          }
+                        ],
+                        "vertical_alignment": "stretch",
+                        "horizontal_alignment": "stretch"
+                      }
+                    ],
+                    "column_layout": "1-col",
+                    "design": {
+                      "margin_top": "8px",
+                      "margin_bottom": "8px"
+                    }
+                  },
+                  {
+                    "id": "row1",
+                    "columns": [
+                      {
+                        "id": "col1",
+                        "modules": [
+                          {
+                            "id": "image-1773499490497-j0pj8qx73",
+                            "type": "image",
+                            "image_type": "upload",
+                            "image_url": "/api/image/serve/25d3e4dba74ea8d1c434c6b2f7562645",
+                            "entity": "",
+                            "image_entity": "",
+                            "image_attribute": "",
+                            "width": 100,
+                            "height": 200,
+                            "aspect_ratio": "auto",
+                            "object_fit": "cover",
+                            "tap_action": {
+                              "action": "nothing"
+                            },
+                            "hold_action": {
+                              "action": "nothing"
+                            },
+                            "double_tap_action": {
+                              "action": "nothing"
+                            },
+                            "filter_blur": 0,
+                            "filter_brightness": 100,
+                            "filter_contrast": 100,
+                            "filter_saturate": 100,
+                            "filter_hue_rotate": 0,
+                            "filter_opacity": 100,
+                            "rotation": 0,
+                            "border_radius": 8,
+                            "box_shadow": "none",
+                            "hover_enabled": false,
+                            "hover_effect": "scale",
+                            "hover_scale": 105,
+                            "hover_rotate": 5,
+                            "hover_opacity": 90,
+                            "hover_blur": 0,
+                            "hover_brightness": 110,
+                            "hover_shadow": "none",
+                            "hover_translate_x": 0,
+                            "hover_translate_y": 0,
+                            "hover_transition": 300,
+                            "display_mode": "always",
+                            "display_conditions": [],
+                            "alignment": "center"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "id": "row-1773499933091",
+                    "columns": [
+                      {
+                        "id": "col-1773499934857-3jvt7vgs3",
+                        "modules": [
+                          {
+                            "id": "horizontal-1773500200325-ng4awdh8c",
+                            "type": "horizontal",
+                            "alignment": "center",
+                            "gap": 0.7,
+                            "wrap": false,
+                            "modules": [
+                              {
+                                "id": "icon-1773500233258-616o1zccc",
+                                "type": "icon",
+                                "icons": [
+                                  {
+                                    "id": "icon-item-1773500233258-x1whzp7u1",
+                                    "icon_mode": "static",
+                                    "entity": "weather.forecast_home",
+                                    "name": "",
+                                    "icon_inactive": "mdi:gas-station",
+                                    "icon_active": "mdi:gas-station",
+                                    "inactive_state": "",
+                                    "active_state": "",
+                                    "inactive_attribute": "",
+                                    "active_attribute": "",
+                                    "display_attribute": "",
+                                    "custom_inactive_state_text": "",
+                                    "custom_active_state_text": "",
+                                    "custom_inactive_name_text": "",
+                                    "custom_active_name_text": "",
+                                    "inactive_template_mode": false,
+                                    "inactive_template": "",
+                                    "active_template_mode": false,
+                                    "active_template": "",
+                                    "use_entity_color_for_icon": false,
+                                    "use_state_color_for_inactive_icon": false,
+                                    "use_state_color_for_active_icon": false,
+                                    "color_inactive": "var(--secondary-text-color)",
+                                    "color_active": "var(--primary-color)",
+                                    "inactive_icon_color": "var(--secondary-text-color)",
+                                    "active_icon_color": "var(--primary-color)",
+                                    "inactive_name_color": "var(--primary-text-color)",
+                                    "active_name_color": "var(--primary-text-color)",
+                                    "inactive_state_color": "var(--secondary-text-color)",
+                                    "active_state_color": "var(--secondary-text-color)",
+                                    "show_name_when_inactive": true,
+                                    "show_state_when_inactive": true,
+                                    "show_icon_when_inactive": true,
+                                    "show_name_when_active": true,
+                                    "show_state_when_active": true,
+                                    "show_icon_when_active": true,
+                                    "show_state": true,
+                                    "show_name": true,
+                                    "show_units": true,
+                                    "enable_hover_effect": false,
+                                    "icon_size": 26,
+                                    "text_size": 14,
+                                    "name_icon_gap": 8,
+                                    "name_state_gap": 2,
+                                    "icon_state_gap": 4,
+                                    "active_icon_size": 26,
+                                    "inactive_icon_size": 26,
+                                    "active_text_size": 14,
+                                    "inactive_text_size": 14,
+                                    "state_size": 14,
+                                    "active_state_size": 14,
+                                    "inactive_state_size": 14,
+                                    "icon_size_locked": true,
+                                    "text_size_locked": true,
+                                    "state_size_locked": true,
+                                    "active_icon_locked": true,
+                                    "active_icon_color_locked": false,
+                                    "active_icon_background_locked": true,
+                                    "active_icon_background_color_locked": true,
+                                    "active_name_locked": true,
+                                    "active_name_color_locked": true,
+                                    "active_state_locked": false,
+                                    "active_state_color_locked": true,
+                                    "icon_background": "none",
+                                    "use_entity_color_for_icon_background": false,
+                                    "icon_background_color": "transparent",
+                                    "icon_background_padding": 8,
+                                    "inactive_icon_background_padding": 8,
+                                    "active_icon_background_padding": 8,
+                                    "active_icon_background_padding_locked": true,
+                                    "inactive_icon_animation": "none",
+                                    "active_icon_animation": "none",
+                                    "vertical_alignment": "center",
+                                    "container_background_shape": "none",
+                                    "container_background_color": "#808080",
+                                    "click_action": "toggle",
+                                    "double_click_action": "none",
+                                    "hold_action_legacy": "none",
+                                    "navigation_path": "",
+                                    "url": "",
+                                    "service": "",
+                                    "service_data": {},
+                                    "template_mode": false,
+                                    "template": "",
+                                    "dynamic_icon_template_mode": false,
+                                    "dynamic_icon_template": "",
+                                    "dynamic_color_template_mode": false,
+                                    "dynamic_color_template": "",
+                                    "unified_template_mode": false,
+                                    "unified_template": "",
+                                    "ignore_entity_state_config": false
+                                  }
+                                ],
+                                "columns": 3,
+                                "gap": 16,
+                                "allow_wrap": true,
+                                "text_size": 16,
+                                "icon_size": 24,
+                                "display_mode": "always",
+                                "display_conditions": []
+                              },
+                              {
+                                "id": "bar-1773500239324-h6tk3pgk5",
+                                "type": "bar",
+                                "entity": "sensor.audi_a6_avant_tfsi_e_secondary_engine_percent",
+                                "bar_color": "var(--primary-color)",
+                                "background_color": "transparent",
+                                "height": 20,
+                                "show_value": true
+                              }
+                            ],
+                            "tap_action": {
+                              "action": "nothing"
+                            },
+                            "hold_action": {
+                              "action": "nothing"
+                            },
+                            "double_tap_action": {
+                              "action": "nothing"
+                            },
+                            "display_mode": "always",
+                            "display_conditions": []
+                          }
+                        ],
+                        "vertical_alignment": "stretch",
+                        "horizontal_alignment": "stretch"
+                      }
+                    ],
+                    "column_layout": "1-col",
+                    "design": {
+                      "margin_top": "8px",
+                      "margin_bottom": "8px"
+                    }
+                  },
+                  {
+                    "id": "row-1773500310392",
+                    "columns": [
+                      {
+                        "id": "col-1773500312090-7q8og9gz3",
+                        "modules": [
+                          {
+                            "id": "horizontal-1773500314394-3u7icozdb",
+                            "type": "horizontal",
+                            "alignment": "center",
+                            "gap": 0.7,
+                            "wrap": false,
+                            "modules": [
+                              {
+                                "id": "info-1773500323274-enxhu1osv",
+                                "type": "info",
+                                "info_entities": [
+                                  {
+                                    "entity": "binary_sensor.audi_a6_avant_tfsi_e_doors",
+                                    "name": "Doors",
+                                    "icon": "mdi:door-closed"
+                                  }
+                                ],
+                                "tap_action": {
+                                  "action": "default",
+                                  "entity": "binary_sensor.audi_a6_avant_tfsi_e_doors"
+                                }
+                              },
+                              {
+                                "id": "info-1773500328640-krgbxmv2w",
+                                "type": "info",
+                                "info_entities": [
+                                  {
+                                    "entity": "binary_sensor.audi_a6_avant_tfsi_e_doors_lock",
+                                    "name": "Lock",
+                                    "icon": "mdi:door-closed"
+                                  }
+                                ],
+                                "tap_action": {
+                                  "action": "default",
+                                  "entity": "binary_sensor.audi_a6_avant_tfsi_e_doors_lock"
+                                }
+                              },
+                              {
+                                "id": "info-1773500332456-zwl3f5sn6",
+                                "type": "info",
+                                "info_entities": [
+                                  {
+                                    "entity": "sensor.audi_a6_avant_tfsi_e_primary_engine_range",
+                                    "name": "Benzine",
+                                    "icon": "mdi:map-marker-distance"
+                                  }
+                                ],
+                                "tap_action": {
+                                  "action": "default",
+                                  "entity": "sensor.audi_a6_avant_tfsi_e_primary_engine_range"
+                                }
+                              },
+                              {
+                                "id": "info-1773500337040-sqg3xwz0p",
+                                "type": "info",
+                                "info_entities": [
+                                  {
+                                    "entity": "sensor.audi_a6_avant_tfsi_e_secondary_engine_range",
+                                    "name": "Elektriciteit",
+                                    "icon": "mdi:map-marker-distance"
+                                  }
+                                ],
+                                "tap_action": {
+                                  "action": "default",
+                                  "entity": "sensor.audi_a6_avant_tfsi_e_secondary_engine_range"
+                                }
+                              }
+                            ],
+                            "tap_action": {
+                              "action": "nothing"
+                            },
+                            "hold_action": {
+                              "action": "nothing"
+                            },
+                            "double_tap_action": {
+                              "action": "nothing"
+                            },
+                            "display_mode": "always",
+                            "display_conditions": []
+                          }
+                        ],
+                        "vertical_alignment": "stretch",
+                        "horizontal_alignment": "stretch"
+                      }
+                    ],
+                    "column_layout": "1-col",
+                    "design": {
+                      "margin_top": "8px",
+                      "margin_bottom": "8px"
+                    }
+                  }
+                ]
+              },
+              "card_name": "Audi A6 Avant"
             }
           ],
           "icon": "mdi:car",

@@ -1,0 +1,209 @@
+{
+  "config": {
+    "abort": {
+      "invalid_credentials": "Invalid credentials",
+      "user_already_configured": "Account has already been configured"
+    },
+    "create_entry": {},
+    "error": {
+      "invalid_credentials": "Invalid credentials",
+      "invalid_username": "Invalid username",
+      "unexpected": "Unexpected error communicating with Audi Connect server",
+      "user_already_configured": "Account has already been configured"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "password": "Password",
+          "username": "Username",
+          "spin": "S-PIN",
+          "region": "Region",
+          "scan_interval": "Scan interval",
+          "api_level": "API Level"
+        },
+        "title": "Audi Connect Account Info",
+        "data_description": {
+          "api_level": "For Audi vehicles, the API request data structure varies by model. Newer vehicles use an updated data structure compared to older models. Adjusting the API Level ensures that the system automatically applies the correct data structure for each specific vehicle. This can be changed later via the Reconfigure option."
+        }
+      },
+      "reconfigure": {
+        "title": "Update Audi Connect Configuration",
+        "description": "Update settings for account **{username}**.",
+        "data": {
+          "password": "Password",
+          "spin": "S-PIN",
+          "region": "Region",
+          "api_level": "API Level"
+        },
+        "data_description": {
+          "spin": "Optional S-PIN for vehicle actions such as lock/unlock.",
+          "region": "The region associated with your Audi Connect account.",
+          "api_level": "For Audi vehicles, the API request data structure varies by model. Newer vehicles use an updated data structure compared to older models. Adjusting the API Level ensures that the system automatically applies the correct data structure for each specific vehicle."
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "scan_initial": "Cloud Update at Startup",
+          "refresh_vehicle_data_after_action": "Refresh Vehicle Data After Action",
+          "update_sleep": "Cloud Refresh Delay",
+          "scan_interval": "Scan Interval",
+          "filter_vins": "Excluded VINs"
+        },
+        "title": "Audi Connect Options",
+        "data_description": {
+          "scan_initial": "Perform a cloud update immediately upon startup.",
+          "refresh_vehicle_data_after_action": "Send a vehicle refresh command after every service action (e.g. climate, lock). This is typically not required as the vehicle will check in with the cloud on its own after a command. Each vehicle refresh counts against the API rate limit. To improve responsiveness, increase the Cloud Refresh Delay instead.",
+          "update_sleep": "Seconds to wait after a service action before refreshing cloud data. A longer delay gives the vehicle more time to report its updated state to the cloud.",
+          "scan_interval": "Minutes between cloud polling updates.",
+          "filter_vins": "Comma-separated VIN list to exclude from setup and updates."
+        }
+      }
+    }
+  },
+  "selector": {
+    "vehicle_actions": {
+      "options": {
+        "lock": "Lock",
+        "unlock": "Unlock",
+        "start_climatisation": "Start Climatisation (Legacy)",
+        "stop_climatisation": "Stop Climatisation",
+        "start_charger": "Start Charger",
+        "start_timed_charger": "Start timed Charger",
+        "stop_charger": "Stop Charger",
+        "start_preheater": "Start Preheater (Legacy)",
+        "stop_preheater": "Stop Preheater",
+        "start_window_heating": "Start Window heating",
+        "stop_window_heating": "Stop Windows heating"
+      }
+    }
+  },
+  "services": {
+    "refresh_vehicle_data": {
+      "name": "Refresh Vehicle Data",
+      "description": "Requests an update of the vehicle state directly, as opposed to the normal update mechanism which only retrieves data from the cloud.",
+      "fields": {
+        "device_id": {
+          "name": "Vehicle",
+          "description": "The Audi vehicle to refresh."
+        }
+      }
+    },
+    "execute_vehicle_action": {
+      "name": "Execute Vehicle Action",
+      "description": "Performs various actions on the vehicle.",
+      "fields": {
+        "device_id": {
+          "name": "Vehicle",
+          "description": "The Audi vehicle to perform the action on."
+        },
+        "action": {
+          "name": "Action",
+          "description": "The specific action to perform on the vehicle. Note that available actions may vary based on the vehicle.",
+          "example": "lock"
+        }
+      }
+    },
+    "start_climate_control": {
+      "name": "Start Climate Control",
+      "description": "Start the climate control with options for temperature, glass surface heating, and auto seat comfort.",
+      "fields": {
+        "device_id": {
+          "name": "Vehicle",
+          "description": "The Audi vehicle to start climate control on."
+        },
+        "temp_f": {
+          "name": "Target Temperature (Fahrenheit)",
+          "description": "(Optional) Set temperature in \u00b0F. Defaults to 70\u00b0F if not provided. Overrides 'temp_c'."
+        },
+        "temp_c": {
+          "name": "Target Temperature (Celsius)",
+          "description": "(Optional) Set temperature in \u00b0C. Defaults to 21\u00b0C if not provided. Overridden if 'temp_f' is provided."
+        },
+        "glass_heating": {
+          "name": "Glass Surface Heating",
+          "description": "(Optional) Enable or disable glass surface heating."
+        },
+        "seat_fl": {
+          "name": "Auto Seat Comfort: Front-Left",
+          "description": "(Optional) Enable or disable Auto Seat Comfort for the front-left seat."
+        },
+        "seat_fr": {
+          "name": "Auto Seat Comfort: Front-Right",
+          "description": "(Optional) Enable or disable Auto Seat Comfort for the front-right seat."
+        },
+        "seat_rl": {
+          "name": "Auto Seat Comfort: Rear-Left",
+          "description": "(Optional) Enable or disable Auto Seat Comfort for the rear-left seat."
+        },
+        "seat_rr": {
+          "name": "Auto Seat Comfort: Rear-Right",
+          "description": "(Optional) Enable or disable Auto Seat Comfort for the rear-right seat."
+        },
+        "climatisation_at_unlock": {
+          "name": "Climatisation at Unlock",
+          "description": "(Optional) Enable climate control to continue when vehicle is unlocked."
+        },
+        "climatisation_mode": {
+          "name": "Climatisation Mode",
+          "description": "(Optional) Maximum comfort (Comfort) or energy-saving (Economy). Default is Comfort."
+        }
+      }
+    },
+    "refresh_cloud_data": {
+      "name": "Refresh Cloud Data",
+      "description": "Retrieves current cloud data without triggering a vehicle refresh. Data may be outdated if the vehicle has not checked in recently."
+    },
+    "start_auxiliary_heating": {
+      "name": "Start Auxiliary Heating",
+      "description": "Start auxiliary heating the vehicle, with option for duration.",
+      "fields": {
+        "device_id": {
+          "name": "Vehicle",
+          "description": "The Audi vehicle to start auxiliary heating on."
+        },
+        "duration": {
+          "name": "Duration",
+          "description": "The number of minutes the auxiliary heater should run before turning off. Default is 20 minutes if not provided."
+        }
+      }
+    },
+    "set_target_soc": {
+      "name": "Set Target State of Charge",
+      "description": "Set the target state of charge (battery %) for the vehicle.",
+      "fields": {
+        "device_id": {
+          "name": "Vehicle",
+          "description": "The Audi vehicle to set the target charge level for."
+        },
+        "target_soc": {
+          "name": "Target State of Charge",
+          "description": "Target state of charge percentage (20-100%)."
+        }
+      }
+    },
+    "start_engine": {
+      "name": "Start Engine",
+      "description": "Remotely start the vehicle engine. Requires the S-PIN to be set in the configuration.",
+      "fields": {
+        "device_id": {
+          "name": "Vehicle",
+          "description": "The Audi vehicle to start the engine on."
+        }
+      }
+    },
+    "stop_engine": {
+      "name": "Stop Engine",
+      "description": "Remotely stop the vehicle engine.",
+      "fields": {
+        "device_id": {
+          "name": "Vehicle",
+          "description": "The Audi vehicle to stop the engine on."
+        }
+      }
+    }
+  }
+}

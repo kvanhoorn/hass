@@ -42,10 +42,10 @@
       {
         "id": "9d58bf1b61ef4c23ad41f461b27b9362",
         "type": "module",
-        "url": "/local/js/simple-thermostat.js?v=1"
+        "url": "/local/js/simple-thermostat.js?v=2"
       },
       {
-        "url": "/local/js/vacuum-card.js",
+        "url": "/local/js/vacuum-card.js?v=2026.01",
         "type": "module",
         "id": "7e9248678c4e422b80b055e3c69939fc"
       },
@@ -63,6 +63,11 @@
         "url": "/webrtc/webrtc-camera.js?v2.3.1",
         "type": "module",
         "id": "1676a546bd634078ae63045628550752"
+      },
+      {
+        "id": "328ff4f8810a429ea176c15ec5eaf60f",
+        "url": "/local/js/ultra-card.js",
+        "type": "module"
       }
     ]
   }
