@@ -1,40 +1,32 @@
 {
   "version": 1,
-  "minor_version": 2,
+  "minor_version": 3,
   "key": "energy",
   "data": {
     "energy_sources": [
       {
         "type": "grid",
-        "flow_from": [
-          {
-            "stat_energy_from": "sensor.p1_meter_energy_import_tariff_1",
-            "stat_cost": null,
-            "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
-            "number_energy_price": null
-          },
-          {
-            "stat_energy_from": "sensor.p1_meter_energy_import_tariff_2",
-            "stat_cost": null,
-            "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
-            "number_energy_price": null
-          }
-        ],
-        "flow_to": [
-          {
-            "stat_energy_to": "sensor.p1_meter_energy_export_tariff_1",
-            "stat_compensation": null,
-            "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
-            "number_energy_price": null
-          },
-          {
-            "stat_energy_to": "sensor.p1_meter_energy_export_tariff_2",
-            "stat_compensation": null,
-            "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
-            "number_energy_price": null
-          }
-        ],
-        "cost_adjustment_day": 0.0
+        "cost_adjustment_day": 0.0,
+        "stat_energy_from": "sensor.p1_meter_energy_import_tariff_1",
+        "stat_cost": null,
+        "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
+        "number_energy_price": null,
+        "stat_energy_to": "sensor.p1_meter_energy_export_tariff_1",
+        "stat_compensation": null,
+        "entity_energy_price_export": "sensor.energyzero_today_energy_current_hour_price",
+        "number_energy_price_export": null
+      },
+      {
+        "type": "grid",
+        "cost_adjustment_day": 0.0,
+        "stat_energy_from": "sensor.p1_meter_energy_import_tariff_2",
+        "stat_cost": null,
+        "entity_energy_price": "sensor.energyzero_today_energy_current_hour_price",
+        "number_energy_price": null,
+        "stat_energy_to": "sensor.p1_meter_energy_export_tariff_2",
+        "stat_compensation": null,
+        "entity_energy_price_export": "sensor.energyzero_today_energy_current_hour_price",
+        "number_energy_price_export": null
       },
       {
         "type": "water",
@@ -67,7 +59,7 @@
       },
       {
         "stat_consumption": "sensor.shellyplug_s_b578e1_energy",
-        "name": "Koelkast keuken"
+        "name": "Synology NAS"
       }
     ],
     "device_consumption_water": []

@@ -6,7 +6,6 @@ services:
     devices:
       - /dev/ttyUSB0:/dev/ttyUSB0
       - /dev/ttyUSB1:/dev/ttyUSB1
-      - /dev/ttyUSB2:/dev/ttyUSB2
     volumes:
       - /data/hass:/config
       - /etc/localtime:/etc/localtime:ro
@@ -14,3 +13,6 @@ services:
     restart: unless-stopped
     privileged: true
     network_mode: host
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW

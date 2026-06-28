@@ -6,8 +6,8 @@
       - binary_sensor.voordeur_door
       - binary_sensor.deur_woonkamer_door
       - binary_sensor.keukendeur_door
-      - binary_sensor.schuurdeur_door
-      - binary_sensor.garagedeur_door
+      - binary_sensor.garage_roldeur_opening
+      - binary_sensor.garagedeur_opening
       - binary_sensor.raam_alex_door
       - binary_sensor.raam_emma_door
       - binary_sensor.raam_slaapkamer_door
@@ -35,8 +35,8 @@
       - binary_sensor.voordeur_door
       - binary_sensor.deur_woonkamer_door
       - binary_sensor.keukendeur_door
-      - binary_sensor.schuurdeur_door
-      - binary_sensor.garagedeur_door
+      - binary_sensor.garage_roldeur_opening
+      - binary_sensor.garagedeur_opening
       - binary_sensor.raam_alex_door
       - binary_sensor.raam_emma_door
       - binary_sensor.raam_slaapkamer_door
@@ -95,34 +95,3 @@
         title: "Deur of raam nog open: "
         data:
           priority: 1
-
-# use door(s) to turn on garage light
-- alias: Garage door turn lights on
-  trigger:
-    platform: state
-    entity_id:
-      - binary_sensor.shelly_door_shed_door_window
-      - binary_sensor.shelly_door_garage_door_window
-    to: 'on'
-  action:
-    service: light.turn_on
-    entity_id: light.h_garage
-
-# use door(s) to turn off garage light
-- alias: Garage door turn lights off
-  trigger:
-    platform: state
-    entity_id:
-      - binary_sensor.garagedeur_door
-      - binary_sensor.schuurdeur_door
-    to: 'off'
-  condition:
-    - condition: state
-      entity_id: binary_sensor.garagedeur_door
-      state: 'off'
-    - condition: state
-      entity_id: binary_sensor.schuurdeur_door
-      state: 'off'
-  action:
-    service: light.turn_off
-    entity_id: light.h_garage

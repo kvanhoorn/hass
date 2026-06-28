@@ -2,7 +2,7 @@
 - alias: Front door opens
   trigger:
     - platform: state
-      entity_id: binary_sensor.shelly_door_frontdoor_door_window
+      entity_id: binary_sensor.voordeur_door
       to: 'on'
   action:
     - service: camera.snapshot

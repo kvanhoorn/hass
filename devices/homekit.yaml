@@ -3,6 +3,8 @@ filter:
   include_entities:
     - input_boolean.kevin_present
     - input_boolean.wmijn_present
+    - input_boolean.kevin_cycling
+    - input_boolean.wmijn_cycling
     - input_boolean.is_it_holiday
     - input_boolean.is_it_night
     - climate.anna
@@ -28,9 +30,8 @@ filter:
     - switch.shelly_fermentation_chamber
     - switch.christmas_outdoor
     - switch.office_music_sonos
-    - camera.192_168_0_59
+    - switch.garagedoor
     - camera.192_168_0_60
-    - camera.emma
 entity_config:
   camera.192_168_0_60:
     name: Deurbel

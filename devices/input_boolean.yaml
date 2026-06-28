@@ -32,9 +32,15 @@ someone_home:
 kevin_present:
   name: Kevin
   icon: mdi:account
+kevin_cycling:
+  name: Kevin cycling
+  icon: mdi:bike
 wmijn_present:
   name: Willemijn
   icon: mdi:account
+wmijn_cycling:
+  name: Willemijn cycling
+  icon: mdi:bike
 camera1_left:
   name: Camera straat links
   icon: mdi:arrow-left-bold-circle-outline

@@ -3,21 +3,21 @@ kids_wakeup_schedule:
   name: "Kids wakeup schedule"
   monday:
     - from: "06:30:00"
-      to: "07:00:00"
+      to: "07:30:00"
   tuesday:
     - from: "06:30:00"
-      to: "07:00:00"
+      to: "07:30:00"
   wednesday:
     - from: "06:30:00"
-      to: "07:00:00"
+      to: "07:30:00"
   thursday:
-    - from: "06:30:00"
+    - from: "06:45:00"
       to: "07:30:00"
   friday:
-    - from: "06:30:00"
+    - from: "06:45:00"
       to: "07:30:00"
   saturday:
-    - from: "06:45:00"
+    - from: "07:00:00"
       to: "08:00:00"
   sunday:
     - from: "07:00:00"

@@ -18,7 +18,7 @@
 - alias: "Actual lamp for wakeup Emma - holiday"
   trigger:
     - platform: time
-      at: "06:45:00"
+      at: "07:00:00"
   condition:
     - condition: state
       entity_id: input_boolean.is_it_holiday

@@ -61,8 +61,8 @@ doors:
     - binary_sensor.voordeur_door
     - binary_sensor.deur_woonkamer_door
     - binary_sensor.keukendeur_door
-    - binary_sensor.schuurdeur_door
-    - binary_sensor.garagedeur_door
+    - binary_sensor.garage_roldeur_opening
+    - binary_sensor.garagedeur_opening
     - binary_sensor.raam_alex_door
     - binary_sensor.raam_emma_door
     - binary_sensor.raam_slaapkamer_door
@@ -198,7 +198,7 @@ battery_devices:
     - sensor.voordeur_battery
     - sensor.deur_woonkamer_battery
     - sensor.keukendeur_battery
-    - sensor.schuurdeur_battery
+    - sensor.garage_roldeur_battery
     - sensor.garagedeur_battery
     - sensor.raam_alex_battery
     - sensor.raam_emma_battery
@@ -222,8 +222,6 @@ short_wifi_devices:
     - binary_sensor.voordeur_door
     - binary_sensor.deur_woonkamer_door
     - binary_sensor.keukendeur_door
-    - binary_sensor.schuurdeur_door
-    - binary_sensor.garagedeur_door
     - binary_sensor.raam_alex_door
     - binary_sensor.raam_emma_door
     - binary_sensor.raam_slaapkamer_door
