@@ -1,0 +1,33 @@
+- alias: Kevin cycling home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.kevin_present
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.kevin_cycling
+      state: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Garagedeur"
+        message: "Garagedeur geopend omdat Kevin met de fiets thuis komt."
+    - service: switch.turn_on
+      entity_id: switch.garagedoor
+
+- alias: Willemijn cycling home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.wmijn_present
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: input_boolean.wmijn_cycling
+      state: 'on'
+  action:
+    - service: notify.pushover
+      data_template:
+        title: "Garagedeur"
+        message: "Garagedeur geopend omdat Willemijn met de fiets thuis komt."
+    - service: switch.turn_on
+      entity_id: switch.garagedoor

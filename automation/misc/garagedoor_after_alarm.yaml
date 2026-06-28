@@ -1,0 +1,18 @@
+- alias: Close garagedoor if no-one home
+  trigger:
+    - platform: state
+      entity_id: input_boolean.someone_home
+      to: 'off'
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.garage_roldeur_opening
+      state: 'on'
+  action:
+    - service: notify.pushover
+      data:
+        message: "Garagedeur was nog open, wordt nu gesloten."
+        title: "Garagedeur"
+        data:
+          priority: 1
+    - service: switch.turn_on
+      entity_id: switch.garagedoor

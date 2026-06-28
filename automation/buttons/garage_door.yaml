@@ -1,0 +1,11 @@
+---
+- alias: Garage door opener with Hue button
+  trigger:
+    - platform: event
+      event_type: hue_event
+      event_data:
+        id: hsb_garage_button
+        type: initial_press
+  action:
+    - service: switch.turn_on
+      entity_id: switch.garagedoor

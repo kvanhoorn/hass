@@ -77,6 +77,15 @@
               ]
             },
             {
+              "type": "entities",
+              "entities": [
+                {
+                  "entity": "switch.garagedoor",
+                  "name": "Garage deur"
+                }
+              ]
+            },
+            {
               "type": "vertical-stack",
               "cards": [
                 {
@@ -2199,13 +2208,14 @@
                   "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.schuurdeur_door",
+                  "entity": "binary_sensor.garagedeur_opening",
                   "name": "Schuur",
                   "icon": "mdi:door"
                 },
                 {
-                  "entity": "binary_sensor.garagedeur_door",
-                  "name": "Garage"
+                  "entity": "binary_sensor.garage_roldeur_opening",
+                  "name": "Garage",
+                  "icon": "mdi:garage"
                 }
               ],
               "show_state": false,
@@ -2293,6 +2303,25 @@
                 },
                 {
                   "entity": "number.doorbell_speaker_volume"
+                }
+              ]
+            },
+            {
+              "type": "glance",
+              "entities": [
+                {
+                  "entity": "input_boolean.kevin_present"
+                },
+                {
+                  "entity": "input_boolean.kevin_cycling",
+                  "name": "Kevin"
+                },
+                {
+                  "entity": "input_boolean.wmijn_present"
+                },
+                {
+                  "entity": "input_boolean.wmijn_cycling",
+                  "name": "Willemijn"
                 }
               ]
             }
