@@ -10,9 +10,26 @@
   action:
     - service: notify.pushover
       data:
-        message: "Garagedeur was nog open, wordt nu gesloten."
+        message: "Garagedeur was nog open, wordt over 30s gesloten."
         title: "Garagedeur"
         data:
           priority: 1
+    - delay: '00:00:30'
     - service: switch.turn_on
       entity_id: switch.garagedoor
+
+- alias: Alarm if garagedoor open > 15 mins
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.garage_roldeur_opening
+      to: 'on'
+      for:
+        minutes: 15
+  action:
+    - service: notify.pushover
+      data:
+        message: "Garagedeur staat al voor 15 minuten open."
+        title: "Garagedeur"
+        data:
+          priority: 1
+

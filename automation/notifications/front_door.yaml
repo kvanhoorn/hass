@@ -19,7 +19,7 @@
     - service: telegram_bot.send_photo
       data:
         config_entry_id: 01KDYTQR6HD8Y2WR75JHKSY2S2
-        file: '/tmp/frontdoormotion.jpg'
+        file: '/tmp/frontdooropens.jpg'
         caption: "De voordeur is geopend"
 
 - alias: Front door person

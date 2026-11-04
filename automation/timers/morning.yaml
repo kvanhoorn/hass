@@ -53,7 +53,8 @@
         entity_id: media_player.sonos_badkamer
       data:
         media_content_type: "favorite_item_id"
-        media_content_id: "FV:2/19" # Morning Wood favorite
+      #  media_content_id: "FV:2/19" # Morning Wood favorite
+        media_content_id: "FV:2/16" # Badkamer favorite
     - service: media_player.shuffle_set
       entity_id: media_player.sonos_badkamer
       data:

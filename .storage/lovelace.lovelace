@@ -409,7 +409,7 @@
                   "name": "Buiten kerst"
                 },
                 {
-                  "entity": "fan.smartmi_standing_fan_3"
+                  "entity": "fan.zhimi_za5_2b0b_fan"
                 }
               ],
               "show_header_toggle": false,
@@ -537,42 +537,9 @@
             },
             {
               "type": "custom:vacuum-card",
-              "entity": "vacuum.roborock_s5_max",
+              "entity": "vacuum.roborock_s5e_7fe9_robot_cleaner",
               "stats": {
-                "default": [
-                  {
-                    "entity_id": "sensor.roborock_s5_max_filter_left_hours",
-                    "unit": "hours",
-                    "subtitle": "Filter"
-                  },
-                  {
-                    "entity_id": "sensor.roborock_s5_max_main_brush_left_hours",
-                    "unit": "hours",
-                    "subtitle": "Hoofdborstel"
-                  },
-                  {
-                    "entity_id": "sensor.roborock_s5_max_side_brush_left_hours",
-                    "unit": "hours",
-                    "subtitle": "Zijborstel"
-                  },
-                  {
-                    "entity_id": "sensor.roborock_s5_max_sensor_dirty_left_hours",
-                    "unit": "hours",
-                    "subtitle": "Sensoren"
-                  }
-                ],
-                "cleaning": [
-                  {
-                    "attribute": "cleaned_area",
-                    "unit": "m2",
-                    "subtitle": "Cleaning area"
-                  },
-                  {
-                    "attribute": "cleaning_time",
-                    "unit": "minutes",
-                    "subtitle": "Cleaning time"
-                  }
-                ]
+                "default": null
               },
               "shortcuts": [
                 {
