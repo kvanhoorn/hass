@@ -989,7 +989,7 @@
                   "name": "Slaapk."
                 },
                 {
-                  "entity": "sensor.hm_baby_temperature",
+                  "entity": "sensor.hm_alex_temperature",
                   "name": "Alex"
                 },
                 {
@@ -1781,12 +1781,12 @@
                   "name": "Alex - Raam"
                 },
                 {
-                  "entity": "sensor.hs_baby_battery",
+                  "entity": "sensor.hs_alex_battery",
                   "secondary_info": "last-changed",
                   "name": "Alex - Hue Dimmer"
                 },
                 {
-                  "entity": "sensor.hm_baby_battery",
+                  "entity": "sensor.hm_alex_battery",
                   "secondary_info": "last-changed",
                   "name": "Alex - Hue Motion"
                 },
@@ -1876,12 +1876,12 @@
                   "name": "Woonkamer - Hue Button"
                 },
                 {
-                  "entity": "sensor.schuurdeur_battery",
+                  "entity": "sensor.garagedeur_battery_2",
                   "secondary_info": "last-changed",
                   "name": "Garage - deur"
                 },
                 {
-                  "entity": "sensor.garagedeur_battery",
+                  "entity": "sensor.garage_roldeur_battery",
                   "secondary_info": "last-changed",
                   "name": "Garage roldeur"
                 },
@@ -2475,7 +2475,7 @@
             {
               "entities": [
                 {
-                  "entity": "binary_sensor.hm_baby_motion",
+                  "entity": "binary_sensor.hm_alex_motion",
                   "name": "Alex"
                 },
                 {

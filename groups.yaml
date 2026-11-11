@@ -133,7 +133,7 @@ pirs:
     - binary_sensor.pir_slaapkamer
     - binary_sensor.hm_attic_back_motion
     - binary_sensor.hm_attic_front_motion
-    - binary_sensor.hm_baby_motion
+    - binary_sensor.hm_alex_motion
     - binary_sensor.hm_emma_motion
     - binary_sensor.hm_backyard_motion
     - binary_sensor.hm_bathroom_motion
@@ -141,9 +141,14 @@ pirs:
 firealarms:
   name: Fire alarms
   entities:
-    - sensor.brandalarm_keuken_sensor_status
-    - sensor.brandalarm_woonkamer_sensor_status
-    - sensor.brandalarm_zolder_sensor_status
+    - binary_sensor.rookmelder_keuken_smoke
+    - binary_sensor.rookmelder_woonkamer_smoke
+    - binary_sensor.rookmelder_zolder_smoke
+floodalarms:
+  name: Flood alarms
+  entities:
+    - binary_sensor.keuken_overstroming_flood
+    - binary_sensor.zolder_overstroming_flood
 camera_control_collection:
   name: Camera straat controls
   icon: mdi:camera-control
@@ -179,7 +184,7 @@ short_battery_devices:
 battery_devices:
   name: Apparaten die een batterij percentage sturen
   entities:
-    - sensor.hm_baby_battery
+    - sensor.hm_alex_battery
     - sensor.hm_emma_battery
     - sensor.hm_bathroom_battery
     - sensor.hm_hallcloset_battery
@@ -190,7 +195,7 @@ battery_devices:
     - sensor.hs_attic_back_battery
     - sensor.hs_living_room_battery
     - sensor.hs_emma_battery
-    - sensor.hs_baby_battery
+    - sensor.hs_alex_battery
     - sensor.hs_bedroom_battery
     - sensor.hs_bathroom_battery
     - sensor.hs_outdoor_battery
